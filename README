@@ -7,7 +7,7 @@ Angular5 which is named as frontend is embedded to spring boot application which
 At the root of the project
 you have to run 
 
-./mvnv clean install
+./mvnw clean install
 
 then you can run the project with
 
