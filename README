@@ -1,3 +1,17 @@
 FTL
 
 This is the core project for orginal FTL project to make Spring Boot + NG5 monolithic application.
+
+Angular5 which is named as frontend is embedded to spring boot application which is named as backend.
+
+At the root of the project
+you have to run 
+
+./mvnv clean install
+
+then you can run the project with
+
+java -jar backend/target/backend-0.0.1.jar
+
+i have added sample user entity for backend yet it is not connected to frontend ng application. 
+
