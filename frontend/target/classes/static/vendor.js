@@ -101,7 +101,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /**
- * @license Angular v6.0.4
+ * @license Angular v6.0.5
  * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -5454,7 +5454,7 @@ function isPlatformWorkerUi(platformId) {
  * @description
  * Entry point for all public APIs of the common package.
  */
-var VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["Version"]('6.0.4');
+var VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["Version"]('6.0.5');
 
 /**
  * @license
@@ -5502,6 +5502,1999 @@ var VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["Version"]('6.0.4')
 
 
 //# sourceMappingURL=common.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/@angular/common/fesm5/http.js":
+/*!****************************************************!*\
+  !*** ./node_modules/@angular/common/fesm5/http.js ***!
+  \****************************************************/
+/*! exports provided: ɵangular_packages_common_http_http_a, ɵangular_packages_common_http_http_b, ɵangular_packages_common_http_http_c, ɵangular_packages_common_http_http_d, ɵangular_packages_common_http_http_g, ɵangular_packages_common_http_http_h, ɵangular_packages_common_http_http_e, ɵangular_packages_common_http_http_f, HttpBackend, HttpHandler, HttpClient, HttpHeaders, HTTP_INTERCEPTORS, JsonpClientBackend, JsonpInterceptor, HttpClientJsonpModule, HttpClientModule, HttpClientXsrfModule, ɵHttpInterceptingHandler, HttpParams, HttpUrlEncodingCodec, HttpRequest, HttpErrorResponse, HttpEventType, HttpHeaderResponse, HttpResponse, HttpResponseBase, HttpXhrBackend, XhrFactory, HttpXsrfTokenExtractor */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵangular_packages_common_http_http_a", function() { return NoopInterceptor; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵangular_packages_common_http_http_b", function() { return JsonpCallbackContext; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵangular_packages_common_http_http_c", function() { return jsonpCallbackContext; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵangular_packages_common_http_http_d", function() { return BrowserXhr; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵangular_packages_common_http_http_g", function() { return HttpXsrfCookieExtractor; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵangular_packages_common_http_http_h", function() { return HttpXsrfInterceptor; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵangular_packages_common_http_http_e", function() { return XSRF_COOKIE_NAME; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵangular_packages_common_http_http_f", function() { return XSRF_HEADER_NAME; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HttpBackend", function() { return HttpBackend; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HttpHandler", function() { return HttpHandler; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HttpClient", function() { return HttpClient; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HttpHeaders", function() { return HttpHeaders; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HTTP_INTERCEPTORS", function() { return HTTP_INTERCEPTORS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "JsonpClientBackend", function() { return JsonpClientBackend; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "JsonpInterceptor", function() { return JsonpInterceptor; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HttpClientJsonpModule", function() { return HttpClientJsonpModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HttpClientModule", function() { return HttpClientModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HttpClientXsrfModule", function() { return HttpClientXsrfModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵHttpInterceptingHandler", function() { return HttpInterceptingHandler; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HttpParams", function() { return HttpParams; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HttpUrlEncodingCodec", function() { return HttpUrlEncodingCodec; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HttpRequest", function() { return HttpRequest; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HttpErrorResponse", function() { return HttpErrorResponse; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HttpEventType", function() { return HttpEventType; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HttpHeaderResponse", function() { return HttpHeaderResponse; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HttpResponse", function() { return HttpResponse; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HttpResponseBase", function() { return HttpResponseBase; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HttpXhrBackend", function() { return HttpXhrBackend; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "XhrFactory", function() { return XhrFactory; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HttpXsrfTokenExtractor", function() { return HttpXsrfTokenExtractor; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/**
+ * @license Angular v6.0.5
+ * (c) 2010-2018 Google, Inc. https://angular.io/
+ * License: MIT
+ */
+
+
+
+
+
+
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * Transforms an `HttpRequest` into a stream of `HttpEvent`s, one of which will likely be a
+ * `HttpResponse`.
+ *
+ * `HttpHandler` is injectable. When injected, the handler instance dispatches requests to the
+ * first interceptor in the chain, which dispatches to the second, etc, eventually reaching the
+ * `HttpBackend`.
+ *
+ * In an `HttpInterceptor`, the `HttpHandler` parameter is the next interceptor in the chain.
+ *
+ *
+ */
+var HttpHandler = /** @class */ (function () {
+    function HttpHandler() {
+    }
+    return HttpHandler;
+}());
+/**
+ * A final `HttpHandler` which will dispatch the request via browser HTTP APIs to a backend.
+ *
+ * Interceptors sit between the `HttpClient` interface and the `HttpBackend`.
+ *
+ * When injected, `HttpBackend` dispatches requests directly to the backend, without going
+ * through the interceptor chain.
+ *
+ *
+ */
+var HttpBackend = /** @class */ (function () {
+    function HttpBackend() {
+    }
+    return HttpBackend;
+}());
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * Immutable set of Http headers, with lazy parsing.
+ *
+ */
+var HttpHeaders = /** @class */ (function () {
+    function HttpHeaders(headers) {
+        var _this = this;
+        /**
+         * Internal map of lowercased header names to the normalized
+         * form of the name (the form seen first).
+         */
+        this.normalizedNames = new Map();
+        /**
+         * Queued updates to be materialized the next initialization.
+         */
+        this.lazyUpdate = null;
+        if (!headers) {
+            this.headers = new Map();
+        }
+        else if (typeof headers === 'string') {
+            this.lazyInit = function () {
+                _this.headers = new Map();
+                headers.split('\n').forEach(function (line) {
+                    var index = line.indexOf(':');
+                    if (index > 0) {
+                        var name_1 = line.slice(0, index);
+                        var key = name_1.toLowerCase();
+                        var value = line.slice(index + 1).trim();
+                        _this.maybeSetNormalizedName(name_1, key);
+                        if (_this.headers.has(key)) {
+                            _this.headers.get(key).push(value);
+                        }
+                        else {
+                            _this.headers.set(key, [value]);
+                        }
+                    }
+                });
+            };
+        }
+        else {
+            this.lazyInit = function () {
+                _this.headers = new Map();
+                Object.keys(headers).forEach(function (name) {
+                    var values = headers[name];
+                    var key = name.toLowerCase();
+                    if (typeof values === 'string') {
+                        values = [values];
+                    }
+                    if (values.length > 0) {
+                        _this.headers.set(key, values);
+                        _this.maybeSetNormalizedName(name, key);
+                    }
+                });
+            };
+        }
+    }
+    /**
+     * Checks for existence of header by given name.
+     */
+    HttpHeaders.prototype.has = function (name) {
+        this.init();
+        return this.headers.has(name.toLowerCase());
+    };
+    /**
+     * Returns first header that matches given name.
+     */
+    HttpHeaders.prototype.get = function (name) {
+        this.init();
+        var values = this.headers.get(name.toLowerCase());
+        return values && values.length > 0 ? values[0] : null;
+    };
+    /**
+     * Returns the names of the headers
+     */
+    HttpHeaders.prototype.keys = function () {
+        this.init();
+        return Array.from(this.normalizedNames.values());
+    };
+    /**
+     * Returns list of header values for a given name.
+     */
+    HttpHeaders.prototype.getAll = function (name) {
+        this.init();
+        return this.headers.get(name.toLowerCase()) || null;
+    };
+    HttpHeaders.prototype.append = function (name, value) {
+        return this.clone({ name: name, value: value, op: 'a' });
+    };
+    HttpHeaders.prototype.set = function (name, value) {
+        return this.clone({ name: name, value: value, op: 's' });
+    };
+    HttpHeaders.prototype.delete = function (name, value) {
+        return this.clone({ name: name, value: value, op: 'd' });
+    };
+    HttpHeaders.prototype.maybeSetNormalizedName = function (name, lcName) {
+        if (!this.normalizedNames.has(lcName)) {
+            this.normalizedNames.set(lcName, name);
+        }
+    };
+    HttpHeaders.prototype.init = function () {
+        var _this = this;
+        if (!!this.lazyInit) {
+            if (this.lazyInit instanceof HttpHeaders) {
+                this.copyFrom(this.lazyInit);
+            }
+            else {
+                this.lazyInit();
+            }
+            this.lazyInit = null;
+            if (!!this.lazyUpdate) {
+                this.lazyUpdate.forEach(function (update) { return _this.applyUpdate(update); });
+                this.lazyUpdate = null;
+            }
+        }
+    };
+    HttpHeaders.prototype.copyFrom = function (other) {
+        var _this = this;
+        other.init();
+        Array.from(other.headers.keys()).forEach(function (key) {
+            _this.headers.set(key, other.headers.get(key));
+            _this.normalizedNames.set(key, other.normalizedNames.get(key));
+        });
+    };
+    HttpHeaders.prototype.clone = function (update) {
+        var clone = new HttpHeaders();
+        clone.lazyInit =
+            (!!this.lazyInit && this.lazyInit instanceof HttpHeaders) ? this.lazyInit : this;
+        clone.lazyUpdate = (this.lazyUpdate || []).concat([update]);
+        return clone;
+    };
+    HttpHeaders.prototype.applyUpdate = function (update) {
+        var key = update.name.toLowerCase();
+        switch (update.op) {
+            case 'a':
+            case 's':
+                var value = update.value;
+                if (typeof value === 'string') {
+                    value = [value];
+                }
+                if (value.length === 0) {
+                    return;
+                }
+                this.maybeSetNormalizedName(update.name, key);
+                var base = (update.op === 'a' ? this.headers.get(key) : undefined) || [];
+                base.push.apply(base, Object(tslib__WEBPACK_IMPORTED_MODULE_3__["__spread"])(value));
+                this.headers.set(key, base);
+                break;
+            case 'd':
+                var toDelete_1 = update.value;
+                if (!toDelete_1) {
+                    this.headers.delete(key);
+                    this.normalizedNames.delete(key);
+                }
+                else {
+                    var existing = this.headers.get(key);
+                    if (!existing) {
+                        return;
+                    }
+                    existing = existing.filter(function (value) { return toDelete_1.indexOf(value) === -1; });
+                    if (existing.length === 0) {
+                        this.headers.delete(key);
+                        this.normalizedNames.delete(key);
+                    }
+                    else {
+                        this.headers.set(key, existing);
+                    }
+                }
+                break;
+        }
+    };
+    /**
+     * @internal
+     */
+    HttpHeaders.prototype.forEach = function (fn) {
+        var _this = this;
+        this.init();
+        Array.from(this.normalizedNames.keys())
+            .forEach(function (key) { return fn(_this.normalizedNames.get(key), _this.headers.get(key)); });
+    };
+    return HttpHeaders;
+}());
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * A `HttpParameterCodec` that uses `encodeURIComponent` and `decodeURIComponent` to
+ * serialize and parse URL parameter keys and values.
+ *
+ *
+ */
+var HttpUrlEncodingCodec = /** @class */ (function () {
+    function HttpUrlEncodingCodec() {
+    }
+    HttpUrlEncodingCodec.prototype.encodeKey = function (k) { return standardEncoding(k); };
+    HttpUrlEncodingCodec.prototype.encodeValue = function (v) { return standardEncoding(v); };
+    HttpUrlEncodingCodec.prototype.decodeKey = function (k) { return decodeURIComponent(k); };
+    HttpUrlEncodingCodec.prototype.decodeValue = function (v) { return decodeURIComponent(v); };
+    return HttpUrlEncodingCodec;
+}());
+function paramParser(rawParams, codec) {
+    var map$$1 = new Map();
+    if (rawParams.length > 0) {
+        var params = rawParams.split('&');
+        params.forEach(function (param) {
+            var eqIdx = param.indexOf('=');
+            var _a = Object(tslib__WEBPACK_IMPORTED_MODULE_3__["__read"])(eqIdx == -1 ?
+                [codec.decodeKey(param), ''] :
+                [codec.decodeKey(param.slice(0, eqIdx)), codec.decodeValue(param.slice(eqIdx + 1))], 2), key = _a[0], val = _a[1];
+            var list = map$$1.get(key) || [];
+            list.push(val);
+            map$$1.set(key, list);
+        });
+    }
+    return map$$1;
+}
+function standardEncoding(v) {
+    return encodeURIComponent(v)
+        .replace(/%40/gi, '@')
+        .replace(/%3A/gi, ':')
+        .replace(/%24/gi, '$')
+        .replace(/%2C/gi, ',')
+        .replace(/%3B/gi, ';')
+        .replace(/%2B/gi, '+')
+        .replace(/%3D/gi, '=')
+        .replace(/%3F/gi, '?')
+        .replace(/%2F/gi, '/');
+}
+/**
+ * An HTTP request/response body that represents serialized parameters,
+ * per the MIME type `application/x-www-form-urlencoded`.
+ *
+ * This class is immutable - all mutation operations return a new instance.
+ *
+ *
+ */
+var HttpParams = /** @class */ (function () {
+    function HttpParams(options) {
+        if (options === void 0) { options = {}; }
+        var _this = this;
+        this.updates = null;
+        this.cloneFrom = null;
+        this.encoder = options.encoder || new HttpUrlEncodingCodec();
+        if (!!options.fromString) {
+            if (!!options.fromObject) {
+                throw new Error("Cannot specify both fromString and fromObject.");
+            }
+            this.map = paramParser(options.fromString, this.encoder);
+        }
+        else if (!!options.fromObject) {
+            this.map = new Map();
+            Object.keys(options.fromObject).forEach(function (key) {
+                var value = options.fromObject[key];
+                _this.map.set(key, Array.isArray(value) ? value : [value]);
+            });
+        }
+        else {
+            this.map = null;
+        }
+    }
+    /**
+     * Check whether the body has one or more values for the given parameter name.
+     */
+    HttpParams.prototype.has = function (param) {
+        this.init();
+        return this.map.has(param);
+    };
+    /**
+     * Get the first value for the given parameter name, or `null` if it's not present.
+     */
+    HttpParams.prototype.get = function (param) {
+        this.init();
+        var res = this.map.get(param);
+        return !!res ? res[0] : null;
+    };
+    /**
+     * Get all values for the given parameter name, or `null` if it's not present.
+     */
+    HttpParams.prototype.getAll = function (param) {
+        this.init();
+        return this.map.get(param) || null;
+    };
+    /**
+     * Get all the parameter names for this body.
+     */
+    HttpParams.prototype.keys = function () {
+        this.init();
+        return Array.from(this.map.keys());
+    };
+    /**
+     * Construct a new body with an appended value for the given parameter name.
+     */
+    HttpParams.prototype.append = function (param, value) { return this.clone({ param: param, value: value, op: 'a' }); };
+    /**
+     * Construct a new body with a new value for the given parameter name.
+     */
+    HttpParams.prototype.set = function (param, value) { return this.clone({ param: param, value: value, op: 's' }); };
+    /**
+     * Construct a new body with either the given value for the given parameter
+     * removed, if a value is given, or all values for the given parameter removed
+     * if not.
+     */
+    HttpParams.prototype.delete = function (param, value) { return this.clone({ param: param, value: value, op: 'd' }); };
+    /**
+     * Serialize the body to an encoded string, where key-value pairs (separated by `=`) are
+     * separated by `&`s.
+     */
+    HttpParams.prototype.toString = function () {
+        var _this = this;
+        this.init();
+        return this.keys()
+            .map(function (key) {
+            var eKey = _this.encoder.encodeKey(key);
+            return _this.map.get(key).map(function (value) { return eKey + '=' + _this.encoder.encodeValue(value); })
+                .join('&');
+        })
+            .join('&');
+    };
+    HttpParams.prototype.clone = function (update) {
+        var clone = new HttpParams({ encoder: this.encoder });
+        clone.cloneFrom = this.cloneFrom || this;
+        clone.updates = (this.updates || []).concat([update]);
+        return clone;
+    };
+    HttpParams.prototype.init = function () {
+        var _this = this;
+        if (this.map === null) {
+            this.map = new Map();
+        }
+        if (this.cloneFrom !== null) {
+            this.cloneFrom.init();
+            this.cloneFrom.keys().forEach(function (key) { return _this.map.set(key, _this.cloneFrom.map.get(key)); });
+            this.updates.forEach(function (update) {
+                switch (update.op) {
+                    case 'a':
+                    case 's':
+                        var base = (update.op === 'a' ? _this.map.get(update.param) : undefined) || [];
+                        base.push(update.value);
+                        _this.map.set(update.param, base);
+                        break;
+                    case 'd':
+                        if (update.value !== undefined) {
+                            var base_1 = _this.map.get(update.param) || [];
+                            var idx = base_1.indexOf(update.value);
+                            if (idx !== -1) {
+                                base_1.splice(idx, 1);
+                            }
+                            if (base_1.length > 0) {
+                                _this.map.set(update.param, base_1);
+                            }
+                            else {
+                                _this.map.delete(update.param);
+                            }
+                        }
+                        else {
+                            _this.map.delete(update.param);
+                            break;
+                        }
+                }
+            });
+            this.cloneFrom = null;
+        }
+    };
+    return HttpParams;
+}());
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * Determine whether the given HTTP method may include a body.
+ */
+function mightHaveBody(method) {
+    switch (method) {
+        case 'DELETE':
+        case 'GET':
+        case 'HEAD':
+        case 'OPTIONS':
+        case 'JSONP':
+            return false;
+        default:
+            return true;
+    }
+}
+/**
+ * Safely assert whether the given value is an ArrayBuffer.
+ *
+ * In some execution environments ArrayBuffer is not defined.
+ */
+function isArrayBuffer(value) {
+    return typeof ArrayBuffer !== 'undefined' && value instanceof ArrayBuffer;
+}
+/**
+ * Safely assert whether the given value is a Blob.
+ *
+ * In some execution environments Blob is not defined.
+ */
+function isBlob(value) {
+    return typeof Blob !== 'undefined' && value instanceof Blob;
+}
+/**
+ * Safely assert whether the given value is a FormData instance.
+ *
+ * In some execution environments FormData is not defined.
+ */
+function isFormData(value) {
+    return typeof FormData !== 'undefined' && value instanceof FormData;
+}
+/**
+ * An outgoing HTTP request with an optional typed body.
+ *
+ * `HttpRequest` represents an outgoing request, including URL, method,
+ * headers, body, and other request configuration options. Instances should be
+ * assumed to be immutable. To modify a `HttpRequest`, the `clone`
+ * method should be used.
+ *
+ *
+ */
+var HttpRequest = /** @class */ (function () {
+    function HttpRequest(method, url, third, fourth) {
+        this.url = url;
+        /**
+         * The request body, or `null` if one isn't set.
+         *
+         * Bodies are not enforced to be immutable, as they can include a reference to any
+         * user-defined data type. However, interceptors should take care to preserve
+         * idempotence by treating them as such.
+         */
+        this.body = null;
+        /**
+         * Whether this request should be made in a way that exposes progress events.
+         *
+         * Progress events are expensive (change detection runs on each event) and so
+         * they should only be requested if the consumer intends to monitor them.
+         */
+        this.reportProgress = false;
+        /**
+         * Whether this request should be sent with outgoing credentials (cookies).
+         */
+        this.withCredentials = false;
+        /**
+         * The expected response type of the server.
+         *
+         * This is used to parse the response appropriately before returning it to
+         * the requestee.
+         */
+        this.responseType = 'json';
+        this.method = method.toUpperCase();
+        // Next, need to figure out which argument holds the HttpRequestInit
+        // options, if any.
+        var options;
+        // Check whether a body argument is expected. The only valid way to omit
+        // the body argument is to use a known no-body method like GET.
+        if (mightHaveBody(this.method) || !!fourth) {
+            // Body is the third argument, options are the fourth.
+            this.body = (third !== undefined) ? third : null;
+            options = fourth;
+        }
+        else {
+            // No body required, options are the third argument. The body stays null.
+            options = third;
+        }
+        // If options have been passed, interpret them.
+        if (options) {
+            // Normalize reportProgress and withCredentials.
+            this.reportProgress = !!options.reportProgress;
+            this.withCredentials = !!options.withCredentials;
+            // Override default response type of 'json' if one is provided.
+            if (!!options.responseType) {
+                this.responseType = options.responseType;
+            }
+            // Override headers if they're provided.
+            if (!!options.headers) {
+                this.headers = options.headers;
+            }
+            if (!!options.params) {
+                this.params = options.params;
+            }
+        }
+        // If no headers have been passed in, construct a new HttpHeaders instance.
+        if (!this.headers) {
+            this.headers = new HttpHeaders();
+        }
+        // If no parameters have been passed in, construct a new HttpUrlEncodedParams instance.
+        if (!this.params) {
+            this.params = new HttpParams();
+            this.urlWithParams = url;
+        }
+        else {
+            // Encode the parameters to a string in preparation for inclusion in the URL.
+            var params = this.params.toString();
+            if (params.length === 0) {
+                // No parameters, the visible URL is just the URL given at creation time.
+                this.urlWithParams = url;
+            }
+            else {
+                // Does the URL already have query parameters? Look for '?'.
+                var qIdx = url.indexOf('?');
+                // There are 3 cases to handle:
+                // 1) No existing parameters -> append '?' followed by params.
+                // 2) '?' exists and is followed by existing query string ->
+                //    append '&' followed by params.
+                // 3) '?' exists at the end of the url -> append params directly.
+                // This basically amounts to determining the character, if any, with
+                // which to join the URL and parameters.
+                var sep = qIdx === -1 ? '?' : (qIdx < url.length - 1 ? '&' : '');
+                this.urlWithParams = url + sep + params;
+            }
+        }
+    }
+    /**
+     * Transform the free-form body into a serialized format suitable for
+     * transmission to the server.
+     */
+    HttpRequest.prototype.serializeBody = function () {
+        // If no body is present, no need to serialize it.
+        if (this.body === null) {
+            return null;
+        }
+        // Check whether the body is already in a serialized form. If so,
+        // it can just be returned directly.
+        if (isArrayBuffer(this.body) || isBlob(this.body) || isFormData(this.body) ||
+            typeof this.body === 'string') {
+            return this.body;
+        }
+        // Check whether the body is an instance of HttpUrlEncodedParams.
+        if (this.body instanceof HttpParams) {
+            return this.body.toString();
+        }
+        // Check whether the body is an object or array, and serialize with JSON if so.
+        if (typeof this.body === 'object' || typeof this.body === 'boolean' ||
+            Array.isArray(this.body)) {
+            return JSON.stringify(this.body);
+        }
+        // Fall back on toString() for everything else.
+        return this.body.toString();
+    };
+    /**
+     * Examine the body and attempt to infer an appropriate MIME type
+     * for it.
+     *
+     * If no such type can be inferred, this method will return `null`.
+     */
+    HttpRequest.prototype.detectContentTypeHeader = function () {
+        // An empty body has no content type.
+        if (this.body === null) {
+            return null;
+        }
+        // FormData bodies rely on the browser's content type assignment.
+        if (isFormData(this.body)) {
+            return null;
+        }
+        // Blobs usually have their own content type. If it doesn't, then
+        // no type can be inferred.
+        if (isBlob(this.body)) {
+            return this.body.type || null;
+        }
+        // Array buffers have unknown contents and thus no type can be inferred.
+        if (isArrayBuffer(this.body)) {
+            return null;
+        }
+        // Technically, strings could be a form of JSON data, but it's safe enough
+        // to assume they're plain strings.
+        if (typeof this.body === 'string') {
+            return 'text/plain';
+        }
+        // `HttpUrlEncodedParams` has its own content-type.
+        if (this.body instanceof HttpParams) {
+            return 'application/x-www-form-urlencoded;charset=UTF-8';
+        }
+        // Arrays, objects, and numbers will be encoded as JSON.
+        if (typeof this.body === 'object' || typeof this.body === 'number' ||
+            Array.isArray(this.body)) {
+            return 'application/json';
+        }
+        // No type could be inferred.
+        return null;
+    };
+    HttpRequest.prototype.clone = function (update) {
+        if (update === void 0) { update = {}; }
+        // For method, url, and responseType, take the current value unless
+        // it is overridden in the update hash.
+        var method = update.method || this.method;
+        var url = update.url || this.url;
+        var responseType = update.responseType || this.responseType;
+        // The body is somewhat special - a `null` value in update.body means
+        // whatever current body is present is being overridden with an empty
+        // body, whereas an `undefined` value in update.body implies no
+        // override.
+        var body = (update.body !== undefined) ? update.body : this.body;
+        // Carefully handle the boolean options to differentiate between
+        // `false` and `undefined` in the update args.
+        var withCredentials = (update.withCredentials !== undefined) ? update.withCredentials : this.withCredentials;
+        var reportProgress = (update.reportProgress !== undefined) ? update.reportProgress : this.reportProgress;
+        // Headers and params may be appended to if `setHeaders` or
+        // `setParams` are used.
+        var headers = update.headers || this.headers;
+        var params = update.params || this.params;
+        // Check whether the caller has asked to add headers.
+        if (update.setHeaders !== undefined) {
+            // Set every requested header.
+            headers =
+                Object.keys(update.setHeaders)
+                    .reduce(function (headers, name) { return headers.set(name, update.setHeaders[name]); }, headers);
+        }
+        // Check whether the caller has asked to set params.
+        if (update.setParams) {
+            // Set every requested param.
+            params = Object.keys(update.setParams)
+                .reduce(function (params, param) { return params.set(param, update.setParams[param]); }, params);
+        }
+        // Finally, construct the new HttpRequest using the pieces from above.
+        return new HttpRequest(method, url, body, {
+            params: params, headers: headers, reportProgress: reportProgress, responseType: responseType, withCredentials: withCredentials,
+        });
+    };
+    return HttpRequest;
+}());
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * Type enumeration for the different kinds of `HttpEvent`.
+ *
+ *
+ */
+var HttpEventType;
+(function (HttpEventType) {
+    /**
+     * The request was sent out over the wire.
+     */
+    HttpEventType[HttpEventType["Sent"] = 0] = "Sent";
+    /**
+     * An upload progress event was received.
+     */
+    HttpEventType[HttpEventType["UploadProgress"] = 1] = "UploadProgress";
+    /**
+     * The response status code and headers were received.
+     */
+    HttpEventType[HttpEventType["ResponseHeader"] = 2] = "ResponseHeader";
+    /**
+     * A download progress event was received.
+     */
+    HttpEventType[HttpEventType["DownloadProgress"] = 3] = "DownloadProgress";
+    /**
+     * The full response including the body was received.
+     */
+    HttpEventType[HttpEventType["Response"] = 4] = "Response";
+    /**
+     * A custom event from an interceptor or a backend.
+     */
+    HttpEventType[HttpEventType["User"] = 5] = "User";
+})(HttpEventType || (HttpEventType = {}));
+/**
+ * Base class for both `HttpResponse` and `HttpHeaderResponse`.
+ *
+ *
+ */
+var HttpResponseBase = /** @class */ (function () {
+    /**
+     * Super-constructor for all responses.
+     *
+     * The single parameter accepted is an initialization hash. Any properties
+     * of the response passed there will override the default values.
+     */
+    function HttpResponseBase(init, defaultStatus, defaultStatusText) {
+        if (defaultStatus === void 0) { defaultStatus = 200; }
+        if (defaultStatusText === void 0) { defaultStatusText = 'OK'; }
+        // If the hash has values passed, use them to initialize the response.
+        // Otherwise use the default values.
+        this.headers = init.headers || new HttpHeaders();
+        this.status = init.status !== undefined ? init.status : defaultStatus;
+        this.statusText = init.statusText || defaultStatusText;
+        this.url = init.url || null;
+        // Cache the ok value to avoid defining a getter.
+        this.ok = this.status >= 200 && this.status < 300;
+    }
+    return HttpResponseBase;
+}());
+/**
+ * A partial HTTP response which only includes the status and header data,
+ * but no response body.
+ *
+ * `HttpHeaderResponse` is a `HttpEvent` available on the response
+ * event stream, only when progress events are requested.
+ *
+ *
+ */
+var HttpHeaderResponse = /** @class */ (function (_super) {
+    Object(tslib__WEBPACK_IMPORTED_MODULE_3__["__extends"])(HttpHeaderResponse, _super);
+    /**
+     * Create a new `HttpHeaderResponse` with the given parameters.
+     */
+    function HttpHeaderResponse(init) {
+        if (init === void 0) { init = {}; }
+        var _this = _super.call(this, init) || this;
+        _this.type = HttpEventType.ResponseHeader;
+        return _this;
+    }
+    /**
+     * Copy this `HttpHeaderResponse`, overriding its contents with the
+     * given parameter hash.
+     */
+    HttpHeaderResponse.prototype.clone = function (update) {
+        if (update === void 0) { update = {}; }
+        // Perform a straightforward initialization of the new HttpHeaderResponse,
+        // overriding the current parameters with new ones if given.
+        return new HttpHeaderResponse({
+            headers: update.headers || this.headers,
+            status: update.status !== undefined ? update.status : this.status,
+            statusText: update.statusText || this.statusText,
+            url: update.url || this.url || undefined,
+        });
+    };
+    return HttpHeaderResponse;
+}(HttpResponseBase));
+/**
+ * A full HTTP response, including a typed response body (which may be `null`
+ * if one was not returned).
+ *
+ * `HttpResponse` is a `HttpEvent` available on the response event
+ * stream.
+ *
+ *
+ */
+var HttpResponse = /** @class */ (function (_super) {
+    Object(tslib__WEBPACK_IMPORTED_MODULE_3__["__extends"])(HttpResponse, _super);
+    /**
+     * Construct a new `HttpResponse`.
+     */
+    function HttpResponse(init) {
+        if (init === void 0) { init = {}; }
+        var _this = _super.call(this, init) || this;
+        _this.type = HttpEventType.Response;
+        _this.body = init.body !== undefined ? init.body : null;
+        return _this;
+    }
+    HttpResponse.prototype.clone = function (update) {
+        if (update === void 0) { update = {}; }
+        return new HttpResponse({
+            body: (update.body !== undefined) ? update.body : this.body,
+            headers: update.headers || this.headers,
+            status: (update.status !== undefined) ? update.status : this.status,
+            statusText: update.statusText || this.statusText,
+            url: update.url || this.url || undefined,
+        });
+    };
+    return HttpResponse;
+}(HttpResponseBase));
+/**
+ * A response that represents an error or failure, either from a
+ * non-successful HTTP status, an error while executing the request,
+ * or some other failure which occurred during the parsing of the response.
+ *
+ * Any error returned on the `Observable` response stream will be
+ * wrapped in an `HttpErrorResponse` to provide additional context about
+ * the state of the HTTP layer when the error occurred. The error property
+ * will contain either a wrapped Error object or the error response returned
+ * from the server.
+ *
+ *
+ */
+var HttpErrorResponse = /** @class */ (function (_super) {
+    Object(tslib__WEBPACK_IMPORTED_MODULE_3__["__extends"])(HttpErrorResponse, _super);
+    function HttpErrorResponse(init) {
+        var _this = 
+        // Initialize with a default status of 0 / Unknown Error.
+        _super.call(this, init, 0, 'Unknown Error') || this;
+        _this.name = 'HttpErrorResponse';
+        /**
+         * Errors are never okay, even when the status code is in the 2xx success range.
+         */
+        _this.ok = false;
+        // If the response was successful, then this was a parse error. Otherwise, it was
+        // a protocol-level failure of some sort. Either the request failed in transit
+        // or the server returned an unsuccessful status code.
+        if (_this.status >= 200 && _this.status < 300) {
+            _this.message = "Http failure during parsing for " + (init.url || '(unknown url)');
+        }
+        else {
+            _this.message =
+                "Http failure response for " + (init.url || '(unknown url)') + ": " + init.status + " " + init.statusText;
+        }
+        _this.error = init.error || null;
+        return _this;
+    }
+    return HttpErrorResponse;
+}(HttpResponseBase));
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * Construct an instance of `HttpRequestOptions<T>` from a source `HttpMethodOptions` and
+ * the given `body`. Basically, this clones the object and adds the body.
+ */
+function addBody(options, body) {
+    return {
+        body: body,
+        headers: options.headers,
+        observe: options.observe,
+        params: options.params,
+        reportProgress: options.reportProgress,
+        responseType: options.responseType,
+        withCredentials: options.withCredentials,
+    };
+}
+/**
+ * Perform HTTP requests.
+ *
+ * `HttpClient` is available as an injectable class, with methods to perform HTTP requests.
+ * Each request method has multiple signatures, and the return type varies according to which
+ * signature is called (mainly the values of `observe` and `responseType`).
+ *
+ *
+ */
+var HttpClient = /** @class */ (function () {
+    function HttpClient(handler) {
+        this.handler = handler;
+    }
+    /**
+     * Constructs an `Observable` for a particular HTTP request that, when subscribed,
+     * fires the request through the chain of registered interceptors and on to the
+     * server.
+     *
+     * This method can be called in one of two ways. Either an `HttpRequest`
+     * instance can be passed directly as the only parameter, or a method can be
+     * passed as the first parameter, a string URL as the second, and an
+     * options hash as the third.
+     *
+     * If a `HttpRequest` object is passed directly, an `Observable` of the
+     * raw `HttpEvent` stream will be returned.
+     *
+     * If a request is instead built by providing a URL, the options object
+     * determines the return type of `request()`. In addition to configuring
+     * request parameters such as the outgoing headers and/or the body, the options
+     * hash specifies two key pieces of information about the request: the
+     * `responseType` and what to `observe`.
+     *
+     * The `responseType` value determines how a successful response body will be
+     * parsed. If `responseType` is the default `json`, a type interface for the
+     * resulting object may be passed as a type parameter to `request()`.
+     *
+     * The `observe` value determines the return type of `request()`, based on what
+     * the consumer is interested in observing. A value of `events` will return an
+     * `Observable<HttpEvent>` representing the raw `HttpEvent` stream,
+     * including progress events by default. A value of `response` will return an
+     * `Observable<HttpResponse<T>>` where the `T` parameter of `HttpResponse`
+     * depends on the `responseType` and any optionally provided type parameter.
+     * A value of `body` will return an `Observable<T>` with the same `T` body type.
+     */
+    HttpClient.prototype.request = function (first, url, options) {
+        var _this = this;
+        if (options === void 0) { options = {}; }
+        var req;
+        // Firstly, check whether the primary argument is an instance of `HttpRequest`.
+        if (first instanceof HttpRequest) {
+            // It is. The other arguments must be undefined (per the signatures) and can be
+            // ignored.
+            req = first;
+        }
+        else {
+            // It's a string, so it represents a URL. Construct a request based on it,
+            // and incorporate the remaining arguments (assuming GET unless a method is
+            // provided.
+            // Figure out the headers.
+            var headers = undefined;
+            if (options.headers instanceof HttpHeaders) {
+                headers = options.headers;
+            }
+            else {
+                headers = new HttpHeaders(options.headers);
+            }
+            // Sort out parameters.
+            var params = undefined;
+            if (!!options.params) {
+                if (options.params instanceof HttpParams) {
+                    params = options.params;
+                }
+                else {
+                    params = new HttpParams({ fromObject: options.params });
+                }
+            }
+            // Construct the request.
+            req = new HttpRequest(first, url, (options.body !== undefined ? options.body : null), {
+                headers: headers,
+                params: params,
+                reportProgress: options.reportProgress,
+                // By default, JSON is assumed to be returned for all calls.
+                responseType: options.responseType || 'json',
+                withCredentials: options.withCredentials,
+            });
+        }
+        // Start with an Observable.of() the initial request, and run the handler (which
+        // includes all interceptors) inside a concatMap(). This way, the handler runs
+        // inside an Observable chain, which causes interceptors to be re-run on every
+        // subscription (this also makes retries re-run the handler, including interceptors).
+        var events$ = Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(req).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["concatMap"])(function (req) { return _this.handler.handle(req); }));
+        // If coming via the API signature which accepts a previously constructed HttpRequest,
+        // the only option is to get the event stream. Otherwise, return the event stream if
+        // that is what was requested.
+        if (first instanceof HttpRequest || options.observe === 'events') {
+            return events$;
+        }
+        // The requested stream contains either the full response or the body. In either
+        // case, the first step is to filter the event stream to extract a stream of
+        // responses(s).
+        var res$ = events$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["filter"])(function (event) { return event instanceof HttpResponse; }));
+        // Decide which stream to return.
+        switch (options.observe || 'body') {
+            case 'body':
+                // The requested stream is the body. Map the response stream to the response
+                // body. This could be done more simply, but a misbehaving interceptor might
+                // transform the response body into a different format and ignore the requested
+                // responseType. Guard against this by validating that the response is of the
+                // requested type.
+                switch (req.responseType) {
+                    case 'arraybuffer':
+                        return res$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (res) {
+                            // Validate that the body is an ArrayBuffer.
+                            if (res.body !== null && !(res.body instanceof ArrayBuffer)) {
+                                throw new Error('Response is not an ArrayBuffer.');
+                            }
+                            return res.body;
+                        }));
+                    case 'blob':
+                        return res$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (res) {
+                            // Validate that the body is a Blob.
+                            if (res.body !== null && !(res.body instanceof Blob)) {
+                                throw new Error('Response is not a Blob.');
+                            }
+                            return res.body;
+                        }));
+                    case 'text':
+                        return res$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (res) {
+                            // Validate that the body is a string.
+                            if (res.body !== null && typeof res.body !== 'string') {
+                                throw new Error('Response is not a string.');
+                            }
+                            return res.body;
+                        }));
+                    case 'json':
+                    default:
+                        // No validation needed for JSON responses, as they can be of any type.
+                        return res$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (res) { return res.body; }));
+                }
+            case 'response':
+                // The response stream was requested directly, so return it.
+                return res$;
+            default:
+                // Guard against new future observe types being added.
+                throw new Error("Unreachable: unhandled observe type " + options.observe + "}");
+        }
+    };
+    /**
+     * Constructs an `Observable` which, when subscribed, will cause the configured
+     * DELETE request to be executed on the server. See the individual overloads for
+     * details of `delete()`'s return type based on the provided options.
+     */
+    HttpClient.prototype.delete = function (url, options) {
+        if (options === void 0) { options = {}; }
+        return this.request('DELETE', url, options);
+    };
+    /**
+     * Constructs an `Observable` which, when subscribed, will cause the configured
+     * GET request to be executed on the server. See the individual overloads for
+     * details of `get()`'s return type based on the provided options.
+     */
+    HttpClient.prototype.get = function (url, options) {
+        if (options === void 0) { options = {}; }
+        return this.request('GET', url, options);
+    };
+    /**
+     * Constructs an `Observable` which, when subscribed, will cause the configured
+     * HEAD request to be executed on the server. See the individual overloads for
+     * details of `head()`'s return type based on the provided options.
+     */
+    HttpClient.prototype.head = function (url, options) {
+        if (options === void 0) { options = {}; }
+        return this.request('HEAD', url, options);
+    };
+    /**
+     * Constructs an `Observable` which, when subscribed, will cause a request
+     * with the special method `JSONP` to be dispatched via the interceptor pipeline.
+     *
+     * A suitable interceptor must be installed (e.g. via the `HttpClientJsonpModule`).
+     * If no such interceptor is reached, then the `JSONP` request will likely be
+     * rejected by the configured backend.
+     */
+    HttpClient.prototype.jsonp = function (url, callbackParam) {
+        return this.request('JSONP', url, {
+            params: new HttpParams().append(callbackParam, 'JSONP_CALLBACK'),
+            observe: 'body',
+            responseType: 'json',
+        });
+    };
+    /**
+     * Constructs an `Observable` which, when subscribed, will cause the configured
+     * OPTIONS request to be executed on the server. See the individual overloads for
+     * details of `options()`'s return type based on the provided options.
+     */
+    HttpClient.prototype.options = function (url, options) {
+        if (options === void 0) { options = {}; }
+        return this.request('OPTIONS', url, options);
+    };
+    /**
+     * Constructs an `Observable` which, when subscribed, will cause the configured
+     * PATCH request to be executed on the server. See the individual overloads for
+     * details of `patch()`'s return type based on the provided options.
+     */
+    HttpClient.prototype.patch = function (url, body, options) {
+        if (options === void 0) { options = {}; }
+        return this.request('PATCH', url, addBody(options, body));
+    };
+    /**
+     * Constructs an `Observable` which, when subscribed, will cause the configured
+     * POST request to be executed on the server. See the individual overloads for
+     * details of `post()`'s return type based on the provided options.
+     */
+    HttpClient.prototype.post = function (url, body, options) {
+        if (options === void 0) { options = {}; }
+        return this.request('POST', url, addBody(options, body));
+    };
+    /**
+     * Constructs an `Observable` which, when subscribed, will cause the configured
+     * POST request to be executed on the server. See the individual overloads for
+     * details of `post()`'s return type based on the provided options.
+     */
+    HttpClient.prototype.put = function (url, body, options) {
+        if (options === void 0) { options = {}; }
+        return this.request('PUT', url, addBody(options, body));
+    };
+    HttpClient.decorators = [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"] }
+    ];
+    /** @nocollapse */
+    HttpClient.ctorParameters = function () { return [
+        { type: HttpHandler }
+    ]; };
+    return HttpClient;
+}());
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * `HttpHandler` which applies an `HttpInterceptor` to an `HttpRequest`.
+ *
+ *
+ */
+var HttpInterceptorHandler = /** @class */ (function () {
+    function HttpInterceptorHandler(next, interceptor) {
+        this.next = next;
+        this.interceptor = interceptor;
+    }
+    HttpInterceptorHandler.prototype.handle = function (req) {
+        return this.interceptor.intercept(req, this.next);
+    };
+    return HttpInterceptorHandler;
+}());
+/**
+ * A multi-provider token which represents the array of `HttpInterceptor`s that
+ * are registered.
+ *
+ *
+ */
+var HTTP_INTERCEPTORS = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["InjectionToken"]('HTTP_INTERCEPTORS');
+var NoopInterceptor = /** @class */ (function () {
+    function NoopInterceptor() {
+    }
+    NoopInterceptor.prototype.intercept = function (req, next) {
+        return next.handle(req);
+    };
+    NoopInterceptor.decorators = [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"] }
+    ];
+    return NoopInterceptor;
+}());
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+// Every request made through JSONP needs a callback name that's unique across the
+// whole page. Each request is assigned an id and the callback name is constructed
+// from that. The next id to be assigned is tracked in a global variable here that
+// is shared among all applications on the page.
+var nextRequestId = 0;
+// Error text given when a JSONP script is injected, but doesn't invoke the callback
+// passed in its URL.
+var JSONP_ERR_NO_CALLBACK = 'JSONP injected script did not invoke callback.';
+// Error text given when a request is passed to the JsonpClientBackend that doesn't
+// have a request method JSONP.
+var JSONP_ERR_WRONG_METHOD = 'JSONP requests must use JSONP request method.';
+var JSONP_ERR_WRONG_RESPONSE_TYPE = 'JSONP requests must use Json response type.';
+/**
+ * DI token/abstract type representing a map of JSONP callbacks.
+ *
+ * In the browser, this should always be the `window` object.
+ *
+ *
+ */
+var JsonpCallbackContext = /** @class */ (function () {
+    function JsonpCallbackContext() {
+    }
+    return JsonpCallbackContext;
+}());
+/**
+ * `HttpBackend` that only processes `HttpRequest` with the JSONP method,
+ * by performing JSONP style requests.
+ *
+ *
+ */
+var JsonpClientBackend = /** @class */ (function () {
+    function JsonpClientBackend(callbackMap, document) {
+        this.callbackMap = callbackMap;
+        this.document = document;
+    }
+    /**
+     * Get the name of the next callback method, by incrementing the global `nextRequestId`.
+     */
+    JsonpClientBackend.prototype.nextCallback = function () { return "ng_jsonp_callback_" + nextRequestId++; };
+    /**
+     * Process a JSONP request and return an event stream of the results.
+     */
+    JsonpClientBackend.prototype.handle = function (req) {
+        var _this = this;
+        // Firstly, check both the method and response type. If either doesn't match
+        // then the request was improperly routed here and cannot be handled.
+        if (req.method !== 'JSONP') {
+            throw new Error(JSONP_ERR_WRONG_METHOD);
+        }
+        else if (req.responseType !== 'json') {
+            throw new Error(JSONP_ERR_WRONG_RESPONSE_TYPE);
+        }
+        // Everything else happens inside the Observable boundary.
+        return new rxjs__WEBPACK_IMPORTED_MODULE_1__["Observable"](function (observer) {
+            // The first step to make a request is to generate the callback name, and replace the
+            // callback placeholder in the URL with the name. Care has to be taken here to ensure
+            // a trailing &, if matched, gets inserted back into the URL in the correct place.
+            var callback = _this.nextCallback();
+            var url = req.urlWithParams.replace(/=JSONP_CALLBACK(&|$)/, "=" + callback + "$1");
+            // Construct the <script> tag and point it at the URL.
+            var node = _this.document.createElement('script');
+            node.src = url;
+            // A JSONP request requires waiting for multiple callbacks. These variables
+            // are closed over and track state across those callbacks.
+            // The response object, if one has been received, or null otherwise.
+            var body = null;
+            // Whether the response callback has been called.
+            var finished = false;
+            // Whether the request has been cancelled (and thus any other callbacks)
+            // should be ignored.
+            var cancelled = false;
+            // Set the response callback in this.callbackMap (which will be the window
+            // object in the browser. The script being loaded via the <script> tag will
+            // eventually call this callback.
+            _this.callbackMap[callback] = function (data) {
+                // Data has been received from the JSONP script. Firstly, delete this callback.
+                delete _this.callbackMap[callback];
+                // Next, make sure the request wasn't cancelled in the meantime.
+                if (cancelled) {
+                    return;
+                }
+                // Set state to indicate data was received.
+                body = data;
+                finished = true;
+            };
+            // cleanup() is a utility closure that removes the <script> from the page and
+            // the response callback from the window. This logic is used in both the
+            // success, error, and cancellation paths, so it's extracted out for convenience.
+            var cleanup = function () {
+                // Remove the <script> tag if it's still on the page.
+                if (node.parentNode) {
+                    node.parentNode.removeChild(node);
+                }
+                // Remove the response callback from the callbackMap (window object in the
+                // browser).
+                delete _this.callbackMap[callback];
+            };
+            // onLoad() is the success callback which runs after the response callback
+            // if the JSONP script loads successfully. The event itself is unimportant.
+            // If something went wrong, onLoad() may run without the response callback
+            // having been invoked.
+            var onLoad = function (event) {
+                // Do nothing if the request has been cancelled.
+                if (cancelled) {
+                    return;
+                }
+                // Cleanup the page.
+                cleanup();
+                // Check whether the response callback has run.
+                if (!finished) {
+                    // It hasn't, something went wrong with the request. Return an error via
+                    // the Observable error path. All JSONP errors have status 0.
+                    observer.error(new HttpErrorResponse({
+                        url: url,
+                        status: 0,
+                        statusText: 'JSONP Error',
+                        error: new Error(JSONP_ERR_NO_CALLBACK),
+                    }));
+                    return;
+                }
+                // Success. body either contains the response body or null if none was
+                // returned.
+                observer.next(new HttpResponse({
+                    body: body,
+                    status: 200,
+                    statusText: 'OK', url: url,
+                }));
+                // Complete the stream, the response is over.
+                observer.complete();
+            };
+            // onError() is the error callback, which runs if the script returned generates
+            // a Javascript error. It emits the error via the Observable error channel as
+            // a HttpErrorResponse.
+            var onError = function (error) {
+                // If the request was already cancelled, no need to emit anything.
+                if (cancelled) {
+                    return;
+                }
+                cleanup();
+                // Wrap the error in a HttpErrorResponse.
+                observer.error(new HttpErrorResponse({
+                    error: error,
+                    status: 0,
+                    statusText: 'JSONP Error', url: url,
+                }));
+            };
+            // Subscribe to both the success (load) and error events on the <script> tag,
+            // and add it to the page.
+            node.addEventListener('load', onLoad);
+            node.addEventListener('error', onError);
+            _this.document.body.appendChild(node);
+            // The request has now been successfully sent.
+            observer.next({ type: HttpEventType.Sent });
+            // Cancellation handler.
+            return function () {
+                // Track the cancellation so event listeners won't do anything even if already scheduled.
+                cancelled = true;
+                // Remove the event listeners so they won't run if the events later fire.
+                node.removeEventListener('load', onLoad);
+                node.removeEventListener('error', onError);
+                // And finally, clean up the page.
+                cleanup();
+            };
+        });
+    };
+    JsonpClientBackend.decorators = [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"] }
+    ];
+    /** @nocollapse */
+    JsonpClientBackend.ctorParameters = function () { return [
+        { type: JsonpCallbackContext },
+        { type: undefined, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"], args: [_angular_common__WEBPACK_IMPORTED_MODULE_4__["DOCUMENT"],] }] }
+    ]; };
+    return JsonpClientBackend;
+}());
+/**
+ * An `HttpInterceptor` which identifies requests with the method JSONP and
+ * shifts them to the `JsonpClientBackend`.
+ *
+ *
+ */
+var JsonpInterceptor = /** @class */ (function () {
+    function JsonpInterceptor(jsonp) {
+        this.jsonp = jsonp;
+    }
+    JsonpInterceptor.prototype.intercept = function (req, next) {
+        if (req.method === 'JSONP') {
+            return this.jsonp.handle(req);
+        }
+        // Fall through for normal HTTP requests.
+        return next.handle(req);
+    };
+    JsonpInterceptor.decorators = [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"] }
+    ];
+    /** @nocollapse */
+    JsonpInterceptor.ctorParameters = function () { return [
+        { type: JsonpClientBackend }
+    ]; };
+    return JsonpInterceptor;
+}());
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+var XSSI_PREFIX = /^\)\]\}',?\n/;
+/**
+ * Determine an appropriate URL for the response, by checking either
+ * XMLHttpRequest.responseURL or the X-Request-URL header.
+ */
+function getResponseUrl(xhr) {
+    if ('responseURL' in xhr && xhr.responseURL) {
+        return xhr.responseURL;
+    }
+    if (/^X-Request-URL:/m.test(xhr.getAllResponseHeaders())) {
+        return xhr.getResponseHeader('X-Request-URL');
+    }
+    return null;
+}
+/**
+ * A wrapper around the `XMLHttpRequest` constructor.
+ *
+ *
+ */
+var XhrFactory = /** @class */ (function () {
+    function XhrFactory() {
+    }
+    return XhrFactory;
+}());
+/**
+ * A factory for @{link HttpXhrBackend} that uses the `XMLHttpRequest` browser API.
+ *
+ *
+ */
+var BrowserXhr = /** @class */ (function () {
+    function BrowserXhr() {
+    }
+    BrowserXhr.prototype.build = function () { return (new XMLHttpRequest()); };
+    BrowserXhr.decorators = [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"] }
+    ];
+    /** @nocollapse */
+    BrowserXhr.ctorParameters = function () { return []; };
+    return BrowserXhr;
+}());
+/**
+ * An `HttpBackend` which uses the XMLHttpRequest API to send
+ * requests to a backend server.
+ *
+ *
+ */
+var HttpXhrBackend = /** @class */ (function () {
+    function HttpXhrBackend(xhrFactory) {
+        this.xhrFactory = xhrFactory;
+    }
+    /**
+     * Process a request and return a stream of response events.
+     */
+    HttpXhrBackend.prototype.handle = function (req) {
+        var _this = this;
+        // Quick check to give a better error message when a user attempts to use
+        // HttpClient.jsonp() without installing the JsonpClientModule
+        if (req.method === 'JSONP') {
+            throw new Error("Attempted to construct Jsonp request without JsonpClientModule installed.");
+        }
+        // Everything happens on Observable subscription.
+        return new rxjs__WEBPACK_IMPORTED_MODULE_1__["Observable"](function (observer) {
+            // Start by setting up the XHR object with request method, URL, and withCredentials flag.
+            var xhr = _this.xhrFactory.build();
+            xhr.open(req.method, req.urlWithParams);
+            if (!!req.withCredentials) {
+                xhr.withCredentials = true;
+            }
+            // Add all the requested headers.
+            req.headers.forEach(function (name, values) { return xhr.setRequestHeader(name, values.join(',')); });
+            // Add an Accept header if one isn't present already.
+            if (!req.headers.has('Accept')) {
+                xhr.setRequestHeader('Accept', 'application/json, text/plain, */*');
+            }
+            // Auto-detect the Content-Type header if one isn't present already.
+            if (!req.headers.has('Content-Type')) {
+                var detectedType = req.detectContentTypeHeader();
+                // Sometimes Content-Type detection fails.
+                if (detectedType !== null) {
+                    xhr.setRequestHeader('Content-Type', detectedType);
+                }
+            }
+            // Set the responseType if one was requested.
+            if (req.responseType) {
+                var responseType = req.responseType.toLowerCase();
+                // JSON responses need to be processed as text. This is because if the server
+                // returns an XSSI-prefixed JSON response, the browser will fail to parse it,
+                // xhr.response will be null, and xhr.responseText cannot be accessed to
+                // retrieve the prefixed JSON data in order to strip the prefix. Thus, all JSON
+                // is parsed by first requesting text and then applying JSON.parse.
+                xhr.responseType = ((responseType !== 'json') ? responseType : 'text');
+            }
+            // Serialize the request body if one is present. If not, this will be set to null.
+            var reqBody = req.serializeBody();
+            // If progress events are enabled, response headers will be delivered
+            // in two events - the HttpHeaderResponse event and the full HttpResponse
+            // event. However, since response headers don't change in between these
+            // two events, it doesn't make sense to parse them twice. So headerResponse
+            // caches the data extracted from the response whenever it's first parsed,
+            // to ensure parsing isn't duplicated.
+            var headerResponse = null;
+            // partialFromXhr extracts the HttpHeaderResponse from the current XMLHttpRequest
+            // state, and memoizes it into headerResponse.
+            var partialFromXhr = function () {
+                if (headerResponse !== null) {
+                    return headerResponse;
+                }
+                // Read status and normalize an IE9 bug (http://bugs.jquery.com/ticket/1450).
+                var status = xhr.status === 1223 ? 204 : xhr.status;
+                var statusText = xhr.statusText || 'OK';
+                // Parse headers from XMLHttpRequest - this step is lazy.
+                var headers = new HttpHeaders(xhr.getAllResponseHeaders());
+                // Read the response URL from the XMLHttpResponse instance and fall back on the
+                // request URL.
+                var url = getResponseUrl(xhr) || req.url;
+                // Construct the HttpHeaderResponse and memoize it.
+                headerResponse = new HttpHeaderResponse({ headers: headers, status: status, statusText: statusText, url: url });
+                return headerResponse;
+            };
+            // Next, a few closures are defined for the various events which XMLHttpRequest can
+            // emit. This allows them to be unregistered as event listeners later.
+            // First up is the load event, which represents a response being fully available.
+            var onLoad = function () {
+                // Read response state from the memoized partial data.
+                var _a = partialFromXhr(), headers = _a.headers, status = _a.status, statusText = _a.statusText, url = _a.url;
+                // The body will be read out if present.
+                var body = null;
+                if (status !== 204) {
+                    // Use XMLHttpRequest.response if set, responseText otherwise.
+                    body = (typeof xhr.response === 'undefined') ? xhr.responseText : xhr.response;
+                }
+                // Normalize another potential bug (this one comes from CORS).
+                if (status === 0) {
+                    status = !!body ? 200 : 0;
+                }
+                // ok determines whether the response will be transmitted on the event or
+                // error channel. Unsuccessful status codes (not 2xx) will always be errors,
+                // but a successful status code can still result in an error if the user
+                // asked for JSON data and the body cannot be parsed as such.
+                var ok = status >= 200 && status < 300;
+                // Check whether the body needs to be parsed as JSON (in many cases the browser
+                // will have done that already).
+                if (req.responseType === 'json' && typeof body === 'string') {
+                    // Save the original body, before attempting XSSI prefix stripping.
+                    var originalBody = body;
+                    body = body.replace(XSSI_PREFIX, '');
+                    try {
+                        // Attempt the parse. If it fails, a parse error should be delivered to the user.
+                        body = body !== '' ? JSON.parse(body) : null;
+                    }
+                    catch (error) {
+                        // Since the JSON.parse failed, it's reasonable to assume this might not have been a
+                        // JSON response. Restore the original body (including any XSSI prefix) to deliver
+                        // a better error response.
+                        body = originalBody;
+                        // If this was an error request to begin with, leave it as a string, it probably
+                        // just isn't JSON. Otherwise, deliver the parsing error to the user.
+                        if (ok) {
+                            // Even though the response status was 2xx, this is still an error.
+                            ok = false;
+                            // The parse error contains the text of the body that failed to parse.
+                            body = { error: error, text: body };
+                        }
+                    }
+                }
+                if (ok) {
+                    // A successful response is delivered on the event stream.
+                    observer.next(new HttpResponse({
+                        body: body,
+                        headers: headers,
+                        status: status,
+                        statusText: statusText,
+                        url: url || undefined,
+                    }));
+                    // The full body has been received and delivered, no further events
+                    // are possible. This request is complete.
+                    observer.complete();
+                }
+                else {
+                    // An unsuccessful request is delivered on the error channel.
+                    observer.error(new HttpErrorResponse({
+                        // The error in this case is the response body (error from the server).
+                        error: body,
+                        headers: headers,
+                        status: status,
+                        statusText: statusText,
+                        url: url || undefined,
+                    }));
+                }
+            };
+            // The onError callback is called when something goes wrong at the network level.
+            // Connection timeout, DNS error, offline, etc. These are actual errors, and are
+            // transmitted on the error channel.
+            var onError = function (error) {
+                var res = new HttpErrorResponse({
+                    error: error,
+                    status: xhr.status || 0,
+                    statusText: xhr.statusText || 'Unknown Error',
+                });
+                observer.error(res);
+            };
+            // The sentHeaders flag tracks whether the HttpResponseHeaders event
+            // has been sent on the stream. This is necessary to track if progress
+            // is enabled since the event will be sent on only the first download
+            // progerss event.
+            var sentHeaders = false;
+            // The download progress event handler, which is only registered if
+            // progress events are enabled.
+            var onDownProgress = function (event) {
+                // Send the HttpResponseHeaders event if it hasn't been sent already.
+                if (!sentHeaders) {
+                    observer.next(partialFromXhr());
+                    sentHeaders = true;
+                }
+                // Start building the download progress event to deliver on the response
+                // event stream.
+                var progressEvent = {
+                    type: HttpEventType.DownloadProgress,
+                    loaded: event.loaded,
+                };
+                // Set the total number of bytes in the event if it's available.
+                if (event.lengthComputable) {
+                    progressEvent.total = event.total;
+                }
+                // If the request was for text content and a partial response is
+                // available on XMLHttpRequest, include it in the progress event
+                // to allow for streaming reads.
+                if (req.responseType === 'text' && !!xhr.responseText) {
+                    progressEvent.partialText = xhr.responseText;
+                }
+                // Finally, fire the event.
+                observer.next(progressEvent);
+            };
+            // The upload progress event handler, which is only registered if
+            // progress events are enabled.
+            var onUpProgress = function (event) {
+                // Upload progress events are simpler. Begin building the progress
+                // event.
+                var progress = {
+                    type: HttpEventType.UploadProgress,
+                    loaded: event.loaded,
+                };
+                // If the total number of bytes being uploaded is available, include
+                // it.
+                if (event.lengthComputable) {
+                    progress.total = event.total;
+                }
+                // Send the event.
+                observer.next(progress);
+            };
+            // By default, register for load and error events.
+            xhr.addEventListener('load', onLoad);
+            xhr.addEventListener('error', onError);
+            // Progress events are only enabled if requested.
+            if (req.reportProgress) {
+                // Download progress is always enabled if requested.
+                xhr.addEventListener('progress', onDownProgress);
+                // Upload progress depends on whether there is a body to upload.
+                if (reqBody !== null && xhr.upload) {
+                    xhr.upload.addEventListener('progress', onUpProgress);
+                }
+            }
+            // Fire the request, and notify the event stream that it was fired.
+            xhr.send(reqBody);
+            observer.next({ type: HttpEventType.Sent });
+            // This is the return from the Observable function, which is the
+            // request cancellation handler.
+            return function () {
+                // On a cancellation, remove all registered event listeners.
+                xhr.removeEventListener('error', onError);
+                xhr.removeEventListener('load', onLoad);
+                if (req.reportProgress) {
+                    xhr.removeEventListener('progress', onDownProgress);
+                    if (reqBody !== null && xhr.upload) {
+                        xhr.upload.removeEventListener('progress', onUpProgress);
+                    }
+                }
+                // Finally, abort the in-flight request.
+                xhr.abort();
+            };
+        });
+    };
+    HttpXhrBackend.decorators = [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"] }
+    ];
+    /** @nocollapse */
+    HttpXhrBackend.ctorParameters = function () { return [
+        { type: XhrFactory }
+    ]; };
+    return HttpXhrBackend;
+}());
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+var XSRF_COOKIE_NAME = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["InjectionToken"]('XSRF_COOKIE_NAME');
+var XSRF_HEADER_NAME = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["InjectionToken"]('XSRF_HEADER_NAME');
+/**
+ * Retrieves the current XSRF token to use with the next outgoing request.
+ *
+ *
+ */
+var HttpXsrfTokenExtractor = /** @class */ (function () {
+    function HttpXsrfTokenExtractor() {
+    }
+    return HttpXsrfTokenExtractor;
+}());
+/**
+ * `HttpXsrfTokenExtractor` which retrieves the token from a cookie.
+ */
+var HttpXsrfCookieExtractor = /** @class */ (function () {
+    function HttpXsrfCookieExtractor(doc, platform, cookieName) {
+        this.doc = doc;
+        this.platform = platform;
+        this.cookieName = cookieName;
+        this.lastCookieString = '';
+        this.lastToken = null;
+        /**
+         * @internal for testing
+         */
+        this.parseCount = 0;
+    }
+    HttpXsrfCookieExtractor.prototype.getToken = function () {
+        if (this.platform === 'server') {
+            return null;
+        }
+        var cookieString = this.doc.cookie || '';
+        if (cookieString !== this.lastCookieString) {
+            this.parseCount++;
+            this.lastToken = Object(_angular_common__WEBPACK_IMPORTED_MODULE_4__["ɵparseCookieValue"])(cookieString, this.cookieName);
+            this.lastCookieString = cookieString;
+        }
+        return this.lastToken;
+    };
+    HttpXsrfCookieExtractor.decorators = [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"] }
+    ];
+    /** @nocollapse */
+    HttpXsrfCookieExtractor.ctorParameters = function () { return [
+        { type: undefined, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"], args: [_angular_common__WEBPACK_IMPORTED_MODULE_4__["DOCUMENT"],] }] },
+        { type: String, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"], args: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["PLATFORM_ID"],] }] },
+        { type: String, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"], args: [XSRF_COOKIE_NAME,] }] }
+    ]; };
+    return HttpXsrfCookieExtractor;
+}());
+/**
+ * `HttpInterceptor` which adds an XSRF token to eligible outgoing requests.
+ */
+var HttpXsrfInterceptor = /** @class */ (function () {
+    function HttpXsrfInterceptor(tokenService, headerName) {
+        this.tokenService = tokenService;
+        this.headerName = headerName;
+    }
+    HttpXsrfInterceptor.prototype.intercept = function (req, next) {
+        var lcUrl = req.url.toLowerCase();
+        // Skip both non-mutating requests and absolute URLs.
+        // Non-mutating requests don't require a token, and absolute URLs require special handling
+        // anyway as the cookie set
+        // on our origin is not the same as the token expected by another origin.
+        if (req.method === 'GET' || req.method === 'HEAD' || lcUrl.startsWith('http://') ||
+            lcUrl.startsWith('https://')) {
+            return next.handle(req);
+        }
+        var token = this.tokenService.getToken();
+        // Be careful not to overwrite an existing header of the same name.
+        if (token !== null && !req.headers.has(this.headerName)) {
+            req = req.clone({ headers: req.headers.set(this.headerName, token) });
+        }
+        return next.handle(req);
+    };
+    HttpXsrfInterceptor.decorators = [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"] }
+    ];
+    /** @nocollapse */
+    HttpXsrfInterceptor.ctorParameters = function () { return [
+        { type: HttpXsrfTokenExtractor },
+        { type: String, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"], args: [XSRF_HEADER_NAME,] }] }
+    ]; };
+    return HttpXsrfInterceptor;
+}());
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * An `HttpHandler` that applies a bunch of `HttpInterceptor`s
+ * to a request before passing it to the given `HttpBackend`.
+ *
+ * The interceptors are loaded lazily from the injector, to allow
+ * interceptors to themselves inject classes depending indirectly
+ * on `HttpInterceptingHandler` itself.
+ */
+var HttpInterceptingHandler = /** @class */ (function () {
+    function HttpInterceptingHandler(backend, injector) {
+        this.backend = backend;
+        this.injector = injector;
+        this.chain = null;
+    }
+    HttpInterceptingHandler.prototype.handle = function (req) {
+        if (this.chain === null) {
+            var interceptors = this.injector.get(HTTP_INTERCEPTORS, []);
+            this.chain = interceptors.reduceRight(function (next, interceptor) { return new HttpInterceptorHandler(next, interceptor); }, this.backend);
+        }
+        return this.chain.handle(req);
+    };
+    HttpInterceptingHandler.decorators = [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"] }
+    ];
+    /** @nocollapse */
+    HttpInterceptingHandler.ctorParameters = function () { return [
+        { type: HttpBackend },
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injector"] }
+    ]; };
+    return HttpInterceptingHandler;
+}());
+/**
+ * Factory function that determines where to store JSONP callbacks.
+ *
+ * Ordinarily JSONP callbacks are stored on the `window` object, but this may not exist
+ * in test environments. In that case, callbacks are stored on an anonymous object instead.
+ *
+ *
+ */
+function jsonpCallbackContext() {
+    if (typeof window === 'object') {
+        return window;
+    }
+    return {};
+}
+/**
+ * `NgModule` which adds XSRF protection support to outgoing requests.
+ *
+ * Provided the server supports a cookie-based XSRF protection system, this
+ * module can be used directly to configure XSRF protection with the correct
+ * cookie and header names.
+ *
+ * If no such names are provided, the default is to use `X-XSRF-TOKEN` for
+ * the header name and `XSRF-TOKEN` for the cookie name.
+ *
+ *
+ */
+var HttpClientXsrfModule = /** @class */ (function () {
+    function HttpClientXsrfModule() {
+    }
+    /**
+     * Disable the default XSRF protection.
+     */
+    HttpClientXsrfModule.disable = function () {
+        return {
+            ngModule: HttpClientXsrfModule,
+            providers: [
+                { provide: HttpXsrfInterceptor, useClass: NoopInterceptor },
+            ],
+        };
+    };
+    /**
+     * Configure XSRF protection to use the given cookie name or header name,
+     * or the default names (as described above) if not provided.
+     */
+    HttpClientXsrfModule.withOptions = function (options) {
+        if (options === void 0) { options = {}; }
+        return {
+            ngModule: HttpClientXsrfModule,
+            providers: [
+                options.cookieName ? { provide: XSRF_COOKIE_NAME, useValue: options.cookieName } : [],
+                options.headerName ? { provide: XSRF_HEADER_NAME, useValue: options.headerName } : [],
+            ],
+        };
+    };
+    HttpClientXsrfModule.decorators = [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"], args: [{
+                    providers: [
+                        HttpXsrfInterceptor,
+                        { provide: HTTP_INTERCEPTORS, useExisting: HttpXsrfInterceptor, multi: true },
+                        { provide: HttpXsrfTokenExtractor, useClass: HttpXsrfCookieExtractor },
+                        { provide: XSRF_COOKIE_NAME, useValue: 'XSRF-TOKEN' },
+                        { provide: XSRF_HEADER_NAME, useValue: 'X-XSRF-TOKEN' },
+                    ],
+                },] }
+    ];
+    return HttpClientXsrfModule;
+}());
+/**
+ * `NgModule` which provides the `HttpClient` and associated services.
+ *
+ * Interceptors can be added to the chain behind `HttpClient` by binding them
+ * to the multiprovider for `HTTP_INTERCEPTORS`.
+ *
+ *
+ */
+var HttpClientModule = /** @class */ (function () {
+    function HttpClientModule() {
+    }
+    HttpClientModule.decorators = [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"], args: [{
+                    imports: [
+                        HttpClientXsrfModule.withOptions({
+                            cookieName: 'XSRF-TOKEN',
+                            headerName: 'X-XSRF-TOKEN',
+                        }),
+                    ],
+                    providers: [
+                        HttpClient,
+                        { provide: HttpHandler, useClass: HttpInterceptingHandler },
+                        HttpXhrBackend,
+                        { provide: HttpBackend, useExisting: HttpXhrBackend },
+                        BrowserXhr,
+                        { provide: XhrFactory, useExisting: BrowserXhr },
+                    ],
+                },] }
+    ];
+    return HttpClientModule;
+}());
+/**
+ * `NgModule` which enables JSONP support in `HttpClient`.
+ *
+ * Without this module, Jsonp requests will reach the backend
+ * with method JSONP, where they'll be rejected.
+ *
+ *
+ */
+var HttpClientJsonpModule = /** @class */ (function () {
+    function HttpClientJsonpModule() {
+    }
+    HttpClientJsonpModule.decorators = [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"], args: [{
+                    providers: [
+                        JsonpClientBackend,
+                        { provide: JsonpCallbackContext, useFactory: jsonpCallbackContext },
+                        { provide: HTTP_INTERCEPTORS, useClass: JsonpInterceptor, multi: true },
+                    ],
+                },] }
+    ];
+    return HttpClientJsonpModule;
+}());
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+// This file is not used to build this module. It is only used during editing
+// by the TypeScript language service and during build for verification. `ngc`
+// replaces this file with production index.ts when it rewrites private symbol
+// names.
+
+/**
+ * Generated bundle index. Do not edit.
+ */
+
+
+//# sourceMappingURL=http.js.map
 
 
 /***/ }),
@@ -5744,7 +7737,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removeSummaryDuplicates", function() { return removeSummaryDuplicates; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /**
- * @license Angular v6.0.4
+ * @license Angular v6.0.5
  * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -6074,7 +8067,7 @@ var Version = /** @class */ (function () {
  * @description
  * Entry point for all public APIs of the common package.
  */
-var VERSION = new Version('6.0.4');
+var VERSION = new Version('6.0.5');
 
 /**
  * @license
@@ -29255,7 +31248,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
 /**
- * @license Angular v6.0.4
+ * @license Angular v6.0.5
  * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -30119,7 +32112,7 @@ function forwardRef(forwardRefFn) {
  *
  * Acts as the identity function when given a non-forward-ref value.
  *
- * ### Example ([live demo](http://plnkr.co/edit/GU72mJrk1fiodChcmiDR?p=preview))
+ * ### Example
  *
  * {@example core/di/ts/forward_ref/forward_ref_spec.ts region='resolve_forward_ref'}
  *
@@ -30767,7 +32760,7 @@ var Version = /** @class */ (function () {
     }
     return Version;
 }());
-var VERSION = new Version('6.0.4');
+var VERSION = new Version('6.0.5');
 
 /**
  * @license
@@ -30924,7 +32917,7 @@ function addKey(injector, key) {
  * Thrown when trying to retrieve a dependency by key from {@link Injector}, but the
  * {@link Injector} does not have a {@link Provider} for the given key.
  *
- * ### Example ([live demo](http://plnkr.co/edit/vq8D3FRB9aGbnWJqtEPE?p=preview))
+ * ### Example
  *
  * ```typescript
  * class A {
@@ -30943,7 +32936,7 @@ function noProviderError(injector, key) {
 /**
  * Thrown when dependencies form a cycle.
  *
- * ### Example ([live demo](http://plnkr.co/edit/wYQdNos0Tzql3ei1EV9j?p=info))
+ * ### Example
  *
  * ```typescript
  * var injector = Injector.resolveAndCreate([
@@ -30967,7 +32960,7 @@ function cyclicDependencyError(injector, key) {
  * The `InstantiationError` class contains the original error plus the dependency graph which caused
  * this object to be instantiated.
  *
- * ### Example ([live demo](http://plnkr.co/edit/7aWYdcqTQsP0eNqEdUAf?p=preview))
+ * ### Example
  *
  * ```typescript
  * class A {
@@ -30997,7 +32990,7 @@ function instantiationError(injector, originalException, originalStack, key) {
  * Thrown when an object other then {@link Provider} (or `Type`) is passed to {@link Injector}
  * creation.
  *
- * ### Example ([live demo](http://plnkr.co/edit/YatCFbPAMCL0JSSQ4mvH?p=preview))
+ * ### Example
  *
  * ```typescript
  * expect(() => Injector.resolveAndCreate(["not a type"])).toThrowError();
@@ -31012,7 +33005,7 @@ function invalidProviderError(provider) {
  * Lack of annotation information prevents the {@link Injector} from determining which dependencies
  * need to be injected into the constructor.
  *
- * ### Example ([live demo](http://plnkr.co/edit/rHnZtlNS7vJOPQ6pcVkm?p=preview))
+ * ### Example
  *
  * ```typescript
  * class A {
@@ -31054,7 +33047,7 @@ function noAnnotationError(typeOrFunc, params) {
 /**
  * Thrown when getting an object by index.
  *
- * ### Example ([live demo](http://plnkr.co/edit/bRs0SX2OTQiJzqvjgl8P?p=preview))
+ * ### Example
  *
  * ```typescript
  * class A {}
@@ -31441,7 +33434,7 @@ var UNDEFINED = new Object();
  * In typical use, application code asks for the dependencies in the constructor and they are
  * resolved by the `Injector`.
  *
- * ### Example ([live demo](http://plnkr.co/edit/jzjec0?p=preview))
+ * ### Example
  *
  * The following example creates an `Injector` configured to create `Engine` and `Car`.
  *
@@ -31475,7 +33468,7 @@ var ReflectiveInjector = /** @class */ (function () {
      * A resolution is a process of flattening multiple nested arrays and converting individual
      * providers into an array of {@link ResolvedReflectiveProvider}s.
      *
-     * ### Example ([live demo](http://plnkr.co/edit/AiXTHi?p=preview))
+     * ### Example
      *
      * ```typescript
      * @Injectable()
@@ -31511,7 +33504,7 @@ var ReflectiveInjector = /** @class */ (function () {
      * The passed-in providers can be an array of `Type`, {@link Provider},
      * or a recursive array of more providers.
      *
-     * ### Example ([live demo](http://plnkr.co/edit/ePOccA?p=preview))
+     * ### Example
      *
      * ```typescript
      * @Injectable()
@@ -31541,7 +33534,7 @@ var ReflectiveInjector = /** @class */ (function () {
      *
      * This API is the recommended way to construct injectors in performance-sensitive parts.
      *
-     * ### Example ([live demo](http://plnkr.co/edit/KrSMci?p=preview))
+     * ### Example
      *
      * ```typescript
      * @Injectable()
@@ -33955,7 +35948,7 @@ function getModuleFactory(id) {
  *
  * NOTE: In the future this class will implement an `Observable` interface.
  *
- * ### Example ([live demo](http://plnkr.co/edit/RX8sJnQYl9FWuSCWme5z?p=preview))
+ * ### Example
  * ```typescript
  * @Component({...})
  * class Container {
@@ -43422,7 +45415,7 @@ var ViewRef$1 = /** @class */ (function () {
      *
      * <!-- TODO: Add a link to a chapter on OnPush components -->
      *
-     * ### Example ([live demo](https://stackblitz.com/edit/angular-kx7rrw))
+     * ### Example
      *
      * ```typescript
      * @Component({
@@ -43505,7 +45498,7 @@ var ViewRef$1 = /** @class */ (function () {
      *
      * <!-- TODO: Add a link to a chapter on detach/reattach/local digest -->
      *
-     * ### Example ([live demo](https://stackblitz.com/edit/angular-ymgsxw))
+     * ### Example
      *
      * The following example creates a component displaying `live` data. The component will detach
      * its change detector from the main change detector tree when the component's live property
@@ -45418,7 +47411,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
 /* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
 /**
- * @license Angular v6.0.4
+ * @license Angular v6.0.5
  * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -45855,7 +47848,7 @@ var CachedResourceLoader = /** @class */ (function (_super) {
  * @description
  * Entry point for all public APIs of the common package.
  */
-var VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["Version"]('6.0.4');
+var VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["Version"]('6.0.5');
 
 /**
  * @license
@@ -45968,7 +47961,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /**
- * @license Angular v6.0.4
+ * @license Angular v6.0.5
  * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -48406,7 +50399,7 @@ var By = /** @class */ (function () {
  * @description
  * Entry point for all public APIs of the common package.
  */
-var VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["Version"]('6.0.4');
+var VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["Version"]('6.0.5');
 
 /**
  * @license
@@ -48449,6 +50442,5304 @@ var VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["Version"]('6.0.4')
 
 
 //# sourceMappingURL=platform-browser.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/@angular/router/fesm5/router.js":
+/*!******************************************************!*\
+  !*** ./node_modules/@angular/router/fesm5/router.js ***!
+  \******************************************************/
+/*! exports provided: ɵangular_packages_router_router_a, ɵangular_packages_router_router_g, ɵangular_packages_router_router_h, ɵangular_packages_router_router_i, ɵangular_packages_router_router_d, ɵangular_packages_router_router_c, ɵangular_packages_router_router_j, ɵangular_packages_router_router_f, ɵangular_packages_router_router_b, ɵangular_packages_router_router_e, ɵangular_packages_router_router_k, ɵangular_packages_router_router_l, RouterLink, RouterLinkWithHref, RouterLinkActive, RouterOutlet, ActivationEnd, ActivationStart, ChildActivationEnd, ChildActivationStart, GuardsCheckEnd, GuardsCheckStart, NavigationCancel, NavigationEnd, NavigationError, NavigationStart, ResolveEnd, ResolveStart, RouteConfigLoadEnd, RouteConfigLoadStart, RouterEvent, RoutesRecognized, RouteReuseStrategy, Router, ROUTES, ROUTER_CONFIGURATION, ROUTER_INITIALIZER, RouterModule, provideRoutes, ChildrenOutletContexts, OutletContext, NoPreloading, PreloadAllModules, PreloadingStrategy, RouterPreloader, ActivatedRoute, ActivatedRouteSnapshot, RouterState, RouterStateSnapshot, PRIMARY_OUTLET, convertToParamMap, UrlHandlingStrategy, DefaultUrlSerializer, UrlSegment, UrlSegmentGroup, UrlSerializer, UrlTree, VERSION, ɵEmptyOutletComponent, ɵROUTER_PROVIDERS, ɵflatten */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵangular_packages_router_router_a", function() { return ROUTER_FORROOT_GUARD; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵangular_packages_router_router_g", function() { return RouterInitializer; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵangular_packages_router_router_h", function() { return getAppInitializer; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵangular_packages_router_router_i", function() { return getBootstrapListener; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵangular_packages_router_router_d", function() { return provideForRootGuard; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵangular_packages_router_router_c", function() { return provideLocationStrategy; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵangular_packages_router_router_j", function() { return provideRouterInitializer; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵangular_packages_router_router_f", function() { return rootRoute; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵangular_packages_router_router_b", function() { return routerNgProbeToken; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵangular_packages_router_router_e", function() { return setupRouter; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵangular_packages_router_router_k", function() { return Tree; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵangular_packages_router_router_l", function() { return TreeNode; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RouterLink", function() { return RouterLink; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RouterLinkWithHref", function() { return RouterLinkWithHref; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RouterLinkActive", function() { return RouterLinkActive; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RouterOutlet", function() { return RouterOutlet; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ActivationEnd", function() { return ActivationEnd; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ActivationStart", function() { return ActivationStart; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ChildActivationEnd", function() { return ChildActivationEnd; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ChildActivationStart", function() { return ChildActivationStart; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GuardsCheckEnd", function() { return GuardsCheckEnd; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GuardsCheckStart", function() { return GuardsCheckStart; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NavigationCancel", function() { return NavigationCancel; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NavigationEnd", function() { return NavigationEnd; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NavigationError", function() { return NavigationError; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NavigationStart", function() { return NavigationStart; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ResolveEnd", function() { return ResolveEnd; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ResolveStart", function() { return ResolveStart; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RouteConfigLoadEnd", function() { return RouteConfigLoadEnd; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RouteConfigLoadStart", function() { return RouteConfigLoadStart; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RouterEvent", function() { return RouterEvent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RoutesRecognized", function() { return RoutesRecognized; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RouteReuseStrategy", function() { return RouteReuseStrategy; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Router", function() { return Router; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ROUTES", function() { return ROUTES; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ROUTER_CONFIGURATION", function() { return ROUTER_CONFIGURATION; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ROUTER_INITIALIZER", function() { return ROUTER_INITIALIZER; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RouterModule", function() { return RouterModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "provideRoutes", function() { return provideRoutes; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ChildrenOutletContexts", function() { return ChildrenOutletContexts; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OutletContext", function() { return OutletContext; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NoPreloading", function() { return NoPreloading; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PreloadAllModules", function() { return PreloadAllModules; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PreloadingStrategy", function() { return PreloadingStrategy; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RouterPreloader", function() { return RouterPreloader; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ActivatedRoute", function() { return ActivatedRoute; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ActivatedRouteSnapshot", function() { return ActivatedRouteSnapshot; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RouterState", function() { return RouterState; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RouterStateSnapshot", function() { return RouterStateSnapshot; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PRIMARY_OUTLET", function() { return PRIMARY_OUTLET; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "convertToParamMap", function() { return convertToParamMap; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UrlHandlingStrategy", function() { return UrlHandlingStrategy; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DefaultUrlSerializer", function() { return DefaultUrlSerializer; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UrlSegment", function() { return UrlSegment; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UrlSegmentGroup", function() { return UrlSegmentGroup; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UrlSerializer", function() { return UrlSerializer; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UrlTree", function() { return UrlTree; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "VERSION", function() { return VERSION; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵEmptyOutletComponent", function() { return EmptyOutletComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵROUTER_PROVIDERS", function() { return ROUTER_PROVIDERS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵflatten", function() { return flatten; });
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
+/**
+ * @license Angular v6.0.5
+ * (c) 2010-2018 Google, Inc. https://angular.io/
+ * License: MIT
+ */
+
+
+
+
+
+
+
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * @description
+ *
+ * Base for events the Router goes through, as opposed to events tied to a specific
+ * Route. `RouterEvent`s will only be fired one time for any given navigation.
+ *
+ * Example:
+ *
+ * ```
+ * class MyService {
+ *   constructor(public router: Router, logger: Logger) {
+ *     router.events.filter(e => e instanceof RouterEvent).subscribe(e => {
+ *       logger.log(e.id, e.url);
+ *     });
+ *   }
+ * }
+ * ```
+ *
+ * @experimental
+ */
+var RouterEvent = /** @class */ (function () {
+    function RouterEvent(
+    /** @docsNotRequired */
+    id, 
+    /** @docsNotRequired */
+    url) {
+        this.id = id;
+        this.url = url;
+    }
+    return RouterEvent;
+}());
+/**
+ * @description
+ *
+ * Represents an event triggered when a navigation starts.
+ *
+ *
+ */
+var NavigationStart = /** @class */ (function (_super) {
+    Object(tslib__WEBPACK_IMPORTED_MODULE_2__["__extends"])(NavigationStart, _super);
+    function NavigationStart(
+    /** @docsNotRequired */
+    id, 
+    /** @docsNotRequired */
+    url, 
+    /** @docsNotRequired */
+    navigationTrigger, 
+    /** @docsNotRequired */
+    restoredState) {
+        /** @docsNotRequired */
+        if (navigationTrigger === void 0) { navigationTrigger = 'imperative'; }
+        /** @docsNotRequired */
+        if (restoredState === void 0) { restoredState = null; }
+        var _this = _super.call(this, id, url) || this;
+        _this.navigationTrigger = navigationTrigger;
+        _this.restoredState = restoredState;
+        return _this;
+    }
+    /** @docsNotRequired */
+    NavigationStart.prototype.toString = function () { return "NavigationStart(id: " + this.id + ", url: '" + this.url + "')"; };
+    return NavigationStart;
+}(RouterEvent));
+/**
+ * @description
+ *
+ * Represents an event triggered when a navigation ends successfully.
+ *
+ *
+ */
+var NavigationEnd = /** @class */ (function (_super) {
+    Object(tslib__WEBPACK_IMPORTED_MODULE_2__["__extends"])(NavigationEnd, _super);
+    function NavigationEnd(
+    /** @docsNotRequired */
+    id, 
+    /** @docsNotRequired */
+    url, 
+    /** @docsNotRequired */
+    urlAfterRedirects) {
+        var _this = _super.call(this, id, url) || this;
+        _this.urlAfterRedirects = urlAfterRedirects;
+        return _this;
+    }
+    /** @docsNotRequired */
+    NavigationEnd.prototype.toString = function () {
+        return "NavigationEnd(id: " + this.id + ", url: '" + this.url + "', urlAfterRedirects: '" + this.urlAfterRedirects + "')";
+    };
+    return NavigationEnd;
+}(RouterEvent));
+/**
+ * @description
+ *
+ * Represents an event triggered when a navigation is canceled.
+ *
+ *
+ */
+var NavigationCancel = /** @class */ (function (_super) {
+    Object(tslib__WEBPACK_IMPORTED_MODULE_2__["__extends"])(NavigationCancel, _super);
+    function NavigationCancel(
+    /** @docsNotRequired */
+    id, 
+    /** @docsNotRequired */
+    url, 
+    /** @docsNotRequired */
+    reason) {
+        var _this = _super.call(this, id, url) || this;
+        _this.reason = reason;
+        return _this;
+    }
+    /** @docsNotRequired */
+    NavigationCancel.prototype.toString = function () { return "NavigationCancel(id: " + this.id + ", url: '" + this.url + "')"; };
+    return NavigationCancel;
+}(RouterEvent));
+/**
+ * @description
+ *
+ * Represents an event triggered when a navigation fails due to an unexpected error.
+ *
+ *
+ */
+var NavigationError = /** @class */ (function (_super) {
+    Object(tslib__WEBPACK_IMPORTED_MODULE_2__["__extends"])(NavigationError, _super);
+    function NavigationError(
+    /** @docsNotRequired */
+    id, 
+    /** @docsNotRequired */
+    url, 
+    /** @docsNotRequired */
+    error) {
+        var _this = _super.call(this, id, url) || this;
+        _this.error = error;
+        return _this;
+    }
+    /** @docsNotRequired */
+    NavigationError.prototype.toString = function () {
+        return "NavigationError(id: " + this.id + ", url: '" + this.url + "', error: " + this.error + ")";
+    };
+    return NavigationError;
+}(RouterEvent));
+/**
+ * @description
+ *
+ * Represents an event triggered when routes are recognized.
+ *
+ *
+ */
+var RoutesRecognized = /** @class */ (function (_super) {
+    Object(tslib__WEBPACK_IMPORTED_MODULE_2__["__extends"])(RoutesRecognized, _super);
+    function RoutesRecognized(
+    /** @docsNotRequired */
+    id, 
+    /** @docsNotRequired */
+    url, 
+    /** @docsNotRequired */
+    urlAfterRedirects, 
+    /** @docsNotRequired */
+    state) {
+        var _this = _super.call(this, id, url) || this;
+        _this.urlAfterRedirects = urlAfterRedirects;
+        _this.state = state;
+        return _this;
+    }
+    /** @docsNotRequired */
+    RoutesRecognized.prototype.toString = function () {
+        return "RoutesRecognized(id: " + this.id + ", url: '" + this.url + "', urlAfterRedirects: '" + this.urlAfterRedirects + "', state: " + this.state + ")";
+    };
+    return RoutesRecognized;
+}(RouterEvent));
+/**
+ * @description
+ *
+ * Represents the start of the Guard phase of routing.
+ *
+ * @experimental
+ */
+var GuardsCheckStart = /** @class */ (function (_super) {
+    Object(tslib__WEBPACK_IMPORTED_MODULE_2__["__extends"])(GuardsCheckStart, _super);
+    function GuardsCheckStart(
+    /** @docsNotRequired */
+    id, 
+    /** @docsNotRequired */
+    url, 
+    /** @docsNotRequired */
+    urlAfterRedirects, 
+    /** @docsNotRequired */
+    state) {
+        var _this = _super.call(this, id, url) || this;
+        _this.urlAfterRedirects = urlAfterRedirects;
+        _this.state = state;
+        return _this;
+    }
+    GuardsCheckStart.prototype.toString = function () {
+        return "GuardsCheckStart(id: " + this.id + ", url: '" + this.url + "', urlAfterRedirects: '" + this.urlAfterRedirects + "', state: " + this.state + ")";
+    };
+    return GuardsCheckStart;
+}(RouterEvent));
+/**
+ * @description
+ *
+ * Represents the end of the Guard phase of routing.
+ *
+ * @experimental
+ */
+var GuardsCheckEnd = /** @class */ (function (_super) {
+    Object(tslib__WEBPACK_IMPORTED_MODULE_2__["__extends"])(GuardsCheckEnd, _super);
+    function GuardsCheckEnd(
+    /** @docsNotRequired */
+    id, 
+    /** @docsNotRequired */
+    url, 
+    /** @docsNotRequired */
+    urlAfterRedirects, 
+    /** @docsNotRequired */
+    state, 
+    /** @docsNotRequired */
+    shouldActivate) {
+        var _this = _super.call(this, id, url) || this;
+        _this.urlAfterRedirects = urlAfterRedirects;
+        _this.state = state;
+        _this.shouldActivate = shouldActivate;
+        return _this;
+    }
+    GuardsCheckEnd.prototype.toString = function () {
+        return "GuardsCheckEnd(id: " + this.id + ", url: '" + this.url + "', urlAfterRedirects: '" + this.urlAfterRedirects + "', state: " + this.state + ", shouldActivate: " + this.shouldActivate + ")";
+    };
+    return GuardsCheckEnd;
+}(RouterEvent));
+/**
+ * @description
+ *
+ * Represents the start of the Resolve phase of routing. The timing of this
+ * event may change, thus it's experimental. In the current iteration it will run
+ * in the "resolve" phase whether there's things to resolve or not. In the future this
+ * behavior may change to only run when there are things to be resolved.
+ *
+ * @experimental
+ */
+var ResolveStart = /** @class */ (function (_super) {
+    Object(tslib__WEBPACK_IMPORTED_MODULE_2__["__extends"])(ResolveStart, _super);
+    function ResolveStart(
+    /** @docsNotRequired */
+    id, 
+    /** @docsNotRequired */
+    url, 
+    /** @docsNotRequired */
+    urlAfterRedirects, 
+    /** @docsNotRequired */
+    state) {
+        var _this = _super.call(this, id, url) || this;
+        _this.urlAfterRedirects = urlAfterRedirects;
+        _this.state = state;
+        return _this;
+    }
+    ResolveStart.prototype.toString = function () {
+        return "ResolveStart(id: " + this.id + ", url: '" + this.url + "', urlAfterRedirects: '" + this.urlAfterRedirects + "', state: " + this.state + ")";
+    };
+    return ResolveStart;
+}(RouterEvent));
+/**
+ * @description
+ *
+ * Represents the end of the Resolve phase of routing. See note on
+ * `ResolveStart` for use of this experimental API.
+ *
+ * @experimental
+ */
+var ResolveEnd = /** @class */ (function (_super) {
+    Object(tslib__WEBPACK_IMPORTED_MODULE_2__["__extends"])(ResolveEnd, _super);
+    function ResolveEnd(
+    /** @docsNotRequired */
+    id, 
+    /** @docsNotRequired */
+    url, 
+    /** @docsNotRequired */
+    urlAfterRedirects, 
+    /** @docsNotRequired */
+    state) {
+        var _this = _super.call(this, id, url) || this;
+        _this.urlAfterRedirects = urlAfterRedirects;
+        _this.state = state;
+        return _this;
+    }
+    ResolveEnd.prototype.toString = function () {
+        return "ResolveEnd(id: " + this.id + ", url: '" + this.url + "', urlAfterRedirects: '" + this.urlAfterRedirects + "', state: " + this.state + ")";
+    };
+    return ResolveEnd;
+}(RouterEvent));
+/**
+ * @description
+ *
+ * Represents an event triggered before lazy loading a route config.
+ *
+ * @experimental
+ */
+var RouteConfigLoadStart = /** @class */ (function () {
+    function RouteConfigLoadStart(
+    /** @docsNotRequired */
+    route) {
+        this.route = route;
+    }
+    RouteConfigLoadStart.prototype.toString = function () { return "RouteConfigLoadStart(path: " + this.route.path + ")"; };
+    return RouteConfigLoadStart;
+}());
+/**
+ * @description
+ *
+ * Represents an event triggered when a route has been lazy loaded.
+ *
+ * @experimental
+ */
+var RouteConfigLoadEnd = /** @class */ (function () {
+    function RouteConfigLoadEnd(
+    /** @docsNotRequired */
+    route) {
+        this.route = route;
+    }
+    RouteConfigLoadEnd.prototype.toString = function () { return "RouteConfigLoadEnd(path: " + this.route.path + ")"; };
+    return RouteConfigLoadEnd;
+}());
+/**
+ * @description
+ *
+ * Represents the start of end of the Resolve phase of routing. See note on
+ * `ChildActivationEnd` for use of this experimental API.
+ *
+ * @experimental
+ */
+var ChildActivationStart = /** @class */ (function () {
+    function ChildActivationStart(
+    /** @docsNotRequired */
+    snapshot) {
+        this.snapshot = snapshot;
+    }
+    ChildActivationStart.prototype.toString = function () {
+        var path = this.snapshot.routeConfig && this.snapshot.routeConfig.path || '';
+        return "ChildActivationStart(path: '" + path + "')";
+    };
+    return ChildActivationStart;
+}());
+/**
+ * @description
+ *
+ * Represents the start of end of the Resolve phase of routing. See note on
+ * `ChildActivationStart` for use of this experimental API.
+ *
+ * @experimental
+ */
+var ChildActivationEnd = /** @class */ (function () {
+    function ChildActivationEnd(
+    /** @docsNotRequired */
+    snapshot) {
+        this.snapshot = snapshot;
+    }
+    ChildActivationEnd.prototype.toString = function () {
+        var path = this.snapshot.routeConfig && this.snapshot.routeConfig.path || '';
+        return "ChildActivationEnd(path: '" + path + "')";
+    };
+    return ChildActivationEnd;
+}());
+/**
+ * @description
+ *
+ * Represents the start of end of the Resolve phase of routing. See note on
+ * `ActivationEnd` for use of this experimental API.
+ *
+ * @experimental
+ */
+var ActivationStart = /** @class */ (function () {
+    function ActivationStart(
+    /** @docsNotRequired */
+    snapshot) {
+        this.snapshot = snapshot;
+    }
+    ActivationStart.prototype.toString = function () {
+        var path = this.snapshot.routeConfig && this.snapshot.routeConfig.path || '';
+        return "ActivationStart(path: '" + path + "')";
+    };
+    return ActivationStart;
+}());
+/**
+ * @description
+ *
+ * Represents the start of end of the Resolve phase of routing. See note on
+ * `ActivationStart` for use of this experimental API.
+ *
+ * @experimental
+ */
+var ActivationEnd = /** @class */ (function () {
+    function ActivationEnd(
+    /** @docsNotRequired */
+    snapshot) {
+        this.snapshot = snapshot;
+    }
+    ActivationEnd.prototype.toString = function () {
+        var path = this.snapshot.routeConfig && this.snapshot.routeConfig.path || '';
+        return "ActivationEnd(path: '" + path + "')";
+    };
+    return ActivationEnd;
+}());
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * This component is used internally within the router to be a placeholder when an empty
+ * router-outlet is needed. For example, with a config such as:
+ *
+ * `{path: 'parent', outlet: 'nav', children: [...]}`
+ *
+ * In order to render, there needs to be a component on this config, which will default
+ * to this `EmptyOutletComponent`.
+ */
+var EmptyOutletComponent = /** @class */ (function () {
+    function EmptyOutletComponent() {
+    }
+    EmptyOutletComponent.decorators = [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"], args: [{ template: "<router-outlet></router-outlet>" }] }
+    ];
+    return EmptyOutletComponent;
+}());
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * @description
+ *
+ * Name of the primary outlet.
+ *
+ *
+ */
+var PRIMARY_OUTLET = 'primary';
+var ParamsAsMap = /** @class */ (function () {
+    function ParamsAsMap(params) {
+        this.params = params || {};
+    }
+    ParamsAsMap.prototype.has = function (name) { return this.params.hasOwnProperty(name); };
+    ParamsAsMap.prototype.get = function (name) {
+        if (this.has(name)) {
+            var v = this.params[name];
+            return Array.isArray(v) ? v[0] : v;
+        }
+        return null;
+    };
+    ParamsAsMap.prototype.getAll = function (name) {
+        if (this.has(name)) {
+            var v = this.params[name];
+            return Array.isArray(v) ? v : [v];
+        }
+        return [];
+    };
+    Object.defineProperty(ParamsAsMap.prototype, "keys", {
+        get: function () { return Object.keys(this.params); },
+        enumerable: true,
+        configurable: true
+    });
+    return ParamsAsMap;
+}());
+/**
+ * Convert a `Params` instance to a `ParamMap`.
+ *
+ *
+ */
+function convertToParamMap(params) {
+    return new ParamsAsMap(params);
+}
+var NAVIGATION_CANCELING_ERROR = 'ngNavigationCancelingError';
+function navigationCancelingError(message) {
+    var error = Error('NavigationCancelingError: ' + message);
+    error[NAVIGATION_CANCELING_ERROR] = true;
+    return error;
+}
+function isNavigationCancelingError(error) {
+    return error && error[NAVIGATION_CANCELING_ERROR];
+}
+// Matches the route configuration (`route`) against the actual URL (`segments`).
+function defaultUrlMatcher(segments, segmentGroup, route) {
+    var parts = route.path.split('/');
+    if (parts.length > segments.length) {
+        // The actual URL is shorter than the config, no match
+        return null;
+    }
+    if (route.pathMatch === 'full' &&
+        (segmentGroup.hasChildren() || parts.length < segments.length)) {
+        // The config is longer than the actual URL but we are looking for a full match, return null
+        return null;
+    }
+    var posParams = {};
+    // Check each config part against the actual URL
+    for (var index = 0; index < parts.length; index++) {
+        var part = parts[index];
+        var segment = segments[index];
+        var isParameter = part.startsWith(':');
+        if (isParameter) {
+            posParams[part.substring(1)] = segment;
+        }
+        else if (part !== segment.path) {
+            // The actual URL part does not match the config, no match
+            return null;
+        }
+    }
+    return { consumed: segments.slice(0, parts.length), posParams: posParams };
+}
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+var LoadedRouterConfig = /** @class */ (function () {
+    function LoadedRouterConfig(routes, module) {
+        this.routes = routes;
+        this.module = module;
+    }
+    return LoadedRouterConfig;
+}());
+function validateConfig(config, parentPath) {
+    if (parentPath === void 0) { parentPath = ''; }
+    // forEach doesn't iterate undefined values
+    for (var i = 0; i < config.length; i++) {
+        var route = config[i];
+        var fullPath = getFullPath(parentPath, route);
+        validateNode(route, fullPath);
+    }
+}
+function validateNode(route, fullPath) {
+    if (!route) {
+        throw new Error("\n      Invalid configuration of route '" + fullPath + "': Encountered undefined route.\n      The reason might be an extra comma.\n\n      Example:\n      const routes: Routes = [\n        { path: '', redirectTo: '/dashboard', pathMatch: 'full' },\n        { path: 'dashboard',  component: DashboardComponent },, << two commas\n        { path: 'detail/:id', component: HeroDetailComponent }\n      ];\n    ");
+    }
+    if (Array.isArray(route)) {
+        throw new Error("Invalid configuration of route '" + fullPath + "': Array cannot be specified");
+    }
+    if (!route.component && !route.children && !route.loadChildren &&
+        (route.outlet && route.outlet !== PRIMARY_OUTLET)) {
+        throw new Error("Invalid configuration of route '" + fullPath + "': a componentless route without children or loadChildren cannot have a named outlet set");
+    }
+    if (route.redirectTo && route.children) {
+        throw new Error("Invalid configuration of route '" + fullPath + "': redirectTo and children cannot be used together");
+    }
+    if (route.redirectTo && route.loadChildren) {
+        throw new Error("Invalid configuration of route '" + fullPath + "': redirectTo and loadChildren cannot be used together");
+    }
+    if (route.children && route.loadChildren) {
+        throw new Error("Invalid configuration of route '" + fullPath + "': children and loadChildren cannot be used together");
+    }
+    if (route.redirectTo && route.component) {
+        throw new Error("Invalid configuration of route '" + fullPath + "': redirectTo and component cannot be used together");
+    }
+    if (route.path && route.matcher) {
+        throw new Error("Invalid configuration of route '" + fullPath + "': path and matcher cannot be used together");
+    }
+    if (route.redirectTo === void 0 && !route.component && !route.children && !route.loadChildren) {
+        throw new Error("Invalid configuration of route '" + fullPath + "'. One of the following must be provided: component, redirectTo, children or loadChildren");
+    }
+    if (route.path === void 0 && route.matcher === void 0) {
+        throw new Error("Invalid configuration of route '" + fullPath + "': routes must have either a path or a matcher specified");
+    }
+    if (typeof route.path === 'string' && route.path.charAt(0) === '/') {
+        throw new Error("Invalid configuration of route '" + fullPath + "': path cannot start with a slash");
+    }
+    if (route.path === '' && route.redirectTo !== void 0 && route.pathMatch === void 0) {
+        var exp = "The default value of 'pathMatch' is 'prefix', but often the intent is to use 'full'.";
+        throw new Error("Invalid configuration of route '{path: \"" + fullPath + "\", redirectTo: \"" + route.redirectTo + "\"}': please provide 'pathMatch'. " + exp);
+    }
+    if (route.pathMatch !== void 0 && route.pathMatch !== 'full' && route.pathMatch !== 'prefix') {
+        throw new Error("Invalid configuration of route '" + fullPath + "': pathMatch can only be set to 'prefix' or 'full'");
+    }
+    if (route.children) {
+        validateConfig(route.children, fullPath);
+    }
+}
+function getFullPath(parentPath, currentRoute) {
+    if (!currentRoute) {
+        return parentPath;
+    }
+    if (!parentPath && !currentRoute.path) {
+        return '';
+    }
+    else if (parentPath && !currentRoute.path) {
+        return parentPath + "/";
+    }
+    else if (!parentPath && currentRoute.path) {
+        return currentRoute.path;
+    }
+    else {
+        return parentPath + "/" + currentRoute.path;
+    }
+}
+/**
+ * Makes a copy of the config and adds any default required properties.
+ */
+function standardizeConfig(r) {
+    var children = r.children && r.children.map(standardizeConfig);
+    var c = children ? Object(tslib__WEBPACK_IMPORTED_MODULE_2__["__assign"])({}, r, { children: children }) : Object(tslib__WEBPACK_IMPORTED_MODULE_2__["__assign"])({}, r);
+    if (!c.component && (children || c.loadChildren) && (c.outlet && c.outlet !== PRIMARY_OUTLET)) {
+        c.component = EmptyOutletComponent;
+    }
+    return c;
+}
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+function shallowEqualArrays(a, b) {
+    if (a.length !== b.length)
+        return false;
+    for (var i = 0; i < a.length; ++i) {
+        if (!shallowEqual(a[i], b[i]))
+            return false;
+    }
+    return true;
+}
+function shallowEqual(a, b) {
+    var k1 = Object.keys(a);
+    var k2 = Object.keys(b);
+    if (k1.length != k2.length) {
+        return false;
+    }
+    var key;
+    for (var i = 0; i < k1.length; i++) {
+        key = k1[i];
+        if (a[key] !== b[key]) {
+            return false;
+        }
+    }
+    return true;
+}
+/**
+ * Flattens single-level nested arrays.
+ */
+function flatten(arr) {
+    return Array.prototype.concat.apply([], arr);
+}
+/**
+ * Return the last element of an array.
+ */
+function last$1(a) {
+    return a.length > 0 ? a[a.length - 1] : null;
+}
+/**
+ * Verifys all booleans in an array are `true`.
+ */
+
+function forEach(map$$1, callback) {
+    for (var prop in map$$1) {
+        if (map$$1.hasOwnProperty(prop)) {
+            callback(map$$1[prop], prop);
+        }
+    }
+}
+function waitForMap(obj, fn) {
+    if (Object.keys(obj).length === 0) {
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])({});
+    }
+    var waitHead = [];
+    var waitTail = [];
+    var res = {};
+    forEach(obj, function (a, k) {
+        var mapped = fn(k, a).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (r) { return res[k] = r; }));
+        if (k === PRIMARY_OUTLET) {
+            waitHead.push(mapped);
+        }
+        else {
+            waitTail.push(mapped);
+        }
+    });
+    // Closure compiler has problem with using spread operator here. So just using Array.concat.
+    return rxjs__WEBPACK_IMPORTED_MODULE_3__["of"].apply(null, waitHead.concat(waitTail)).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["concatAll"])(), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["last"])(), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function () { return res; }));
+}
+/**
+ * ANDs Observables by merging all input observables, reducing to an Observable verifying all
+ * input Observables return `true`.
+ */
+function andObservables(observables) {
+    return observables.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["mergeAll"])(), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["every"])(function (result) { return result === true; }));
+}
+function wrapIntoObservable(value) {
+    if (Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵisObservable"])(value)) {
+        return value;
+    }
+    if (Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵisPromise"])(value)) {
+        // Use `Promise.resolve()` to wrap promise-like instances.
+        // Required ie when a Resolver returns a AngularJS `$q` promise to correctly trigger the
+        // change detection.
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["from"])(Promise.resolve(value));
+    }
+    return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(value);
+}
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+function createEmptyUrlTree() {
+    return new UrlTree(new UrlSegmentGroup([], {}), {}, null);
+}
+function containsTree(container, containee, exact) {
+    if (exact) {
+        return equalQueryParams(container.queryParams, containee.queryParams) &&
+            equalSegmentGroups(container.root, containee.root);
+    }
+    return containsQueryParams(container.queryParams, containee.queryParams) &&
+        containsSegmentGroup(container.root, containee.root);
+}
+function equalQueryParams(container, containee) {
+    return shallowEqual(container, containee);
+}
+function equalSegmentGroups(container, containee) {
+    if (!equalPath(container.segments, containee.segments))
+        return false;
+    if (container.numberOfChildren !== containee.numberOfChildren)
+        return false;
+    for (var c in containee.children) {
+        if (!container.children[c])
+            return false;
+        if (!equalSegmentGroups(container.children[c], containee.children[c]))
+            return false;
+    }
+    return true;
+}
+function containsQueryParams(container, containee) {
+    return Object.keys(containee).length <= Object.keys(container).length &&
+        Object.keys(containee).every(function (key) { return containee[key] === container[key]; });
+}
+function containsSegmentGroup(container, containee) {
+    return containsSegmentGroupHelper(container, containee, containee.segments);
+}
+function containsSegmentGroupHelper(container, containee, containeePaths) {
+    if (container.segments.length > containeePaths.length) {
+        var current = container.segments.slice(0, containeePaths.length);
+        if (!equalPath(current, containeePaths))
+            return false;
+        if (containee.hasChildren())
+            return false;
+        return true;
+    }
+    else if (container.segments.length === containeePaths.length) {
+        if (!equalPath(container.segments, containeePaths))
+            return false;
+        for (var c in containee.children) {
+            if (!container.children[c])
+                return false;
+            if (!containsSegmentGroup(container.children[c], containee.children[c]))
+                return false;
+        }
+        return true;
+    }
+    else {
+        var current = containeePaths.slice(0, container.segments.length);
+        var next = containeePaths.slice(container.segments.length);
+        if (!equalPath(container.segments, current))
+            return false;
+        if (!container.children[PRIMARY_OUTLET])
+            return false;
+        return containsSegmentGroupHelper(container.children[PRIMARY_OUTLET], containee, next);
+    }
+}
+/**
+ * @description
+ *
+ * Represents the parsed URL.
+ *
+ * Since a router state is a tree, and the URL is nothing but a serialized state, the URL is a
+ * serialized tree.
+ * UrlTree is a data structure that provides a lot of affordances in dealing with URLs
+ *
+ * ### Example
+ *
+ * ```
+ * @Component({templateUrl:'template.html'})
+ * class MyComponent {
+ *   constructor(router: Router) {
+ *     const tree: UrlTree =
+ *       router.parseUrl('/team/33/(user/victor//support:help)?debug=true#fragment');
+ *     const f = tree.fragment; // return 'fragment'
+ *     const q = tree.queryParams; // returns {debug: 'true'}
+ *     const g: UrlSegmentGroup = tree.root.children[PRIMARY_OUTLET];
+ *     const s: UrlSegment[] = g.segments; // returns 2 segments 'team' and '33'
+ *     g.children[PRIMARY_OUTLET].segments; // returns 2 segments 'user' and 'victor'
+ *     g.children['support'].segments; // return 1 segment 'help'
+ *   }
+ * }
+ * ```
+ *
+ *
+ */
+var UrlTree = /** @class */ (function () {
+    /** @internal */
+    function UrlTree(
+    /** The root segment group of the URL tree */
+    root, 
+    /** The query params of the URL */
+    queryParams, 
+    /** The fragment of the URL */
+    fragment) {
+        this.root = root;
+        this.queryParams = queryParams;
+        this.fragment = fragment;
+    }
+    Object.defineProperty(UrlTree.prototype, "queryParamMap", {
+        get: function () {
+            if (!this._queryParamMap) {
+                this._queryParamMap = convertToParamMap(this.queryParams);
+            }
+            return this._queryParamMap;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    /** @docsNotRequired */
+    UrlTree.prototype.toString = function () { return DEFAULT_SERIALIZER.serialize(this); };
+    return UrlTree;
+}());
+/**
+ * @description
+ *
+ * Represents the parsed URL segment group.
+ *
+ * See `UrlTree` for more information.
+ *
+ *
+ */
+var UrlSegmentGroup = /** @class */ (function () {
+    function UrlSegmentGroup(
+    /** The URL segments of this group. See `UrlSegment` for more information */
+    segments, 
+    /** The list of children of this group */
+    children) {
+        var _this = this;
+        this.segments = segments;
+        this.children = children;
+        /** The parent node in the url tree */
+        this.parent = null;
+        forEach(children, function (v, k) { return v.parent = _this; });
+    }
+    /** Whether the segment has child segments */
+    UrlSegmentGroup.prototype.hasChildren = function () { return this.numberOfChildren > 0; };
+    Object.defineProperty(UrlSegmentGroup.prototype, "numberOfChildren", {
+        /** Number of child segments */
+        get: function () { return Object.keys(this.children).length; },
+        enumerable: true,
+        configurable: true
+    });
+    /** @docsNotRequired */
+    UrlSegmentGroup.prototype.toString = function () { return serializePaths(this); };
+    return UrlSegmentGroup;
+}());
+/**
+ * @description
+ *
+ * Represents a single URL segment.
+ *
+ * A UrlSegment is a part of a URL between the two slashes. It contains a path and the matrix
+ * parameters associated with the segment.
+ *
+ * ## Example
+ *
+ * ```
+ * @Component({templateUrl:'template.html'})
+ * class MyComponent {
+ *   constructor(router: Router) {
+ *     const tree: UrlTree = router.parseUrl('/team;id=33');
+ *     const g: UrlSegmentGroup = tree.root.children[PRIMARY_OUTLET];
+ *     const s: UrlSegment[] = g.segments;
+ *     s[0].path; // returns 'team'
+ *     s[0].parameters; // returns {id: 33}
+ *   }
+ * }
+ * ```
+ *
+ *
+ */
+var UrlSegment = /** @class */ (function () {
+    function UrlSegment(
+    /** The path part of a URL segment */
+    path, 
+    /** The matrix parameters associated with a segment */
+    parameters) {
+        this.path = path;
+        this.parameters = parameters;
+    }
+    Object.defineProperty(UrlSegment.prototype, "parameterMap", {
+        get: function () {
+            if (!this._parameterMap) {
+                this._parameterMap = convertToParamMap(this.parameters);
+            }
+            return this._parameterMap;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    /** @docsNotRequired */
+    UrlSegment.prototype.toString = function () { return serializePath(this); };
+    return UrlSegment;
+}());
+function equalSegments(as, bs) {
+    return equalPath(as, bs) && as.every(function (a, i) { return shallowEqual(a.parameters, bs[i].parameters); });
+}
+function equalPath(as, bs) {
+    if (as.length !== bs.length)
+        return false;
+    return as.every(function (a, i) { return a.path === bs[i].path; });
+}
+function mapChildrenIntoArray(segment, fn) {
+    var res = [];
+    forEach(segment.children, function (child, childOutlet) {
+        if (childOutlet === PRIMARY_OUTLET) {
+            res = res.concat(fn(child, childOutlet));
+        }
+    });
+    forEach(segment.children, function (child, childOutlet) {
+        if (childOutlet !== PRIMARY_OUTLET) {
+            res = res.concat(fn(child, childOutlet));
+        }
+    });
+    return res;
+}
+/**
+ * @description
+ *
+ * Serializes and deserializes a URL string into a URL tree.
+ *
+ * The url serialization strategy is customizable. You can
+ * make all URLs case insensitive by providing a custom UrlSerializer.
+ *
+ * See `DefaultUrlSerializer` for an example of a URL serializer.
+ *
+ *
+ */
+var UrlSerializer = /** @class */ (function () {
+    function UrlSerializer() {
+    }
+    return UrlSerializer;
+}());
+/**
+ * @description
+ *
+ * A default implementation of the `UrlSerializer`.
+ *
+ * Example URLs:
+ *
+ * ```
+ * /inbox/33(popup:compose)
+ * /inbox/33;open=true/messages/44
+ * ```
+ *
+ * DefaultUrlSerializer uses parentheses to serialize secondary segments (e.g., popup:compose), the
+ * colon syntax to specify the outlet, and the ';parameter=value' syntax (e.g., open=true) to
+ * specify route specific parameters.
+ *
+ *
+ */
+var DefaultUrlSerializer = /** @class */ (function () {
+    function DefaultUrlSerializer() {
+    }
+    /** Parses a url into a `UrlTree` */
+    DefaultUrlSerializer.prototype.parse = function (url) {
+        var p = new UrlParser(url);
+        return new UrlTree(p.parseRootSegment(), p.parseQueryParams(), p.parseFragment());
+    };
+    /** Converts a `UrlTree` into a url */
+    DefaultUrlSerializer.prototype.serialize = function (tree) {
+        var segment = "/" + serializeSegment(tree.root, true);
+        var query = serializeQueryParams(tree.queryParams);
+        var fragment = typeof tree.fragment === "string" ? "#" + encodeUriFragment(tree.fragment) : '';
+        return "" + segment + query + fragment;
+    };
+    return DefaultUrlSerializer;
+}());
+var DEFAULT_SERIALIZER = new DefaultUrlSerializer();
+function serializePaths(segment) {
+    return segment.segments.map(function (p) { return serializePath(p); }).join('/');
+}
+function serializeSegment(segment, root) {
+    if (!segment.hasChildren()) {
+        return serializePaths(segment);
+    }
+    if (root) {
+        var primary = segment.children[PRIMARY_OUTLET] ?
+            serializeSegment(segment.children[PRIMARY_OUTLET], false) :
+            '';
+        var children_1 = [];
+        forEach(segment.children, function (v, k) {
+            if (k !== PRIMARY_OUTLET) {
+                children_1.push(k + ":" + serializeSegment(v, false));
+            }
+        });
+        return children_1.length > 0 ? primary + "(" + children_1.join('//') + ")" : primary;
+    }
+    else {
+        var children = mapChildrenIntoArray(segment, function (v, k) {
+            if (k === PRIMARY_OUTLET) {
+                return [serializeSegment(segment.children[PRIMARY_OUTLET], false)];
+            }
+            return [k + ":" + serializeSegment(v, false)];
+        });
+        return serializePaths(segment) + "/(" + children.join('//') + ")";
+    }
+}
+/**
+ * Encodes a URI string with the default encoding. This function will only ever be called from
+ * `encodeUriQuery` or `encodeUriSegment` as it's the base set of encodings to be used. We need
+ * a custom encoding because encodeURIComponent is too aggressive and encodes stuff that doesn't
+ * have to be encoded per https://url.spec.whatwg.org.
+ */
+function encodeUriString(s) {
+    return encodeURIComponent(s)
+        .replace(/%40/g, '@')
+        .replace(/%3A/gi, ':')
+        .replace(/%24/g, '$')
+        .replace(/%2C/gi, ',');
+}
+/**
+ * This function should be used to encode both keys and values in a query string key/value. In
+ * the following URL, you need to call encodeUriQuery on "k" and "v":
+ *
+ * http://www.site.org/html;mk=mv?k=v#f
+ */
+function encodeUriQuery(s) {
+    return encodeUriString(s).replace(/%3B/gi, ';');
+}
+/**
+ * This function should be used to encode a URL fragment. In the following URL, you need to call
+ * encodeUriFragment on "f":
+ *
+ * http://www.site.org/html;mk=mv?k=v#f
+ */
+function encodeUriFragment(s) {
+    return encodeURI(s);
+}
+/**
+ * This function should be run on any URI segment as well as the key and value in a key/value
+ * pair for matrix params. In the following URL, you need to call encodeUriSegment on "html",
+ * "mk", and "mv":
+ *
+ * http://www.site.org/html;mk=mv?k=v#f
+ */
+function encodeUriSegment(s) {
+    return encodeUriString(s).replace(/\(/g, '%28').replace(/\)/g, '%29').replace(/%26/gi, '&');
+}
+function decode(s) {
+    return decodeURIComponent(s);
+}
+// Query keys/values should have the "+" replaced first, as "+" in a query string is " ".
+// decodeURIComponent function will not decode "+" as a space.
+function decodeQuery(s) {
+    return decode(s.replace(/\+/g, '%20'));
+}
+function serializePath(path) {
+    return "" + encodeUriSegment(path.path) + serializeMatrixParams(path.parameters);
+}
+function serializeMatrixParams(params) {
+    return Object.keys(params)
+        .map(function (key) { return ";" + encodeUriSegment(key) + "=" + encodeUriSegment(params[key]); })
+        .join('');
+}
+function serializeQueryParams(params) {
+    var strParams = Object.keys(params).map(function (name) {
+        var value = params[name];
+        return Array.isArray(value) ?
+            value.map(function (v) { return encodeUriQuery(name) + "=" + encodeUriQuery(v); }).join('&') :
+            encodeUriQuery(name) + "=" + encodeUriQuery(value);
+    });
+    return strParams.length ? "?" + strParams.join("&") : '';
+}
+var SEGMENT_RE = /^[^\/()?;=#]+/;
+function matchSegments(str) {
+    var match = str.match(SEGMENT_RE);
+    return match ? match[0] : '';
+}
+var QUERY_PARAM_RE = /^[^=?&#]+/;
+// Return the name of the query param at the start of the string or an empty string
+function matchQueryParams(str) {
+    var match = str.match(QUERY_PARAM_RE);
+    return match ? match[0] : '';
+}
+var QUERY_PARAM_VALUE_RE = /^[^?&#]+/;
+// Return the value of the query param at the start of the string or an empty string
+function matchUrlQueryParamValue(str) {
+    var match = str.match(QUERY_PARAM_VALUE_RE);
+    return match ? match[0] : '';
+}
+var UrlParser = /** @class */ (function () {
+    function UrlParser(url) {
+        this.url = url;
+        this.remaining = url;
+    }
+    UrlParser.prototype.parseRootSegment = function () {
+        this.consumeOptional('/');
+        if (this.remaining === '' || this.peekStartsWith('?') || this.peekStartsWith('#')) {
+            return new UrlSegmentGroup([], {});
+        }
+        // The root segment group never has segments
+        return new UrlSegmentGroup([], this.parseChildren());
+    };
+    UrlParser.prototype.parseQueryParams = function () {
+        var params = {};
+        if (this.consumeOptional('?')) {
+            do {
+                this.parseQueryParam(params);
+            } while (this.consumeOptional('&'));
+        }
+        return params;
+    };
+    UrlParser.prototype.parseFragment = function () {
+        return this.consumeOptional('#') ? decodeURIComponent(this.remaining) : null;
+    };
+    UrlParser.prototype.parseChildren = function () {
+        if (this.remaining === '') {
+            return {};
+        }
+        this.consumeOptional('/');
+        var segments = [];
+        if (!this.peekStartsWith('(')) {
+            segments.push(this.parseSegment());
+        }
+        while (this.peekStartsWith('/') && !this.peekStartsWith('//') && !this.peekStartsWith('/(')) {
+            this.capture('/');
+            segments.push(this.parseSegment());
+        }
+        var children = {};
+        if (this.peekStartsWith('/(')) {
+            this.capture('/');
+            children = this.parseParens(true);
+        }
+        var res = {};
+        if (this.peekStartsWith('(')) {
+            res = this.parseParens(false);
+        }
+        if (segments.length > 0 || Object.keys(children).length > 0) {
+            res[PRIMARY_OUTLET] = new UrlSegmentGroup(segments, children);
+        }
+        return res;
+    };
+    // parse a segment with its matrix parameters
+    // ie `name;k1=v1;k2`
+    UrlParser.prototype.parseSegment = function () {
+        var path = matchSegments(this.remaining);
+        if (path === '' && this.peekStartsWith(';')) {
+            throw new Error("Empty path url segment cannot have parameters: '" + this.remaining + "'.");
+        }
+        this.capture(path);
+        return new UrlSegment(decode(path), this.parseMatrixParams());
+    };
+    UrlParser.prototype.parseMatrixParams = function () {
+        var params = {};
+        while (this.consumeOptional(';')) {
+            this.parseParam(params);
+        }
+        return params;
+    };
+    UrlParser.prototype.parseParam = function (params) {
+        var key = matchSegments(this.remaining);
+        if (!key) {
+            return;
+        }
+        this.capture(key);
+        var value = '';
+        if (this.consumeOptional('=')) {
+            var valueMatch = matchSegments(this.remaining);
+            if (valueMatch) {
+                value = valueMatch;
+                this.capture(value);
+            }
+        }
+        params[decode(key)] = decode(value);
+    };
+    // Parse a single query parameter `name[=value]`
+    UrlParser.prototype.parseQueryParam = function (params) {
+        var key = matchQueryParams(this.remaining);
+        if (!key) {
+            return;
+        }
+        this.capture(key);
+        var value = '';
+        if (this.consumeOptional('=')) {
+            var valueMatch = matchUrlQueryParamValue(this.remaining);
+            if (valueMatch) {
+                value = valueMatch;
+                this.capture(value);
+            }
+        }
+        var decodedKey = decodeQuery(key);
+        var decodedVal = decodeQuery(value);
+        if (params.hasOwnProperty(decodedKey)) {
+            // Append to existing values
+            var currentVal = params[decodedKey];
+            if (!Array.isArray(currentVal)) {
+                currentVal = [currentVal];
+                params[decodedKey] = currentVal;
+            }
+            currentVal.push(decodedVal);
+        }
+        else {
+            // Create a new value
+            params[decodedKey] = decodedVal;
+        }
+    };
+    // parse `(a/b//outlet_name:c/d)`
+    UrlParser.prototype.parseParens = function (allowPrimary) {
+        var segments = {};
+        this.capture('(');
+        while (!this.consumeOptional(')') && this.remaining.length > 0) {
+            var path = matchSegments(this.remaining);
+            var next = this.remaining[path.length];
+            // if is is not one of these characters, then the segment was unescaped
+            // or the group was not closed
+            if (next !== '/' && next !== ')' && next !== ';') {
+                throw new Error("Cannot parse url '" + this.url + "'");
+            }
+            var outletName = undefined;
+            if (path.indexOf(':') > -1) {
+                outletName = path.substr(0, path.indexOf(':'));
+                this.capture(outletName);
+                this.capture(':');
+            }
+            else if (allowPrimary) {
+                outletName = PRIMARY_OUTLET;
+            }
+            var children = this.parseChildren();
+            segments[outletName] = Object.keys(children).length === 1 ? children[PRIMARY_OUTLET] :
+                new UrlSegmentGroup([], children);
+            this.consumeOptional('//');
+        }
+        return segments;
+    };
+    UrlParser.prototype.peekStartsWith = function (str) { return this.remaining.startsWith(str); };
+    // Consumes the prefix when it is present and returns whether it has been consumed
+    UrlParser.prototype.consumeOptional = function (str) {
+        if (this.peekStartsWith(str)) {
+            this.remaining = this.remaining.substring(str.length);
+            return true;
+        }
+        return false;
+    };
+    UrlParser.prototype.capture = function (str) {
+        if (!this.consumeOptional(str)) {
+            throw new Error("Expected \"" + str + "\".");
+        }
+    };
+    return UrlParser;
+}());
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+var NoMatch = /** @class */ (function () {
+    function NoMatch(segmentGroup) {
+        this.segmentGroup = segmentGroup || null;
+    }
+    return NoMatch;
+}());
+var AbsoluteRedirect = /** @class */ (function () {
+    function AbsoluteRedirect(urlTree) {
+        this.urlTree = urlTree;
+    }
+    return AbsoluteRedirect;
+}());
+function noMatch(segmentGroup) {
+    return new rxjs__WEBPACK_IMPORTED_MODULE_3__["Observable"](function (obs) { return obs.error(new NoMatch(segmentGroup)); });
+}
+function absoluteRedirect(newTree) {
+    return new rxjs__WEBPACK_IMPORTED_MODULE_3__["Observable"](function (obs) { return obs.error(new AbsoluteRedirect(newTree)); });
+}
+function namedOutletsRedirect(redirectTo) {
+    return new rxjs__WEBPACK_IMPORTED_MODULE_3__["Observable"](function (obs) { return obs.error(new Error("Only absolute redirects can have named outlets. redirectTo: '" + redirectTo + "'")); });
+}
+function canLoadFails(route) {
+    return new rxjs__WEBPACK_IMPORTED_MODULE_3__["Observable"](function (obs) { return obs.error(navigationCancelingError("Cannot load children because the guard of the route \"path: '" + route.path + "'\" returned false")); });
+}
+/**
+ * Returns the `UrlTree` with the redirection applied.
+ *
+ * Lazy modules are loaded along the way.
+ */
+function applyRedirects(moduleInjector, configLoader, urlSerializer, urlTree, config) {
+    return new ApplyRedirects(moduleInjector, configLoader, urlSerializer, urlTree, config).apply();
+}
+var ApplyRedirects = /** @class */ (function () {
+    function ApplyRedirects(moduleInjector, configLoader, urlSerializer, urlTree, config) {
+        this.configLoader = configLoader;
+        this.urlSerializer = urlSerializer;
+        this.urlTree = urlTree;
+        this.config = config;
+        this.allowRedirects = true;
+        this.ngModule = moduleInjector.get(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModuleRef"]);
+    }
+    ApplyRedirects.prototype.apply = function () {
+        var _this = this;
+        var expanded$ = this.expandSegmentGroup(this.ngModule, this.config, this.urlTree.root, PRIMARY_OUTLET);
+        var urlTrees$ = expanded$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (rootSegmentGroup) { return _this.createUrlTree(rootSegmentGroup, _this.urlTree.queryParams, _this.urlTree.fragment); }));
+        return urlTrees$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(function (e) {
+            if (e instanceof AbsoluteRedirect) {
+                // after an absolute redirect we do not apply any more redirects!
+                _this.allowRedirects = false;
+                // we need to run matching, so we can fetch all lazy-loaded modules
+                return _this.match(e.urlTree);
+            }
+            if (e instanceof NoMatch) {
+                throw _this.noMatchError(e);
+            }
+            throw e;
+        }));
+    };
+    ApplyRedirects.prototype.match = function (tree) {
+        var _this = this;
+        var expanded$ = this.expandSegmentGroup(this.ngModule, this.config, tree.root, PRIMARY_OUTLET);
+        var mapped$ = expanded$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (rootSegmentGroup) {
+            return _this.createUrlTree(rootSegmentGroup, tree.queryParams, tree.fragment);
+        }));
+        return mapped$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(function (e) {
+            if (e instanceof NoMatch) {
+                throw _this.noMatchError(e);
+            }
+            throw e;
+        }));
+    };
+    ApplyRedirects.prototype.noMatchError = function (e) {
+        return new Error("Cannot match any routes. URL Segment: '" + e.segmentGroup + "'");
+    };
+    ApplyRedirects.prototype.createUrlTree = function (rootCandidate, queryParams, fragment) {
+        var root = rootCandidate.segments.length > 0 ?
+            new UrlSegmentGroup([], (_a = {}, _a[PRIMARY_OUTLET] = rootCandidate, _a)) :
+            rootCandidate;
+        return new UrlTree(root, queryParams, fragment);
+        var _a;
+    };
+    ApplyRedirects.prototype.expandSegmentGroup = function (ngModule, routes, segmentGroup, outlet) {
+        if (segmentGroup.segments.length === 0 && segmentGroup.hasChildren()) {
+            return this.expandChildren(ngModule, routes, segmentGroup)
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (children) { return new UrlSegmentGroup([], children); }));
+        }
+        return this.expandSegment(ngModule, segmentGroup, routes, segmentGroup.segments, outlet, true);
+    };
+    // Recursively expand segment groups for all the child outlets
+    ApplyRedirects.prototype.expandChildren = function (ngModule, routes, segmentGroup) {
+        var _this = this;
+        return waitForMap(segmentGroup.children, function (childOutlet, child) { return _this.expandSegmentGroup(ngModule, routes, child, childOutlet); });
+    };
+    ApplyRedirects.prototype.expandSegment = function (ngModule, segmentGroup, routes, segments, outlet, allowRedirects) {
+        var _this = this;
+        return rxjs__WEBPACK_IMPORTED_MODULE_3__["of"].apply(void 0, Object(tslib__WEBPACK_IMPORTED_MODULE_2__["__spread"])(routes)).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (r) {
+            var expanded$ = _this.expandSegmentAgainstRoute(ngModule, segmentGroup, routes, r, segments, outlet, allowRedirects);
+            return expanded$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(function (e) {
+                if (e instanceof NoMatch) {
+                    // TODO(i): this return type doesn't match the declared Observable<UrlSegmentGroup> -
+                    // talk to Jason
+                    return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(null);
+                }
+                throw e;
+            }));
+        }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["concatAll"])(), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["first"])(function (s) { return !!s; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(function (e, _) {
+            if (e instanceof rxjs__WEBPACK_IMPORTED_MODULE_3__["EmptyError"] || e.name === 'EmptyError') {
+                if (_this.noLeftoversInUrl(segmentGroup, segments, outlet)) {
+                    return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(new UrlSegmentGroup([], {}));
+                }
+                throw new NoMatch(segmentGroup);
+            }
+            throw e;
+        }));
+    };
+    ApplyRedirects.prototype.noLeftoversInUrl = function (segmentGroup, segments, outlet) {
+        return segments.length === 0 && !segmentGroup.children[outlet];
+    };
+    ApplyRedirects.prototype.expandSegmentAgainstRoute = function (ngModule, segmentGroup, routes, route, paths, outlet, allowRedirects) {
+        if (getOutlet(route) !== outlet) {
+            return noMatch(segmentGroup);
+        }
+        if (route.redirectTo === undefined) {
+            return this.matchSegmentAgainstRoute(ngModule, segmentGroup, route, paths);
+        }
+        if (allowRedirects && this.allowRedirects) {
+            return this.expandSegmentAgainstRouteUsingRedirect(ngModule, segmentGroup, routes, route, paths, outlet);
+        }
+        return noMatch(segmentGroup);
+    };
+    ApplyRedirects.prototype.expandSegmentAgainstRouteUsingRedirect = function (ngModule, segmentGroup, routes, route, segments, outlet) {
+        if (route.path === '**') {
+            return this.expandWildCardWithParamsAgainstRouteUsingRedirect(ngModule, routes, route, outlet);
+        }
+        return this.expandRegularSegmentAgainstRouteUsingRedirect(ngModule, segmentGroup, routes, route, segments, outlet);
+    };
+    ApplyRedirects.prototype.expandWildCardWithParamsAgainstRouteUsingRedirect = function (ngModule, routes, route, outlet) {
+        var _this = this;
+        var newTree = this.applyRedirectCommands([], route.redirectTo, {});
+        if (route.redirectTo.startsWith('/')) {
+            return absoluteRedirect(newTree);
+        }
+        return this.lineralizeSegments(route, newTree).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["mergeMap"])(function (newSegments) {
+            var group = new UrlSegmentGroup(newSegments, {});
+            return _this.expandSegment(ngModule, group, routes, newSegments, outlet, false);
+        }));
+    };
+    ApplyRedirects.prototype.expandRegularSegmentAgainstRouteUsingRedirect = function (ngModule, segmentGroup, routes, route, segments, outlet) {
+        var _this = this;
+        var _a = match(segmentGroup, route, segments), matched = _a.matched, consumedSegments = _a.consumedSegments, lastChild = _a.lastChild, positionalParamSegments = _a.positionalParamSegments;
+        if (!matched)
+            return noMatch(segmentGroup);
+        var newTree = this.applyRedirectCommands(consumedSegments, route.redirectTo, positionalParamSegments);
+        if (route.redirectTo.startsWith('/')) {
+            return absoluteRedirect(newTree);
+        }
+        return this.lineralizeSegments(route, newTree).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["mergeMap"])(function (newSegments) {
+            return _this.expandSegment(ngModule, segmentGroup, routes, newSegments.concat(segments.slice(lastChild)), outlet, false);
+        }));
+    };
+    ApplyRedirects.prototype.matchSegmentAgainstRoute = function (ngModule, rawSegmentGroup, route, segments) {
+        var _this = this;
+        if (route.path === '**') {
+            if (route.loadChildren) {
+                return this.configLoader.load(ngModule.injector, route)
+                    .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (cfg) {
+                    route._loadedConfig = cfg;
+                    return new UrlSegmentGroup(segments, {});
+                }));
+            }
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(new UrlSegmentGroup(segments, {}));
+        }
+        var _a = match(rawSegmentGroup, route, segments), matched = _a.matched, consumedSegments = _a.consumedSegments, lastChild = _a.lastChild;
+        if (!matched)
+            return noMatch(rawSegmentGroup);
+        var rawSlicedSegments = segments.slice(lastChild);
+        var childConfig$ = this.getChildConfig(ngModule, route);
+        return childConfig$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["mergeMap"])(function (routerConfig) {
+            var childModule = routerConfig.module;
+            var childConfig = routerConfig.routes;
+            var _a = split(rawSegmentGroup, consumedSegments, rawSlicedSegments, childConfig), segmentGroup = _a.segmentGroup, slicedSegments = _a.slicedSegments;
+            if (slicedSegments.length === 0 && segmentGroup.hasChildren()) {
+                var expanded$_1 = _this.expandChildren(childModule, childConfig, segmentGroup);
+                return expanded$_1.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (children) { return new UrlSegmentGroup(consumedSegments, children); }));
+            }
+            if (childConfig.length === 0 && slicedSegments.length === 0) {
+                return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(new UrlSegmentGroup(consumedSegments, {}));
+            }
+            var expanded$ = _this.expandSegment(childModule, segmentGroup, childConfig, slicedSegments, PRIMARY_OUTLET, true);
+            return expanded$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (cs) {
+                return new UrlSegmentGroup(consumedSegments.concat(cs.segments), cs.children);
+            }));
+        }));
+    };
+    ApplyRedirects.prototype.getChildConfig = function (ngModule, route) {
+        var _this = this;
+        if (route.children) {
+            // The children belong to the same module
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(new LoadedRouterConfig(route.children, ngModule));
+        }
+        if (route.loadChildren) {
+            // lazy children belong to the loaded module
+            if (route._loadedConfig !== undefined) {
+                return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(route._loadedConfig);
+            }
+            return runCanLoadGuard(ngModule.injector, route).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["mergeMap"])(function (shouldLoad) {
+                if (shouldLoad) {
+                    return _this.configLoader.load(ngModule.injector, route)
+                        .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (cfg) {
+                        route._loadedConfig = cfg;
+                        return cfg;
+                    }));
+                }
+                return canLoadFails(route);
+            }));
+        }
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(new LoadedRouterConfig([], ngModule));
+    };
+    ApplyRedirects.prototype.lineralizeSegments = function (route, urlTree) {
+        var res = [];
+        var c = urlTree.root;
+        while (true) {
+            res = res.concat(c.segments);
+            if (c.numberOfChildren === 0) {
+                return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(res);
+            }
+            if (c.numberOfChildren > 1 || !c.children[PRIMARY_OUTLET]) {
+                return namedOutletsRedirect(route.redirectTo);
+            }
+            c = c.children[PRIMARY_OUTLET];
+        }
+    };
+    ApplyRedirects.prototype.applyRedirectCommands = function (segments, redirectTo, posParams) {
+        return this.applyRedirectCreatreUrlTree(redirectTo, this.urlSerializer.parse(redirectTo), segments, posParams);
+    };
+    ApplyRedirects.prototype.applyRedirectCreatreUrlTree = function (redirectTo, urlTree, segments, posParams) {
+        var newRoot = this.createSegmentGroup(redirectTo, urlTree.root, segments, posParams);
+        return new UrlTree(newRoot, this.createQueryParams(urlTree.queryParams, this.urlTree.queryParams), urlTree.fragment);
+    };
+    ApplyRedirects.prototype.createQueryParams = function (redirectToParams, actualParams) {
+        var res = {};
+        forEach(redirectToParams, function (v, k) {
+            var copySourceValue = typeof v === 'string' && v.startsWith(':');
+            if (copySourceValue) {
+                var sourceName = v.substring(1);
+                res[k] = actualParams[sourceName];
+            }
+            else {
+                res[k] = v;
+            }
+        });
+        return res;
+    };
+    ApplyRedirects.prototype.createSegmentGroup = function (redirectTo, group, segments, posParams) {
+        var _this = this;
+        var updatedSegments = this.createSegments(redirectTo, group.segments, segments, posParams);
+        var children = {};
+        forEach(group.children, function (child, name) {
+            children[name] = _this.createSegmentGroup(redirectTo, child, segments, posParams);
+        });
+        return new UrlSegmentGroup(updatedSegments, children);
+    };
+    ApplyRedirects.prototype.createSegments = function (redirectTo, redirectToSegments, actualSegments, posParams) {
+        var _this = this;
+        return redirectToSegments.map(function (s) { return s.path.startsWith(':') ? _this.findPosParam(redirectTo, s, posParams) :
+            _this.findOrReturn(s, actualSegments); });
+    };
+    ApplyRedirects.prototype.findPosParam = function (redirectTo, redirectToUrlSegment, posParams) {
+        var pos = posParams[redirectToUrlSegment.path.substring(1)];
+        if (!pos)
+            throw new Error("Cannot redirect to '" + redirectTo + "'. Cannot find '" + redirectToUrlSegment.path + "'.");
+        return pos;
+    };
+    ApplyRedirects.prototype.findOrReturn = function (redirectToUrlSegment, actualSegments) {
+        var idx = 0;
+        try {
+            for (var actualSegments_1 = Object(tslib__WEBPACK_IMPORTED_MODULE_2__["__values"])(actualSegments), actualSegments_1_1 = actualSegments_1.next(); !actualSegments_1_1.done; actualSegments_1_1 = actualSegments_1.next()) {
+                var s = actualSegments_1_1.value;
+                if (s.path === redirectToUrlSegment.path) {
+                    actualSegments.splice(idx);
+                    return s;
+                }
+                idx++;
+            }
+        }
+        catch (e_1_1) { e_1 = { error: e_1_1 }; }
+        finally {
+            try {
+                if (actualSegments_1_1 && !actualSegments_1_1.done && (_a = actualSegments_1.return)) _a.call(actualSegments_1);
+            }
+            finally { if (e_1) throw e_1.error; }
+        }
+        return redirectToUrlSegment;
+        var e_1, _a;
+    };
+    return ApplyRedirects;
+}());
+function runCanLoadGuard(moduleInjector, route) {
+    var canLoad = route.canLoad;
+    if (!canLoad || canLoad.length === 0)
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(true);
+    var obs = Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["from"])(canLoad).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (injectionToken) {
+        var guard = moduleInjector.get(injectionToken);
+        return wrapIntoObservable(guard.canLoad ? guard.canLoad(route) : guard(route));
+    }));
+    return andObservables(obs);
+}
+function match(segmentGroup, route, segments) {
+    if (route.path === '') {
+        if ((route.pathMatch === 'full') && (segmentGroup.hasChildren() || segments.length > 0)) {
+            return { matched: false, consumedSegments: [], lastChild: 0, positionalParamSegments: {} };
+        }
+        return { matched: true, consumedSegments: [], lastChild: 0, positionalParamSegments: {} };
+    }
+    var matcher = route.matcher || defaultUrlMatcher;
+    var res = matcher(segments, segmentGroup, route);
+    if (!res) {
+        return {
+            matched: false,
+            consumedSegments: [],
+            lastChild: 0,
+            positionalParamSegments: {},
+        };
+    }
+    return {
+        matched: true,
+        consumedSegments: res.consumed,
+        lastChild: res.consumed.length,
+        positionalParamSegments: res.posParams,
+    };
+}
+function split(segmentGroup, consumedSegments, slicedSegments, config) {
+    if (slicedSegments.length > 0 &&
+        containsEmptyPathRedirectsWithNamedOutlets(segmentGroup, slicedSegments, config)) {
+        var s = new UrlSegmentGroup(consumedSegments, createChildrenForEmptySegments(config, new UrlSegmentGroup(slicedSegments, segmentGroup.children)));
+        return { segmentGroup: mergeTrivialChildren(s), slicedSegments: [] };
+    }
+    if (slicedSegments.length === 0 &&
+        containsEmptyPathRedirects(segmentGroup, slicedSegments, config)) {
+        var s = new UrlSegmentGroup(segmentGroup.segments, addEmptySegmentsToChildrenIfNeeded(segmentGroup, slicedSegments, config, segmentGroup.children));
+        return { segmentGroup: mergeTrivialChildren(s), slicedSegments: slicedSegments };
+    }
+    return { segmentGroup: segmentGroup, slicedSegments: slicedSegments };
+}
+function mergeTrivialChildren(s) {
+    if (s.numberOfChildren === 1 && s.children[PRIMARY_OUTLET]) {
+        var c = s.children[PRIMARY_OUTLET];
+        return new UrlSegmentGroup(s.segments.concat(c.segments), c.children);
+    }
+    return s;
+}
+function addEmptySegmentsToChildrenIfNeeded(segmentGroup, slicedSegments, routes, children) {
+    var res = {};
+    try {
+        for (var routes_1 = Object(tslib__WEBPACK_IMPORTED_MODULE_2__["__values"])(routes), routes_1_1 = routes_1.next(); !routes_1_1.done; routes_1_1 = routes_1.next()) {
+            var r = routes_1_1.value;
+            if (isEmptyPathRedirect(segmentGroup, slicedSegments, r) && !children[getOutlet(r)]) {
+                res[getOutlet(r)] = new UrlSegmentGroup([], {});
+            }
+        }
+    }
+    catch (e_2_1) { e_2 = { error: e_2_1 }; }
+    finally {
+        try {
+            if (routes_1_1 && !routes_1_1.done && (_a = routes_1.return)) _a.call(routes_1);
+        }
+        finally { if (e_2) throw e_2.error; }
+    }
+    return Object(tslib__WEBPACK_IMPORTED_MODULE_2__["__assign"])({}, children, res);
+    var e_2, _a;
+}
+function createChildrenForEmptySegments(routes, primarySegmentGroup) {
+    var res = {};
+    res[PRIMARY_OUTLET] = primarySegmentGroup;
+    try {
+        for (var routes_2 = Object(tslib__WEBPACK_IMPORTED_MODULE_2__["__values"])(routes), routes_2_1 = routes_2.next(); !routes_2_1.done; routes_2_1 = routes_2.next()) {
+            var r = routes_2_1.value;
+            if (r.path === '' && getOutlet(r) !== PRIMARY_OUTLET) {
+                res[getOutlet(r)] = new UrlSegmentGroup([], {});
+            }
+        }
+    }
+    catch (e_3_1) { e_3 = { error: e_3_1 }; }
+    finally {
+        try {
+            if (routes_2_1 && !routes_2_1.done && (_a = routes_2.return)) _a.call(routes_2);
+        }
+        finally { if (e_3) throw e_3.error; }
+    }
+    return res;
+    var e_3, _a;
+}
+function containsEmptyPathRedirectsWithNamedOutlets(segmentGroup, segments, routes) {
+    return routes.some(function (r) { return isEmptyPathRedirect(segmentGroup, segments, r) && getOutlet(r) !== PRIMARY_OUTLET; });
+}
+function containsEmptyPathRedirects(segmentGroup, segments, routes) {
+    return routes.some(function (r) { return isEmptyPathRedirect(segmentGroup, segments, r); });
+}
+function isEmptyPathRedirect(segmentGroup, segments, r) {
+    if ((segmentGroup.hasChildren() || segments.length > 0) && r.pathMatch === 'full') {
+        return false;
+    }
+    return r.path === '' && r.redirectTo !== undefined;
+}
+function getOutlet(route) {
+    return route.outlet || PRIMARY_OUTLET;
+}
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+var Tree = /** @class */ (function () {
+    function Tree(root) {
+        this._root = root;
+    }
+    Object.defineProperty(Tree.prototype, "root", {
+        get: function () { return this._root.value; },
+        enumerable: true,
+        configurable: true
+    });
+    /**
+     * @internal
+     */
+    Tree.prototype.parent = function (t) {
+        var p = this.pathFromRoot(t);
+        return p.length > 1 ? p[p.length - 2] : null;
+    };
+    /**
+     * @internal
+     */
+    Tree.prototype.children = function (t) {
+        var n = findNode(t, this._root);
+        return n ? n.children.map(function (t) { return t.value; }) : [];
+    };
+    /**
+     * @internal
+     */
+    Tree.prototype.firstChild = function (t) {
+        var n = findNode(t, this._root);
+        return n && n.children.length > 0 ? n.children[0].value : null;
+    };
+    /**
+     * @internal
+     */
+    Tree.prototype.siblings = function (t) {
+        var p = findPath(t, this._root);
+        if (p.length < 2)
+            return [];
+        var c = p[p.length - 2].children.map(function (c) { return c.value; });
+        return c.filter(function (cc) { return cc !== t; });
+    };
+    /**
+     * @internal
+     */
+    Tree.prototype.pathFromRoot = function (t) { return findPath(t, this._root).map(function (s) { return s.value; }); };
+    return Tree;
+}());
+// DFS for the node matching the value
+function findNode(value, node) {
+    if (value === node.value)
+        return node;
+    try {
+        for (var _a = Object(tslib__WEBPACK_IMPORTED_MODULE_2__["__values"])(node.children), _b = _a.next(); !_b.done; _b = _a.next()) {
+            var child = _b.value;
+            var node_1 = findNode(value, child);
+            if (node_1)
+                return node_1;
+        }
+    }
+    catch (e_1_1) { e_1 = { error: e_1_1 }; }
+    finally {
+        try {
+            if (_b && !_b.done && (_c = _a.return)) _c.call(_a);
+        }
+        finally { if (e_1) throw e_1.error; }
+    }
+    return null;
+    var e_1, _c;
+}
+// Return the path to the node with the given value using DFS
+function findPath(value, node) {
+    if (value === node.value)
+        return [node];
+    try {
+        for (var _a = Object(tslib__WEBPACK_IMPORTED_MODULE_2__["__values"])(node.children), _b = _a.next(); !_b.done; _b = _a.next()) {
+            var child = _b.value;
+            var path = findPath(value, child);
+            if (path.length) {
+                path.unshift(node);
+                return path;
+            }
+        }
+    }
+    catch (e_2_1) { e_2 = { error: e_2_1 }; }
+    finally {
+        try {
+            if (_b && !_b.done && (_c = _a.return)) _c.call(_a);
+        }
+        finally { if (e_2) throw e_2.error; }
+    }
+    return [];
+    var e_2, _c;
+}
+var TreeNode = /** @class */ (function () {
+    function TreeNode(value, children) {
+        this.value = value;
+        this.children = children;
+    }
+    TreeNode.prototype.toString = function () { return "TreeNode(" + this.value + ")"; };
+    return TreeNode;
+}());
+// Return the list of T indexed by outlet name
+function nodeChildrenAsMap(node) {
+    var map$$1 = {};
+    if (node) {
+        node.children.forEach(function (child) { return map$$1[child.value.outlet] = child; });
+    }
+    return map$$1;
+}
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * @description
+ *
+ * Represents the state of the router.
+ *
+ * RouterState is a tree of activated routes. Every node in this tree knows about the "consumed" URL
+ * segments, the extracted parameters, and the resolved data.
+ *
+ * ### Example
+ *
+ * ```
+ * @Component({templateUrl:'template.html'})
+ * class MyComponent {
+ *   constructor(router: Router) {
+ *     const state: RouterState = router.routerState;
+ *     const root: ActivatedRoute = state.root;
+ *     const child = root.firstChild;
+ *     const id: Observable<string> = child.params.map(p => p.id);
+ *     //...
+ *   }
+ * }
+ * ```
+ *
+ * See `ActivatedRoute` for more information.
+ *
+ *
+ */
+var RouterState = /** @class */ (function (_super) {
+    Object(tslib__WEBPACK_IMPORTED_MODULE_2__["__extends"])(RouterState, _super);
+    /** @internal */
+    function RouterState(root, 
+    /** The current snapshot of the router state */
+    snapshot) {
+        var _this = _super.call(this, root) || this;
+        _this.snapshot = snapshot;
+        setRouterState(_this, root);
+        return _this;
+    }
+    RouterState.prototype.toString = function () { return this.snapshot.toString(); };
+    return RouterState;
+}(Tree));
+function createEmptyState(urlTree, rootComponent) {
+    var snapshot = createEmptyStateSnapshot(urlTree, rootComponent);
+    var emptyUrl = new rxjs__WEBPACK_IMPORTED_MODULE_3__["BehaviorSubject"]([new UrlSegment('', {})]);
+    var emptyParams = new rxjs__WEBPACK_IMPORTED_MODULE_3__["BehaviorSubject"]({});
+    var emptyData = new rxjs__WEBPACK_IMPORTED_MODULE_3__["BehaviorSubject"]({});
+    var emptyQueryParams = new rxjs__WEBPACK_IMPORTED_MODULE_3__["BehaviorSubject"]({});
+    var fragment = new rxjs__WEBPACK_IMPORTED_MODULE_3__["BehaviorSubject"]('');
+    var activated = new ActivatedRoute(emptyUrl, emptyParams, emptyQueryParams, fragment, emptyData, PRIMARY_OUTLET, rootComponent, snapshot.root);
+    activated.snapshot = snapshot.root;
+    return new RouterState(new TreeNode(activated, []), snapshot);
+}
+function createEmptyStateSnapshot(urlTree, rootComponent) {
+    var emptyParams = {};
+    var emptyData = {};
+    var emptyQueryParams = {};
+    var fragment = '';
+    var activated = new ActivatedRouteSnapshot([], emptyParams, emptyQueryParams, fragment, emptyData, PRIMARY_OUTLET, rootComponent, null, urlTree.root, -1, {});
+    return new RouterStateSnapshot('', new TreeNode(activated, []));
+}
+/**
+ * @description
+ *
+ * Contains the information about a route associated with a component loaded in an
+ * outlet.  An `ActivatedRoute` can also be used to traverse the router state tree.
+ *
+ * ```
+ * @Component({...})
+ * class MyComponent {
+ *   constructor(route: ActivatedRoute) {
+ *     const id: Observable<string> = route.params.map(p => p.id);
+ *     const url: Observable<string> = route.url.map(segments => segments.join(''));
+ *     // route.data includes both `data` and `resolve`
+ *     const user = route.data.map(d => d.user);
+ *   }
+ * }
+ * ```
+ *
+ *
+ */
+var ActivatedRoute = /** @class */ (function () {
+    /** @internal */
+    function ActivatedRoute(
+    /** An observable of the URL segments matched by this route */
+    url, 
+    /** An observable of the matrix parameters scoped to this route */
+    params, 
+    /** An observable of the query parameters shared by all the routes */
+    queryParams, 
+    /** An observable of the URL fragment shared by all the routes */
+    fragment, 
+    /** An observable of the static and resolved data of this route. */
+    data, 
+    /** The outlet name of the route. It's a constant */
+    outlet, 
+    /** The component of the route. It's a constant */
+    // TODO(vsavkin): remove |string
+    component, futureSnapshot) {
+        this.url = url;
+        this.params = params;
+        this.queryParams = queryParams;
+        this.fragment = fragment;
+        this.data = data;
+        this.outlet = outlet;
+        this.component = component;
+        this._futureSnapshot = futureSnapshot;
+    }
+    Object.defineProperty(ActivatedRoute.prototype, "routeConfig", {
+        /** The configuration used to match this route */
+        get: function () { return this._futureSnapshot.routeConfig; },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(ActivatedRoute.prototype, "root", {
+        /** The root of the router state */
+        get: function () { return this._routerState.root; },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(ActivatedRoute.prototype, "parent", {
+        /** The parent of this route in the router state tree */
+        get: function () { return this._routerState.parent(this); },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(ActivatedRoute.prototype, "firstChild", {
+        /** The first child of this route in the router state tree */
+        get: function () { return this._routerState.firstChild(this); },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(ActivatedRoute.prototype, "children", {
+        /** The children of this route in the router state tree */
+        get: function () { return this._routerState.children(this); },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(ActivatedRoute.prototype, "pathFromRoot", {
+        /** The path from the root of the router state tree to this route */
+        get: function () { return this._routerState.pathFromRoot(this); },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(ActivatedRoute.prototype, "paramMap", {
+        get: function () {
+            if (!this._paramMap) {
+                this._paramMap = this.params.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (p) { return convertToParamMap(p); }));
+            }
+            return this._paramMap;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(ActivatedRoute.prototype, "queryParamMap", {
+        get: function () {
+            if (!this._queryParamMap) {
+                this._queryParamMap =
+                    this.queryParams.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (p) { return convertToParamMap(p); }));
+            }
+            return this._queryParamMap;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    ActivatedRoute.prototype.toString = function () {
+        return this.snapshot ? this.snapshot.toString() : "Future(" + this._futureSnapshot + ")";
+    };
+    return ActivatedRoute;
+}());
+/**
+ * Returns the inherited params, data, and resolve for a given route.
+ * By default, this only inherits values up to the nearest path-less or component-less route.
+ * @internal
+ */
+function inheritedParamsDataResolve(route, paramsInheritanceStrategy) {
+    if (paramsInheritanceStrategy === void 0) { paramsInheritanceStrategy = 'emptyOnly'; }
+    var pathFromRoot = route.pathFromRoot;
+    var inheritingStartingFrom = 0;
+    if (paramsInheritanceStrategy !== 'always') {
+        inheritingStartingFrom = pathFromRoot.length - 1;
+        while (inheritingStartingFrom >= 1) {
+            var current = pathFromRoot[inheritingStartingFrom];
+            var parent_1 = pathFromRoot[inheritingStartingFrom - 1];
+            // current route is an empty path => inherits its parent's params and data
+            if (current.routeConfig && current.routeConfig.path === '') {
+                inheritingStartingFrom--;
+                // parent is componentless => current route should inherit its params and data
+            }
+            else if (!parent_1.component) {
+                inheritingStartingFrom--;
+            }
+            else {
+                break;
+            }
+        }
+    }
+    return flattenInherited(pathFromRoot.slice(inheritingStartingFrom));
+}
+/** @internal */
+function flattenInherited(pathFromRoot) {
+    return pathFromRoot.reduce(function (res, curr) {
+        var params = Object(tslib__WEBPACK_IMPORTED_MODULE_2__["__assign"])({}, res.params, curr.params);
+        var data = Object(tslib__WEBPACK_IMPORTED_MODULE_2__["__assign"])({}, res.data, curr.data);
+        var resolve = Object(tslib__WEBPACK_IMPORTED_MODULE_2__["__assign"])({}, res.resolve, curr._resolvedData);
+        return { params: params, data: data, resolve: resolve };
+    }, { params: {}, data: {}, resolve: {} });
+}
+/**
+ * @description
+ *
+ * Contains the information about a route associated with a component loaded in an
+ * outlet at a particular moment in time. ActivatedRouteSnapshot can also be used to
+ * traverse the router state tree.
+ *
+ * ```
+ * @Component({templateUrl:'./my-component.html'})
+ * class MyComponent {
+ *   constructor(route: ActivatedRoute) {
+ *     const id: string = route.snapshot.params.id;
+ *     const url: string = route.snapshot.url.join('');
+ *     const user = route.snapshot.data.user;
+ *   }
+ * }
+ * ```
+ *
+ *
+ */
+var ActivatedRouteSnapshot = /** @class */ (function () {
+    /** @internal */
+    function ActivatedRouteSnapshot(
+    /** The URL segments matched by this route */
+    url, 
+    /** The matrix parameters scoped to this route */
+    params, 
+    /** The query parameters shared by all the routes */
+    queryParams, 
+    /** The URL fragment shared by all the routes */
+    fragment, 
+    /** The static and resolved data of this route */
+    data, 
+    /** The outlet name of the route */
+    outlet, 
+    /** The component of the route */
+    component, routeConfig, urlSegment, lastPathIndex, resolve) {
+        this.url = url;
+        this.params = params;
+        this.queryParams = queryParams;
+        this.fragment = fragment;
+        this.data = data;
+        this.outlet = outlet;
+        this.component = component;
+        this.routeConfig = routeConfig;
+        this._urlSegment = urlSegment;
+        this._lastPathIndex = lastPathIndex;
+        this._resolve = resolve;
+    }
+    Object.defineProperty(ActivatedRouteSnapshot.prototype, "root", {
+        /** The root of the router state */
+        get: function () { return this._routerState.root; },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(ActivatedRouteSnapshot.prototype, "parent", {
+        /** The parent of this route in the router state tree */
+        get: function () { return this._routerState.parent(this); },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(ActivatedRouteSnapshot.prototype, "firstChild", {
+        /** The first child of this route in the router state tree */
+        get: function () { return this._routerState.firstChild(this); },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(ActivatedRouteSnapshot.prototype, "children", {
+        /** The children of this route in the router state tree */
+        get: function () { return this._routerState.children(this); },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(ActivatedRouteSnapshot.prototype, "pathFromRoot", {
+        /** The path from the root of the router state tree to this route */
+        get: function () { return this._routerState.pathFromRoot(this); },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(ActivatedRouteSnapshot.prototype, "paramMap", {
+        get: function () {
+            if (!this._paramMap) {
+                this._paramMap = convertToParamMap(this.params);
+            }
+            return this._paramMap;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(ActivatedRouteSnapshot.prototype, "queryParamMap", {
+        get: function () {
+            if (!this._queryParamMap) {
+                this._queryParamMap = convertToParamMap(this.queryParams);
+            }
+            return this._queryParamMap;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    ActivatedRouteSnapshot.prototype.toString = function () {
+        var url = this.url.map(function (segment) { return segment.toString(); }).join('/');
+        var matched = this.routeConfig ? this.routeConfig.path : '';
+        return "Route(url:'" + url + "', path:'" + matched + "')";
+    };
+    return ActivatedRouteSnapshot;
+}());
+/**
+ * @description
+ *
+ * Represents the state of the router at a moment in time.
+ *
+ * This is a tree of activated route snapshots. Every node in this tree knows about
+ * the "consumed" URL segments, the extracted parameters, and the resolved data.
+ *
+ * ### Example
+ *
+ * ```
+ * @Component({templateUrl:'template.html'})
+ * class MyComponent {
+ *   constructor(router: Router) {
+ *     const state: RouterState = router.routerState;
+ *     const snapshot: RouterStateSnapshot = state.snapshot;
+ *     const root: ActivatedRouteSnapshot = snapshot.root;
+ *     const child = root.firstChild;
+ *     const id: Observable<string> = child.params.map(p => p.id);
+ *     //...
+ *   }
+ * }
+ * ```
+ *
+ *
+ */
+var RouterStateSnapshot = /** @class */ (function (_super) {
+    Object(tslib__WEBPACK_IMPORTED_MODULE_2__["__extends"])(RouterStateSnapshot, _super);
+    /** @internal */
+    function RouterStateSnapshot(
+    /** The url from which this snapshot was created */
+    url, root) {
+        var _this = _super.call(this, root) || this;
+        _this.url = url;
+        setRouterState(_this, root);
+        return _this;
+    }
+    RouterStateSnapshot.prototype.toString = function () { return serializeNode(this._root); };
+    return RouterStateSnapshot;
+}(Tree));
+function setRouterState(state, node) {
+    node.value._routerState = state;
+    node.children.forEach(function (c) { return setRouterState(state, c); });
+}
+function serializeNode(node) {
+    var c = node.children.length > 0 ? " { " + node.children.map(serializeNode).join(', ') + " } " : '';
+    return "" + node.value + c;
+}
+/**
+ * The expectation is that the activate route is created with the right set of parameters.
+ * So we push new values into the observables only when they are not the initial values.
+ * And we detect that by checking if the snapshot field is set.
+ */
+function advanceActivatedRoute(route) {
+    if (route.snapshot) {
+        var currentSnapshot = route.snapshot;
+        var nextSnapshot = route._futureSnapshot;
+        route.snapshot = nextSnapshot;
+        if (!shallowEqual(currentSnapshot.queryParams, nextSnapshot.queryParams)) {
+            route.queryParams.next(nextSnapshot.queryParams);
+        }
+        if (currentSnapshot.fragment !== nextSnapshot.fragment) {
+            route.fragment.next(nextSnapshot.fragment);
+        }
+        if (!shallowEqual(currentSnapshot.params, nextSnapshot.params)) {
+            route.params.next(nextSnapshot.params);
+        }
+        if (!shallowEqualArrays(currentSnapshot.url, nextSnapshot.url)) {
+            route.url.next(nextSnapshot.url);
+        }
+        if (!shallowEqual(currentSnapshot.data, nextSnapshot.data)) {
+            route.data.next(nextSnapshot.data);
+        }
+    }
+    else {
+        route.snapshot = route._futureSnapshot;
+        // this is for resolved data
+        route.data.next(route._futureSnapshot.data);
+    }
+}
+function equalParamsAndUrlSegments(a, b) {
+    var equalUrlParams = shallowEqual(a.params, b.params) && equalSegments(a.url, b.url);
+    var parentsMismatch = !a.parent !== !b.parent;
+    return equalUrlParams && !parentsMismatch &&
+        (!a.parent || equalParamsAndUrlSegments(a.parent, b.parent));
+}
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+function createRouterState(routeReuseStrategy, curr, prevState) {
+    var root = createNode(routeReuseStrategy, curr._root, prevState ? prevState._root : undefined);
+    return new RouterState(root, curr);
+}
+function createNode(routeReuseStrategy, curr, prevState) {
+    // reuse an activated route that is currently displayed on the screen
+    if (prevState && routeReuseStrategy.shouldReuseRoute(curr.value, prevState.value.snapshot)) {
+        var value = prevState.value;
+        value._futureSnapshot = curr.value;
+        var children = createOrReuseChildren(routeReuseStrategy, curr, prevState);
+        return new TreeNode(value, children);
+        // retrieve an activated route that is used to be displayed, but is not currently displayed
+    }
+    else {
+        var detachedRouteHandle = routeReuseStrategy.retrieve(curr.value);
+        if (detachedRouteHandle) {
+            var tree = detachedRouteHandle.route;
+            setFutureSnapshotsOfActivatedRoutes(curr, tree);
+            return tree;
+        }
+        else {
+            var value = createActivatedRoute(curr.value);
+            var children = curr.children.map(function (c) { return createNode(routeReuseStrategy, c); });
+            return new TreeNode(value, children);
+        }
+    }
+}
+function setFutureSnapshotsOfActivatedRoutes(curr, result) {
+    if (curr.value.routeConfig !== result.value.routeConfig) {
+        throw new Error('Cannot reattach ActivatedRouteSnapshot created from a different route');
+    }
+    if (curr.children.length !== result.children.length) {
+        throw new Error('Cannot reattach ActivatedRouteSnapshot with a different number of children');
+    }
+    result.value._futureSnapshot = curr.value;
+    for (var i = 0; i < curr.children.length; ++i) {
+        setFutureSnapshotsOfActivatedRoutes(curr.children[i], result.children[i]);
+    }
+}
+function createOrReuseChildren(routeReuseStrategy, curr, prevState) {
+    return curr.children.map(function (child) {
+        try {
+            for (var _a = Object(tslib__WEBPACK_IMPORTED_MODULE_2__["__values"])(prevState.children), _b = _a.next(); !_b.done; _b = _a.next()) {
+                var p = _b.value;
+                if (routeReuseStrategy.shouldReuseRoute(p.value.snapshot, child.value)) {
+                    return createNode(routeReuseStrategy, child, p);
+                }
+            }
+        }
+        catch (e_1_1) { e_1 = { error: e_1_1 }; }
+        finally {
+            try {
+                if (_b && !_b.done && (_c = _a.return)) _c.call(_a);
+            }
+            finally { if (e_1) throw e_1.error; }
+        }
+        return createNode(routeReuseStrategy, child);
+        var e_1, _c;
+    });
+}
+function createActivatedRoute(c) {
+    return new ActivatedRoute(new rxjs__WEBPACK_IMPORTED_MODULE_3__["BehaviorSubject"](c.url), new rxjs__WEBPACK_IMPORTED_MODULE_3__["BehaviorSubject"](c.params), new rxjs__WEBPACK_IMPORTED_MODULE_3__["BehaviorSubject"](c.queryParams), new rxjs__WEBPACK_IMPORTED_MODULE_3__["BehaviorSubject"](c.fragment), new rxjs__WEBPACK_IMPORTED_MODULE_3__["BehaviorSubject"](c.data), c.outlet, c.component, c);
+}
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+function createUrlTree(route, urlTree, commands, queryParams, fragment) {
+    if (commands.length === 0) {
+        return tree(urlTree.root, urlTree.root, urlTree, queryParams, fragment);
+    }
+    var nav = computeNavigation(commands);
+    if (nav.toRoot()) {
+        return tree(urlTree.root, new UrlSegmentGroup([], {}), urlTree, queryParams, fragment);
+    }
+    var startingPosition = findStartingPosition(nav, urlTree, route);
+    var segmentGroup = startingPosition.processChildren ?
+        updateSegmentGroupChildren(startingPosition.segmentGroup, startingPosition.index, nav.commands) :
+        updateSegmentGroup(startingPosition.segmentGroup, startingPosition.index, nav.commands);
+    return tree(startingPosition.segmentGroup, segmentGroup, urlTree, queryParams, fragment);
+}
+function isMatrixParams(command) {
+    return typeof command === 'object' && command != null && !command.outlets && !command.segmentPath;
+}
+function tree(oldSegmentGroup, newSegmentGroup, urlTree, queryParams, fragment) {
+    var qp = {};
+    if (queryParams) {
+        forEach(queryParams, function (value, name) {
+            qp[name] = Array.isArray(value) ? value.map(function (v) { return "" + v; }) : "" + value;
+        });
+    }
+    if (urlTree.root === oldSegmentGroup) {
+        return new UrlTree(newSegmentGroup, qp, fragment);
+    }
+    return new UrlTree(replaceSegment(urlTree.root, oldSegmentGroup, newSegmentGroup), qp, fragment);
+}
+function replaceSegment(current, oldSegment, newSegment) {
+    var children = {};
+    forEach(current.children, function (c, outletName) {
+        if (c === oldSegment) {
+            children[outletName] = newSegment;
+        }
+        else {
+            children[outletName] = replaceSegment(c, oldSegment, newSegment);
+        }
+    });
+    return new UrlSegmentGroup(current.segments, children);
+}
+var Navigation = /** @class */ (function () {
+    function Navigation(isAbsolute, numberOfDoubleDots, commands) {
+        this.isAbsolute = isAbsolute;
+        this.numberOfDoubleDots = numberOfDoubleDots;
+        this.commands = commands;
+        if (isAbsolute && commands.length > 0 && isMatrixParams(commands[0])) {
+            throw new Error('Root segment cannot have matrix parameters');
+        }
+        var cmdWithOutlet = commands.find(function (c) { return typeof c === 'object' && c != null && c.outlets; });
+        if (cmdWithOutlet && cmdWithOutlet !== last$1(commands)) {
+            throw new Error('{outlets:{}} has to be the last command');
+        }
+    }
+    Navigation.prototype.toRoot = function () {
+        return this.isAbsolute && this.commands.length === 1 && this.commands[0] == '/';
+    };
+    return Navigation;
+}());
+/** Transforms commands to a normalized `Navigation` */
+function computeNavigation(commands) {
+    if ((typeof commands[0] === 'string') && commands.length === 1 && commands[0] === '/') {
+        return new Navigation(true, 0, commands);
+    }
+    var numberOfDoubleDots = 0;
+    var isAbsolute = false;
+    var res = commands.reduce(function (res, cmd, cmdIdx) {
+        if (typeof cmd === 'object' && cmd != null) {
+            if (cmd.outlets) {
+                var outlets_1 = {};
+                forEach(cmd.outlets, function (commands, name) {
+                    outlets_1[name] = typeof commands === 'string' ? commands.split('/') : commands;
+                });
+                return Object(tslib__WEBPACK_IMPORTED_MODULE_2__["__spread"])(res, [{ outlets: outlets_1 }]);
+            }
+            if (cmd.segmentPath) {
+                return Object(tslib__WEBPACK_IMPORTED_MODULE_2__["__spread"])(res, [cmd.segmentPath]);
+            }
+        }
+        if (!(typeof cmd === 'string')) {
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_2__["__spread"])(res, [cmd]);
+        }
+        if (cmdIdx === 0) {
+            cmd.split('/').forEach(function (urlPart, partIndex) {
+                if (partIndex == 0 && urlPart === '.') {
+                    // skip './a'
+                }
+                else if (partIndex == 0 && urlPart === '') {
+                    isAbsolute = true;
+                }
+                else if (urlPart === '..') {
+                    numberOfDoubleDots++;
+                }
+                else if (urlPart != '') {
+                    res.push(urlPart);
+                }
+            });
+            return res;
+        }
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_2__["__spread"])(res, [cmd]);
+    }, []);
+    return new Navigation(isAbsolute, numberOfDoubleDots, res);
+}
+var Position = /** @class */ (function () {
+    function Position(segmentGroup, processChildren, index) {
+        this.segmentGroup = segmentGroup;
+        this.processChildren = processChildren;
+        this.index = index;
+    }
+    return Position;
+}());
+function findStartingPosition(nav, tree, route) {
+    if (nav.isAbsolute) {
+        return new Position(tree.root, true, 0);
+    }
+    if (route.snapshot._lastPathIndex === -1) {
+        return new Position(route.snapshot._urlSegment, true, 0);
+    }
+    var modifier = isMatrixParams(nav.commands[0]) ? 0 : 1;
+    var index = route.snapshot._lastPathIndex + modifier;
+    return createPositionApplyingDoubleDots(route.snapshot._urlSegment, index, nav.numberOfDoubleDots);
+}
+function createPositionApplyingDoubleDots(group, index, numberOfDoubleDots) {
+    var g = group;
+    var ci = index;
+    var dd = numberOfDoubleDots;
+    while (dd > ci) {
+        dd -= ci;
+        g = g.parent;
+        if (!g) {
+            throw new Error('Invalid number of \'../\'');
+        }
+        ci = g.segments.length;
+    }
+    return new Position(g, false, ci - dd);
+}
+function getPath(command) {
+    if (typeof command === 'object' && command != null && command.outlets) {
+        return command.outlets[PRIMARY_OUTLET];
+    }
+    return "" + command;
+}
+function getOutlets(commands) {
+    if (!(typeof commands[0] === 'object'))
+        return _a = {}, _a[PRIMARY_OUTLET] = commands, _a;
+    if (commands[0].outlets === undefined)
+        return _b = {}, _b[PRIMARY_OUTLET] = commands, _b;
+    return commands[0].outlets;
+    var _a, _b;
+}
+function updateSegmentGroup(segmentGroup, startIndex, commands) {
+    if (!segmentGroup) {
+        segmentGroup = new UrlSegmentGroup([], {});
+    }
+    if (segmentGroup.segments.length === 0 && segmentGroup.hasChildren()) {
+        return updateSegmentGroupChildren(segmentGroup, startIndex, commands);
+    }
+    var m = prefixedWith(segmentGroup, startIndex, commands);
+    var slicedCommands = commands.slice(m.commandIndex);
+    if (m.match && m.pathIndex < segmentGroup.segments.length) {
+        var g = new UrlSegmentGroup(segmentGroup.segments.slice(0, m.pathIndex), {});
+        g.children[PRIMARY_OUTLET] =
+            new UrlSegmentGroup(segmentGroup.segments.slice(m.pathIndex), segmentGroup.children);
+        return updateSegmentGroupChildren(g, 0, slicedCommands);
+    }
+    else if (m.match && slicedCommands.length === 0) {
+        return new UrlSegmentGroup(segmentGroup.segments, {});
+    }
+    else if (m.match && !segmentGroup.hasChildren()) {
+        return createNewSegmentGroup(segmentGroup, startIndex, commands);
+    }
+    else if (m.match) {
+        return updateSegmentGroupChildren(segmentGroup, 0, slicedCommands);
+    }
+    else {
+        return createNewSegmentGroup(segmentGroup, startIndex, commands);
+    }
+}
+function updateSegmentGroupChildren(segmentGroup, startIndex, commands) {
+    if (commands.length === 0) {
+        return new UrlSegmentGroup(segmentGroup.segments, {});
+    }
+    else {
+        var outlets_2 = getOutlets(commands);
+        var children_1 = {};
+        forEach(outlets_2, function (commands, outlet) {
+            if (commands !== null) {
+                children_1[outlet] = updateSegmentGroup(segmentGroup.children[outlet], startIndex, commands);
+            }
+        });
+        forEach(segmentGroup.children, function (child, childOutlet) {
+            if (outlets_2[childOutlet] === undefined) {
+                children_1[childOutlet] = child;
+            }
+        });
+        return new UrlSegmentGroup(segmentGroup.segments, children_1);
+    }
+}
+function prefixedWith(segmentGroup, startIndex, commands) {
+    var currentCommandIndex = 0;
+    var currentPathIndex = startIndex;
+    var noMatch = { match: false, pathIndex: 0, commandIndex: 0 };
+    while (currentPathIndex < segmentGroup.segments.length) {
+        if (currentCommandIndex >= commands.length)
+            return noMatch;
+        var path = segmentGroup.segments[currentPathIndex];
+        var curr = getPath(commands[currentCommandIndex]);
+        var next = currentCommandIndex < commands.length - 1 ? commands[currentCommandIndex + 1] : null;
+        if (currentPathIndex > 0 && curr === undefined)
+            break;
+        if (curr && next && (typeof next === 'object') && next.outlets === undefined) {
+            if (!compare(curr, next, path))
+                return noMatch;
+            currentCommandIndex += 2;
+        }
+        else {
+            if (!compare(curr, {}, path))
+                return noMatch;
+            currentCommandIndex++;
+        }
+        currentPathIndex++;
+    }
+    return { match: true, pathIndex: currentPathIndex, commandIndex: currentCommandIndex };
+}
+function createNewSegmentGroup(segmentGroup, startIndex, commands) {
+    var paths = segmentGroup.segments.slice(0, startIndex);
+    var i = 0;
+    while (i < commands.length) {
+        if (typeof commands[i] === 'object' && commands[i].outlets !== undefined) {
+            var children = createNewSegmentChildren(commands[i].outlets);
+            return new UrlSegmentGroup(paths, children);
+        }
+        // if we start with an object literal, we need to reuse the path part from the segment
+        if (i === 0 && isMatrixParams(commands[0])) {
+            var p = segmentGroup.segments[startIndex];
+            paths.push(new UrlSegment(p.path, commands[0]));
+            i++;
+            continue;
+        }
+        var curr = getPath(commands[i]);
+        var next = (i < commands.length - 1) ? commands[i + 1] : null;
+        if (curr && next && isMatrixParams(next)) {
+            paths.push(new UrlSegment(curr, stringify(next)));
+            i += 2;
+        }
+        else {
+            paths.push(new UrlSegment(curr, {}));
+            i++;
+        }
+    }
+    return new UrlSegmentGroup(paths, {});
+}
+function createNewSegmentChildren(outlets) {
+    var children = {};
+    forEach(outlets, function (commands, outlet) {
+        if (commands !== null) {
+            children[outlet] = createNewSegmentGroup(new UrlSegmentGroup([], {}), 0, commands);
+        }
+    });
+    return children;
+}
+function stringify(params) {
+    var res = {};
+    forEach(params, function (v, k) { return res[k] = "" + v; });
+    return res;
+}
+function compare(path, params, segment) {
+    return path == segment.path && shallowEqual(params, segment.parameters);
+}
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+var CanActivate = /** @class */ (function () {
+    function CanActivate(path) {
+        this.path = path;
+        this.route = this.path[this.path.length - 1];
+    }
+    return CanActivate;
+}());
+var CanDeactivate = /** @class */ (function () {
+    function CanDeactivate(component, route) {
+        this.component = component;
+        this.route = route;
+    }
+    return CanDeactivate;
+}());
+/**
+ * This class bundles the actions involved in preactivation of a route.
+ */
+var PreActivation = /** @class */ (function () {
+    function PreActivation(future, curr, moduleInjector, forwardEvent) {
+        this.future = future;
+        this.curr = curr;
+        this.moduleInjector = moduleInjector;
+        this.forwardEvent = forwardEvent;
+        this.canActivateChecks = [];
+        this.canDeactivateChecks = [];
+    }
+    PreActivation.prototype.initialize = function (parentContexts) {
+        var futureRoot = this.future._root;
+        var currRoot = this.curr ? this.curr._root : null;
+        this.setupChildRouteGuards(futureRoot, currRoot, parentContexts, [futureRoot.value]);
+    };
+    PreActivation.prototype.checkGuards = function () {
+        var _this = this;
+        if (!this.isDeactivating() && !this.isActivating()) {
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(true);
+        }
+        var canDeactivate$ = this.runCanDeactivateChecks();
+        return canDeactivate$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["mergeMap"])(function (canDeactivate) { return canDeactivate ? _this.runCanActivateChecks() : Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(false); }));
+    };
+    PreActivation.prototype.resolveData = function (paramsInheritanceStrategy) {
+        var _this = this;
+        if (!this.isActivating())
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(null);
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["from"])(this.canActivateChecks)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["concatMap"])(function (check) { return _this.runResolve(check.route, paramsInheritanceStrategy); }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["reduce"])(function (_, __) { return _; }));
+    };
+    PreActivation.prototype.isDeactivating = function () { return this.canDeactivateChecks.length !== 0; };
+    PreActivation.prototype.isActivating = function () { return this.canActivateChecks.length !== 0; };
+    /**
+     * Iterates over child routes and calls recursive `setupRouteGuards` to get `this` instance in
+     * proper state to run `checkGuards()` method.
+     */
+    PreActivation.prototype.setupChildRouteGuards = function (futureNode, currNode, contexts, futurePath) {
+        var _this = this;
+        var prevChildren = nodeChildrenAsMap(currNode);
+        // Process the children of the future route
+        futureNode.children.forEach(function (c) {
+            _this.setupRouteGuards(c, prevChildren[c.value.outlet], contexts, futurePath.concat([c.value]));
+            delete prevChildren[c.value.outlet];
+        });
+        // Process any children left from the current route (not active for the future route)
+        forEach(prevChildren, function (v, k) {
+            return _this.deactivateRouteAndItsChildren(v, contexts.getContext(k));
+        });
+    };
+    /**
+     * Iterates over child routes and calls recursive `setupRouteGuards` to get `this` instance in
+     * proper state to run `checkGuards()` method.
+     */
+    PreActivation.prototype.setupRouteGuards = function (futureNode, currNode, parentContexts, futurePath) {
+        var future = futureNode.value;
+        var curr = currNode ? currNode.value : null;
+        var context = parentContexts ? parentContexts.getContext(futureNode.value.outlet) : null;
+        // reusing the node
+        if (curr && future.routeConfig === curr.routeConfig) {
+            var shouldRunGuardsAndResolvers = this.shouldRunGuardsAndResolvers(curr, future, future.routeConfig.runGuardsAndResolvers);
+            if (shouldRunGuardsAndResolvers) {
+                this.canActivateChecks.push(new CanActivate(futurePath));
+            }
+            else {
+                // we need to set the data
+                future.data = curr.data;
+                future._resolvedData = curr._resolvedData;
+            }
+            // If we have a component, we need to go through an outlet.
+            if (future.component) {
+                this.setupChildRouteGuards(futureNode, currNode, context ? context.children : null, futurePath);
+                // if we have a componentless route, we recurse but keep the same outlet map.
+            }
+            else {
+                this.setupChildRouteGuards(futureNode, currNode, parentContexts, futurePath);
+            }
+            if (shouldRunGuardsAndResolvers) {
+                var outlet = context.outlet;
+                this.canDeactivateChecks.push(new CanDeactivate(outlet.component, curr));
+            }
+        }
+        else {
+            if (curr) {
+                this.deactivateRouteAndItsChildren(currNode, context);
+            }
+            this.canActivateChecks.push(new CanActivate(futurePath));
+            // If we have a component, we need to go through an outlet.
+            if (future.component) {
+                this.setupChildRouteGuards(futureNode, null, context ? context.children : null, futurePath);
+                // if we have a componentless route, we recurse but keep the same outlet map.
+            }
+            else {
+                this.setupChildRouteGuards(futureNode, null, parentContexts, futurePath);
+            }
+        }
+    };
+    PreActivation.prototype.shouldRunGuardsAndResolvers = function (curr, future, mode) {
+        switch (mode) {
+            case 'always':
+                return true;
+            case 'paramsOrQueryParamsChange':
+                return !equalParamsAndUrlSegments(curr, future) ||
+                    !shallowEqual(curr.queryParams, future.queryParams);
+            case 'paramsChange':
+            default:
+                return !equalParamsAndUrlSegments(curr, future);
+        }
+    };
+    PreActivation.prototype.deactivateRouteAndItsChildren = function (route, context) {
+        var _this = this;
+        var children = nodeChildrenAsMap(route);
+        var r = route.value;
+        forEach(children, function (node, childName) {
+            if (!r.component) {
+                _this.deactivateRouteAndItsChildren(node, context);
+            }
+            else if (context) {
+                _this.deactivateRouteAndItsChildren(node, context.children.getContext(childName));
+            }
+            else {
+                _this.deactivateRouteAndItsChildren(node, null);
+            }
+        });
+        if (!r.component) {
+            this.canDeactivateChecks.push(new CanDeactivate(null, r));
+        }
+        else if (context && context.outlet && context.outlet.isActivated) {
+            this.canDeactivateChecks.push(new CanDeactivate(context.outlet.component, r));
+        }
+        else {
+            this.canDeactivateChecks.push(new CanDeactivate(null, r));
+        }
+    };
+    PreActivation.prototype.runCanDeactivateChecks = function () {
+        var _this = this;
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["from"])(this.canDeactivateChecks)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["mergeMap"])(function (check) { return _this.runCanDeactivate(check.component, check.route); }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["every"])(function (result) { return result === true; }));
+    };
+    PreActivation.prototype.runCanActivateChecks = function () {
+        var _this = this;
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["from"])(this.canActivateChecks)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["concatMap"])(function (check) { return andObservables(Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["from"])([
+            _this.fireChildActivationStart(check.route.parent),
+            _this.fireActivationStart(check.route), _this.runCanActivateChild(check.path),
+            _this.runCanActivate(check.route)
+        ])); }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["every"])(function (result) { return result === true; }));
+        // this.fireChildActivationStart(check.path),
+    };
+    /**
+     * This should fire off `ActivationStart` events for each route being activated at this
+     * level.
+     * In other words, if you're activating `a` and `b` below, `path` will contain the
+     * `ActivatedRouteSnapshot`s for both and we will fire `ActivationStart` for both. Always
+     * return
+     * `true` so checks continue to run.
+     */
+    PreActivation.prototype.fireActivationStart = function (snapshot) {
+        if (snapshot !== null && this.forwardEvent) {
+            this.forwardEvent(new ActivationStart(snapshot));
+        }
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(true);
+    };
+    /**
+     * This should fire off `ChildActivationStart` events for each route being activated at this
+     * level.
+     * In other words, if you're activating `a` and `b` below, `path` will contain the
+     * `ActivatedRouteSnapshot`s for both and we will fire `ChildActivationStart` for both. Always
+     * return
+     * `true` so checks continue to run.
+     */
+    PreActivation.prototype.fireChildActivationStart = function (snapshot) {
+        if (snapshot !== null && this.forwardEvent) {
+            this.forwardEvent(new ChildActivationStart(snapshot));
+        }
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(true);
+    };
+    PreActivation.prototype.runCanActivate = function (future) {
+        var _this = this;
+        var canActivate = future.routeConfig ? future.routeConfig.canActivate : null;
+        if (!canActivate || canActivate.length === 0)
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(true);
+        var obs = Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["from"])(canActivate).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (c) {
+            var guard = _this.getToken(c, future);
+            var observable;
+            if (guard.canActivate) {
+                observable = wrapIntoObservable(guard.canActivate(future, _this.future));
+            }
+            else {
+                observable = wrapIntoObservable(guard(future, _this.future));
+            }
+            return observable.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["first"])());
+        }));
+        return andObservables(obs);
+    };
+    PreActivation.prototype.runCanActivateChild = function (path) {
+        var _this = this;
+        var future = path[path.length - 1];
+        var canActivateChildGuards = path.slice(0, path.length - 1)
+            .reverse()
+            .map(function (p) { return _this.extractCanActivateChild(p); })
+            .filter(function (_) { return _ !== null; });
+        return andObservables(Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["from"])(canActivateChildGuards).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (d) {
+            var obs = Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["from"])(d.guards).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (c) {
+                var guard = _this.getToken(c, d.node);
+                var observable;
+                if (guard.canActivateChild) {
+                    observable = wrapIntoObservable(guard.canActivateChild(future, _this.future));
+                }
+                else {
+                    observable = wrapIntoObservable(guard(future, _this.future));
+                }
+                return observable.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["first"])());
+            }));
+            return andObservables(obs);
+        })));
+    };
+    PreActivation.prototype.extractCanActivateChild = function (p) {
+        var canActivateChild = p.routeConfig ? p.routeConfig.canActivateChild : null;
+        if (!canActivateChild || canActivateChild.length === 0)
+            return null;
+        return { node: p, guards: canActivateChild };
+    };
+    PreActivation.prototype.runCanDeactivate = function (component, curr) {
+        var _this = this;
+        var canDeactivate = curr && curr.routeConfig ? curr.routeConfig.canDeactivate : null;
+        if (!canDeactivate || canDeactivate.length === 0)
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(true);
+        var canDeactivate$ = Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["from"])(canDeactivate).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["mergeMap"])(function (c) {
+            var guard = _this.getToken(c, curr);
+            var observable;
+            if (guard.canDeactivate) {
+                observable =
+                    wrapIntoObservable(guard.canDeactivate(component, curr, _this.curr, _this.future));
+            }
+            else {
+                observable = wrapIntoObservable(guard(component, curr, _this.curr, _this.future));
+            }
+            return observable.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["first"])());
+        }));
+        return canDeactivate$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["every"])(function (result) { return result === true; }));
+    };
+    PreActivation.prototype.runResolve = function (future, paramsInheritanceStrategy) {
+        var resolve = future._resolve;
+        return this.resolveNode(resolve, future).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (resolvedData) {
+            future._resolvedData = resolvedData;
+            future.data = Object(tslib__WEBPACK_IMPORTED_MODULE_2__["__assign"])({}, future.data, inheritedParamsDataResolve(future, paramsInheritanceStrategy).resolve);
+            return null;
+        }));
+    };
+    PreActivation.prototype.resolveNode = function (resolve, future) {
+        var _this = this;
+        var keys = Object.keys(resolve);
+        if (keys.length === 0) {
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])({});
+        }
+        if (keys.length === 1) {
+            var key_1 = keys[0];
+            return this.getResolver(resolve[key_1], future).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (value) {
+                return _a = {}, _a[key_1] = value, _a;
+                var _a;
+            }));
+        }
+        var data = {};
+        var runningResolvers$ = Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["from"])(keys).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["mergeMap"])(function (key) {
+            return _this.getResolver(resolve[key], future).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (value) {
+                data[key] = value;
+                return value;
+            }));
+        }));
+        return runningResolvers$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["last"])(), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function () { return data; }));
+    };
+    PreActivation.prototype.getResolver = function (injectionToken, future) {
+        var resolver = this.getToken(injectionToken, future);
+        return resolver.resolve ? wrapIntoObservable(resolver.resolve(future, this.future)) :
+            wrapIntoObservable(resolver(future, this.future));
+    };
+    PreActivation.prototype.getToken = function (token, snapshot) {
+        var config = closestLoadedConfig(snapshot);
+        var injector = config ? config.module.injector : this.moduleInjector;
+        return injector.get(token);
+    };
+    return PreActivation;
+}());
+function closestLoadedConfig(snapshot) {
+    if (!snapshot)
+        return null;
+    for (var s = snapshot.parent; s; s = s.parent) {
+        var route = s.routeConfig;
+        if (route && route._loadedConfig)
+            return route._loadedConfig;
+    }
+    return null;
+}
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+var NoMatch$1 = /** @class */ (function () {
+    function NoMatch() {
+    }
+    return NoMatch;
+}());
+function recognize(rootComponentType, config, urlTree, url, paramsInheritanceStrategy) {
+    if (paramsInheritanceStrategy === void 0) { paramsInheritanceStrategy = 'emptyOnly'; }
+    return new Recognizer(rootComponentType, config, urlTree, url, paramsInheritanceStrategy)
+        .recognize();
+}
+var Recognizer = /** @class */ (function () {
+    function Recognizer(rootComponentType, config, urlTree, url, paramsInheritanceStrategy) {
+        this.rootComponentType = rootComponentType;
+        this.config = config;
+        this.urlTree = urlTree;
+        this.url = url;
+        this.paramsInheritanceStrategy = paramsInheritanceStrategy;
+    }
+    Recognizer.prototype.recognize = function () {
+        try {
+            var rootSegmentGroup = split$1(this.urlTree.root, [], [], this.config).segmentGroup;
+            var children = this.processSegmentGroup(this.config, rootSegmentGroup, PRIMARY_OUTLET);
+            var root = new ActivatedRouteSnapshot([], Object.freeze({}), Object.freeze(Object(tslib__WEBPACK_IMPORTED_MODULE_2__["__assign"])({}, this.urlTree.queryParams)), this.urlTree.fragment, {}, PRIMARY_OUTLET, this.rootComponentType, null, this.urlTree.root, -1, {});
+            var rootNode = new TreeNode(root, children);
+            var routeState = new RouterStateSnapshot(this.url, rootNode);
+            this.inheritParamsAndData(routeState._root);
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(routeState);
+        }
+        catch (e) {
+            return new rxjs__WEBPACK_IMPORTED_MODULE_3__["Observable"](function (obs) { return obs.error(e); });
+        }
+    };
+    Recognizer.prototype.inheritParamsAndData = function (routeNode) {
+        var _this = this;
+        var route = routeNode.value;
+        var i = inheritedParamsDataResolve(route, this.paramsInheritanceStrategy);
+        route.params = Object.freeze(i.params);
+        route.data = Object.freeze(i.data);
+        routeNode.children.forEach(function (n) { return _this.inheritParamsAndData(n); });
+    };
+    Recognizer.prototype.processSegmentGroup = function (config, segmentGroup, outlet) {
+        if (segmentGroup.segments.length === 0 && segmentGroup.hasChildren()) {
+            return this.processChildren(config, segmentGroup);
+        }
+        return this.processSegment(config, segmentGroup, segmentGroup.segments, outlet);
+    };
+    Recognizer.prototype.processChildren = function (config, segmentGroup) {
+        var _this = this;
+        var children = mapChildrenIntoArray(segmentGroup, function (child, childOutlet) { return _this.processSegmentGroup(config, child, childOutlet); });
+        checkOutletNameUniqueness(children);
+        sortActivatedRouteSnapshots(children);
+        return children;
+    };
+    Recognizer.prototype.processSegment = function (config, segmentGroup, segments, outlet) {
+        try {
+            for (var config_1 = Object(tslib__WEBPACK_IMPORTED_MODULE_2__["__values"])(config), config_1_1 = config_1.next(); !config_1_1.done; config_1_1 = config_1.next()) {
+                var r = config_1_1.value;
+                try {
+                    return this.processSegmentAgainstRoute(r, segmentGroup, segments, outlet);
+                }
+                catch (e) {
+                    if (!(e instanceof NoMatch$1))
+                        throw e;
+                }
+            }
+        }
+        catch (e_1_1) { e_1 = { error: e_1_1 }; }
+        finally {
+            try {
+                if (config_1_1 && !config_1_1.done && (_a = config_1.return)) _a.call(config_1);
+            }
+            finally { if (e_1) throw e_1.error; }
+        }
+        if (this.noLeftoversInUrl(segmentGroup, segments, outlet)) {
+            return [];
+        }
+        throw new NoMatch$1();
+        var e_1, _a;
+    };
+    Recognizer.prototype.noLeftoversInUrl = function (segmentGroup, segments, outlet) {
+        return segments.length === 0 && !segmentGroup.children[outlet];
+    };
+    Recognizer.prototype.processSegmentAgainstRoute = function (route, rawSegment, segments, outlet) {
+        if (route.redirectTo)
+            throw new NoMatch$1();
+        if ((route.outlet || PRIMARY_OUTLET) !== outlet)
+            throw new NoMatch$1();
+        var snapshot;
+        var consumedSegments = [];
+        var rawSlicedSegments = [];
+        if (route.path === '**') {
+            var params = segments.length > 0 ? last$1(segments).parameters : {};
+            snapshot = new ActivatedRouteSnapshot(segments, params, Object.freeze(Object(tslib__WEBPACK_IMPORTED_MODULE_2__["__assign"])({}, this.urlTree.queryParams)), this.urlTree.fragment, getData(route), outlet, route.component, route, getSourceSegmentGroup(rawSegment), getPathIndexShift(rawSegment) + segments.length, getResolve(route));
+        }
+        else {
+            var result = match$1(rawSegment, route, segments);
+            consumedSegments = result.consumedSegments;
+            rawSlicedSegments = segments.slice(result.lastChild);
+            snapshot = new ActivatedRouteSnapshot(consumedSegments, result.parameters, Object.freeze(Object(tslib__WEBPACK_IMPORTED_MODULE_2__["__assign"])({}, this.urlTree.queryParams)), this.urlTree.fragment, getData(route), outlet, route.component, route, getSourceSegmentGroup(rawSegment), getPathIndexShift(rawSegment) + consumedSegments.length, getResolve(route));
+        }
+        var childConfig = getChildConfig(route);
+        var _a = split$1(rawSegment, consumedSegments, rawSlicedSegments, childConfig), segmentGroup = _a.segmentGroup, slicedSegments = _a.slicedSegments;
+        if (slicedSegments.length === 0 && segmentGroup.hasChildren()) {
+            var children_1 = this.processChildren(childConfig, segmentGroup);
+            return [new TreeNode(snapshot, children_1)];
+        }
+        if (childConfig.length === 0 && slicedSegments.length === 0) {
+            return [new TreeNode(snapshot, [])];
+        }
+        var children = this.processSegment(childConfig, segmentGroup, slicedSegments, PRIMARY_OUTLET);
+        return [new TreeNode(snapshot, children)];
+    };
+    return Recognizer;
+}());
+function sortActivatedRouteSnapshots(nodes) {
+    nodes.sort(function (a, b) {
+        if (a.value.outlet === PRIMARY_OUTLET)
+            return -1;
+        if (b.value.outlet === PRIMARY_OUTLET)
+            return 1;
+        return a.value.outlet.localeCompare(b.value.outlet);
+    });
+}
+function getChildConfig(route) {
+    if (route.children) {
+        return route.children;
+    }
+    if (route.loadChildren) {
+        return route._loadedConfig.routes;
+    }
+    return [];
+}
+function match$1(segmentGroup, route, segments) {
+    if (route.path === '') {
+        if (route.pathMatch === 'full' && (segmentGroup.hasChildren() || segments.length > 0)) {
+            throw new NoMatch$1();
+        }
+        return { consumedSegments: [], lastChild: 0, parameters: {} };
+    }
+    var matcher = route.matcher || defaultUrlMatcher;
+    var res = matcher(segments, segmentGroup, route);
+    if (!res)
+        throw new NoMatch$1();
+    var posParams = {};
+    forEach(res.posParams, function (v, k) { posParams[k] = v.path; });
+    var parameters = res.consumed.length > 0 ? Object(tslib__WEBPACK_IMPORTED_MODULE_2__["__assign"])({}, posParams, res.consumed[res.consumed.length - 1].parameters) :
+        posParams;
+    return { consumedSegments: res.consumed, lastChild: res.consumed.length, parameters: parameters };
+}
+function checkOutletNameUniqueness(nodes) {
+    var names = {};
+    nodes.forEach(function (n) {
+        var routeWithSameOutletName = names[n.value.outlet];
+        if (routeWithSameOutletName) {
+            var p = routeWithSameOutletName.url.map(function (s) { return s.toString(); }).join('/');
+            var c = n.value.url.map(function (s) { return s.toString(); }).join('/');
+            throw new Error("Two segments cannot have the same outlet name: '" + p + "' and '" + c + "'.");
+        }
+        names[n.value.outlet] = n.value;
+    });
+}
+function getSourceSegmentGroup(segmentGroup) {
+    var s = segmentGroup;
+    while (s._sourceSegment) {
+        s = s._sourceSegment;
+    }
+    return s;
+}
+function getPathIndexShift(segmentGroup) {
+    var s = segmentGroup;
+    var res = (s._segmentIndexShift ? s._segmentIndexShift : 0);
+    while (s._sourceSegment) {
+        s = s._sourceSegment;
+        res += (s._segmentIndexShift ? s._segmentIndexShift : 0);
+    }
+    return res - 1;
+}
+function split$1(segmentGroup, consumedSegments, slicedSegments, config) {
+    if (slicedSegments.length > 0 &&
+        containsEmptyPathMatchesWithNamedOutlets(segmentGroup, slicedSegments, config)) {
+        var s_1 = new UrlSegmentGroup(consumedSegments, createChildrenForEmptyPaths(segmentGroup, consumedSegments, config, new UrlSegmentGroup(slicedSegments, segmentGroup.children)));
+        s_1._sourceSegment = segmentGroup;
+        s_1._segmentIndexShift = consumedSegments.length;
+        return { segmentGroup: s_1, slicedSegments: [] };
+    }
+    if (slicedSegments.length === 0 &&
+        containsEmptyPathMatches(segmentGroup, slicedSegments, config)) {
+        var s_2 = new UrlSegmentGroup(segmentGroup.segments, addEmptyPathsToChildrenIfNeeded(segmentGroup, slicedSegments, config, segmentGroup.children));
+        s_2._sourceSegment = segmentGroup;
+        s_2._segmentIndexShift = consumedSegments.length;
+        return { segmentGroup: s_2, slicedSegments: slicedSegments };
+    }
+    var s = new UrlSegmentGroup(segmentGroup.segments, segmentGroup.children);
+    s._sourceSegment = segmentGroup;
+    s._segmentIndexShift = consumedSegments.length;
+    return { segmentGroup: s, slicedSegments: slicedSegments };
+}
+function addEmptyPathsToChildrenIfNeeded(segmentGroup, slicedSegments, routes, children) {
+    var res = {};
+    try {
+        for (var routes_1 = Object(tslib__WEBPACK_IMPORTED_MODULE_2__["__values"])(routes), routes_1_1 = routes_1.next(); !routes_1_1.done; routes_1_1 = routes_1.next()) {
+            var r = routes_1_1.value;
+            if (emptyPathMatch(segmentGroup, slicedSegments, r) && !children[getOutlet$1(r)]) {
+                var s = new UrlSegmentGroup([], {});
+                s._sourceSegment = segmentGroup;
+                s._segmentIndexShift = segmentGroup.segments.length;
+                res[getOutlet$1(r)] = s;
+            }
+        }
+    }
+    catch (e_2_1) { e_2 = { error: e_2_1 }; }
+    finally {
+        try {
+            if (routes_1_1 && !routes_1_1.done && (_a = routes_1.return)) _a.call(routes_1);
+        }
+        finally { if (e_2) throw e_2.error; }
+    }
+    return Object(tslib__WEBPACK_IMPORTED_MODULE_2__["__assign"])({}, children, res);
+    var e_2, _a;
+}
+function createChildrenForEmptyPaths(segmentGroup, consumedSegments, routes, primarySegment) {
+    var res = {};
+    res[PRIMARY_OUTLET] = primarySegment;
+    primarySegment._sourceSegment = segmentGroup;
+    primarySegment._segmentIndexShift = consumedSegments.length;
+    try {
+        for (var routes_2 = Object(tslib__WEBPACK_IMPORTED_MODULE_2__["__values"])(routes), routes_2_1 = routes_2.next(); !routes_2_1.done; routes_2_1 = routes_2.next()) {
+            var r = routes_2_1.value;
+            if (r.path === '' && getOutlet$1(r) !== PRIMARY_OUTLET) {
+                var s = new UrlSegmentGroup([], {});
+                s._sourceSegment = segmentGroup;
+                s._segmentIndexShift = consumedSegments.length;
+                res[getOutlet$1(r)] = s;
+            }
+        }
+    }
+    catch (e_3_1) { e_3 = { error: e_3_1 }; }
+    finally {
+        try {
+            if (routes_2_1 && !routes_2_1.done && (_a = routes_2.return)) _a.call(routes_2);
+        }
+        finally { if (e_3) throw e_3.error; }
+    }
+    return res;
+    var e_3, _a;
+}
+function containsEmptyPathMatchesWithNamedOutlets(segmentGroup, slicedSegments, routes) {
+    return routes.some(function (r) { return emptyPathMatch(segmentGroup, slicedSegments, r) && getOutlet$1(r) !== PRIMARY_OUTLET; });
+}
+function containsEmptyPathMatches(segmentGroup, slicedSegments, routes) {
+    return routes.some(function (r) { return emptyPathMatch(segmentGroup, slicedSegments, r); });
+}
+function emptyPathMatch(segmentGroup, slicedSegments, r) {
+    if ((segmentGroup.hasChildren() || slicedSegments.length > 0) && r.pathMatch === 'full') {
+        return false;
+    }
+    return r.path === '' && r.redirectTo === undefined;
+}
+function getOutlet$1(route) {
+    return route.outlet || PRIMARY_OUTLET;
+}
+function getData(route) {
+    return route.data || {};
+}
+function getResolve(route) {
+    return route.resolve || {};
+}
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * @description
+ *
+ * Provides a way to customize when activated routes get reused.
+ *
+ * @experimental
+ */
+var RouteReuseStrategy = /** @class */ (function () {
+    function RouteReuseStrategy() {
+    }
+    return RouteReuseStrategy;
+}());
+/**
+ * Does not detach any subtrees. Reuses routes as long as their route config is the same.
+ */
+var DefaultRouteReuseStrategy = /** @class */ (function () {
+    function DefaultRouteReuseStrategy() {
+    }
+    DefaultRouteReuseStrategy.prototype.shouldDetach = function (route) { return false; };
+    DefaultRouteReuseStrategy.prototype.store = function (route, detachedTree) { };
+    DefaultRouteReuseStrategy.prototype.shouldAttach = function (route) { return false; };
+    DefaultRouteReuseStrategy.prototype.retrieve = function (route) { return null; };
+    DefaultRouteReuseStrategy.prototype.shouldReuseRoute = function (future, curr) {
+        return future.routeConfig === curr.routeConfig;
+    };
+    return DefaultRouteReuseStrategy;
+}());
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+// TODO(i): switch to fromPromise once it's expored in rxjs
+/**
+ * @docsNotRequired
+ * @experimental
+ */
+var ROUTES = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["InjectionToken"]('ROUTES');
+var RouterConfigLoader = /** @class */ (function () {
+    function RouterConfigLoader(loader, compiler, onLoadStartListener, onLoadEndListener) {
+        this.loader = loader;
+        this.compiler = compiler;
+        this.onLoadStartListener = onLoadStartListener;
+        this.onLoadEndListener = onLoadEndListener;
+    }
+    RouterConfigLoader.prototype.load = function (parentInjector, route) {
+        var _this = this;
+        if (this.onLoadStartListener) {
+            this.onLoadStartListener(route);
+        }
+        var moduleFactory$ = this.loadModuleFactory(route.loadChildren);
+        return moduleFactory$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (factory) {
+            if (_this.onLoadEndListener) {
+                _this.onLoadEndListener(route);
+            }
+            var module = factory.create(parentInjector);
+            return new LoadedRouterConfig(flatten(module.injector.get(ROUTES)).map(standardizeConfig), module);
+        }));
+    };
+    RouterConfigLoader.prototype.loadModuleFactory = function (loadChildren) {
+        var _this = this;
+        if (typeof loadChildren === 'string') {
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["from"])(this.loader.load(loadChildren));
+        }
+        else {
+            return wrapIntoObservable(loadChildren()).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["mergeMap"])(function (t) {
+                if (t instanceof _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModuleFactory"]) {
+                    return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(t);
+                }
+                else {
+                    return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["from"])(_this.compiler.compileModuleAsync(t));
+                }
+            }));
+        }
+    };
+    return RouterConfigLoader;
+}());
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * @description
+ *
+ * Provides a way to migrate AngularJS applications to Angular.
+ *
+ * @experimental
+ */
+var UrlHandlingStrategy = /** @class */ (function () {
+    function UrlHandlingStrategy() {
+    }
+    return UrlHandlingStrategy;
+}());
+/**
+ * @experimental
+ */
+var DefaultUrlHandlingStrategy = /** @class */ (function () {
+    function DefaultUrlHandlingStrategy() {
+    }
+    DefaultUrlHandlingStrategy.prototype.shouldProcessUrl = function (url) { return true; };
+    DefaultUrlHandlingStrategy.prototype.extract = function (url) { return url; };
+    DefaultUrlHandlingStrategy.prototype.merge = function (newUrlPart, wholeUrl) { return newUrlPart; };
+    return DefaultUrlHandlingStrategy;
+}());
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+function defaultErrorHandler(error) {
+    throw error;
+}
+/**
+ * @internal
+ */
+function defaultRouterHook(snapshot) {
+    return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(null);
+}
+/**
+ * @description
+ *
+ * Provides the navigation and url manipulation capabilities.
+ *
+ * See `Routes` for more details and examples.
+ *
+ * @ngModule RouterModule
+ *
+ *
+ */
+var Router = /** @class */ (function () {
+    /**
+     * Creates the router service.
+     */
+    // TODO: vsavkin make internal after the final is out.
+    function Router(rootComponentType, urlSerializer, rootContexts, location, injector, loader, compiler, config) {
+        var _this = this;
+        this.rootComponentType = rootComponentType;
+        this.urlSerializer = urlSerializer;
+        this.rootContexts = rootContexts;
+        this.location = location;
+        this.config = config;
+        this.navigations = new rxjs__WEBPACK_IMPORTED_MODULE_3__["BehaviorSubject"](null);
+        this.navigationId = 0;
+        this.events = new rxjs__WEBPACK_IMPORTED_MODULE_3__["Subject"]();
+        /**
+         * Error handler that is invoked when a navigation errors.
+         *
+         * See `ErrorHandler` for more information.
+         */
+        this.errorHandler = defaultErrorHandler;
+        /**
+         * Indicates if at least one navigation happened.
+         */
+        this.navigated = false;
+        this.lastSuccessfulId = -1;
+        /**
+         * Used by RouterModule. This allows us to
+         * pause the navigation either before preactivation or after it.
+         * @internal
+         */
+        this.hooks = {
+            beforePreactivation: defaultRouterHook,
+            afterPreactivation: defaultRouterHook
+        };
+        /**
+         * Extracts and merges URLs. Used for AngularJS to Angular migrations.
+         */
+        this.urlHandlingStrategy = new DefaultUrlHandlingStrategy();
+        this.routeReuseStrategy = new DefaultRouteReuseStrategy();
+        /**
+         * Define what the router should do if it receives a navigation request to the current URL.
+         * By default, the router will ignore this navigation. However, this prevents features such
+         * as a "refresh" button. Use this option to configure the behavior when navigating to the
+         * current URL. Default is 'ignore'.
+         */
+        this.onSameUrlNavigation = 'ignore';
+        /**
+         * Defines how the router merges params, data and resolved data from parent to child
+         * routes. Available options are:
+         *
+         * - `'emptyOnly'`, the default, only inherits parent params for path-less or component-less
+         *   routes.
+         * - `'always'`, enables unconditional inheritance of parent params.
+         */
+        this.paramsInheritanceStrategy = 'emptyOnly';
+        var onLoadStart = function (r) { return _this.triggerEvent(new RouteConfigLoadStart(r)); };
+        var onLoadEnd = function (r) { return _this.triggerEvent(new RouteConfigLoadEnd(r)); };
+        this.ngModule = injector.get(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModuleRef"]);
+        this.resetConfig(config);
+        this.currentUrlTree = createEmptyUrlTree();
+        this.rawUrlTree = this.currentUrlTree;
+        this.configLoader = new RouterConfigLoader(loader, compiler, onLoadStart, onLoadEnd);
+        this.routerState = createEmptyState(this.currentUrlTree, this.rootComponentType);
+        this.processNavigations();
+    }
+    /**
+     * @internal
+     * TODO: this should be removed once the constructor of the router made internal
+     */
+    Router.prototype.resetRootComponentType = function (rootComponentType) {
+        this.rootComponentType = rootComponentType;
+        // TODO: vsavkin router 4.0 should make the root component set to null
+        // this will simplify the lifecycle of the router.
+        this.routerState.root.component = this.rootComponentType;
+    };
+    /**
+     * Sets up the location change listener and performs the initial navigation.
+     */
+    Router.prototype.initialNavigation = function () {
+        this.setUpLocationChangeListener();
+        if (this.navigationId === 0) {
+            this.navigateByUrl(this.location.path(true), { replaceUrl: true });
+        }
+    };
+    /**
+     * Sets up the location change listener.
+     */
+    Router.prototype.setUpLocationChangeListener = function () {
+        var _this = this;
+        // Don't need to use Zone.wrap any more, because zone.js
+        // already patch onPopState, so location change callback will
+        // run into ngZone
+        if (!this.locationSubscription) {
+            this.locationSubscription = this.location.subscribe(function (change) {
+                var rawUrlTree = _this.urlSerializer.parse(change['url']);
+                var source = change['type'] === 'popstate' ? 'popstate' : 'hashchange';
+                var state = change.state && change.state.navigationId ?
+                    { navigationId: change.state.navigationId } :
+                    null;
+                setTimeout(function () { _this.scheduleNavigation(rawUrlTree, source, state, { replaceUrl: true }); }, 0);
+            });
+        }
+    };
+    Object.defineProperty(Router.prototype, "url", {
+        /** The current url */
+        get: function () { return this.serializeUrl(this.currentUrlTree); },
+        enumerable: true,
+        configurable: true
+    });
+    /** @internal */
+    Router.prototype.triggerEvent = function (e) { this.events.next(e); };
+    /**
+     * Resets the configuration used for navigation and generating links.
+     *
+     * ### Usage
+     *
+     * ```
+     * router.resetConfig([
+     *  { path: 'team/:id', component: TeamCmp, children: [
+     *    { path: 'simple', component: SimpleCmp },
+     *    { path: 'user/:name', component: UserCmp }
+     *  ]}
+     * ]);
+     * ```
+     */
+    Router.prototype.resetConfig = function (config) {
+        validateConfig(config);
+        this.config = config.map(standardizeConfig);
+        this.navigated = false;
+        this.lastSuccessfulId = -1;
+    };
+    /** @docsNotRequired */
+    Router.prototype.ngOnDestroy = function () { this.dispose(); };
+    /** Disposes of the router */
+    Router.prototype.dispose = function () {
+        if (this.locationSubscription) {
+            this.locationSubscription.unsubscribe();
+            this.locationSubscription = null;
+        }
+    };
+    /**
+     * Applies an array of commands to the current url tree and creates a new url tree.
+     *
+     * When given an activate route, applies the given commands starting from the route.
+     * When not given a route, applies the given command starting from the root.
+     *
+     * ### Usage
+     *
+     * ```
+     * // create /team/33/user/11
+     * router.createUrlTree(['/team', 33, 'user', 11]);
+     *
+     * // create /team/33;expand=true/user/11
+     * router.createUrlTree(['/team', 33, {expand: true}, 'user', 11]);
+     *
+     * // you can collapse static segments like this (this works only with the first passed-in value):
+     * router.createUrlTree(['/team/33/user', userId]);
+     *
+     * // If the first segment can contain slashes, and you do not want the router to split it, you
+     * // can do the following:
+     *
+     * router.createUrlTree([{segmentPath: '/one/two'}]);
+     *
+     * // create /team/33/(user/11//right:chat)
+     * router.createUrlTree(['/team', 33, {outlets: {primary: 'user/11', right: 'chat'}}]);
+     *
+     * // remove the right secondary node
+     * router.createUrlTree(['/team', 33, {outlets: {primary: 'user/11', right: null}}]);
+     *
+     * // assuming the current url is `/team/33/user/11` and the route points to `user/11`
+     *
+     * // navigate to /team/33/user/11/details
+     * router.createUrlTree(['details'], {relativeTo: route});
+     *
+     * // navigate to /team/33/user/22
+     * router.createUrlTree(['../22'], {relativeTo: route});
+     *
+     * // navigate to /team/44/user/22
+     * router.createUrlTree(['../../team/44/user/22'], {relativeTo: route});
+     * ```
+     */
+    Router.prototype.createUrlTree = function (commands, navigationExtras) {
+        if (navigationExtras === void 0) { navigationExtras = {}; }
+        var relativeTo = navigationExtras.relativeTo, queryParams = navigationExtras.queryParams, fragment = navigationExtras.fragment, preserveQueryParams = navigationExtras.preserveQueryParams, queryParamsHandling = navigationExtras.queryParamsHandling, preserveFragment = navigationExtras.preserveFragment;
+        if (Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["isDevMode"])() && preserveQueryParams && console && console.warn) {
+            console.warn('preserveQueryParams is deprecated, use queryParamsHandling instead.');
+        }
+        var a = relativeTo || this.routerState.root;
+        var f = preserveFragment ? this.currentUrlTree.fragment : fragment;
+        var q = null;
+        if (queryParamsHandling) {
+            switch (queryParamsHandling) {
+                case 'merge':
+                    q = Object(tslib__WEBPACK_IMPORTED_MODULE_2__["__assign"])({}, this.currentUrlTree.queryParams, queryParams);
+                    break;
+                case 'preserve':
+                    q = this.currentUrlTree.queryParams;
+                    break;
+                default:
+                    q = queryParams || null;
+            }
+        }
+        else {
+            q = preserveQueryParams ? this.currentUrlTree.queryParams : queryParams || null;
+        }
+        if (q !== null) {
+            q = this.removeEmptyProps(q);
+        }
+        return createUrlTree(a, this.currentUrlTree, commands, q, f);
+    };
+    /**
+     * Navigate based on the provided url. This navigation is always absolute.
+     *
+     * Returns a promise that:
+     * - resolves to 'true' when navigation succeeds,
+     * - resolves to 'false' when navigation fails,
+     * - is rejected when an error happens.
+     *
+     * ### Usage
+     *
+     * ```
+     * router.navigateByUrl("/team/33/user/11");
+     *
+     * // Navigate without updating the URL
+     * router.navigateByUrl("/team/33/user/11", { skipLocationChange: true });
+     * ```
+     *
+     * In opposite to `navigate`, `navigateByUrl` takes a whole URL
+     * and does not apply any delta to the current one.
+     */
+    Router.prototype.navigateByUrl = function (url, extras) {
+        if (extras === void 0) { extras = { skipLocationChange: false }; }
+        var urlTree = url instanceof UrlTree ? url : this.parseUrl(url);
+        var mergedTree = this.urlHandlingStrategy.merge(urlTree, this.rawUrlTree);
+        return this.scheduleNavigation(mergedTree, 'imperative', null, extras);
+    };
+    /**
+     * Navigate based on the provided array of commands and a starting point.
+     * If no starting route is provided, the navigation is absolute.
+     *
+     * Returns a promise that:
+     * - resolves to 'true' when navigation succeeds,
+     * - resolves to 'false' when navigation fails,
+     * - is rejected when an error happens.
+     *
+     * ### Usage
+     *
+     * ```
+     * router.navigate(['team', 33, 'user', 11], {relativeTo: route});
+     *
+     * // Navigate without updating the URL
+     * router.navigate(['team', 33, 'user', 11], {relativeTo: route, skipLocationChange: true});
+     * ```
+     *
+     * In opposite to `navigateByUrl`, `navigate` always takes a delta that is applied to the current
+     * URL.
+     */
+    Router.prototype.navigate = function (commands, extras) {
+        if (extras === void 0) { extras = { skipLocationChange: false }; }
+        validateCommands(commands);
+        return this.navigateByUrl(this.createUrlTree(commands, extras), extras);
+    };
+    /** Serializes a `UrlTree` into a string */
+    Router.prototype.serializeUrl = function (url) { return this.urlSerializer.serialize(url); };
+    /** Parses a string into a `UrlTree` */
+    Router.prototype.parseUrl = function (url) { return this.urlSerializer.parse(url); };
+    /** Returns whether the url is activated */
+    Router.prototype.isActive = function (url, exact) {
+        if (url instanceof UrlTree) {
+            return containsTree(this.currentUrlTree, url, exact);
+        }
+        var urlTree = this.urlSerializer.parse(url);
+        return containsTree(this.currentUrlTree, urlTree, exact);
+    };
+    Router.prototype.removeEmptyProps = function (params) {
+        return Object.keys(params).reduce(function (result, key) {
+            var value = params[key];
+            if (value !== null && value !== undefined) {
+                result[key] = value;
+            }
+            return result;
+        }, {});
+    };
+    Router.prototype.processNavigations = function () {
+        var _this = this;
+        this.navigations
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["concatMap"])(function (nav) {
+            if (nav) {
+                _this.executeScheduledNavigation(nav);
+                // a failed navigation should not stop the router from processing
+                // further navigations => the catch
+                return nav.promise.catch(function () { });
+            }
+            else {
+                return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(null);
+            }
+        }))
+            .subscribe(function () { });
+    };
+    Router.prototype.scheduleNavigation = function (rawUrl, source, state, extras) {
+        var lastNavigation = this.navigations.value;
+        // If the user triggers a navigation imperatively (e.g., by using navigateByUrl),
+        // and that navigation results in 'replaceState' that leads to the same URL,
+        // we should skip those.
+        if (lastNavigation && source !== 'imperative' && lastNavigation.source === 'imperative' &&
+            lastNavigation.rawUrl.toString() === rawUrl.toString()) {
+            return Promise.resolve(true); // return value is not used
+        }
+        // Because of a bug in IE and Edge, the location class fires two events (popstate and
+        // hashchange) every single time. The second one should be ignored. Otherwise, the URL will
+        // flicker. Handles the case when a popstate was emitted first.
+        if (lastNavigation && source == 'hashchange' && lastNavigation.source === 'popstate' &&
+            lastNavigation.rawUrl.toString() === rawUrl.toString()) {
+            return Promise.resolve(true); // return value is not used
+        }
+        // Because of a bug in IE and Edge, the location class fires two events (popstate and
+        // hashchange) every single time. The second one should be ignored. Otherwise, the URL will
+        // flicker. Handles the case when a hashchange was emitted first.
+        if (lastNavigation && source == 'popstate' && lastNavigation.source === 'hashchange' &&
+            lastNavigation.rawUrl.toString() === rawUrl.toString()) {
+            return Promise.resolve(true); // return value is not used
+        }
+        var resolve = null;
+        var reject = null;
+        var promise = new Promise(function (res, rej) {
+            resolve = res;
+            reject = rej;
+        });
+        var id = ++this.navigationId;
+        this.navigations.next({ id: id, source: source, state: state, rawUrl: rawUrl, extras: extras, resolve: resolve, reject: reject, promise: promise });
+        // Make sure that the error is propagated even though `processNavigations` catch
+        // handler does not rethrow
+        return promise.catch(function (e) { return Promise.reject(e); });
+    };
+    Router.prototype.executeScheduledNavigation = function (_a) {
+        var _this = this;
+        var id = _a.id, rawUrl = _a.rawUrl, extras = _a.extras, resolve = _a.resolve, reject = _a.reject, source = _a.source, state = _a.state;
+        var url = this.urlHandlingStrategy.extract(rawUrl);
+        var urlTransition = !this.navigated || url.toString() !== this.currentUrlTree.toString();
+        if ((this.onSameUrlNavigation === 'reload' ? true : urlTransition) &&
+            this.urlHandlingStrategy.shouldProcessUrl(rawUrl)) {
+            this.events
+                .next(new NavigationStart(id, this.serializeUrl(url), source, state));
+            Promise.resolve()
+                .then(function (_) { return _this.runNavigate(url, rawUrl, !!extras.skipLocationChange, !!extras.replaceUrl, id, null); })
+                .then(resolve, reject);
+            // we cannot process the current URL, but we could process the previous one =>
+            // we need to do some cleanup
+        }
+        else if (urlTransition && this.rawUrlTree &&
+            this.urlHandlingStrategy.shouldProcessUrl(this.rawUrlTree)) {
+            this.events
+                .next(new NavigationStart(id, this.serializeUrl(url), source, state));
+            Promise.resolve()
+                .then(function (_) { return _this.runNavigate(url, rawUrl, false, false, id, createEmptyState(url, _this.rootComponentType).snapshot); })
+                .then(resolve, reject);
+        }
+        else {
+            this.rawUrlTree = rawUrl;
+            resolve(null);
+        }
+    };
+    Router.prototype.runNavigate = function (url, rawUrl, skipLocationChange, replaceUrl, id, precreatedState) {
+        var _this = this;
+        if (id !== this.navigationId) {
+            this.events
+                .next(new NavigationCancel(id, this.serializeUrl(url), "Navigation ID " + id + " is not equal to the current navigation id " + this.navigationId));
+            return Promise.resolve(false);
+        }
+        return new Promise(function (resolvePromise, rejectPromise) {
+            // create an observable of the url and route state snapshot
+            // this operation do not result in any side effects
+            var urlAndSnapshot$;
+            if (!precreatedState) {
+                var moduleInjector = _this.ngModule.injector;
+                var redirectsApplied$ = applyRedirects(moduleInjector, _this.configLoader, _this.urlSerializer, url, _this.config);
+                urlAndSnapshot$ = redirectsApplied$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["mergeMap"])(function (appliedUrl) {
+                    return recognize(_this.rootComponentType, _this.config, appliedUrl, _this.serializeUrl(appliedUrl), _this.paramsInheritanceStrategy)
+                        .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (snapshot) {
+                        _this.events
+                            .next(new RoutesRecognized(id, _this.serializeUrl(url), _this.serializeUrl(appliedUrl), snapshot));
+                        return { appliedUrl: appliedUrl, snapshot: snapshot };
+                    }));
+                }));
+            }
+            else {
+                urlAndSnapshot$ = Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])({ appliedUrl: url, snapshot: precreatedState });
+            }
+            var beforePreactivationDone$ = urlAndSnapshot$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["mergeMap"])(function (p) {
+                if (typeof p === 'boolean')
+                    return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(p);
+                return _this.hooks.beforePreactivation(p.snapshot).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function () { return p; }));
+            }));
+            // run preactivation: guards and data resolvers
+            var preActivation;
+            var preactivationSetup$ = beforePreactivationDone$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (p) {
+                if (typeof p === 'boolean')
+                    return p;
+                var appliedUrl = p.appliedUrl, snapshot = p.snapshot;
+                var moduleInjector = _this.ngModule.injector;
+                preActivation = new PreActivation(snapshot, _this.routerState.snapshot, moduleInjector, function (evt) { return _this.triggerEvent(evt); });
+                preActivation.initialize(_this.rootContexts);
+                return { appliedUrl: appliedUrl, snapshot: snapshot };
+            }));
+            var preactivationCheckGuards$ = preactivationSetup$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["mergeMap"])(function (p) {
+                if (typeof p === 'boolean' || _this.navigationId !== id)
+                    return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(false);
+                var appliedUrl = p.appliedUrl, snapshot = p.snapshot;
+                _this.triggerEvent(new GuardsCheckStart(id, _this.serializeUrl(url), _this.serializeUrl(appliedUrl), snapshot));
+                return preActivation.checkGuards().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (shouldActivate) {
+                    _this.triggerEvent(new GuardsCheckEnd(id, _this.serializeUrl(url), _this.serializeUrl(appliedUrl), snapshot, shouldActivate));
+                    return { appliedUrl: appliedUrl, snapshot: snapshot, shouldActivate: shouldActivate };
+                }));
+            }));
+            var preactivationResolveData$ = preactivationCheckGuards$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["mergeMap"])(function (p) {
+                if (typeof p === 'boolean' || _this.navigationId !== id)
+                    return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(false);
+                if (p.shouldActivate && preActivation.isActivating()) {
+                    _this.triggerEvent(new ResolveStart(id, _this.serializeUrl(url), _this.serializeUrl(p.appliedUrl), p.snapshot));
+                    return preActivation.resolveData(_this.paramsInheritanceStrategy).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function () {
+                        _this.triggerEvent(new ResolveEnd(id, _this.serializeUrl(url), _this.serializeUrl(p.appliedUrl), p.snapshot));
+                        return p;
+                    }));
+                }
+                else {
+                    return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(p);
+                }
+            }));
+            var preactivationDone$ = preactivationResolveData$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["mergeMap"])(function (p) {
+                if (typeof p === 'boolean' || _this.navigationId !== id)
+                    return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(false);
+                return _this.hooks.afterPreactivation(p.snapshot).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function () { return p; }));
+            }));
+            // create router state
+            // this operation has side effects => route state is being affected
+            var routerState$ = preactivationDone$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (p) {
+                if (typeof p === 'boolean' || _this.navigationId !== id)
+                    return false;
+                var appliedUrl = p.appliedUrl, snapshot = p.snapshot, shouldActivate = p.shouldActivate;
+                if (shouldActivate) {
+                    var state = createRouterState(_this.routeReuseStrategy, snapshot, _this.routerState);
+                    return { appliedUrl: appliedUrl, state: state, shouldActivate: shouldActivate };
+                }
+                else {
+                    return { appliedUrl: appliedUrl, state: null, shouldActivate: shouldActivate };
+                }
+            }));
+            _this.activateRoutes(routerState$, _this.routerState, _this.currentUrlTree, id, url, rawUrl, skipLocationChange, replaceUrl, resolvePromise, rejectPromise);
+        });
+    };
+    /**
+     * Performs the logic of activating routes. This is a synchronous process by default. While this
+     * is a private method, it could be overridden to make activation asynchronous.
+     */
+    Router.prototype.activateRoutes = function (state, storedState, storedUrl, id, url, rawUrl, skipLocationChange, replaceUrl, resolvePromise, rejectPromise) {
+        var _this = this;
+        // applied the new router state
+        // this operation has side effects
+        var navigationIsSuccessful;
+        state
+            .forEach(function (p) {
+            if (typeof p === 'boolean' || !p.shouldActivate || id !== _this.navigationId || !p.state) {
+                navigationIsSuccessful = false;
+                return;
+            }
+            var appliedUrl = p.appliedUrl, state = p.state;
+            _this.currentUrlTree = appliedUrl;
+            _this.rawUrlTree = _this.urlHandlingStrategy.merge(_this.currentUrlTree, rawUrl);
+            _this.routerState = state;
+            if (!skipLocationChange) {
+                var path = _this.urlSerializer.serialize(_this.rawUrlTree);
+                if (_this.location.isCurrentPathEqualTo(path) || replaceUrl) {
+                    _this.location.replaceState(path, '', { navigationId: id });
+                }
+                else {
+                    _this.location.go(path, '', { navigationId: id });
+                }
+            }
+            new ActivateRoutes(_this.routeReuseStrategy, state, storedState, function (evt) { return _this.triggerEvent(evt); })
+                .activate(_this.rootContexts);
+            navigationIsSuccessful = true;
+        })
+            .then(function () {
+            if (navigationIsSuccessful) {
+                _this.navigated = true;
+                _this.lastSuccessfulId = id;
+                _this.events
+                    .next(new NavigationEnd(id, _this.serializeUrl(url), _this.serializeUrl(_this.currentUrlTree)));
+                resolvePromise(true);
+            }
+            else {
+                _this.resetUrlToCurrentUrlTree();
+                _this.events
+                    .next(new NavigationCancel(id, _this.serializeUrl(url), ''));
+                resolvePromise(false);
+            }
+        }, function (e) {
+            if (isNavigationCancelingError(e)) {
+                _this.navigated = true;
+                _this.resetStateAndUrl(storedState, storedUrl, rawUrl);
+                _this.events
+                    .next(new NavigationCancel(id, _this.serializeUrl(url), e.message));
+                resolvePromise(false);
+            }
+            else {
+                _this.resetStateAndUrl(storedState, storedUrl, rawUrl);
+                _this.events
+                    .next(new NavigationError(id, _this.serializeUrl(url), e));
+                try {
+                    resolvePromise(_this.errorHandler(e));
+                }
+                catch (ee) {
+                    rejectPromise(ee);
+                }
+            }
+        });
+    };
+    Router.prototype.resetStateAndUrl = function (storedState, storedUrl, rawUrl) {
+        this.routerState = storedState;
+        this.currentUrlTree = storedUrl;
+        this.rawUrlTree = this.urlHandlingStrategy.merge(this.currentUrlTree, rawUrl);
+        this.resetUrlToCurrentUrlTree();
+    };
+    Router.prototype.resetUrlToCurrentUrlTree = function () {
+        this.location.replaceState(this.urlSerializer.serialize(this.rawUrlTree), '', { navigationId: this.lastSuccessfulId });
+    };
+    return Router;
+}());
+var ActivateRoutes = /** @class */ (function () {
+    function ActivateRoutes(routeReuseStrategy, futureState, currState, forwardEvent) {
+        this.routeReuseStrategy = routeReuseStrategy;
+        this.futureState = futureState;
+        this.currState = currState;
+        this.forwardEvent = forwardEvent;
+    }
+    ActivateRoutes.prototype.activate = function (parentContexts) {
+        var futureRoot = this.futureState._root;
+        var currRoot = this.currState ? this.currState._root : null;
+        this.deactivateChildRoutes(futureRoot, currRoot, parentContexts);
+        advanceActivatedRoute(this.futureState.root);
+        this.activateChildRoutes(futureRoot, currRoot, parentContexts);
+    };
+    // De-activate the child route that are not re-used for the future state
+    ActivateRoutes.prototype.deactivateChildRoutes = function (futureNode, currNode, contexts) {
+        var _this = this;
+        var children = nodeChildrenAsMap(currNode);
+        // Recurse on the routes active in the future state to de-activate deeper children
+        futureNode.children.forEach(function (futureChild) {
+            var childOutletName = futureChild.value.outlet;
+            _this.deactivateRoutes(futureChild, children[childOutletName], contexts);
+            delete children[childOutletName];
+        });
+        // De-activate the routes that will not be re-used
+        forEach(children, function (v, childName) {
+            _this.deactivateRouteAndItsChildren(v, contexts);
+        });
+    };
+    ActivateRoutes.prototype.deactivateRoutes = function (futureNode, currNode, parentContext) {
+        var future = futureNode.value;
+        var curr = currNode ? currNode.value : null;
+        if (future === curr) {
+            // Reusing the node, check to see if the children need to be de-activated
+            if (future.component) {
+                // If we have a normal route, we need to go through an outlet.
+                var context = parentContext.getContext(future.outlet);
+                if (context) {
+                    this.deactivateChildRoutes(futureNode, currNode, context.children);
+                }
+            }
+            else {
+                // if we have a componentless route, we recurse but keep the same outlet map.
+                this.deactivateChildRoutes(futureNode, currNode, parentContext);
+            }
+        }
+        else {
+            if (curr) {
+                // Deactivate the current route which will not be re-used
+                this.deactivateRouteAndItsChildren(currNode, parentContext);
+            }
+        }
+    };
+    ActivateRoutes.prototype.deactivateRouteAndItsChildren = function (route, parentContexts) {
+        if (this.routeReuseStrategy.shouldDetach(route.value.snapshot)) {
+            this.detachAndStoreRouteSubtree(route, parentContexts);
+        }
+        else {
+            this.deactivateRouteAndOutlet(route, parentContexts);
+        }
+    };
+    ActivateRoutes.prototype.detachAndStoreRouteSubtree = function (route, parentContexts) {
+        var context = parentContexts.getContext(route.value.outlet);
+        if (context && context.outlet) {
+            var componentRef = context.outlet.detach();
+            var contexts = context.children.onOutletDeactivated();
+            this.routeReuseStrategy.store(route.value.snapshot, { componentRef: componentRef, route: route, contexts: contexts });
+        }
+    };
+    ActivateRoutes.prototype.deactivateRouteAndOutlet = function (route, parentContexts) {
+        var _this = this;
+        var context = parentContexts.getContext(route.value.outlet);
+        if (context) {
+            var children = nodeChildrenAsMap(route);
+            var contexts_1 = route.value.component ? context.children : parentContexts;
+            forEach(children, function (v, k) { return _this.deactivateRouteAndItsChildren(v, contexts_1); });
+            if (context.outlet) {
+                // Destroy the component
+                context.outlet.deactivate();
+                // Destroy the contexts for all the outlets that were in the component
+                context.children.onOutletDeactivated();
+            }
+        }
+    };
+    ActivateRoutes.prototype.activateChildRoutes = function (futureNode, currNode, contexts) {
+        var _this = this;
+        var children = nodeChildrenAsMap(currNode);
+        futureNode.children.forEach(function (c) {
+            _this.activateRoutes(c, children[c.value.outlet], contexts);
+            _this.forwardEvent(new ActivationEnd(c.value.snapshot));
+        });
+        if (futureNode.children.length) {
+            this.forwardEvent(new ChildActivationEnd(futureNode.value.snapshot));
+        }
+    };
+    ActivateRoutes.prototype.activateRoutes = function (futureNode, currNode, parentContexts) {
+        var future = futureNode.value;
+        var curr = currNode ? currNode.value : null;
+        advanceActivatedRoute(future);
+        // reusing the node
+        if (future === curr) {
+            if (future.component) {
+                // If we have a normal route, we need to go through an outlet.
+                var context = parentContexts.getOrCreateContext(future.outlet);
+                this.activateChildRoutes(futureNode, currNode, context.children);
+            }
+            else {
+                // if we have a componentless route, we recurse but keep the same outlet map.
+                this.activateChildRoutes(futureNode, currNode, parentContexts);
+            }
+        }
+        else {
+            if (future.component) {
+                // if we have a normal route, we need to place the component into the outlet and recurse.
+                var context = parentContexts.getOrCreateContext(future.outlet);
+                if (this.routeReuseStrategy.shouldAttach(future.snapshot)) {
+                    var stored = this.routeReuseStrategy.retrieve(future.snapshot);
+                    this.routeReuseStrategy.store(future.snapshot, null);
+                    context.children.onOutletReAttached(stored.contexts);
+                    context.attachRef = stored.componentRef;
+                    context.route = stored.route.value;
+                    if (context.outlet) {
+                        // Attach right away when the outlet has already been instantiated
+                        // Otherwise attach from `RouterOutlet.ngOnInit` when it is instantiated
+                        context.outlet.attach(stored.componentRef, stored.route.value);
+                    }
+                    advanceActivatedRouteNodeAndItsChildren(stored.route);
+                }
+                else {
+                    var config = parentLoadedConfig(future.snapshot);
+                    var cmpFactoryResolver = config ? config.module.componentFactoryResolver : null;
+                    context.route = future;
+                    context.resolver = cmpFactoryResolver;
+                    if (context.outlet) {
+                        // Activate the outlet when it has already been instantiated
+                        // Otherwise it will get activated from its `ngOnInit` when instantiated
+                        context.outlet.activateWith(future, cmpFactoryResolver);
+                    }
+                    this.activateChildRoutes(futureNode, null, context.children);
+                }
+            }
+            else {
+                // if we have a componentless route, we recurse but keep the same outlet map.
+                this.activateChildRoutes(futureNode, null, parentContexts);
+            }
+        }
+    };
+    return ActivateRoutes;
+}());
+function advanceActivatedRouteNodeAndItsChildren(node) {
+    advanceActivatedRoute(node.value);
+    node.children.forEach(advanceActivatedRouteNodeAndItsChildren);
+}
+function parentLoadedConfig(snapshot) {
+    for (var s = snapshot.parent; s; s = s.parent) {
+        var route = s.routeConfig;
+        if (route && route._loadedConfig)
+            return route._loadedConfig;
+        if (route && route.component)
+            return null;
+    }
+    return null;
+}
+function validateCommands(commands) {
+    for (var i = 0; i < commands.length; i++) {
+        var cmd = commands[i];
+        if (cmd == null) {
+            throw new Error("The requested path contains " + cmd + " segment at index " + i);
+        }
+    }
+}
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * @description
+ *
+ * Lets you link to specific routes in your app.
+ *
+ * Consider the following route configuration:
+ * `[{ path: 'user/:name', component: UserCmp }]`.
+ * When linking to this `user/:name` route, you use the `RouterLink` directive.
+ *
+ * If the link is static, you can use the directive as follows:
+ * `<a routerLink="/user/bob">link to user component</a>`
+ *
+ * If you use dynamic values to generate the link, you can pass an array of path
+ * segments, followed by the params for each segment.
+ *
+ * For instance `['/team', teamId, 'user', userName, {details: true}]`
+ * means that we want to generate a link to `/team/11/user/bob;details=true`.
+ *
+ * Multiple static segments can be merged into one
+ * (e.g., `['/team/11/user', userName, {details: true}]`).
+ *
+ * The first segment name can be prepended with `/`, `./`, or `../`:
+ * * If the first segment begins with `/`, the router will look up the route from the root of the
+ *   app.
+ * * If the first segment begins with `./`, or doesn't begin with a slash, the router will
+ *   instead look in the children of the current activated route.
+ * * And if the first segment begins with `../`, the router will go up one level.
+ *
+ * You can set query params and fragment as follows:
+ *
+ * ```
+ * <a [routerLink]="['/user/bob']" [queryParams]="{debug: true}" fragment="education">
+ *   link to user component
+ * </a>
+ * ```
+ * RouterLink will use these to generate this link: `/user/bob#education?debug=true`.
+ *
+ * (Deprecated in v4.0.0 use `queryParamsHandling` instead) You can also tell the
+ * directive to preserve the current query params and fragment:
+ *
+ * ```
+ * <a [routerLink]="['/user/bob']" preserveQueryParams preserveFragment>
+ *   link to user component
+ * </a>
+ * ```
+ *
+ * You can tell the directive to how to handle queryParams, available options are:
+ *  - `'merge'`: merge the queryParams into the current queryParams
+ *  - `'preserve'`: preserve the current queryParams
+ *  - default/`''`: use the queryParams only
+ *
+ * Same options for {@link NavigationExtras#queryParamsHandling
+ * NavigationExtras#queryParamsHandling}.
+ *
+ * ```
+ * <a [routerLink]="['/user/bob']" [queryParams]="{debug: true}" queryParamsHandling="merge">
+ *   link to user component
+ * </a>
+ * ```
+ *
+ * The router link directive always treats the provided input as a delta to the current url.
+ *
+ * For instance, if the current url is `/user/(box//aux:team)`.
+ *
+ * Then the following link `<a [routerLink]="['/user/jim']">Jim</a>` will generate the link
+ * `/user/(jim//aux:team)`.
+ *
+ * See {@link Router#createUrlTree createUrlTree} for more information.
+ *
+ * @ngModule RouterModule
+ *
+ *
+ */
+var RouterLink = /** @class */ (function () {
+    function RouterLink(router, route, tabIndex, renderer, el) {
+        this.router = router;
+        this.route = route;
+        this.commands = [];
+        if (tabIndex == null) {
+            renderer.setAttribute(el.nativeElement, 'tabindex', '0');
+        }
+    }
+    Object.defineProperty(RouterLink.prototype, "routerLink", {
+        set: function (commands) {
+            if (commands != null) {
+                this.commands = Array.isArray(commands) ? commands : [commands];
+            }
+            else {
+                this.commands = [];
+            }
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(RouterLink.prototype, "preserveQueryParams", {
+        /**
+         * @deprecated 4.0.0 use `queryParamsHandling` instead.
+         */
+        set: function (value) {
+            if (Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["isDevMode"])() && console && console.warn) {
+                console.warn('preserveQueryParams is deprecated!, use queryParamsHandling instead.');
+            }
+            this.preserve = value;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    RouterLink.prototype.onClick = function () {
+        var extras = {
+            skipLocationChange: attrBoolValue(this.skipLocationChange),
+            replaceUrl: attrBoolValue(this.replaceUrl),
+        };
+        this.router.navigateByUrl(this.urlTree, extras);
+        return true;
+    };
+    Object.defineProperty(RouterLink.prototype, "urlTree", {
+        get: function () {
+            return this.router.createUrlTree(this.commands, {
+                relativeTo: this.route,
+                queryParams: this.queryParams,
+                fragment: this.fragment,
+                preserveQueryParams: attrBoolValue(this.preserve),
+                queryParamsHandling: this.queryParamsHandling,
+                preserveFragment: attrBoolValue(this.preserveFragment),
+            });
+        },
+        enumerable: true,
+        configurable: true
+    });
+    RouterLink.decorators = [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Directive"], args: [{ selector: ':not(a)[routerLink]' },] }
+    ];
+    /** @nocollapse */
+    RouterLink.ctorParameters = function () { return [
+        { type: Router },
+        { type: ActivatedRoute },
+        { type: String, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Attribute"], args: ['tabindex',] }] },
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Renderer2"] },
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"] }
+    ]; };
+    RouterLink.propDecorators = {
+        queryParams: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+        fragment: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+        queryParamsHandling: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+        preserveFragment: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+        skipLocationChange: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+        replaceUrl: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+        routerLink: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+        preserveQueryParams: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+        onClick: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"], args: ['click',] }]
+    };
+    return RouterLink;
+}());
+/**
+ * @description
+ *
+ * Lets you link to specific routes in your app.
+ *
+ * See `RouterLink` for more information.
+ *
+ * @ngModule RouterModule
+ *
+ *
+ */
+var RouterLinkWithHref = /** @class */ (function () {
+    function RouterLinkWithHref(router, route, locationStrategy) {
+        var _this = this;
+        this.router = router;
+        this.route = route;
+        this.locationStrategy = locationStrategy;
+        this.commands = [];
+        this.subscription = router.events.subscribe(function (s) {
+            if (s instanceof NavigationEnd) {
+                _this.updateTargetUrlAndHref();
+            }
+        });
+    }
+    Object.defineProperty(RouterLinkWithHref.prototype, "routerLink", {
+        set: function (commands) {
+            if (commands != null) {
+                this.commands = Array.isArray(commands) ? commands : [commands];
+            }
+            else {
+                this.commands = [];
+            }
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(RouterLinkWithHref.prototype, "preserveQueryParams", {
+        set: function (value) {
+            if (Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["isDevMode"])() && console && console.warn) {
+                console.warn('preserveQueryParams is deprecated, use queryParamsHandling instead.');
+            }
+            this.preserve = value;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    RouterLinkWithHref.prototype.ngOnChanges = function (changes) { this.updateTargetUrlAndHref(); };
+    RouterLinkWithHref.prototype.ngOnDestroy = function () { this.subscription.unsubscribe(); };
+    RouterLinkWithHref.prototype.onClick = function (button, ctrlKey, metaKey, shiftKey) {
+        if (button !== 0 || ctrlKey || metaKey || shiftKey) {
+            return true;
+        }
+        if (typeof this.target === 'string' && this.target != '_self') {
+            return true;
+        }
+        var extras = {
+            skipLocationChange: attrBoolValue(this.skipLocationChange),
+            replaceUrl: attrBoolValue(this.replaceUrl),
+        };
+        this.router.navigateByUrl(this.urlTree, extras);
+        return false;
+    };
+    RouterLinkWithHref.prototype.updateTargetUrlAndHref = function () {
+        this.href = this.locationStrategy.prepareExternalUrl(this.router.serializeUrl(this.urlTree));
+    };
+    Object.defineProperty(RouterLinkWithHref.prototype, "urlTree", {
+        get: function () {
+            return this.router.createUrlTree(this.commands, {
+                relativeTo: this.route,
+                queryParams: this.queryParams,
+                fragment: this.fragment,
+                preserveQueryParams: attrBoolValue(this.preserve),
+                queryParamsHandling: this.queryParamsHandling,
+                preserveFragment: attrBoolValue(this.preserveFragment),
+            });
+        },
+        enumerable: true,
+        configurable: true
+    });
+    RouterLinkWithHref.decorators = [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Directive"], args: [{ selector: 'a[routerLink]' },] }
+    ];
+    /** @nocollapse */
+    RouterLinkWithHref.ctorParameters = function () { return [
+        { type: Router },
+        { type: ActivatedRoute },
+        { type: _angular_common__WEBPACK_IMPORTED_MODULE_0__["LocationStrategy"] }
+    ]; };
+    RouterLinkWithHref.propDecorators = {
+        target: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostBinding"], args: ['attr.target',] }, { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+        queryParams: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+        fragment: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+        queryParamsHandling: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+        preserveFragment: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+        skipLocationChange: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+        replaceUrl: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+        href: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostBinding"] }],
+        routerLink: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+        preserveQueryParams: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+        onClick: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"], args: ['click', ['$event.button', '$event.ctrlKey', '$event.metaKey', '$event.shiftKey'],] }]
+    };
+    return RouterLinkWithHref;
+}());
+function attrBoolValue(s) {
+    return s === '' || !!s;
+}
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ *
+ * @description
+ *
+ * Lets you add a CSS class to an element when the link's route becomes active.
+ *
+ * This directive lets you add a CSS class to an element when the link's route
+ * becomes active.
+ *
+ * Consider the following example:
+ *
+ * ```
+ * <a routerLink="/user/bob" routerLinkActive="active-link">Bob</a>
+ * ```
+ *
+ * When the url is either '/user' or '/user/bob', the active-link class will
+ * be added to the `a` tag. If the url changes, the class will be removed.
+ *
+ * You can set more than one class, as follows:
+ *
+ * ```
+ * <a routerLink="/user/bob" routerLinkActive="class1 class2">Bob</a>
+ * <a routerLink="/user/bob" [routerLinkActive]="['class1', 'class2']">Bob</a>
+ * ```
+ *
+ * You can configure RouterLinkActive by passing `exact: true`. This will add the classes
+ * only when the url matches the link exactly.
+ *
+ * ```
+ * <a routerLink="/user/bob" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:
+ * true}">Bob</a>
+ * ```
+ *
+ * You can assign the RouterLinkActive instance to a template variable and directly check
+ * the `isActive` status.
+ * ```
+ * <a routerLink="/user/bob" routerLinkActive #rla="routerLinkActive">
+ *   Bob {{ rla.isActive ? '(already open)' : ''}}
+ * </a>
+ * ```
+ *
+ * Finally, you can apply the RouterLinkActive directive to an ancestor of a RouterLink.
+ *
+ * ```
+ * <div routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">
+ *   <a routerLink="/user/jim">Jim</a>
+ *   <a routerLink="/user/bob">Bob</a>
+ * </div>
+ * ```
+ *
+ * This will set the active-link class on the div tag if the url is either '/user/jim' or
+ * '/user/bob'.
+ *
+ * @ngModule RouterModule
+ *
+ *
+ */
+var RouterLinkActive = /** @class */ (function () {
+    function RouterLinkActive(router, element, renderer, cdr) {
+        var _this = this;
+        this.router = router;
+        this.element = element;
+        this.renderer = renderer;
+        this.cdr = cdr;
+        this.classes = [];
+        this.isActive = false;
+        this.routerLinkActiveOptions = { exact: false };
+        this.subscription = router.events.subscribe(function (s) {
+            if (s instanceof NavigationEnd) {
+                _this.update();
+            }
+        });
+    }
+    RouterLinkActive.prototype.ngAfterContentInit = function () {
+        var _this = this;
+        this.links.changes.subscribe(function (_) { return _this.update(); });
+        this.linksWithHrefs.changes.subscribe(function (_) { return _this.update(); });
+        this.update();
+    };
+    Object.defineProperty(RouterLinkActive.prototype, "routerLinkActive", {
+        set: function (data) {
+            var classes = Array.isArray(data) ? data : data.split(' ');
+            this.classes = classes.filter(function (c) { return !!c; });
+        },
+        enumerable: true,
+        configurable: true
+    });
+    RouterLinkActive.prototype.ngOnChanges = function (changes) { this.update(); };
+    RouterLinkActive.prototype.ngOnDestroy = function () { this.subscription.unsubscribe(); };
+    RouterLinkActive.prototype.update = function () {
+        var _this = this;
+        if (!this.links || !this.linksWithHrefs || !this.router.navigated)
+            return;
+        Promise.resolve().then(function () {
+            var hasActiveLinks = _this.hasActiveLinks();
+            if (_this.isActive !== hasActiveLinks) {
+                _this.isActive = hasActiveLinks;
+                _this.classes.forEach(function (c) {
+                    if (hasActiveLinks) {
+                        _this.renderer.addClass(_this.element.nativeElement, c);
+                    }
+                    else {
+                        _this.renderer.removeClass(_this.element.nativeElement, c);
+                    }
+                });
+            }
+        });
+    };
+    RouterLinkActive.prototype.isLinkActive = function (router) {
+        var _this = this;
+        return function (link) {
+            return router.isActive(link.urlTree, _this.routerLinkActiveOptions.exact);
+        };
+    };
+    RouterLinkActive.prototype.hasActiveLinks = function () {
+        return this.links.some(this.isLinkActive(this.router)) ||
+            this.linksWithHrefs.some(this.isLinkActive(this.router));
+    };
+    RouterLinkActive.decorators = [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Directive"], args: [{
+                    selector: '[routerLinkActive]',
+                    exportAs: 'routerLinkActive',
+                },] }
+    ];
+    /** @nocollapse */
+    RouterLinkActive.ctorParameters = function () { return [
+        { type: Router },
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"] },
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Renderer2"] },
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"] }
+    ]; };
+    RouterLinkActive.propDecorators = {
+        links: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ContentChildren"], args: [RouterLink, { descendants: true },] }],
+        linksWithHrefs: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ContentChildren"], args: [RouterLinkWithHref, { descendants: true },] }],
+        routerLinkActiveOptions: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+        routerLinkActive: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }]
+    };
+    return RouterLinkActive;
+}());
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * Store contextual information about a `RouterOutlet`
+ *
+ *
+ */
+var OutletContext = /** @class */ (function () {
+    function OutletContext() {
+        this.outlet = null;
+        this.route = null;
+        this.resolver = null;
+        this.children = new ChildrenOutletContexts();
+        this.attachRef = null;
+    }
+    return OutletContext;
+}());
+/**
+ * Store contextual information about the children (= nested) `RouterOutlet`
+ *
+ *
+ */
+var ChildrenOutletContexts = /** @class */ (function () {
+    function ChildrenOutletContexts() {
+        // contexts for child outlets, by name.
+        this.contexts = new Map();
+    }
+    /** Called when a `RouterOutlet` directive is instantiated */
+    ChildrenOutletContexts.prototype.onChildOutletCreated = function (childName, outlet) {
+        var context = this.getOrCreateContext(childName);
+        context.outlet = outlet;
+        this.contexts.set(childName, context);
+    };
+    /**
+     * Called when a `RouterOutlet` directive is destroyed.
+     * We need to keep the context as the outlet could be destroyed inside a NgIf and might be
+     * re-created later.
+     */
+    ChildrenOutletContexts.prototype.onChildOutletDestroyed = function (childName) {
+        var context = this.getContext(childName);
+        if (context) {
+            context.outlet = null;
+        }
+    };
+    /**
+     * Called when the corresponding route is deactivated during navigation.
+     * Because the component get destroyed, all children outlet are destroyed.
+     */
+    ChildrenOutletContexts.prototype.onOutletDeactivated = function () {
+        var contexts = this.contexts;
+        this.contexts = new Map();
+        return contexts;
+    };
+    ChildrenOutletContexts.prototype.onOutletReAttached = function (contexts) { this.contexts = contexts; };
+    ChildrenOutletContexts.prototype.getOrCreateContext = function (childName) {
+        var context = this.getContext(childName);
+        if (!context) {
+            context = new OutletContext();
+            this.contexts.set(childName, context);
+        }
+        return context;
+    };
+    ChildrenOutletContexts.prototype.getContext = function (childName) { return this.contexts.get(childName) || null; };
+    return ChildrenOutletContexts;
+}());
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * @description
+ *
+ * Acts as a placeholder that Angular dynamically fills based on the current router state.
+ *
+ * ```
+ * <router-outlet></router-outlet>
+ * <router-outlet name='left'></router-outlet>
+ * <router-outlet name='right'></router-outlet>
+ * ```
+ *
+ * A router outlet will emit an activate event any time a new component is being instantiated,
+ * and a deactivate event when it is being destroyed.
+ *
+ * ```
+ * <router-outlet
+ *   (activate)='onActivate($event)'
+ *   (deactivate)='onDeactivate($event)'></router-outlet>
+ * ```
+ * @ngModule RouterModule
+ *
+ *
+ */
+var RouterOutlet = /** @class */ (function () {
+    function RouterOutlet(parentContexts, location, resolver, name, changeDetector) {
+        this.parentContexts = parentContexts;
+        this.location = location;
+        this.resolver = resolver;
+        this.changeDetector = changeDetector;
+        this.activated = null;
+        this._activatedRoute = null;
+        this.activateEvents = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        this.deactivateEvents = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        this.name = name || PRIMARY_OUTLET;
+        parentContexts.onChildOutletCreated(this.name, this);
+    }
+    RouterOutlet.prototype.ngOnDestroy = function () { this.parentContexts.onChildOutletDestroyed(this.name); };
+    RouterOutlet.prototype.ngOnInit = function () {
+        if (!this.activated) {
+            // If the outlet was not instantiated at the time the route got activated we need to populate
+            // the outlet when it is initialized (ie inside a NgIf)
+            var context = this.parentContexts.getContext(this.name);
+            if (context && context.route) {
+                if (context.attachRef) {
+                    // `attachRef` is populated when there is an existing component to mount
+                    this.attach(context.attachRef, context.route);
+                }
+                else {
+                    // otherwise the component defined in the configuration is created
+                    this.activateWith(context.route, context.resolver || null);
+                }
+            }
+        }
+    };
+    Object.defineProperty(RouterOutlet.prototype, "isActivated", {
+        get: function () { return !!this.activated; },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(RouterOutlet.prototype, "component", {
+        get: function () {
+            if (!this.activated)
+                throw new Error('Outlet is not activated');
+            return this.activated.instance;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(RouterOutlet.prototype, "activatedRoute", {
+        get: function () {
+            if (!this.activated)
+                throw new Error('Outlet is not activated');
+            return this._activatedRoute;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(RouterOutlet.prototype, "activatedRouteData", {
+        get: function () {
+            if (this._activatedRoute) {
+                return this._activatedRoute.snapshot.data;
+            }
+            return {};
+        },
+        enumerable: true,
+        configurable: true
+    });
+    /**
+     * Called when the `RouteReuseStrategy` instructs to detach the subtree
+     */
+    RouterOutlet.prototype.detach = function () {
+        if (!this.activated)
+            throw new Error('Outlet is not activated');
+        this.location.detach();
+        var cmp = this.activated;
+        this.activated = null;
+        this._activatedRoute = null;
+        return cmp;
+    };
+    /**
+     * Called when the `RouteReuseStrategy` instructs to re-attach a previously detached subtree
+     */
+    RouterOutlet.prototype.attach = function (ref, activatedRoute) {
+        this.activated = ref;
+        this._activatedRoute = activatedRoute;
+        this.location.insert(ref.hostView);
+    };
+    RouterOutlet.prototype.deactivate = function () {
+        if (this.activated) {
+            var c = this.component;
+            this.activated.destroy();
+            this.activated = null;
+            this._activatedRoute = null;
+            this.deactivateEvents.emit(c);
+        }
+    };
+    RouterOutlet.prototype.activateWith = function (activatedRoute, resolver) {
+        if (this.isActivated) {
+            throw new Error('Cannot activate an already activated outlet');
+        }
+        this._activatedRoute = activatedRoute;
+        var snapshot = activatedRoute._futureSnapshot;
+        var component = snapshot.routeConfig.component;
+        resolver = resolver || this.resolver;
+        var factory = resolver.resolveComponentFactory(component);
+        var childContexts = this.parentContexts.getOrCreateContext(this.name).children;
+        var injector = new OutletInjector(activatedRoute, childContexts, this.location.injector);
+        this.activated = this.location.createComponent(factory, this.location.length, injector);
+        // Calling `markForCheck` to make sure we will run the change detection when the
+        // `RouterOutlet` is inside a `ChangeDetectionStrategy.OnPush` component.
+        this.changeDetector.markForCheck();
+        this.activateEvents.emit(this.activated.instance);
+    };
+    RouterOutlet.decorators = [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Directive"], args: [{ selector: 'router-outlet', exportAs: 'outlet' },] }
+    ];
+    /** @nocollapse */
+    RouterOutlet.ctorParameters = function () { return [
+        { type: ChildrenOutletContexts },
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewContainerRef"] },
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ComponentFactoryResolver"] },
+        { type: String, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Attribute"], args: ['name',] }] },
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"] }
+    ]; };
+    RouterOutlet.propDecorators = {
+        activateEvents: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"], args: ['activate',] }],
+        deactivateEvents: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"], args: ['deactivate',] }]
+    };
+    return RouterOutlet;
+}());
+var OutletInjector = /** @class */ (function () {
+    function OutletInjector(route, childContexts, parent) {
+        this.route = route;
+        this.childContexts = childContexts;
+        this.parent = parent;
+    }
+    OutletInjector.prototype.get = function (token, notFoundValue) {
+        if (token === ActivatedRoute) {
+            return this.route;
+        }
+        if (token === ChildrenOutletContexts) {
+            return this.childContexts;
+        }
+        return this.parent.get(token, notFoundValue);
+    };
+    return OutletInjector;
+}());
+
+/**
+*@license
+*Copyright Google Inc. All Rights Reserved.
+*
+*Use of this source code is governed by an MIT-style license that can be
+*found in the LICENSE file at https://angular.io/license
+*/
+/**
+ * @description
+ *
+ * Provides a preloading strategy.
+ *
+ * @experimental
+ */
+var PreloadingStrategy = /** @class */ (function () {
+    function PreloadingStrategy() {
+    }
+    return PreloadingStrategy;
+}());
+/**
+ * @description
+ *
+ * Provides a preloading strategy that preloads all modules as quickly as possible.
+ *
+ * ```
+ * RouteModule.forRoot(ROUTES, {preloadingStrategy: PreloadAllModules})
+ * ```
+ *
+ * @experimental
+ */
+var PreloadAllModules = /** @class */ (function () {
+    function PreloadAllModules() {
+    }
+    PreloadAllModules.prototype.preload = function (route, fn) {
+        return fn().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(function () { return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(null); }));
+    };
+    return PreloadAllModules;
+}());
+/**
+ * @description
+ *
+ * Provides a preloading strategy that does not preload any modules.
+ *
+ * This strategy is enabled by default.
+ *
+ * @experimental
+ */
+var NoPreloading = /** @class */ (function () {
+    function NoPreloading() {
+    }
+    NoPreloading.prototype.preload = function (route, fn) { return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(null); };
+    return NoPreloading;
+}());
+/**
+ * The preloader optimistically loads all router configurations to
+ * make navigations into lazily-loaded sections of the application faster.
+ *
+ * The preloader runs in the background. When the router bootstraps, the preloader
+ * starts listening to all navigation events. After every such event, the preloader
+ * will check if any configurations can be loaded lazily.
+ *
+ * If a route is protected by `canLoad` guards, the preloaded will not load it.
+ *
+ *
+ */
+var RouterPreloader = /** @class */ (function () {
+    function RouterPreloader(router, moduleLoader, compiler, injector, preloadingStrategy) {
+        this.router = router;
+        this.injector = injector;
+        this.preloadingStrategy = preloadingStrategy;
+        var onStartLoad = function (r) { return router.triggerEvent(new RouteConfigLoadStart(r)); };
+        var onEndLoad = function (r) { return router.triggerEvent(new RouteConfigLoadEnd(r)); };
+        this.loader = new RouterConfigLoader(moduleLoader, compiler, onStartLoad, onEndLoad);
+    }
+    RouterPreloader.prototype.setUpPreloading = function () {
+        var _this = this;
+        this.subscription =
+            this.router.events
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["filter"])(function (e) { return e instanceof NavigationEnd; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["concatMap"])(function () { return _this.preload(); }))
+                .subscribe(function () { });
+    };
+    RouterPreloader.prototype.preload = function () {
+        var ngModule = this.injector.get(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModuleRef"]);
+        return this.processRoutes(ngModule, this.router.config);
+    };
+    // TODO(jasonaden): This class relies on code external to the class to call setUpPreloading. If
+    // this hasn't been done, ngOnDestroy will fail as this.subscription will be undefined. This
+    // should be refactored.
+    RouterPreloader.prototype.ngOnDestroy = function () { this.subscription.unsubscribe(); };
+    RouterPreloader.prototype.processRoutes = function (ngModule, routes) {
+        var res = [];
+        try {
+            for (var routes_1 = Object(tslib__WEBPACK_IMPORTED_MODULE_2__["__values"])(routes), routes_1_1 = routes_1.next(); !routes_1_1.done; routes_1_1 = routes_1.next()) {
+                var route = routes_1_1.value;
+                // we already have the config loaded, just recurse
+                if (route.loadChildren && !route.canLoad && route._loadedConfig) {
+                    var childConfig = route._loadedConfig;
+                    res.push(this.processRoutes(childConfig.module, childConfig.routes));
+                    // no config loaded, fetch the config
+                }
+                else if (route.loadChildren && !route.canLoad) {
+                    res.push(this.preloadConfig(ngModule, route));
+                    // recurse into children
+                }
+                else if (route.children) {
+                    res.push(this.processRoutes(ngModule, route.children));
+                }
+            }
+        }
+        catch (e_1_1) { e_1 = { error: e_1_1 }; }
+        finally {
+            try {
+                if (routes_1_1 && !routes_1_1.done && (_a = routes_1.return)) _a.call(routes_1);
+            }
+            finally { if (e_1) throw e_1.error; }
+        }
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["from"])(res).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["mergeAll"])(), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (_) { return void 0; }));
+        var e_1, _a;
+    };
+    RouterPreloader.prototype.preloadConfig = function (ngModule, route) {
+        var _this = this;
+        return this.preloadingStrategy.preload(route, function () {
+            var loaded$ = _this.loader.load(ngModule.injector, route);
+            return loaded$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["mergeMap"])(function (config) {
+                route._loadedConfig = config;
+                return _this.processRoutes(config.module, config.routes);
+            }));
+        });
+    };
+    RouterPreloader.decorators = [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"] }
+    ];
+    /** @nocollapse */
+    RouterPreloader.ctorParameters = function () { return [
+        { type: Router },
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModuleFactoryLoader"] },
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Compiler"] },
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] },
+        { type: PreloadingStrategy }
+    ]; };
+    return RouterPreloader;
+}());
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * @description
+ *
+ * Contains a list of directives
+ *
+ *
+ */
+var ROUTER_DIRECTIVES = [RouterOutlet, RouterLink, RouterLinkWithHref, RouterLinkActive, EmptyOutletComponent];
+/**
+ * @description
+ *
+ * Is used in DI to configure the router.
+ *
+ *
+ */
+var ROUTER_CONFIGURATION = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["InjectionToken"]('ROUTER_CONFIGURATION');
+/**
+ * @docsNotRequired
+ */
+var ROUTER_FORROOT_GUARD = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["InjectionToken"]('ROUTER_FORROOT_GUARD');
+var ROUTER_PROVIDERS = [
+    _angular_common__WEBPACK_IMPORTED_MODULE_0__["Location"],
+    { provide: UrlSerializer, useClass: DefaultUrlSerializer },
+    {
+        provide: Router,
+        useFactory: setupRouter,
+        deps: [
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ApplicationRef"], UrlSerializer, ChildrenOutletContexts, _angular_common__WEBPACK_IMPORTED_MODULE_0__["Location"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"],
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModuleFactoryLoader"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Compiler"], ROUTES, ROUTER_CONFIGURATION,
+            [UrlHandlingStrategy, new _angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"]()], [RouteReuseStrategy, new _angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"]()]
+        ]
+    },
+    ChildrenOutletContexts,
+    { provide: ActivatedRoute, useFactory: rootRoute, deps: [Router] },
+    { provide: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModuleFactoryLoader"], useClass: _angular_core__WEBPACK_IMPORTED_MODULE_1__["SystemJsNgModuleLoader"] },
+    RouterPreloader,
+    NoPreloading,
+    PreloadAllModules,
+    { provide: ROUTER_CONFIGURATION, useValue: { enableTracing: false } },
+];
+function routerNgProbeToken() {
+    return new _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgProbeToken"]('Router', Router);
+}
+/**
+ * @usageNotes
+ *
+ * RouterModule can be imported multiple times: once per lazily-loaded bundle.
+ * Since the router deals with a global shared resource--location, we cannot have
+ * more than one router service active.
+ *
+ * That is why there are two ways to create the module: `RouterModule.forRoot` and
+ * `RouterModule.forChild`.
+ *
+ * * `forRoot` creates a module that contains all the directives, the given routes, and the router
+ *   service itself.
+ * * `forChild` creates a module that contains all the directives and the given routes, but does not
+ *   include the router service.
+ *
+ * When registered at the root, the module should be used as follows
+ *
+ * ```
+ * @NgModule({
+ *   imports: [RouterModule.forRoot(ROUTES)]
+ * })
+ * class MyNgModule {}
+ * ```
+ *
+ * For submodules and lazy loaded submodules the module should be used as follows:
+ *
+ * ```
+ * @NgModule({
+ *   imports: [RouterModule.forChild(ROUTES)]
+ * })
+ * class MyNgModule {}
+ * ```
+ *
+ * @description
+ *
+ * Adds router directives and providers.
+ *
+ * Managing state transitions is one of the hardest parts of building applications. This is
+ * especially true on the web, where you also need to ensure that the state is reflected in the URL.
+ * In addition, we often want to split applications into multiple bundles and load them on demand.
+ * Doing this transparently is not trivial.
+ *
+ * The Angular router solves these problems. Using the router, you can declaratively specify
+ * application states, manage state transitions while taking care of the URL, and load bundles on
+ * demand.
+ *
+ * [Read this developer guide](https://angular.io/docs/ts/latest/guide/router.html) to get an
+ * overview of how the router should be used.
+ *
+ *
+ */
+var RouterModule = /** @class */ (function () {
+    // Note: We are injecting the Router so it gets created eagerly...
+    function RouterModule(guard, router) {
+    }
+    /**
+     * Creates a module with all the router providers and directives. It also optionally sets up an
+     * application listener to perform an initial navigation.
+     *
+     * Options (see `ExtraOptions`):
+     * * `enableTracing` makes the router log all its internal events to the console.
+     * * `useHash` enables the location strategy that uses the URL fragment instead of the history
+     * API.
+     * * `initialNavigation` disables the initial navigation.
+     * * `errorHandler` provides a custom error handler.
+     * * `preloadingStrategy` configures a preloading strategy (see `PreloadAllModules`).
+     * * `onSameUrlNavigation` configures how the router handles navigation to the current URL. See
+     * `ExtraOptions` for more details.
+     */
+    RouterModule.forRoot = function (routes, config) {
+        return {
+            ngModule: RouterModule,
+            providers: [
+                ROUTER_PROVIDERS,
+                provideRoutes(routes),
+                {
+                    provide: ROUTER_FORROOT_GUARD,
+                    useFactory: provideForRootGuard,
+                    deps: [[Router, new _angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"](), new _angular_core__WEBPACK_IMPORTED_MODULE_1__["SkipSelf"]()]]
+                },
+                { provide: ROUTER_CONFIGURATION, useValue: config ? config : {} },
+                {
+                    provide: _angular_common__WEBPACK_IMPORTED_MODULE_0__["LocationStrategy"],
+                    useFactory: provideLocationStrategy,
+                    deps: [
+                        _angular_common__WEBPACK_IMPORTED_MODULE_0__["PlatformLocation"], [new _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"](_angular_common__WEBPACK_IMPORTED_MODULE_0__["APP_BASE_HREF"]), new _angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"]()], ROUTER_CONFIGURATION
+                    ]
+                },
+                {
+                    provide: PreloadingStrategy,
+                    useExisting: config && config.preloadingStrategy ? config.preloadingStrategy :
+                        NoPreloading
+                },
+                { provide: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgProbeToken"], multi: true, useFactory: routerNgProbeToken },
+                provideRouterInitializer(),
+            ],
+        };
+    };
+    /**
+     * Creates a module with all the router directives and a provider registering routes.
+     */
+    RouterModule.forChild = function (routes) {
+        return { ngModule: RouterModule, providers: [provideRoutes(routes)] };
+    };
+    RouterModule.decorators = [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"], args: [{
+                    declarations: ROUTER_DIRECTIVES,
+                    exports: ROUTER_DIRECTIVES,
+                    entryComponents: [EmptyOutletComponent]
+                },] }
+    ];
+    /** @nocollapse */
+    RouterModule.ctorParameters = function () { return [
+        { type: undefined, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"] }, { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"], args: [ROUTER_FORROOT_GUARD,] }] },
+        { type: Router, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"] }] }
+    ]; };
+    return RouterModule;
+}());
+function provideLocationStrategy(platformLocationStrategy, baseHref, options) {
+    if (options === void 0) { options = {}; }
+    return options.useHash ? new _angular_common__WEBPACK_IMPORTED_MODULE_0__["HashLocationStrategy"](platformLocationStrategy, baseHref) :
+        new _angular_common__WEBPACK_IMPORTED_MODULE_0__["PathLocationStrategy"](platformLocationStrategy, baseHref);
+}
+function provideForRootGuard(router) {
+    if (router) {
+        throw new Error("RouterModule.forRoot() called twice. Lazy loaded modules should use RouterModule.forChild() instead.");
+    }
+    return 'guarded';
+}
+/**
+ * @description
+ *
+ * Registers routes.
+ *
+ * ### Example
+ *
+ * ```
+ * @NgModule({
+ *   imports: [RouterModule.forChild(ROUTES)],
+ *   providers: [provideRoutes(EXTRA_ROUTES)]
+ * })
+ * class MyNgModule {}
+ * ```
+ *
+ *
+ */
+function provideRoutes(routes) {
+    return [
+        { provide: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ANALYZE_FOR_ENTRY_COMPONENTS"], multi: true, useValue: routes },
+        { provide: ROUTES, multi: true, useValue: routes },
+    ];
+}
+function setupRouter(ref, urlSerializer, contexts, location, injector, loader, compiler, config, opts, urlHandlingStrategy, routeReuseStrategy) {
+    if (opts === void 0) { opts = {}; }
+    var router = new Router(null, urlSerializer, contexts, location, injector, loader, compiler, flatten(config));
+    if (urlHandlingStrategy) {
+        router.urlHandlingStrategy = urlHandlingStrategy;
+    }
+    if (routeReuseStrategy) {
+        router.routeReuseStrategy = routeReuseStrategy;
+    }
+    if (opts.errorHandler) {
+        router.errorHandler = opts.errorHandler;
+    }
+    if (opts.enableTracing) {
+        var dom_1 = Object(_angular_platform_browser__WEBPACK_IMPORTED_MODULE_5__["ɵgetDOM"])();
+        router.events.subscribe(function (e) {
+            dom_1.logGroup("Router Event: " + e.constructor.name);
+            dom_1.log(e.toString());
+            dom_1.log(e);
+            dom_1.logGroupEnd();
+        });
+    }
+    if (opts.onSameUrlNavigation) {
+        router.onSameUrlNavigation = opts.onSameUrlNavigation;
+    }
+    if (opts.paramsInheritanceStrategy) {
+        router.paramsInheritanceStrategy = opts.paramsInheritanceStrategy;
+    }
+    return router;
+}
+function rootRoute(router) {
+    return router.routerState.root;
+}
+/**
+ * To initialize the router properly we need to do in two steps:
+ *
+ * We need to start the navigation in a APP_INITIALIZER to block the bootstrap if
+ * a resolver or a guards executes asynchronously. Second, we need to actually run
+ * activation in a BOOTSTRAP_LISTENER. We utilize the afterPreactivation
+ * hook provided by the router to do that.
+ *
+ * The router navigation starts, reaches the point when preactivation is done, and then
+ * pauses. It waits for the hook to be resolved. We then resolve it only in a bootstrap listener.
+ */
+var RouterInitializer = /** @class */ (function () {
+    function RouterInitializer(injector) {
+        this.injector = injector;
+        this.initNavigation = false;
+        this.resultOfPreactivationDone = new rxjs__WEBPACK_IMPORTED_MODULE_3__["Subject"]();
+    }
+    RouterInitializer.prototype.appInitializer = function () {
+        var _this = this;
+        var p = this.injector.get(_angular_common__WEBPACK_IMPORTED_MODULE_0__["LOCATION_INITIALIZED"], Promise.resolve(null));
+        return p.then(function () {
+            var resolve = null;
+            var res = new Promise(function (r) { return resolve = r; });
+            var router = _this.injector.get(Router);
+            var opts = _this.injector.get(ROUTER_CONFIGURATION);
+            if (_this.isLegacyDisabled(opts) || _this.isLegacyEnabled(opts)) {
+                resolve(true);
+            }
+            else if (opts.initialNavigation === 'disabled') {
+                router.setUpLocationChangeListener();
+                resolve(true);
+            }
+            else if (opts.initialNavigation === 'enabled') {
+                router.hooks.afterPreactivation = function () {
+                    // only the initial navigation should be delayed
+                    if (!_this.initNavigation) {
+                        _this.initNavigation = true;
+                        resolve(true);
+                        return _this.resultOfPreactivationDone;
+                        // subsequent navigations should not be delayed
+                    }
+                    else {
+                        return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(null);
+                    }
+                };
+                router.initialNavigation();
+            }
+            else {
+                throw new Error("Invalid initialNavigation options: '" + opts.initialNavigation + "'");
+            }
+            return res;
+        });
+    };
+    RouterInitializer.prototype.bootstrapListener = function (bootstrappedComponentRef) {
+        var opts = this.injector.get(ROUTER_CONFIGURATION);
+        var preloader = this.injector.get(RouterPreloader);
+        var router = this.injector.get(Router);
+        var ref = this.injector.get(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ApplicationRef"]);
+        if (bootstrappedComponentRef !== ref.components[0]) {
+            return;
+        }
+        if (this.isLegacyEnabled(opts)) {
+            router.initialNavigation();
+        }
+        else if (this.isLegacyDisabled(opts)) {
+            router.setUpLocationChangeListener();
+        }
+        preloader.setUpPreloading();
+        router.resetRootComponentType(ref.componentTypes[0]);
+        this.resultOfPreactivationDone.next(null);
+        this.resultOfPreactivationDone.complete();
+    };
+    RouterInitializer.prototype.isLegacyEnabled = function (opts) {
+        return opts.initialNavigation === 'legacy_enabled' || opts.initialNavigation === true ||
+            opts.initialNavigation === undefined;
+    };
+    RouterInitializer.prototype.isLegacyDisabled = function (opts) {
+        return opts.initialNavigation === 'legacy_disabled' || opts.initialNavigation === false;
+    };
+    RouterInitializer.decorators = [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"] }
+    ];
+    /** @nocollapse */
+    RouterInitializer.ctorParameters = function () { return [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] }
+    ]; };
+    return RouterInitializer;
+}());
+function getAppInitializer(r) {
+    return r.appInitializer.bind(r);
+}
+function getBootstrapListener(r) {
+    return r.bootstrapListener.bind(r);
+}
+/**
+ * A token for the router initializer that will be called after the app is bootstrapped.
+ *
+ * @experimental
+ */
+var ROUTER_INITIALIZER = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["InjectionToken"]('Router Initializer');
+function provideRouterInitializer() {
+    return [
+        RouterInitializer,
+        {
+            provide: _angular_core__WEBPACK_IMPORTED_MODULE_1__["APP_INITIALIZER"],
+            multi: true,
+            useFactory: getAppInitializer,
+            deps: [RouterInitializer]
+        },
+        { provide: ROUTER_INITIALIZER, useFactory: getBootstrapListener, deps: [RouterInitializer] },
+        { provide: _angular_core__WEBPACK_IMPORTED_MODULE_1__["APP_BOOTSTRAP_LISTENER"], multi: true, useExisting: ROUTER_INITIALIZER },
+    ];
+}
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * @module
+ * @description
+ * Entry point for all public APIs of the common package.
+ */
+var VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["Version"]('6.0.5');
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * @module
+ * @description
+ * Entry point for all public APIs of this package.
+ */
+
+// This file only reexports content of the `src` folder. Keep it that way.
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+// This file is not used to build this module. It is only used during editing
+// by the TypeScript language service and during build for verification. `ngc`
+// replaces this file with production index.ts when it rewrites private symbol
+// names.
+
+/**
+ * Generated bundle index. Do not edit.
+ */
+
+
+//# sourceMappingURL=router.js.map
 
 
 /***/ }),
@@ -48621,41 +55912,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _internal_config__WEBPACK_IMPORTED_MODULE_50__ = __webpack_require__(/*! ./internal/config */ "./node_modules/rxjs/_esm5/internal/config.js");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "config", function() { return _internal_config__WEBPACK_IMPORTED_MODULE_50__["config"]; });
 
-/* Observable */
 /** PURE_IMPORTS_START  PURE_IMPORTS_END */
 
 
 
 
-/* Subjects */
-
-
-
-
-/* Schedulers */
-
-
-
-
-
-
-/* Subscription */
-
-
-/* Notification */
-
-/* Utils */
-
-
-
-
-/* Error types */
-
-
-
-
-
-/* Static observable creation exports */
 
 
 
@@ -48680,10 +55941,30 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/* Constants */
 
 
-/* Config */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //# sourceMappingURL=index.js.map
 
@@ -48707,9 +55988,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * @class AsyncSubject<T>
- */
 var AsyncSubject = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](AsyncSubject, _super);
     function AsyncSubject() {
@@ -48719,7 +55997,6 @@ var AsyncSubject = /*@__PURE__*/ (function (_super) {
         _this.hasCompleted = false;
         return _this;
     }
-    /** @deprecated This is an internal implementation detail, do not use. */
     AsyncSubject.prototype._subscribe = function (subscriber) {
         if (this.hasError) {
             subscriber.error(this.thrownError);
@@ -48775,9 +56052,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * @class BehaviorSubject<T>
- */
 var BehaviorSubject = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](BehaviorSubject, _super);
     function BehaviorSubject(_value) {
@@ -48792,7 +56066,6 @@ var BehaviorSubject = /*@__PURE__*/ (function (_super) {
         enumerable: true,
         configurable: true
     });
-    /** @deprecated This is an internal implementation detail, do not use. */
     BehaviorSubject.prototype._subscribe = function (subscriber) {
         var subscription = _super.prototype._subscribe.call(this, subscriber);
         if (subscription && !subscription.closed) {
@@ -48837,11 +56110,6 @@ __webpack_require__.r(__webpack_exports__);
 /** PURE_IMPORTS_START tslib,_Subscriber PURE_IMPORTS_END */
 
 
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var InnerSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](InnerSubscriber, _super);
     function InnerSubscriber(parent, outerValue, outerIndex) {
@@ -48888,20 +56156,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * Represents a push-based event or value that an {@link Observable} can emit.
- * This class is particularly useful for operators that manage notifications,
- * like {@link materialize}, {@link dematerialize}, {@link observeOn}, and
- * others. Besides wrapping the actual delivered value, it also annotates it
- * with metadata of, for instance, what type of push message it is (`next`,
- * `error`, or `complete`).
- *
- * @see {@link materialize}
- * @see {@link dematerialize}
- * @see {@link observeOn}
- *
- * @class Notification<T>
- */
 var Notification = /*@__PURE__*/ (function () {
     function Notification(kind, value, error) {
         this.kind = kind;
@@ -48909,11 +56163,6 @@ var Notification = /*@__PURE__*/ (function () {
         this.error = error;
         this.hasValue = kind === 'N';
     }
-    /**
-     * Delivers to the given `observer` the value wrapped by this Notification.
-     * @param {Observer} observer
-     * @return
-     */
     Notification.prototype.observe = function (observer) {
         switch (this.kind) {
             case 'N':
@@ -48924,14 +56173,6 @@ var Notification = /*@__PURE__*/ (function () {
                 return observer.complete && observer.complete();
         }
     };
-    /**
-     * Given some {@link Observer} callbacks, deliver the value represented by the
-     * current Notification to the correctly corresponding callback.
-     * @param {function(value: T): void} next An Observer `next` callback.
-     * @param {function(err: any): void} [error] An Observer `error` callback.
-     * @param {function(): void} [complete] An Observer `complete` callback.
-     * @return {any}
-     */
     Notification.prototype.do = function (next, error, complete) {
         var kind = this.kind;
         switch (kind) {
@@ -48943,15 +56184,6 @@ var Notification = /*@__PURE__*/ (function () {
                 return complete && complete();
         }
     };
-    /**
-     * Takes an Observer or its individual callback functions, and calls `observe`
-     * or `do` methods accordingly.
-     * @param {Observer|function(value: T): void} nextOrObserver An Observer or
-     * the `next` callback.
-     * @param {function(err: any): void} [error] An Observer `error` callback.
-     * @param {function(): void} [complete] An Observer `complete` callback.
-     * @return {any}
-     */
     Notification.prototype.accept = function (nextOrObserver, error, complete) {
         if (nextOrObserver && typeof nextOrObserver.next === 'function') {
             return this.observe(nextOrObserver);
@@ -48960,11 +56192,6 @@ var Notification = /*@__PURE__*/ (function () {
             return this.do(nextOrObserver, error, complete);
         }
     };
-    /**
-     * Returns a simple Observable that just delivers the notification represented
-     * by this Notification instance.
-     * @return {any}
-     */
     Notification.prototype.toObservable = function () {
         var kind = this.kind;
         switch (kind) {
@@ -48977,36 +56204,15 @@ var Notification = /*@__PURE__*/ (function () {
         }
         throw new Error('unexpected notification kind value');
     };
-    /**
-     * A shortcut to create a Notification instance of the type `next` from a
-     * given value.
-     * @param {T} value The `next` value.
-     * @return {Notification<T>} The "next" Notification representing the
-     * argument.
-     * @nocollapse
-     */
     Notification.createNext = function (value) {
         if (typeof value !== 'undefined') {
             return new Notification('N', value);
         }
         return Notification.undefinedValueNotification;
     };
-    /**
-     * A shortcut to create a Notification instance of the type `error` from a
-     * given error.
-     * @param {any} [err] The `error` error.
-     * @return {Notification<T>} The "error" Notification representing the
-     * argument.
-     * @nocollapse
-     */
     Notification.createError = function (err) {
         return new Notification('E', undefined, err);
     };
-    /**
-     * A shortcut to create a Notification instance of the type `complete`.
-     * @return {Notification<any>} The valueless "complete" Notification.
-     * @nocollapse
-     */
     Notification.createComplete = function () {
         return Notification.completeNotification;
     };
@@ -49039,154 +56245,19 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * A representation of any set of values over any amount of time. This is the most basic building block
- * of RxJS.
- *
- * @class Observable<T>
- */
 var Observable = /*@__PURE__*/ (function () {
-    /**
-     * @constructor
-     * @param {Function} subscribe the function that is called when the Observable is
-     * initially subscribed to. This function is given a Subscriber, to which new values
-     * can be `next`ed, or an `error` method can be called to raise an error, or
-     * `complete` can be called to notify of a successful completion.
-     */
     function Observable(subscribe) {
-        /** Internal implementation detail, do not use directly. */
         this._isScalar = false;
         if (subscribe) {
             this._subscribe = subscribe;
         }
     }
-    /**
-     * Creates a new Observable, with this Observable as the source, and the passed
-     * operator defined as the new observable's operator.
-     * @method lift
-     * @param {Operator} operator the operator defining the operation to take on the observable
-     * @return {Observable} a new observable with the Operator applied
-     */
     Observable.prototype.lift = function (operator) {
         var observable = new Observable();
         observable.source = this;
         observable.operator = operator;
         return observable;
     };
-    /**
-     * Invokes an execution of an Observable and registers Observer handlers for notifications it will emit.
-     *
-     * <span class="informal">Use it when you have all these Observables, but still nothing is happening.</span>
-     *
-     * `subscribe` is not a regular operator, but a method that calls Observable's internal `subscribe` function. It
-     * might be for example a function that you passed to a {@link create} static factory, but most of the time it is
-     * a library implementation, which defines what and when will be emitted by an Observable. This means that calling
-     * `subscribe` is actually the moment when Observable starts its work, not when it is created, as it is often
-     * thought.
-     *
-     * Apart from starting the execution of an Observable, this method allows you to listen for values
-     * that an Observable emits, as well as for when it completes or errors. You can achieve this in two
-     * following ways.
-     *
-     * The first way is creating an object that implements {@link Observer} interface. It should have methods
-     * defined by that interface, but note that it should be just a regular JavaScript object, which you can create
-     * yourself in any way you want (ES6 class, classic function constructor, object literal etc.). In particular do
-     * not attempt to use any RxJS implementation details to create Observers - you don't need them. Remember also
-     * that your object does not have to implement all methods. If you find yourself creating a method that doesn't
-     * do anything, you can simply omit it. Note however, that if `error` method is not provided, all errors will
-     * be left uncaught.
-     *
-     * The second way is to give up on Observer object altogether and simply provide callback functions in place of its methods.
-     * This means you can provide three functions as arguments to `subscribe`, where first function is equivalent
-     * of a `next` method, second of an `error` method and third of a `complete` method. Just as in case of Observer,
-     * if you do not need to listen for something, you can omit a function, preferably by passing `undefined` or `null`,
-     * since `subscribe` recognizes these functions by where they were placed in function call. When it comes
-     * to `error` function, just as before, if not provided, errors emitted by an Observable will be thrown.
-     *
-     * Whatever style of calling `subscribe` you use, in both cases it returns a Subscription object.
-     * This object allows you to call `unsubscribe` on it, which in turn will stop work that an Observable does and will clean
-     * up all resources that an Observable used. Note that cancelling a subscription will not call `complete` callback
-     * provided to `subscribe` function, which is reserved for a regular completion signal that comes from an Observable.
-     *
-     * Remember that callbacks provided to `subscribe` are not guaranteed to be called asynchronously.
-     * It is an Observable itself that decides when these functions will be called. For example {@link of}
-     * by default emits all its values synchronously. Always check documentation for how given Observable
-     * will behave when subscribed and if its default behavior can be modified with a {@link Scheduler}.
-     *
-     * @example <caption>Subscribe with an Observer</caption>
-     * const sumObserver = {
-     *   sum: 0,
-     *   next(value) {
-     *     console.log('Adding: ' + value);
-     *     this.sum = this.sum + value;
-     *   },
-     *   error() { // We actually could just remove this method,
-     *   },        // since we do not really care about errors right now.
-     *   complete() {
-     *     console.log('Sum equals: ' + this.sum);
-     *   }
-     * };
-     *
-     * Rx.Observable.of(1, 2, 3) // Synchronously emits 1, 2, 3 and then completes.
-     * .subscribe(sumObserver);
-     *
-     * // Logs:
-     * // "Adding: 1"
-     * // "Adding: 2"
-     * // "Adding: 3"
-     * // "Sum equals: 6"
-     *
-     *
-     * @example <caption>Subscribe with functions</caption>
-     * let sum = 0;
-     *
-     * Rx.Observable.of(1, 2, 3)
-     * .subscribe(
-     *   function(value) {
-     *     console.log('Adding: ' + value);
-     *     sum = sum + value;
-     *   },
-     *   undefined,
-     *   function() {
-     *     console.log('Sum equals: ' + sum);
-     *   }
-     * );
-     *
-     * // Logs:
-     * // "Adding: 1"
-     * // "Adding: 2"
-     * // "Adding: 3"
-     * // "Sum equals: 6"
-     *
-     *
-     * @example <caption>Cancel a subscription</caption>
-     * const subscription = Rx.Observable.interval(1000).subscribe(
-     *   num => console.log(num),
-     *   undefined,
-     *   () => console.log('completed!') // Will not be called, even
-     * );                                // when cancelling subscription
-     *
-     *
-     * setTimeout(() => {
-     *   subscription.unsubscribe();
-     *   console.log('unsubscribed!');
-     * }, 2500);
-     *
-     * // Logs:
-     * // 0 after 1s
-     * // 1 after 2s
-     * // "unsubscribed!" after 2.5s
-     *
-     *
-     * @param {Observer|Function} observerOrNext (optional) Either an observer with methods to be called,
-     *  or the first of three possible handlers, which is the handler for each value emitted from the subscribed
-     *  Observable.
-     * @param {Function} error (optional) A handler for a terminal event resulting from an error. If no error handler is provided,
-     *  the error will be thrown as unhandled.
-     * @param {Function} complete (optional) A handler for a terminal event resulting from successful completion.
-     * @return {ISubscription} a subscription reference to the registered handlers
-     * @method subscribe
-     */
     Observable.prototype.subscribe = function (observerOrNext, error, complete) {
         var operator = this.operator;
         var sink = Object(_util_toSubscriber__WEBPACK_IMPORTED_MODULE_0__["toSubscriber"])(observerOrNext, error, complete);
@@ -49194,7 +56265,9 @@ var Observable = /*@__PURE__*/ (function () {
             operator.call(sink, this.source);
         }
         else {
-            sink.add(this.source || !sink.syncErrorThrowable ? this._subscribe(sink) : this._trySubscribe(sink));
+            sink.add(this.source || (_config__WEBPACK_IMPORTED_MODULE_3__["config"].useDeprecatedSynchronousErrorHandling && !sink.syncErrorThrowable) ?
+                this._subscribe(sink) :
+                this._trySubscribe(sink));
         }
         if (_config__WEBPACK_IMPORTED_MODULE_3__["config"].useDeprecatedSynchronousErrorHandling) {
             if (sink.syncErrorThrowable) {
@@ -49206,7 +56279,6 @@ var Observable = /*@__PURE__*/ (function () {
         }
         return sink;
     };
-    /** @deprecated This is an internal implementation detail, do not use. */
     Observable.prototype._trySubscribe = function (sink) {
         try {
             return this._subscribe(sink);
@@ -49219,19 +56291,10 @@ var Observable = /*@__PURE__*/ (function () {
             sink.error(err);
         }
     };
-    /**
-     * @method forEach
-     * @param {Function} next a handler for each value emitted by the observable
-     * @param {PromiseConstructor} [promiseCtor] a constructor function used to instantiate the Promise
-     * @return {Promise} a promise that either resolves on observable completion or
-     *  rejects with the handled error
-     */
     Observable.prototype.forEach = function (next, promiseCtor) {
         var _this = this;
         promiseCtor = getPromiseCtor(promiseCtor);
         return new promiseCtor(function (resolve, reject) {
-            // Must be declared in a separate statement to avoid a RefernceError when
-            // accessing subscription below in the closure due to Temporal Dead Zone.
             var subscription;
             subscription = _this.subscribe(function (value) {
                 try {
@@ -49246,38 +56309,13 @@ var Observable = /*@__PURE__*/ (function () {
             }, reject, resolve);
         });
     };
-    /** @deprecated This is an internal implementation detail, do not use. */
     Observable.prototype._subscribe = function (subscriber) {
         var source = this.source;
         return source && source.subscribe(subscriber);
     };
-    /**
-     * An interop point defined by the es7-observable spec https://github.com/zenparsing/es-observable
-     * @method Symbol.observable
-     * @return {Observable} this instance of the observable
-     */
     Observable.prototype[_internal_symbol_observable__WEBPACK_IMPORTED_MODULE_1__["observable"]] = function () {
         return this;
     };
-    /* tslint:enable:max-line-length */
-    /**
-     * Used to stitch together functional operators into a chain.
-     * @method pipe
-     * @return {Observable} the Observable result of all of the operators having
-     * been called in the order they were passed in.
-     *
-     * @example
-     *
-     * import { map, filter, scan } from 'rxjs/operators';
-     *
-     * Rx.Observable.interval(1000)
-     *   .pipe(
-     *     filter(x => x % 2 === 0),
-     *     map(x => x + x),
-     *     scan((acc, x) => acc + x)
-     *   )
-     *   .subscribe(x => console.log(x))
-     */
     Observable.prototype.pipe = function () {
         var operations = [];
         for (var _i = 0; _i < arguments.length; _i++) {
@@ -49288,7 +56326,6 @@ var Observable = /*@__PURE__*/ (function () {
         }
         return Object(_util_pipe__WEBPACK_IMPORTED_MODULE_2__["pipeFromArray"])(operations)(this);
     };
-    /* tslint:enable:max-line-length */
     Observable.prototype.toPromise = function (promiseCtor) {
         var _this = this;
         promiseCtor = getPromiseCtor(promiseCtor);
@@ -49297,30 +56334,12 @@ var Observable = /*@__PURE__*/ (function () {
             _this.subscribe(function (x) { return value = x; }, function (err) { return reject(err); }, function () { return resolve(value); });
         });
     };
-    // HACK: Since TypeScript inherits static properties too, we have to
-    // fight against TypeScript here so Subject can have a different static create signature
-    /**
-     * Creates a new cold Observable by calling the Observable constructor
-     * @static true
-     * @owner Observable
-     * @method create
-     * @param {Function} subscribe? the subscriber function to be passed to the Observable constructor
-     * @return {Observable} a new cold observable
-     * @nocollapse
-     */
     Observable.create = function (subscribe) {
         return new Observable(subscribe);
     };
     return Observable;
 }());
 
-/**
- * Decides between a passed promise constructor from consuming code,
- * A default configured promise constructor, and the native promise
- * constructor and returns it. If nothing can be found, it will throw
- * an error.
- * @param promiseCtor The optional promise constructor to passed by consuming code
- */
 function getPromiseCtor(promiseCtor) {
     if (!promiseCtor) {
         promiseCtor = _config__WEBPACK_IMPORTED_MODULE_3__["config"].Promise || Promise;
@@ -49383,11 +56402,6 @@ __webpack_require__.r(__webpack_exports__);
 /** PURE_IMPORTS_START tslib,_Subscriber PURE_IMPORTS_END */
 
 
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var OuterSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](OuterSubscriber, _super);
     function OuterSubscriber() {
@@ -49435,9 +56449,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * @class ReplaySubject<T>
- */
 var ReplaySubject = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](ReplaySubject, _super);
     function ReplaySubject(bufferSize, windowTime, scheduler) {
@@ -49465,8 +56476,6 @@ var ReplaySubject = /*@__PURE__*/ (function (_super) {
     ReplaySubject.prototype.nextInfiniteTimeWindow = function (value) {
         var _events = this._events;
         _events.push(value);
-        // Since this method is invoked in every next() call than the buffer
-        // can overgrow the max size only by one item
         if (_events.length > this._bufferSize) {
             _events.shift();
         }
@@ -49477,9 +56486,7 @@ var ReplaySubject = /*@__PURE__*/ (function (_super) {
         this._trimBufferThenGetEvents();
         _super.prototype.next.call(this, value);
     };
-    /** @deprecated This is an internal implementation detail, do not use. */
     ReplaySubject.prototype._subscribe = function (subscriber) {
-        // When `_infiniteTimeWindow === true` then the buffer is already trimmed
         var _infiniteTimeWindow = this._infiniteTimeWindow;
         var _events = _infiniteTimeWindow ? this._events : this._trimBufferThenGetEvents();
         var scheduler = this.scheduler;
@@ -49526,9 +56533,6 @@ var ReplaySubject = /*@__PURE__*/ (function (_super) {
         var _events = this._events;
         var eventsCount = _events.length;
         var spliceCount = 0;
-        // Trim events that fall out of the time window.
-        // Start at the front of the list. Break early once
-        // we encounter an event that falls within the window.
         while (spliceCount < eventsCount) {
             if ((now - _events[spliceCount].time) < _windowTime) {
                 break;
@@ -49568,25 +56572,6 @@ var ReplayEvent = /*@__PURE__*/ (function () {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Scheduler", function() { return Scheduler; });
-/**
- * An execution context and a data structure to order tasks and schedule their
- * execution. Provides a notion of (potentially virtual) time, through the
- * `now()` getter method.
- *
- * Each unit of work in a Scheduler is called an {@link Action}.
- *
- * ```ts
- * class Scheduler {
- *   now(): number;
- *   schedule(work, delay?, state?): Subscription;
- * }
- * ```
- *
- * @class Scheduler
- * @deprecated Scheduler is an internal implementation detail of RxJS, and
- * should not be used directly. Rather, create your own class and implement
- * {@link SchedulerLike}
- */
 var Scheduler = /*@__PURE__*/ (function () {
     function Scheduler(SchedulerAction, now) {
         if (now === void 0) {
@@ -49595,30 +56580,12 @@ var Scheduler = /*@__PURE__*/ (function () {
         this.SchedulerAction = SchedulerAction;
         this.now = now;
     }
-    /**
-     * Schedules a function, `work`, for execution. May happen at some point in
-     * the future, according to the `delay` parameter, if specified. May be passed
-     * some context object, `state`, which will be passed to the `work` function.
-     *
-     * The given arguments will be processed an stored as an Action object in a
-     * queue of actions.
-     *
-     * @param {function(state: ?T): ?Subscription} work A function representing a
-     * task, or some unit of work to be executed by the Scheduler.
-     * @param {number} [delay] Time to wait before executing the work, where the
-     * time unit is implicit and defined by the Scheduler itself.
-     * @param {T} [state] Some contextual data that the `work` function uses when
-     * called by the Scheduler.
-     * @return {Subscription} A subscription in order to be able to unsubscribe
-     * the scheduled work.
-     */
     Scheduler.prototype.schedule = function (work, delay, state) {
         if (delay === void 0) {
             delay = 0;
         }
         return new this.SchedulerAction(this, work).schedule(state, delay);
     };
-    /** @nocollapse */
     Scheduler.now = Date.now ? Date.now : function () { return +new Date(); };
     return Scheduler;
 }());
@@ -49655,9 +56622,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * @class SubjectSubscriber<T>
- */
 var SubjectSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](SubjectSubscriber, _super);
     function SubjectSubscriber(destination) {
@@ -49668,9 +56632,6 @@ var SubjectSubscriber = /*@__PURE__*/ (function (_super) {
     return SubjectSubscriber;
 }(_Subscriber__WEBPACK_IMPORTED_MODULE_2__["Subscriber"]));
 
-/**
- * @class Subject<T>
- */
 var Subject = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](Subject, _super);
     function Subject() {
@@ -49736,7 +56697,6 @@ var Subject = /*@__PURE__*/ (function (_super) {
         this.closed = true;
         this.observers = null;
     };
-    /** @deprecated This is an internal implementation detail, do not use. */
     Subject.prototype._trySubscribe = function (subscriber) {
         if (this.closed) {
             throw new _util_ObjectUnsubscribedError__WEBPACK_IMPORTED_MODULE_4__["ObjectUnsubscribedError"]();
@@ -49745,7 +56705,6 @@ var Subject = /*@__PURE__*/ (function (_super) {
             return _super.prototype._trySubscribe.call(this, subscriber);
         }
     };
-    /** @deprecated This is an internal implementation detail, do not use. */
     Subject.prototype._subscribe = function (subscriber) {
         if (this.closed) {
             throw new _util_ObjectUnsubscribedError__WEBPACK_IMPORTED_MODULE_4__["ObjectUnsubscribedError"]();
@@ -49768,16 +56727,12 @@ var Subject = /*@__PURE__*/ (function (_super) {
         observable.source = this;
         return observable;
     };
-    /**@nocollapse */
     Subject.create = function (destination, source) {
         return new AnonymousSubject(destination, source);
     };
     return Subject;
 }(_Observable__WEBPACK_IMPORTED_MODULE_1__["Observable"]));
 
-/**
- * @class AnonymousSubject<T>
- */
 var AnonymousSubject = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](AnonymousSubject, _super);
     function AnonymousSubject(destination, source) {
@@ -49804,7 +56759,6 @@ var AnonymousSubject = /*@__PURE__*/ (function (_super) {
             this.destination.complete();
         }
     };
-    /** @deprecated This is an internal implementation detail, do not use. */
     AnonymousSubject.prototype._subscribe = function (subscriber) {
         var source = this.source;
         if (source) {
@@ -49837,11 +56791,6 @@ __webpack_require__.r(__webpack_exports__);
 /** PURE_IMPORTS_START tslib,_Subscription PURE_IMPORTS_END */
 
 
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var SubjectSubscription = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](SubjectSubscription, _super);
     function SubjectSubscription(subject, subscriber) {
@@ -49900,31 +56849,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * Implements the {@link Observer} interface and extends the
- * {@link Subscription} class. While the {@link Observer} is the public API for
- * consuming the values of an {@link Observable}, all Observers get converted to
- * a Subscriber, in order to provide Subscription-like capabilities such as
- * `unsubscribe`. Subscriber is a common type in RxJS, and crucial for
- * implementing operators, but it is rarely used as a public API.
- *
- * @class Subscriber<T>
- */
 var Subscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](Subscriber, _super);
-    /**
-     * @param {Observer|function(value: T): void} [destinationOrNext] A partially
-     * defined Observer or a `next` callback function.
-     * @param {function(e: ?any): void} [error] The `error` callback of an
-     * Observer.
-     * @param {function(): void} [complete] The `complete` callback of an
-     * Observer.
-     */
     function Subscriber(destinationOrNext, error, complete) {
         var _this = _super.call(this) || this;
-        /** @internal */ _this.syncErrorValue = null;
-        /** @internal */ _this.syncErrorThrown = false;
-        /** @internal */ _this.syncErrorThrowable = false;
+        _this.syncErrorValue = null;
+        _this.syncErrorThrown = false;
+        _this.syncErrorThrowable = false;
         _this.isStopped = false;
         switch (arguments.length) {
             case 0:
@@ -49936,8 +56867,6 @@ var Subscriber = /*@__PURE__*/ (function (_super) {
                     break;
                 }
                 if (typeof destinationOrNext === 'object') {
-                    // HACK(benlesh): For situations where Node has multiple copies of rxjs in
-                    // node_modules, we cannot rely on `instanceof` checks
                     if (isTrustedSubscriber(destinationOrNext)) {
                         var trustedSubscriber = destinationOrNext[_internal_symbol_rxSubscriber__WEBPACK_IMPORTED_MODULE_4__["rxSubscriber"]]();
                         _this.syncErrorThrowable = trustedSubscriber.syncErrorThrowable;
@@ -49958,54 +56887,22 @@ var Subscriber = /*@__PURE__*/ (function (_super) {
         return _this;
     }
     Subscriber.prototype[_internal_symbol_rxSubscriber__WEBPACK_IMPORTED_MODULE_4__["rxSubscriber"]] = function () { return this; };
-    /**
-     * A static factory for a Subscriber, given a (potentially partial) definition
-     * of an Observer.
-     * @param {function(x: ?T): void} [next] The `next` callback of an Observer.
-     * @param {function(e: ?any): void} [error] The `error` callback of an
-     * Observer.
-     * @param {function(): void} [complete] The `complete` callback of an
-     * Observer.
-     * @return {Subscriber<T>} A Subscriber wrapping the (partially defined)
-     * Observer represented by the given arguments.
-     * @nocollapse
-     */
     Subscriber.create = function (next, error, complete) {
         var subscriber = new Subscriber(next, error, complete);
         subscriber.syncErrorThrowable = false;
         return subscriber;
     };
-    /**
-     * The {@link Observer} callback to receive notifications of type `next` from
-     * the Observable, with a value. The Observable may call this method 0 or more
-     * times.
-     * @param {T} [value] The `next` value.
-     * @return {void}
-     */
     Subscriber.prototype.next = function (value) {
         if (!this.isStopped) {
             this._next(value);
         }
     };
-    /**
-     * The {@link Observer} callback to receive notifications of type `error` from
-     * the Observable, with an attached {@link Error}. Notifies the Observer that
-     * the Observable has experienced an error condition.
-     * @param {any} [err] The `error` exception.
-     * @return {void}
-     */
     Subscriber.prototype.error = function (err) {
         if (!this.isStopped) {
             this.isStopped = true;
             this._error(err);
         }
     };
-    /**
-     * The {@link Observer} callback to receive a valueless notification of type
-     * `complete` from the Observable. Notifies the Observer that the Observable
-     * has finished sending push-based notifications.
-     * @return {void}
-     */
     Subscriber.prototype.complete = function () {
         if (!this.isStopped) {
             this.isStopped = true;
@@ -50030,7 +56927,6 @@ var Subscriber = /*@__PURE__*/ (function (_super) {
         this.destination.complete();
         this.unsubscribe();
     };
-    /** @deprecated This is an internal implementation detail, do not use. */
     Subscriber.prototype._unsubscribeAndRecycle = function () {
         var _a = this, _parent = _a._parent, _parents = _a._parents;
         this._parent = null;
@@ -50045,11 +56941,6 @@ var Subscriber = /*@__PURE__*/ (function (_super) {
     return Subscriber;
 }(_Subscription__WEBPACK_IMPORTED_MODULE_3__["Subscription"]));
 
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var SafeSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](SafeSubscriber, _super);
     function SafeSubscriber(_parentSubscriber, observerOrNext, error, complete) {
@@ -50176,7 +57067,6 @@ var SafeSubscriber = /*@__PURE__*/ (function (_super) {
         }
         return false;
     };
-    /** @deprecated This is an internal implementation detail, do not use. */
     SafeSubscriber.prototype._unsubscribe = function () {
         var _parentSubscriber = this._parentSubscriber;
         this._context = null;
@@ -50216,45 +57106,16 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * Represents a disposable resource, such as the execution of an Observable. A
- * Subscription has one important method, `unsubscribe`, that takes no argument
- * and just disposes the resource held by the subscription.
- *
- * Additionally, subscriptions may be grouped together through the `add()`
- * method, which will attach a child Subscription to the current Subscription.
- * When a Subscription is unsubscribed, all its children (and its grandchildren)
- * will be unsubscribed as well.
- *
- * @class Subscription
- */
 var Subscription = /*@__PURE__*/ (function () {
-    /**
-     * @param {function(): void} [unsubscribe] A function describing how to
-     * perform the disposal of resources when the `unsubscribe` method is called.
-     */
     function Subscription(unsubscribe) {
-        /**
-         * A flag to indicate whether this Subscription has already been unsubscribed.
-         * @type {boolean}
-         */
         this.closed = false;
-        /** @internal */
         this._parent = null;
-        /** @internal */
         this._parents = null;
-        /** @internal */
         this._subscriptions = null;
         if (unsubscribe) {
             this._unsubscribe = unsubscribe;
         }
     }
-    /**
-     * Disposes the resources held by the subscription. May, for instance, cancel
-     * an ongoing Observable execution or cancel any other type of work that
-     * started when the Subscription was created.
-     * @return {void}
-     */
     Subscription.prototype.unsubscribe = function () {
         var hasErrors = false;
         var errors;
@@ -50265,17 +57126,11 @@ var Subscription = /*@__PURE__*/ (function () {
         this.closed = true;
         this._parent = null;
         this._parents = null;
-        // null out _subscriptions first so any child subscriptions that attempt
-        // to remove themselves from this subscription will noop
         this._subscriptions = null;
         var index = -1;
         var len = _parents ? _parents.length : 0;
-        // if this._parent is null, then so is this._parents, and we
-        // don't have to remove ourselves from any parent subscriptions.
         while (_parent) {
             _parent.remove(this);
-            // if this._parents is null or index >= len,
-            // then _parent is set to null, and the loop exits
             _parent = ++index < len && _parents[index] || null;
         }
         if (Object(_util_isFunction__WEBPACK_IMPORTED_MODULE_2__["isFunction"])(_unsubscribe)) {
@@ -50311,24 +57166,6 @@ var Subscription = /*@__PURE__*/ (function () {
             throw new _util_UnsubscriptionError__WEBPACK_IMPORTED_MODULE_5__["UnsubscriptionError"](errors);
         }
     };
-    /**
-     * Adds a tear down to be called during the unsubscribe() of this
-     * Subscription.
-     *
-     * If the tear down being added is a subscription that is already
-     * unsubscribed, is the same reference `add` is being called on, or is
-     * `Subscription.EMPTY`, it will not be added.
-     *
-     * If this subscription is already in an `closed` state, the passed
-     * tear down logic will be executed immediately.
-     *
-     * @param {TeardownLogic} teardown The additional logic to execute on
-     * teardown.
-     * @return {Subscription} Returns the Subscription used or created to be
-     * added to the inner subscriptions list. This Subscription can be used with
-     * `remove()` to remove the passed teardown logic from the inner subscriptions
-     * list.
-     */
     Subscription.prototype.add = function (teardown) {
         if (!teardown || (teardown === Subscription.EMPTY)) {
             return Subscription.EMPTY;
@@ -50348,7 +57185,7 @@ var Subscription = /*@__PURE__*/ (function () {
                     subscription.unsubscribe();
                     return subscription;
                 }
-                else if (typeof subscription._addParent !== 'function' /* quack quack */) {
+                else if (typeof subscription._addParent !== 'function') {
                     var tmp = subscription;
                     subscription = new Subscription();
                     subscription._subscriptions = [tmp];
@@ -50362,12 +57199,6 @@ var Subscription = /*@__PURE__*/ (function () {
         subscription._addParent(this);
         return subscription;
     };
-    /**
-     * Removes a Subscription from the internal list of subscriptions that will
-     * unsubscribe during the unsubscribe process of this Subscription.
-     * @param {Subscription} subscription The subscription to remove.
-     * @return {void}
-     */
     Subscription.prototype.remove = function (subscription) {
         var subscriptions = this._subscriptions;
         if (subscriptions) {
@@ -50377,25 +57208,18 @@ var Subscription = /*@__PURE__*/ (function () {
             }
         }
     };
-    /** @internal */
     Subscription.prototype._addParent = function (parent) {
         var _a = this, _parent = _a._parent, _parents = _a._parents;
         if (!_parent || _parent === parent) {
-            // If we don't have a parent, or the new parent is the same as the
-            // current parent, then set this._parent to the new parent.
             this._parent = parent;
         }
         else if (!_parents) {
-            // If there's already one parent, but not multiple, allocate an Array to
-            // store the rest of the parent Subscriptions.
             this._parents = [parent];
         }
         else if (_parents.indexOf(parent) === -1) {
-            // Only add the new parent to the _parents list if it's not already there.
             _parents.push(parent);
         }
     };
-    /** @nocollapse */
     Subscription.EMPTY = (function (empty) {
         empty.closed = true;
         return empty;
@@ -50423,24 +57247,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "config", function() { return config; });
 /** PURE_IMPORTS_START  PURE_IMPORTS_END */
 var _enable_super_gross_mode_that_will_cause_bad_things = false;
-/**
- * The global configuration object for RxJS, used to configure things
- * like what Promise contructor should used to create Promises
- */
 var config = {
-    /**
-     * The promise constructor used by default for methods such as
-     * {@link toPromise} and {@link forEach}
-     */
     Promise: undefined,
-    /**
-     * If true, turns on synchronous error rethrowing, which is a deprecated behavior
-     * in v6 and higher. This behavior enables bad patterns like wrapping a subscribe
-     * call in a try/catch block. It also enables producer interference, a nasty bug
-     * where a multicast can be broken for all observers by a downstream consumer with
-     * an unhandled error. DO NOT USE THIS FLAG UNLESS IT'S NEEDED TO BY TIME
-     * FOR MIGRATION REASONS.
-     */
     set useDeprecatedSynchronousErrorHandling(value) {
         if (value) {
             var error = /*@__PURE__*/ new Error();
@@ -50484,9 +57292,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * @class ConnectableObservable<T>
- */
 var ConnectableObservable = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](ConnectableObservable, _super);
     function ConnectableObservable(source, subjectFactory) {
@@ -50494,11 +57299,9 @@ var ConnectableObservable = /*@__PURE__*/ (function (_super) {
         _this.source = source;
         _this.subjectFactory = subjectFactory;
         _this._refCount = 0;
-        /** @internal */
         _this._isComplete = false;
         return _this;
     }
-    /** @deprecated This is an internal implementation detail, do not use. */
     ConnectableObservable.prototype._subscribe = function (subscriber) {
         return this.getSubject().subscribe(subscriber);
     };
@@ -50615,29 +57418,6 @@ var RefCountSubscriber = /*@__PURE__*/ (function (_super) {
             this.connection = null;
             return;
         }
-        ///
-        // Compare the local RefCountSubscriber's connection Subscription to the
-        // connection Subscription on the shared ConnectableObservable. In cases
-        // where the ConnectableObservable source synchronously emits values, and
-        // the RefCountSubscriber's downstream Observers synchronously unsubscribe,
-        // execution continues to here before the RefCountOperator has a chance to
-        // supply the RefCountSubscriber with the shared connection Subscription.
-        // For example:
-        // ```
-        // Observable.range(0, 10)
-        //   .publish()
-        //   .refCount()
-        //   .take(5)
-        //   .subscribe();
-        // ```
-        // In order to account for this case, RefCountSubscriber should only dispose
-        // the ConnectableObservable's shared connection Subscription if the
-        // connection Subscription exists, *and* either:
-        //   a. RefCountSubscriber doesn't have a reference to the shared connection
-        //      Subscription yet, or,
-        //   b. RefCountSubscriber's connection Subscription reference is identical
-        //      to the shared connection Subscription
-        ///
         var connection = this.connection;
         var sharedConnection = connectable._connection;
         this.connection = null;
@@ -50671,11 +57451,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @extends {Ignored}
- * @hide true
- */
 var SubscribeOnObservable = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](SubscribeOnObservable, _super);
     function SubscribeOnObservable(source, delayTime, scheduler) {
@@ -50697,7 +57472,6 @@ var SubscribeOnObservable = /*@__PURE__*/ (function (_super) {
         }
         return _this;
     }
-    /** @nocollapse */
     SubscribeOnObservable.create = function (source, delay, scheduler) {
         if (delay === void 0) {
             delay = 0;
@@ -50707,12 +57481,10 @@ var SubscribeOnObservable = /*@__PURE__*/ (function (_super) {
         }
         return new SubscribeOnObservable(source, delay, scheduler);
     };
-    /** @nocollapse */
     SubscribeOnObservable.dispatch = function (arg) {
         var source = arg.source, subscriber = arg.subscriber;
         return this.add(source.subscribe(subscriber));
     };
-    /** @deprecated This is an internal implementation detail, do not use. */
     SubscribeOnObservable.prototype._subscribe = function (subscriber) {
         var delay = this.delayTime;
         var source = this.source;
@@ -50750,124 +57522,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-// tslint:enable:max-line-length
-/**
- * Converts a callback API to a function that returns an Observable.
- *
- * <span class="informal">Give it a function `f` of type `f(x, callback)` and
- * it will return a function `g` that when called as `g(x)` will output an
- * Observable.</span>
- *
- * `bindCallback` is not an operator because its input and output are not
- * Observables. The input is a function `func` with some parameters, the
- * last parameter must be a callback function that `func` calls when it is
- * done.
- *
- * The output of `bindCallback` is a function that takes the same parameters
- * as `func`, except the last one (the callback). When the output function
- * is called with arguments it will return an Observable. If function `func`
- * calls its callback with one argument the Observable will emit that value.
- * If on the other hand the callback is called with multiple values the resulting
- * Observable will emit an array with said values as arguments.
- *
- * It is very important to remember that input function `func` is not called
- * when the output function is, but rather when the Observable returned by the output
- * function is subscribed. This means if `func` makes an AJAX request, that request
- * will be made every time someone subscribes to the resulting Observable, but not before.
- *
- * The last optional parameter - {@link Scheduler} - can be used to control when the call
- * to `func` happens after someone subscribes to Observable, as well as when results
- * passed to callback will be emitted. By default, the subscription to  an Observable calls `func`
- * synchronously, but using `Scheduler.async` as the last parameter will defer the call to `func`,
- * just like wrapping the call in `setTimeout` with a timeout of `0` would. If you use the async Scheduler
- * and call `subscribe` on the output Observable all function calls that are currently executing
- * will end before `func` is invoked.
- *
- * By default results passed to the callback are emitted immediately after `func` invokes the callback.
- * In particular, if the callback is called synchronously the subscription of the resulting Observable
- * will call the `next` function synchronously as well.  If you want to defer that call,
- * you may use `Scheduler.async` just as before.  This means that by using `Scheduler.async` you can
- * ensure that `func` always calls its callback asynchronously, thus avoiding terrifying Zalgo.
- *
- * Note that the Observable created by the output function will always emit a single value
- * and then complete immediately. If `func` calls the callback multiple times, values from subsequent
- * calls will not appear in the stream. If you need to listen for multiple calls,
- *  you probably want to use {@link fromEvent} or {@link fromEventPattern} instead.
- *
- * If `func` depends on some context (`this` property) and is not already bound the context of `func`
- * will be the context that the output function has at call time. In particular, if `func`
- * is called as a method of some objec and if `func` is not already bound, in order to preserve the context
- * it is recommended that the context of the output function is set to that object as well.
- *
- * If the input function calls its callback in the "node style" (i.e. first argument to callback is
- * optional error parameter signaling whether the call failed or not), {@link bindNodeCallback}
- * provides convenient error handling and probably is a better choice.
- * `bindCallback` will treat such functions the same as any other and error parameters
- * (whether passed or not) will always be interpreted as regular callback argument.
- *
- *
- * @example <caption>Convert jQuery's getJSON to an Observable API</caption>
- * // Suppose we have jQuery.getJSON('/my/url', callback)
- * var getJSONAsObservable = bindCallback(jQuery.getJSON);
- * var result = getJSONAsObservable('/my/url');
- * result.subscribe(x => console.log(x), e => console.error(e));
- *
- *
- * @example <caption>Receive an array of arguments passed to a callback</caption>
- * someFunction((a, b, c) => {
- *   console.log(a); // 5
- *   console.log(b); // 'some string'
- *   console.log(c); // {someProperty: 'someValue'}
- * });
- *
- * const boundSomeFunction = bindCallback(someFunction);
- * boundSomeFunction().subscribe(values => {
- *   console.log(values) // [5, 'some string', {someProperty: 'someValue'}]
- * });
- *
- *
- * @example <caption>Compare behaviour with and without async Scheduler</caption>
- * function iCallMyCallbackSynchronously(cb) {
- *   cb();
- * }
- *
- * const boundSyncFn = bindCallback(iCallMyCallbackSynchronously);
- * const boundAsyncFn = bindCallback(iCallMyCallbackSynchronously, null, Rx.Scheduler.async);
- *
- * boundSyncFn().subscribe(() => console.log('I was sync!'));
- * boundAsyncFn().subscribe(() => console.log('I was async!'));
- * console.log('This happened...');
- *
- * // Logs:
- * // I was sync!
- * // This happened...
- * // I was async!
- *
- *
- * @example <caption>Use bindCallback on an object method</caption>
- * const boundMethod = bindCallback(someObject.methodWithCallback);
- * boundMethod.call(someObject) // make sure methodWithCallback has access to someObject
- * .subscribe(subscriber);
- *
- *
- * @see {@link bindNodeCallback}
- * @see {@link from}
- * @see {@link fromPromise}
- *
- * @param {function} func A function with a callback as the last parameter.
- * @param {Scheduler} [scheduler] The scheduler on which to schedule the
- * callbacks.
- * @return {function(...params: *): Observable} A function which returns the
- * Observable that delivers the same values the callback would deliver.
- * @name bindCallback
- */
 function bindCallback(callbackFunc, resultSelector, scheduler) {
     if (resultSelector) {
         if (Object(_util_isScheduler__WEBPACK_IMPORTED_MODULE_4__["isScheduler"])(resultSelector)) {
             scheduler = resultSelector;
         }
         else {
-            // DEPRECATED PATH
             return function () {
                 var args = [];
                 for (var _i = 0; _i < arguments.length; _i++) {
@@ -50980,115 +57640,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * Converts a Node.js-style callback API to a function that returns an
- * Observable.
- *
- * <span class="informal">It's just like {@link bindCallback}, but the
- * callback is expected to be of type `callback(error, result)`.</span>
- *
- * `bindNodeCallback` is not an operator because its input and output are not
- * Observables. The input is a function `func` with some parameters, but the
- * last parameter must be a callback function that `func` calls when it is
- * done. The callback function is expected to follow Node.js conventions,
- * where the first argument to the callback is an error object, signaling
- * whether call was successful. If that object is passed to callback, it means
- * something went wrong.
- *
- * The output of `bindNodeCallback` is a function that takes the same
- * parameters as `func`, except the last one (the callback). When the output
- * function is called with arguments, it will return an Observable.
- * If `func` calls its callback with error parameter present, Observable will
- * error with that value as well. If error parameter is not passed, Observable will emit
- * second parameter. If there are more parameters (third and so on),
- * Observable will emit an array with all arguments, except first error argument.
- *
- * Note that `func` will not be called at the same time output function is,
- * but rather whenever resulting Observable is subscribed. By default call to
- * `func` will happen synchronously after subscription, but that can be changed
- * with proper {@link Scheduler} provided as optional third parameter. Scheduler
- * can also control when values from callback will be emitted by Observable.
- * To find out more, check out documentation for {@link bindCallback}, where
- * Scheduler works exactly the same.
- *
- * As in {@link bindCallback}, context (`this` property) of input function will be set to context
- * of returned function, when it is called.
- *
- * After Observable emits value, it will complete immediately. This means
- * even if `func` calls callback again, values from second and consecutive
- * calls will never appear on the stream. If you need to handle functions
- * that call callbacks multiple times, check out {@link fromEvent} or
- * {@link fromEventPattern} instead.
- *
- * Note that `bindNodeCallback` can be used in non-Node.js environments as well.
- * "Node.js-style" callbacks are just a convention, so if you write for
- * browsers or any other environment and API you use implements that callback style,
- * `bindNodeCallback` can be safely used on that API functions as well.
- *
- * Remember that Error object passed to callback does not have to be an instance
- * of JavaScript built-in `Error` object. In fact, it does not even have to an object.
- * Error parameter of callback function is interpreted as "present", when value
- * of that parameter is truthy. It could be, for example, non-zero number, non-empty
- * string or boolean `true`. In all of these cases resulting Observable would error
- * with that value. This means usually regular style callbacks will fail very often when
- * `bindNodeCallback` is used. If your Observable errors much more often then you
- * would expect, check if callback really is called in Node.js-style and, if not,
- * switch to {@link bindCallback} instead.
- *
- * Note that even if error parameter is technically present in callback, but its value
- * is falsy, it still won't appear in array emitted by Observable.
- *
- *
- * @example <caption>Read a file from the filesystem and get the data as an Observable</caption>
- * import * as fs from 'fs';
- * var readFileAsObservable = bindNodeCallback(fs.readFile);
- * var result = readFileAsObservable('./roadNames.txt', 'utf8');
- * result.subscribe(x => console.log(x), e => console.error(e));
- *
- *
- * @example <caption>Use on function calling callback with multiple arguments</caption>
- * someFunction((err, a, b) => {
- *   console.log(err); // null
- *   console.log(a); // 5
- *   console.log(b); // "some string"
- * });
- * var boundSomeFunction = bindNodeCallback(someFunction);
- * boundSomeFunction()
- * .subscribe(value => {
- *   console.log(value); // [5, "some string"]
- * });
- *
- * @example <caption>Use on function calling callback in regular style</caption>
- * someFunction(a => {
- *   console.log(a); // 5
- * });
- * var boundSomeFunction = bindNodeCallback(someFunction);
- * boundSomeFunction()
- * .subscribe(
- *   value => {}             // never gets called
- *   err => console.log(err) // 5
- * );
- *
- *
- * @see {@link bindCallback}
- * @see {@link from}
- * @see {@link fromPromise}
- *
- * @param {function} func Function with a Node.js-style callback as the last parameter.
- * @param {Scheduler} [scheduler] The scheduler on which to schedule the
- * callbacks.
- * @return {function(...params: *): Observable} A function which returns the
- * Observable that delivers the same values the Node.js callback would
- * deliver.
- * @name bindNodeCallback
- */
 function bindNodeCallback(callbackFunc, resultSelector, scheduler) {
     if (resultSelector) {
         if (Object(_util_isScheduler__WEBPACK_IMPORTED_MODULE_3__["isScheduler"])(resultSelector)) {
             scheduler = resultSelector;
         }
         else {
-            // DEPRECATED PATH
             return function () {
                 var args = [];
                 for (var _i = 0; _i < arguments.length; _i++) {
@@ -51214,112 +57771,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var NONE = {};
-/* tslint:enable:max-line-length */
-/**
- * Combines multiple Observables to create an Observable whose values are
- * calculated from the latest values of each of its input Observables.
- *
- * <span class="informal">Whenever any input Observable emits a value, it
- * computes a formula using the latest values from all the inputs, then emits
- * the output of that formula.</span>
- *
- * <img src="./img/combineLatest.png" width="100%">
- *
- * `combineLatest` combines the values from all the Observables passed as
- * arguments. This is done by subscribing to each Observable in order and,
- * whenever any Observable emits, collecting an array of the most recent
- * values from each Observable. So if you pass `n` Observables to operator,
- * returned Observable will always emit an array of `n` values, in order
- * corresponding to order of passed Observables (value from the first Observable
- * on the first place and so on).
- *
- * Static version of `combineLatest` accepts either an array of Observables
- * or each Observable can be put directly as an argument. Note that array of
- * Observables is good choice, if you don't know beforehand how many Observables
- * you will combine. Passing empty array will result in Observable that
- * completes immediately.
- *
- * To ensure output array has always the same length, `combineLatest` will
- * actually wait for all input Observables to emit at least once,
- * before it starts emitting results. This means if some Observable emits
- * values before other Observables started emitting, all that values but last
- * will be lost. On the other hand, is some Observable does not emit value but
- * completes, resulting Observable will complete at the same moment without
- * emitting anything, since it will be now impossible to include value from
- * completed Observable in resulting array. Also, if some input Observable does
- * not emit any value and never completes, `combineLatest` will also never emit
- * and never complete, since, again, it will wait for all streams to emit some
- * value.
- *
- * If at least one Observable was passed to `combineLatest` and all passed Observables
- * emitted something, resulting Observable will complete when all combined
- * streams complete. So even if some Observable completes, result of
- * `combineLatest` will still emit values when other Observables do. In case
- * of completed Observable, its value from now on will always be the last
- * emitted value. On the other hand, if any Observable errors, `combineLatest`
- * will error immediately as well, and all other Observables will be unsubscribed.
- *
- * `combineLatest` accepts as optional parameter `project` function, which takes
- * as arguments all values that would normally be emitted by resulting Observable.
- * `project` can return any kind of value, which will be then emitted by Observable
- * instead of default array. Note that `project` does not take as argument that array
- * of values, but values themselves. That means default `project` can be imagined
- * as function that takes all its arguments and puts them into an array.
- *
- *
- * @example <caption>Combine two timer Observables</caption>
- * const firstTimer = Rx.Observable.timer(0, 1000); // emit 0, 1, 2... after every second, starting from now
- * const secondTimer = Rx.Observable.timer(500, 1000); // emit 0, 1, 2... after every second, starting 0,5s from now
- * const combinedTimers = Rx.Observable.combineLatest(firstTimer, secondTimer);
- * combinedTimers.subscribe(value => console.log(value));
- * // Logs
- * // [0, 0] after 0.5s
- * // [1, 0] after 1s
- * // [1, 1] after 1.5s
- * // [2, 1] after 2s
- *
- *
- * @example <caption>Combine an array of Observables</caption>
- * const observables = [1, 5, 10].map(
- *   n => Rx.Observable.of(n).delay(n * 1000).startWith(0) // emit 0 and then emit n after n seconds
- * );
- * const combined = Rx.Observable.combineLatest(observables);
- * combined.subscribe(value => console.log(value));
- * // Logs
- * // [0, 0, 0] immediately
- * // [1, 0, 0] after 1s
- * // [1, 5, 0] after 5s
- * // [1, 5, 10] after 10s
- *
- *
- * @example <caption>Use project function to dynamically calculate the Body-Mass Index</caption>
- * var weight = Rx.Observable.of(70, 72, 76, 79, 75);
- * var height = Rx.Observable.of(1.76, 1.77, 1.78);
- * var bmi = Rx.Observable.combineLatest(weight, height, (w, h) => w / (h * h));
- * bmi.subscribe(x => console.log('BMI is ' + x));
- *
- * // With output to console:
- * // BMI is 24.212293388429753
- * // BMI is 23.93948099205209
- * // BMI is 23.671253629592222
- *
- *
- * @see {@link combineAll}
- * @see {@link merge}
- * @see {@link withLatestFrom}
- *
- * @param {ObservableInput} observable1 An input Observable to combine with other Observables.
- * @param {ObservableInput} observable2 An input Observable to combine with other Observables.
- * More than one input Observables may be given as arguments
- * or an array of Observables may be given as the first argument.
- * @param {function} [project] An optional function to project the values from
- * the combined latest values into a new value on the output Observable.
- * @param {Scheduler} [scheduler=null] The IScheduler to use for subscribing to
- * each input Observable.
- * @return {Observable} An Observable of projected values from the most recent
- * values from each input Observable, or an array of the most recent values from
- * each input Observable.
- */
 function combineLatest() {
     var observables = [];
     for (var _i = 0; _i < arguments.length; _i++) {
@@ -51333,8 +57784,6 @@ function combineLatest() {
     if (typeof observables[observables.length - 1] === 'function') {
         resultSelector = observables.pop();
     }
-    // if the first and only other argument besides the resultSelector is an array
-    // assume it's been called with `combineLatest([obs1, obs2, obs3], resultSelector)`
     if (observables.length === 1 && Object(_util_isArray__WEBPACK_IMPORTED_MODULE_2__["isArray"])(observables[0])) {
         observables = observables[0];
     }
@@ -51350,11 +57799,6 @@ var CombineLatestOperator = /*@__PURE__*/ (function () {
     return CombineLatestOperator;
 }());
 
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var CombineLatestSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](CombineLatestSubscriber, _super);
     function CombineLatestSubscriber(destination, resultSelector) {
@@ -51443,100 +57887,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/* tslint:enable:max-line-length */
-/**
- * Creates an output Observable which sequentially emits all values from given
- * Observable and then moves on to the next.
- *
- * <span class="informal">Concatenates multiple Observables together by
- * sequentially emitting their values, one Observable after the other.</span>
- *
- * <img src="./img/concat.png" width="100%">
- *
- * `concat` joins multiple Observables together, by subscribing to them one at a time and
- * merging their results into the output Observable. You can pass either an array of
- * Observables, or put them directly as arguments. Passing an empty array will result
- * in Observable that completes immediately.
- *
- * `concat` will subscribe to first input Observable and emit all its values, without
- * changing or affecting them in any way. When that Observable completes, it will
- * subscribe to then next Observable passed and, again, emit its values. This will be
- * repeated, until the operator runs out of Observables. When last input Observable completes,
- * `concat` will complete as well. At any given moment only one Observable passed to operator
- * emits values. If you would like to emit values from passed Observables concurrently, check out
- * {@link merge} instead, especially with optional `concurrent` parameter. As a matter of fact,
- * `concat` is an equivalent of `merge` operator with `concurrent` parameter set to `1`.
- *
- * Note that if some input Observable never completes, `concat` will also never complete
- * and Observables following the one that did not complete will never be subscribed. On the other
- * hand, if some Observable simply completes immediately after it is subscribed, it will be
- * invisible for `concat`, which will just move on to the next Observable.
- *
- * If any Observable in chain errors, instead of passing control to the next Observable,
- * `concat` will error immediately as well. Observables that would be subscribed after
- * the one that emitted error, never will.
- *
- * If you pass to `concat` the same Observable many times, its stream of values
- * will be "replayed" on every subscription, which means you can repeat given Observable
- * as many times as you like. If passing the same Observable to `concat` 1000 times becomes tedious,
- * you can always use {@link repeat}.
- *
- * @example <caption>Concatenate a timer counting from 0 to 3 with a synchronous sequence from 1 to 10</caption>
- * var timer = Rx.Observable.interval(1000).take(4);
- * var sequence = Rx.Observable.range(1, 10);
- * var result = Rx.Observable.concat(timer, sequence);
- * result.subscribe(x => console.log(x));
- *
- * // results in:
- * // 0 -1000ms-> 1 -1000ms-> 2 -1000ms-> 3 -immediate-> 1 ... 10
- *
- *
- * @example <caption>Concatenate an array of 3 Observables</caption>
- * var timer1 = Rx.Observable.interval(1000).take(10);
- * var timer2 = Rx.Observable.interval(2000).take(6);
- * var timer3 = Rx.Observable.interval(500).take(10);
- * var result = Rx.Observable.concat([timer1, timer2, timer3]); // note that array is passed
- * result.subscribe(x => console.log(x));
- *
- * // results in the following:
- * // (Prints to console sequentially)
- * // -1000ms-> 0 -1000ms-> 1 -1000ms-> ... 9
- * // -2000ms-> 0 -2000ms-> 1 -2000ms-> ... 5
- * // -500ms-> 0 -500ms-> 1 -500ms-> ... 9
- *
- *
- * @example <caption>Concatenate the same Observable to repeat it</caption>
- * const timer = Rx.Observable.interval(1000).take(2);
- *
- * Rx.Observable.concat(timer, timer) // concating the same Observable!
- * .subscribe(
- *   value => console.log(value),
- *   err => {},
- *   () => console.log('...and it is done!')
- * );
- *
- * // Logs:
- * // 0 after 1s
- * // 1 after 2s
- * // 0 after 3s
- * // 1 after 4s
- * // "...and it is done!" also after 4s
- *
- * @see {@link concatAll}
- * @see {@link concatMap}
- * @see {@link concatMapTo}
- *
- * @param {ObservableInput} input1 An input Observable to concatenate with others.
- * @param {ObservableInput} input2 An input Observable to concatenate with others.
- * More than one input Observables may be given as argument.
- * @param {Scheduler} [scheduler=null] An optional IScheduler to schedule each
- * Observable subscription on.
- * @return {Observable} All values of each passed Observable merged into a
- * single Observable, in order, in serial fashion.
- * @static true
- * @name concat
- * @owner Observable
- */
 function concat() {
     var observables = [];
     for (var _i = 0; _i < arguments.length; _i++) {
@@ -51567,54 +57917,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _empty__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./empty */ "./node_modules/rxjs/_esm5/internal/observable/empty.js");
 /** PURE_IMPORTS_START _Observable,_from,_empty PURE_IMPORTS_END */
 
- // lol
 
-/**
- * Creates an Observable that, on subscribe, calls an Observable factory to
- * make an Observable for each new Observer.
- *
- * <span class="informal">Creates the Observable lazily, that is, only when it
- * is subscribed.
- * </span>
- *
- * <img src="./img/defer.png" width="100%">
- *
- * `defer` allows you to create the Observable only when the Observer
- * subscribes, and create a fresh Observable for each Observer. It waits until
- * an Observer subscribes to it, and then it generates an Observable,
- * typically with an Observable factory function. It does this afresh for each
- * subscriber, so although each subscriber may think it is subscribing to the
- * same Observable, in fact each subscriber gets its own individual
- * Observable.
- *
- * @example <caption>Subscribe to either an Observable of clicks or an Observable of interval, at random</caption>
- * var clicksOrInterval = Rx.Observable.defer(function () {
- *   if (Math.random() > 0.5) {
- *     return Rx.Observable.fromEvent(document, 'click');
- *   } else {
- *     return Rx.Observable.interval(1000);
- *   }
- * });
- * clicksOrInterval.subscribe(x => console.log(x));
- *
- * // Results in the following behavior:
- * // If the result of Math.random() is greater than 0.5 it will listen
- * // for clicks anywhere on the "document"; when document is clicked it
- * // will log a MouseEvent object to the console. If the result is less
- * // than 0.5 it will emit ascending numbers, one every second(1000ms).
- *
- * @see {@link create}
- *
- * @param {function(): SubscribableOrPromise} observableFactory The Observable
- * factory function to invoke for each Observer that subscribes to the output
- * Observable. May also return a Promise, which will be converted on the fly
- * to an Observable.
- * @return {Observable} An Observable whose Observers' subscriptions trigger
- * an invocation of the given Observable factory function.
- * @static true
- * @name defer
- * @owner Observable
- */
+
 function defer(observableFactory) {
     return new _Observable__WEBPACK_IMPORTED_MODULE_0__["Observable"](function (subscriber) {
         var input;
@@ -51649,55 +57953,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Observable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Observable */ "./node_modules/rxjs/_esm5/internal/Observable.js");
 /** PURE_IMPORTS_START _Observable PURE_IMPORTS_END */
 
-/**
- * The same Observable instance returned by any call to {@link empty} without a
- * {@link Scheduler}. It is preferrable to use this over `empty()`.
- */
 var EMPTY = /*@__PURE__*/ new _Observable__WEBPACK_IMPORTED_MODULE_0__["Observable"](function (subscriber) { return subscriber.complete(); });
-/**
- * Creates an Observable that emits no items to the Observer and immediately
- * emits a complete notification.
- *
- * <span class="informal">Just emits 'complete', and nothing else.
- * </span>
- *
- * <img src="./img/empty.png" width="100%">
- *
- * This static operator is useful for creating a simple Observable that only
- * emits the complete notification. It can be used for composing with other
- * Observables, such as in a {@link mergeMap}.
- *
- * @example <caption>Emit the number 7, then complete.</caption>
- * var result = Rx.Observable.empty().startWith(7);
- * result.subscribe(x => console.log(x));
- *
- * @example <caption>Map and flatten only odd numbers to the sequence 'a', 'b', 'c'</caption>
- * var interval = Rx.Observable.interval(1000);
- * var result = interval.mergeMap(x =>
- *   x % 2 === 1 ? Rx.Observable.of('a', 'b', 'c') : Rx.Observable.empty()
- * );
- * result.subscribe(x => console.log(x));
- *
- * // Results in the following to the console:
- * // x is equal to the count on the interval eg(0,1,2,3,...)
- * // x will occur every 1000ms
- * // if x % 2 is equal to 1 print abc
- * // if x % 2 is not equal to 1 nothing will be output
- *
- * @see {@link create}
- * @see {@link never}
- * @see {@link of}
- * @see {@link throw}
- *
- * @param {Scheduler} [scheduler] A {@link IScheduler} to use for scheduling
- * the emission of the complete notification.
- * @return {Observable} An "empty" Observable: emits only the complete
- * notification.
- * @static true
- * @name empty
- * @owner Observable
- * @deprecated Deprecated in favor of using EMPTY constant.
- */
 function empty(scheduler) {
     return scheduler ? emptyScheduled(scheduler) : EMPTY;
 }
@@ -51734,109 +57990,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/* tslint:enable:max-line-length */
-/**
- * Joins last values emitted by passed Observables.
- *
- * <span class="informal">Wait for Observables to complete and then combine last values they emitted.</span>
- *
- * <img src="./img/forkJoin.png" width="100%">
- *
- * `forkJoin` is an operator that takes any number of Observables which can be passed either as an array
- * or directly as arguments. If no input Observables are provided, resulting stream will complete
- * immediately.
- *
- * `forkJoin` will wait for all passed Observables to complete and then it will emit an array with last
- * values from corresponding Observables. So if you pass `n` Observables to the operator, resulting
- * array will have `n` values, where first value is the last thing emitted by the first Observable,
- * second value is the last thing emitted by the second Observable and so on. That means `forkJoin` will
- * not emit more than once and it will complete after that. If you need to emit combined values not only
- * at the end of lifecycle of passed Observables, but also throughout it, try out {@link combineLatest}
- * or {@link zip} instead.
- *
- * In order for resulting array to have the same length as the number of input Observables, whenever any of
- * that Observables completes without emitting any value, `forkJoin` will complete at that moment as well
- * and it will not emit anything either, even if it already has some last values from other Observables.
- * Conversely, if there is an Observable that never completes, `forkJoin` will never complete as well,
- * unless at any point some other Observable completes without emitting value, which brings us back to
- * the previous case. Overall, in order for `forkJoin` to emit a value, all Observables passed as arguments
- * have to emit something at least once and complete.
- *
- * If any input Observable errors at some point, `forkJoin` will error as well and all other Observables
- * will be immediately unsubscribed.
- *
- * Optionally `forkJoin` accepts project function, that will be called with values which normally
- * would land in emitted array. Whatever is returned by project function, will appear in output
- * Observable instead. This means that default project can be thought of as a function that takes
- * all its arguments and puts them into an array. Note that project function will be called only
- * when output Observable is supposed to emit a result.
- *
- * @example <caption>Use forkJoin with operator emitting immediately</caption>
- * import { forkJoin, of } from 'rxjs';
- *
- * const observable = forkJoin(
- *   of(1, 2, 3, 4),
- *   of(5, 6, 7, 8)
- * );
- * observable.subscribe(
- *   value => console.log(value),
- *   err => {},
- *   () => console.log('This is how it ends!')
- * );
- *
- * // Logs:
- * // [4, 8]
- * // "This is how it ends!"
- *
- *
- * @example <caption>Use forkJoin with operator emitting after some time</caption>
- * import { forkJoin, interval } from 'rxjs';
- * import { take } from 'rxjs/operators';
- *
- * const observable = forkJoin(
- *   interval(1000).pipe(take(3)), // emit 0, 1, 2 every second and complete
- *   interval(500).pipe(take(4)) // emit 0, 1, 2, 3 every half a second and complete
- * );
- * observable.subscribe(
- *   value => console.log(value),
- *   err => {},
- *   () => console.log('This is how it ends!')
- * );
- *
- * // Logs:
- * // [2, 3] after 3 seconds
- * // "This is how it ends!" immediately after
- *
- *
- * @example <caption>Use forkJoin with project function</caption>
- * import { jorkJoin, interval } from 'rxjs';
- * import { take } from 'rxjs/operators';
- *
- * const observable = forkJoin(
- *   interval(1000).pipe(take(3)), // emit 0, 1, 2 every second and complete
- *   interval(500).pipe(take(4)), // emit 0, 1, 2, 3 every half a second and complete
- *   (n, m) => n + m
- * );
- * observable.subscribe(
- *   value => console.log(value),
- *   err => {},
- *   () => console.log('This is how it ends!')
- * );
- *
- * // Logs:
- * // 5 after 3 seconds
- * // "This is how it ends!" immediately after
- *
- * @see {@link combineLatest}
- * @see {@link zip}
- *
- * @param {...ObservableInput} sources Any number of Observables provided either as an array or as an arguments
- * passed directly to the operator.
- * @param {function} [project] Function that takes values emitted by input Observables and returns value
- * that will appear in resulting Observable instead of default array.
- * @return {Observable} Observable emitting either an array of last values emitted by passed Observables
- * or value from project function.
- */
 function forkJoin() {
     var sources = [];
     for (var _i = 0; _i < arguments.length; _i++) {
@@ -51844,11 +57997,8 @@ function forkJoin() {
     }
     var resultSelector;
     if (typeof sources[sources.length - 1] === 'function') {
-        // DEPRECATED PATH
         resultSelector = sources.pop();
     }
-    // if the first and only other argument is an array
-    // assume it's been called with `forkJoin([obs1, obs2, obs3])`
     if (sources.length === 1 && Object(_util_isArray__WEBPACK_IMPORTED_MODULE_2__["isArray"])(sources[0])) {
         sources = sources[0];
     }
@@ -51856,18 +58006,12 @@ function forkJoin() {
         return _empty__WEBPACK_IMPORTED_MODULE_3__["EMPTY"];
     }
     if (resultSelector) {
-        // DEPRECATED PATH
         return forkJoin(sources).pipe(Object(_operators_map__WEBPACK_IMPORTED_MODULE_6__["map"])(function (args) { return resultSelector.apply(void 0, args); }));
     }
     return new _Observable__WEBPACK_IMPORTED_MODULE_1__["Observable"](function (subscriber) {
         return new ForkJoinSubscriber(subscriber, sources);
     });
 }
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var ForkJoinSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](ForkJoinSubscriber, _super);
     function ForkJoinSubscriber(destination, sources) {
@@ -52039,126 +58183,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var toString = Object.prototype.toString;
-/* tslint:enable:max-line-length */
-/**
- * Creates an Observable that emits events of a specific type coming from the
- * given event target.
- *
- * <span class="informal">Creates an Observable from DOM events, or Node.js
- * EventEmitter events or others.</span>
- *
- * <img src="./img/fromEvent.png" width="100%">
- *
- * `fromEvent` accepts as a first argument event target, which is an object with methods
- * for registering event handler functions. As a second argument it takes string that indicates
- * type of event we want to listen for. `fromEvent` supports selected types of event targets,
- * which are described in detail below. If your event target does not match any of the ones listed,
- * you should use {@link fromEventPattern}, which can be used on arbitrary APIs.
- * When it comes to APIs supported by `fromEvent`, their methods for adding and removing event
- * handler functions have different names, but they all accept a string describing event type
- * and function itself, which will be called whenever said event happens.
- *
- * Every time resulting Observable is subscribed, event handler function will be registered
- * to event target on given event type. When that event fires, value
- * passed as a first argument to registered function will be emitted by output Observable.
- * When Observable is unsubscribed, function will be unregistered from event target.
- *
- * Note that if event target calls registered function with more than one argument, second
- * and following arguments will not appear in resulting stream. In order to get access to them,
- * you can pass to `fromEvent` optional project function, which will be called with all arguments
- * passed to event handler. Output Observable will then emit value returned by project function,
- * instead of the usual value.
- *
- * Remember that event targets listed below are checked via duck typing. It means that
- * no matter what kind of object you have and no matter what environment you work in,
- * you can safely use `fromEvent` on that object if it exposes described methods (provided
- * of course they behave as was described above). So for example if Node.js library exposes
- * event target which has the same method names as DOM EventTarget, `fromEvent` is still
- * a good choice.
- *
- * If the API you use is more callback then event handler oriented (subscribed
- * callback function fires only once and thus there is no need to manually
- * unregister it), you should use {@link bindCallback} or {@link bindNodeCallback}
- * instead.
- *
- * `fromEvent` supports following types of event targets:
- *
- * **DOM EventTarget**
- *
- * This is an object with `addEventListener` and `removeEventListener` methods.
- *
- * In the browser, `addEventListener` accepts - apart from event type string and event
- * handler function arguments - optional third parameter, which is either an object or boolean,
- * both used for additional configuration how and when passed function will be called. When
- * `fromEvent` is used with event target of that type, you can provide this values
- * as third parameter as well.
- *
- * **Node.js EventEmitter**
- *
- * An object with `addListener` and `removeListener` methods.
- *
- * **JQuery-style event target**
- *
- * An object with `on` and `off` methods
- *
- * **DOM NodeList**
- *
- * List of DOM Nodes, returned for example by `document.querySelectorAll` or `Node.childNodes`.
- *
- * Although this collection is not event target in itself, `fromEvent` will iterate over all Nodes
- * it contains and install event handler function in every of them. When returned Observable
- * is unsubscribed, function will be removed from all Nodes.
- *
- * **DOM HtmlCollection**
- *
- * Just as in case of NodeList it is a collection of DOM nodes. Here as well event handler function is
- * installed and removed in each of elements.
- *
- *
- * @example <caption>Emits clicks happening on the DOM document</caption>
- * var clicks = fromEvent(document, 'click');
- * clicks.subscribe(x => console.log(x));
- *
- * // Results in:
- * // MouseEvent object logged to console every time a click
- * // occurs on the document.
- *
- *
- * @example <caption>Use addEventListener with capture option</caption>
- * var clicksInDocument = fromEvent(document, 'click', true); // note optional configuration parameter
- *                                                                          // which will be passed to addEventListener
- * var clicksInDiv = fromEvent(someDivInDocument, 'click');
- *
- * clicksInDocument.subscribe(() => console.log('document'));
- * clicksInDiv.subscribe(() => console.log('div'));
- *
- * // By default events bubble UP in DOM tree, so normally
- * // when we would click on div in document
- * // "div" would be logged first and then "document".
- * // Since we specified optional `capture` option, document
- * // will catch event when it goes DOWN DOM tree, so console
- * // will log "document" and then "div".
- *
- * @see {@link bindCallback}
- * @see {@link bindNodeCallback}
- * @see {@link fromEventPattern}
- *
- * @param {FromEventTarget<T>} target The DOM EventTarget, Node.js
- * EventEmitter, JQuery-like event target, NodeList or HTMLCollection to attach the event handler to.
- * @param {string} eventName The event name of interest, being emitted by the
- * `target`.
- * @param {EventListenerOptions} [options] Options to pass through to addEventListener
- * @return {Observable<T>}
- * @name fromEvent
- */
 function fromEvent(target, eventName, options, resultSelector) {
     if (Object(_util_isFunction__WEBPACK_IMPORTED_MODULE_2__["isFunction"])(options)) {
-        // DEPRECATED PATH
         resultSelector = options;
         options = undefined;
     }
     if (resultSelector) {
-        // DEPRECATED PATH
         return fromEvent(target, eventName, options).pipe(Object(_operators_map__WEBPACK_IMPORTED_MODULE_3__["map"])(function (args) { return Object(_util_isArray__WEBPACK_IMPORTED_MODULE_1__["isArray"])(args) ? resultSelector.apply(void 0, args) : resultSelector(args); }));
     }
     return new _Observable__WEBPACK_IMPORTED_MODULE_0__["Observable"](function (subscriber) {
@@ -52233,52 +58263,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/* tslint:enable:max-line-length */
-/**
- * Creates an Observable from an API based on addHandler/removeHandler
- * functions.
- *
- * <span class="informal">Converts any addHandler/removeHandler API to an
- * Observable.</span>
- *
- * <img src="./img/fromEventPattern.png" width="100%">
- *
- * Creates an Observable by using the `addHandler` and `removeHandler`
- * functions to add and remove the handlers. The `addHandler` is
- * called when the output Observable is subscribed, and `removeHandler` is
- * called when the Subscription is unsubscribed.
- *
- * @example <caption>Emits clicks happening on the DOM document</caption>
- * function addClickHandler(handler) {
- *   document.addEventListener('click', handler);
- * }
- *
- * function removeClickHandler(handler) {
- *   document.removeEventListener('click', handler);
- * }
- *
- * var clicks = fromEventPattern(
- *   addClickHandler,
- *   removeClickHandler
- * );
- * clicks.subscribe(x => console.log(x));
- *
- * @see {@link from}
- * @see {@link fromEvent}
- *
- * @param {function(handler: Function): any} addHandler A function that takes
- * a `handler` function as argument and attaches it somehow to the actual
- * source of events.
- * @param {function(handler: Function, signal?: any): void} [removeHandler] An optional function that
- * takes a `handler` function as argument and removes it in case it was
- * previously attached using `addHandler`. if addHandler returns signal to teardown when remove,
- * removeHandler function will forward it.
- * @return {Observable<T>}
- * @name fromEventPattern
- */
 function fromEventPattern(addHandler, removeHandler, resultSelector) {
     if (resultSelector) {
-        // DEPRECATED PATH
         return fromEventPattern(addHandler, removeHandler).pipe(Object(_operators_map__WEBPACK_IMPORTED_MODULE_3__["map"])(function (args) { return Object(_util_isArray__WEBPACK_IMPORTED_MODULE_1__["isArray"])(args) ? resultSelector.apply(void 0, args) : resultSelector(args); }));
     }
     return new _Observable__WEBPACK_IMPORTED_MODULE_0__["Observable"](function (subscriber) {
@@ -52339,7 +58325,6 @@ function fromIterable(input, scheduler) {
             var sub = new _Subscription__WEBPACK_IMPORTED_MODULE_1__["Subscription"]();
             var iterator;
             sub.add(function () {
-                // Finalize generators
                 if (iterator && typeof iterator.return === 'function') {
                     iterator.return();
                 }
@@ -52622,87 +58607,6 @@ __webpack_require__.r(__webpack_exports__);
 /** PURE_IMPORTS_START _defer,_empty PURE_IMPORTS_END */
 
 
-/**
- * Decides at subscription time which Observable will actually be subscribed.
- *
- * <span class="informal">`If` statement for Observables.</span>
- *
- * `if` accepts a condition function and two Observables. When
- * an Observable returned by the operator is subscribed, condition function will be called.
- * Based on what boolean it returns at that moment, consumer will subscribe either to
- * the first Observable (if condition was true) or to the second (if condition was false). Condition
- * function may also not return anything - in that case condition will be evaluated as false and
- * second Observable will be subscribed.
- *
- * Note that Observables for both cases (true and false) are optional. If condition points to an Observable that
- * was left undefined, resulting stream will simply complete immediately. That allows you to, rather
- * then controlling which Observable will be subscribed, decide at runtime if consumer should have access
- * to given Observable or not.
- *
- * If you have more complex logic that requires decision between more than two Observables, {@link defer}
- * will probably be a better choice. Actually `if` can be easily implemented with {@link defer}
- * and exists only for convenience and readability reasons.
- *
- *
- * @example <caption>Change at runtime which Observable will be subscribed</caption>
- * let subscribeToFirst;
- * const firstOrSecond = Rx.Observable.if(
- *   () => subscribeToFirst,
- *   Rx.Observable.of('first'),
- *   Rx.Observable.of('second')
- * );
- *
- * subscribeToFirst = true;
- * firstOrSecond.subscribe(value => console.log(value));
- *
- * // Logs:
- * // "first"
- *
- * subscribeToFirst = false;
- * firstOrSecond.subscribe(value => console.log(value));
- *
- * // Logs:
- * // "second"
- *
- *
- * @example <caption>Control an access to an Observable</caption>
- * let accessGranted;
- * const observableIfYouHaveAccess = Rx.Observable.if(
- *   () => accessGranted,
- *   Rx.Observable.of('It seems you have an access...') // Note that only one Observable is passed to the operator.
- * );
- *
- * accessGranted = true;
- * observableIfYouHaveAccess.subscribe(
- *   value => console.log(value),
- *   err => {},
- *   () => console.log('The end')
- * );
- *
- * // Logs:
- * // "It seems you have an access..."
- * // "The end"
- *
- * accessGranted = false;
- * observableIfYouHaveAccess.subscribe(
- *   value => console.log(value),
- *   err => {},
- *   () => console.log('The end')
- * );
- *
- * // Logs:
- * // "The end"
- *
- * @see {@link defer}
- *
- * @param {function(): boolean} condition Condition which Observable should be chosen.
- * @param {Observable} [trueObservable] An Observable that will be subscribed if condition is true.
- * @param {Observable} [falseObservable] An Observable that will be subscribed if condition is false.
- * @return {Observable} Either first or second Observable, depending on condition.
- * @static true
- * @name iif
- * @owner Observable
- */
 function iif(condition, trueResult, falseResult) {
     if (trueResult === void 0) {
         trueResult = _empty__WEBPACK_IMPORTED_MODULE_1__["EMPTY"];
@@ -52734,39 +58638,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * Creates an Observable that emits sequential numbers every specified
- * interval of time, on a specified IScheduler.
- *
- * <span class="informal">Emits incremental numbers periodically in time.
- * </span>
- *
- * <img src="./img/interval.png" width="100%">
- *
- * `interval` returns an Observable that emits an infinite sequence of
- * ascending integers, with a constant interval of time of your choosing
- * between those emissions. The first emission is not sent immediately, but
- * only after the first period has passed. By default, this operator uses the
- * `async` IScheduler to provide a notion of time, but you may pass any
- * IScheduler to it.
- *
- * @example <caption>Emits ascending numbers, one every second (1000ms)</caption>
- * var numbers = Rx.Observable.interval(1000);
- * numbers.subscribe(x => console.log(x));
- *
- * @see {@link timer}
- * @see {@link delay}
- *
- * @param {number} [period=0] The interval size in milliseconds (by default)
- * or the time unit determined by the scheduler's clock.
- * @param {Scheduler} [scheduler=async] The IScheduler to use for scheduling
- * the emission of values, and providing a notion of "time".
- * @return {Observable} An Observable that emits a sequential number each time
- * interval.
- * @static true
- * @name interval
- * @owner Observable
- */
 function interval(period, scheduler) {
     if (period === void 0) {
         period = 0;
@@ -52814,67 +58685,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/* tslint:enable:max-line-length */
-/**
- * Creates an output Observable which concurrently emits all values from every
- * given input Observable.
- *
- * <span class="informal">Flattens multiple Observables together by blending
- * their values into one Observable.</span>
- *
- * <img src="./img/merge.png" width="100%">
- *
- * `merge` subscribes to each given input Observable (as arguments), and simply
- * forwards (without doing any transformation) all the values from all the input
- * Observables to the output Observable. The output Observable only completes
- * once all input Observables have completed. Any error delivered by an input
- * Observable will be immediately emitted on the output Observable.
- *
- * @example <caption>Merge together two Observables: 1s interval and clicks</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var timer = Rx.Observable.interval(1000);
- * var clicksOrTimer = Rx.Observable.merge(clicks, timer);
- * clicksOrTimer.subscribe(x => console.log(x));
- *
- * // Results in the following:
- * // timer will emit ascending values, one every second(1000ms) to console
- * // clicks logs MouseEvents to console everytime the "document" is clicked
- * // Since the two streams are merged you see these happening
- * // as they occur.
- *
- * @example <caption>Merge together 3 Observables, but only 2 run concurrently</caption>
- * var timer1 = Rx.Observable.interval(1000).take(10);
- * var timer2 = Rx.Observable.interval(2000).take(6);
- * var timer3 = Rx.Observable.interval(500).take(10);
- * var concurrent = 2; // the argument
- * var merged = Rx.Observable.merge(timer1, timer2, timer3, concurrent);
- * merged.subscribe(x => console.log(x));
- *
- * // Results in the following:
- * // - First timer1 and timer2 will run concurrently
- * // - timer1 will emit a value every 1000ms for 10 iterations
- * // - timer2 will emit a value every 2000ms for 6 iterations
- * // - after timer1 hits it's max iteration, timer2 will
- * //   continue, and timer3 will start to run concurrently with timer2
- * // - when timer2 hits it's max iteration it terminates, and
- * //   timer3 will continue to emit a value every 500ms until it is complete
- *
- * @see {@link mergeAll}
- * @see {@link mergeMap}
- * @see {@link mergeMapTo}
- * @see {@link mergeScan}
- *
- * @param {...ObservableInput} observables Input Observables to merge together.
- * @param {number} [concurrent=Number.POSITIVE_INFINITY] Maximum number of input
- * Observables being subscribed to concurrently.
- * @param {Scheduler} [scheduler=null] The IScheduler to use for managing
- * concurrency of input Observables.
- * @return {Observable} an Observable that emits items that are the result of
- * every input Observable.
- * @static true
- * @name merge
- * @owner Observable
- */
 function merge() {
     var observables = [];
     for (var _i = 0; _i < arguments.length; _i++) {
@@ -52918,33 +58728,7 @@ __webpack_require__.r(__webpack_exports__);
 /** PURE_IMPORTS_START _Observable,_util_noop PURE_IMPORTS_END */
 
 
-/**
- * An Observable that emits no items to the Observer and never completes.
- *
- * <img src="./img/never.png" width="100%">
- *
- * A simple Observable that emits neither values nor errors nor the completion
- * notification. It can be used for testing purposes or for composing with other
- * Observables. Please note that by never emitting a complete notification, this
- * Observable keeps the subscription from being disposed automatically.
- * Subscriptions need to be manually disposed.
- *
- * @example <caption>Emit the number 7, then never emit anything else (not even complete).</caption>
- * function info() {
- *   console.log('Will not be called');
- * }
- * var result = NEVER.startWith(7);
- * result.subscribe(x => console.log(x), info, info);
- *
- * @see {@link create}
- * @see {@link EMPTY}
- * @see {@link of}
- * @see {@link throwError}
- */
 var NEVER = /*@__PURE__*/ new _Observable__WEBPACK_IMPORTED_MODULE_0__["Observable"](_util_noop__WEBPACK_IMPORTED_MODULE_1__["noop"]);
-/**
- * @deprecated Deprecated in favor of using NEVER constant.
- */
 function never() {
     return NEVER;
 }
@@ -53017,63 +58801,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/* tslint:enable:max-line-length */
-/**
- * When any of the provided Observable emits an complete or error notification, it immediately subscribes to the next one
- * that was passed.
- *
- * <span class="informal">Execute series of Observables no matter what, even if it means swallowing errors.</span>
- *
- * <img src="./img/onErrorResumeNext.png" width="100%">
- *
- * `onErrorResumeNext` Will subscribe to each observable source it is provided, in order.
- * If the source it's subscribed to emits an error or completes, it will move to the next source
- * without error.
- *
- * If `onErrorResumeNext` is provided no arguments, or a single, empty array, it will return {@link EMPTY}.
- *
- * `onErrorResumeNext` is basically {@link concat}, only it will continue, even if one of its
- * sources emits an error.
- *
- * Note that there is no way to handle any errors thrown by sources via the resuult of
- * `onErrorResumeNext`. If you want to handle errors thrown in any given source, you can
- * always use the {@link catchError} operator on them before passing them into `onErrorResumeNext`.
- *
- * @example <caption>Subscribe to the next Observable after map fails</caption>
- * import { onErrorResumeNext, of } from 'rxjs/create';
- * import { map } from 'rxjs/operators';
- *
- * onErrorResumeNext(
- *  of(1, 2, 3, 0).pipe(
- *    map(x => {
- *      if (x === 0) throw Error();
- *      return 10 / x;
- *    })
- *  ),
- *  of(1, 2, 3),
- * )
- * .subscribe(
- *   val => console.log(val),
- *   err => console.log(err),          // Will never be called.
- *   () => console.log('done')
- * );
- *
- * // Logs:
- * // 10
- * // 5
- * // 3.3333333333333335
- * // 1
- * // 2
- * // 3
- * // "done"
- *
- * @see {@link concat}
- * @see {@link catch}
- *
- * @param {...ObservableInput} sources Observables (or anything that *is* observable) passed either directly or as an array.
- * @return {Observable} An Observable that concatenates all sources, one after the other,
- * ignoring all errors, such that any error causes it to move on to the next source.
- */
 function onErrorResumeNext() {
     var sources = [];
     for (var _i = 0; _i < arguments.length; _i++) {
@@ -53116,37 +58843,6 @@ __webpack_require__.r(__webpack_exports__);
 /** PURE_IMPORTS_START _Observable,_Subscription PURE_IMPORTS_END */
 
 
-/**
- * Convert an object into an observable sequence of [key, value] pairs
- * using an optional IScheduler to enumerate the object.
- *
- * @example <caption>Converts a javascript object to an Observable</caption>
- * var obj = {
- *   foo: 42,
- *   bar: 56,
- *   baz: 78
- * };
- *
- * var source = Rx.Observable.pairs(obj);
- *
- * var subscription = source.subscribe(
- *   function (x) {
- *     console.log('Next: %s', x);
- *   },
- *   function (err) {
- *     console.log('Error: %s', err);
- *   },
- *   function () {
- *     console.log('Completed');
- *   });
- *
- * @param {Object} obj The object to inspect and turn into an
- * Observable sequence.
- * @param {Scheduler} [scheduler] An optional IScheduler to run the
- * enumeration of the input sequence on.
- * @returns {(Observable<[string, T]>)} An observable sequence of
- * [key, value] pairs from the object.
- */
 function pairs(obj, scheduler) {
     if (!scheduler) {
         return new _Observable__WEBPACK_IMPORTED_MODULE_0__["Observable"](function (subscriber) {
@@ -53169,7 +58865,6 @@ function pairs(obj, scheduler) {
         });
     }
 }
-/** @internal */
 function dispatch(state) {
     var keys = state.keys, index = state.index, subscriber = state.subscriber, subscription = state.subscription, obj = state.obj;
     if (!subscriber.closed) {
@@ -53216,8 +58911,6 @@ function race() {
     for (var _i = 0; _i < arguments.length; _i++) {
         observables[_i] = arguments[_i];
     }
-    // if the only argument is an array, it was most likely called with
-    // `race([obs1, obs2, ...])`
     if (observables.length === 1) {
         if (Object(_util_isArray__WEBPACK_IMPORTED_MODULE_1__["isArray"])(observables[0])) {
             observables = observables[0];
@@ -53237,11 +58930,6 @@ var RaceOperator = /*@__PURE__*/ (function () {
     return RaceOperator;
 }());
 
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var RaceSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](RaceSubscriber, _super);
     function RaceSubscriber(destination) {
@@ -53308,36 +58996,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Observable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Observable */ "./node_modules/rxjs/_esm5/internal/Observable.js");
 /** PURE_IMPORTS_START _Observable PURE_IMPORTS_END */
 
-/**
- * Creates an Observable that emits a sequence of numbers within a specified
- * range.
- *
- * <span class="informal">Emits a sequence of numbers in a range.</span>
- *
- * <img src="./img/range.png" width="100%">
- *
- * `range` operator emits a range of sequential integers, in order, where you
- * select the `start` of the range and its `length`. By default, uses no
- * IScheduler and just delivers the notifications synchronously, but may use
- * an optional IScheduler to regulate those deliveries.
- *
- * @example <caption>Emits the numbers 1 to 10</caption>
- * var numbers = Rx.Observable.range(1, 10);
- * numbers.subscribe(x => console.log(x));
- *
- * @see {@link timer}
- * @see {@link interval}
- *
- * @param {number} [start=0] The value of the first integer in the sequence.
- * @param {number} [count=0] The number of sequential integers to generate.
- * @param {Scheduler} [scheduler] A {@link IScheduler} to use for scheduling
- * the emissions of the notifications.
- * @return {Observable} An Observable of numbers that emits a finite range of
- * sequential integers.
- * @static true
- * @name range
- * @owner Observable
- */
 function range(start, count, scheduler) {
     if (start === void 0) {
         start = 0;
@@ -53368,7 +59026,6 @@ function range(start, count, scheduler) {
         return undefined;
     });
 }
-/** @internal */
 function dispatch(state) {
     var start = state.start, index = state.index, count = state.count, subscriber = state.subscriber;
     if (index >= count) {
@@ -53428,50 +59085,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Observable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Observable */ "./node_modules/rxjs/_esm5/internal/Observable.js");
 /** PURE_IMPORTS_START _Observable PURE_IMPORTS_END */
 
-/**
- * Creates an Observable that emits no items to the Observer and immediately
- * emits an error notification.
- *
- * <span class="informal">Just emits 'error', and nothing else.
- * </span>
- *
- * <img src="./img/throw.png" width="100%">
- *
- * This static operator is useful for creating a simple Observable that only
- * emits the error notification. It can be used for composing with other
- * Observables, such as in a {@link mergeMap}.
- *
- * @example <caption>Emit the number 7, then emit an error.</caption>
- * import { throwError, concat, of } from 'rxjs/create';
- *
- * const result = concat(of(7), throwError(new Error('oops!')));
- * result.subscribe(x => console.log(x), e => console.error(e));
- *
- * @example <caption>Map and flatten numbers to the sequence 'a', 'b', 'c', but throw an error for 13</caption>
- * import { throwError, interval, of } from 'rxjs/create';
- * import { mergeMap } from 'rxjs/operators';
- *
- * interval(1000).pipe(
- *   mergeMap(x => x === 13 ?
- *     throwError('Thirteens are bad') :
- *     of('a', 'b', 'c')
- *   )
- * ).subscribe(x => console.log(x), e => console.error(e));
- *
- * @see {@link create}
- * @see {@link empty}
- * @see {@link never}
- * @see {@link of}
- *
- * @param {any} error The particular Error to pass to the error notification.
- * @param {Scheduler} [scheduler] A {@link IScheduler} to use for scheduling
- * the emission of the error notification.
- * @return {Observable} An error Observable: emits only the error notification
- * using the given error argument.
- * @static true
- * @name throw
- * @owner Observable
- */
 function throwError(error, scheduler) {
     if (!scheduler) {
         return new _Observable__WEBPACK_IMPORTED_MODULE_0__["Observable"](function (subscriber) { return subscriber.error(error); });
@@ -53508,48 +59121,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * Creates an Observable that starts emitting after an `initialDelay` and
- * emits ever increasing numbers after each `period` of time thereafter.
- *
- * <span class="informal">Its like {@link interval}, but you can specify when
- * should the emissions start.</span>
- *
- * <img src="./img/timer.png" width="100%">
- *
- * `timer` returns an Observable that emits an infinite sequence of ascending
- * integers, with a constant interval of time, `period` of your choosing
- * between those emissions. The first emission happens after the specified
- * `initialDelay`. The initial delay may be a {@link Date}. By default, this
- * operator uses the `async` IScheduler to provide a notion of time, but you
- * may pass any IScheduler to it. If `period` is not specified, the output
- * Observable emits only one value, `0`. Otherwise, it emits an infinite
- * sequence.
- *
- * @example <caption>Emits ascending numbers, one every second (1000ms), starting after 3 seconds</caption>
- * var numbers = Rx.Observable.timer(3000, 1000);
- * numbers.subscribe(x => console.log(x));
- *
- * @example <caption>Emits one number after five seconds</caption>
- * var numbers = Rx.Observable.timer(5000);
- * numbers.subscribe(x => console.log(x));
- *
- * @see {@link interval}
- * @see {@link delay}
- *
- * @param {number|Date} [dueTime] The initial delay time to wait before
- * emitting the first value of `0`.
- * @param {number|SchedulerLike} [periodOrScheduler] The period of time between emissions of the
- * subsequent numbers.
- * @param {SchedulerLike} [scheduler=async] The IScheduler to use for scheduling
- * the emission of values, and providing a notion of "time".
- * @return {Observable} An Observable that emits a `0` after the
- * `initialDelay` and ever increasing numbers after each `period` of time
- * thereafter.
- * @static true
- * @name timer
- * @owner Observable
- */
 function timer(dueTime, periodOrScheduler, scheduler) {
     if (dueTime === void 0) {
         dueTime = 0;
@@ -53605,36 +59176,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _empty__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./empty */ "./node_modules/rxjs/_esm5/internal/observable/empty.js");
 /** PURE_IMPORTS_START _Observable,_from,_empty PURE_IMPORTS_END */
 
- // from from from! LAWL
 
-/**
- * Creates an Observable that uses a resource which will be disposed at the same time as the Observable.
- *
- * <span class="informal">Use it when you catch yourself cleaning up after an Observable.</span>
- *
- * `using` is a factory operator, which accepts two functions. First function returns a disposable resource.
- * It can be an arbitrary object that implements `unsubscribe` method. Second function will be injected with
- * that object and should return an Observable. That Observable can use resource object during its execution.
- * Both functions passed to `using` will be called every time someone subscribes - neither an Observable nor
- * resource object will be shared in any way between subscriptions.
- *
- * When Observable returned by `using` is subscribed, Observable returned from the second function will be subscribed
- * as well. All its notifications (nexted values, completion and error events) will be emitted unchanged by the output
- * Observable. If however someone unsubscribes from the Observable or source Observable completes or errors by itself,
- * the `unsubscribe` method on resource object will be called. This can be used to do any necessary clean up, which
- * otherwise would have to be handled by hand. Note that complete or error notifications are not emitted when someone
- * cancels subscription to an Observable via `unsubscribe`, so `using` can be used as a hook, allowing you to make
- * sure that all resources which need to exist during an Observable execution will be disposed at appropriate time.
- *
- * @see {@link defer}
- *
- * @param {function(): ISubscription} resourceFactory A function which creates any resource object
- * that implements `unsubscribe` method.
- * @param {function(resource: ISubscription): Observable<T>} observableFactory A function which
- * creates an Observable, that can use injected resource object.
- * @return {Observable<T>} An Observable that behaves the same as Observable returned by `observableFactory`, but
- * which - when completed, errored or unsubscribed - will also call `unsubscribe` on created resource object.
- */
+
 function using(resourceFactory, observableFactory) {
     return new _Observable__WEBPACK_IMPORTED_MODULE_0__["Observable"](function (subscriber) {
         var resource;
@@ -53695,38 +59238,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/* tslint:enable:max-line-length */
-/**
- * Combines multiple Observables to create an Observable whose values are calculated from the values, in order, of each
- * of its input Observables.
- *
- * If the latest parameter is a function, this function is used to compute the created value from the input values.
- * Otherwise, an array of the input values is returned.
- *
- * @example <caption>Combine age and name from different sources</caption>
- *
- * let age$ = Observable.of<number>(27, 25, 29);
- * let name$ = Observable.of<string>('Foo', 'Bar', 'Beer');
- * let isDev$ = Observable.of<boolean>(true, true, false);
- *
- * Observable
- *     .zip(age$,
- *          name$,
- *          isDev$,
- *          (age: number, name: string, isDev: boolean) => ({ age, name, isDev }))
- *     .subscribe(x => console.log(x));
- *
- * // outputs
- * // { age: 27, name: 'Foo', isDev: true }
- * // { age: 25, name: 'Bar', isDev: true }
- * // { age: 29, name: 'Beer', isDev: false }
- *
- * @param observables
- * @return {Observable<R>}
- * @static true
- * @name zip
- * @owner Observable
- */
 function zip() {
     var observables = [];
     for (var _i = 0; _i < arguments.length; _i++) {
@@ -53748,11 +59259,6 @@ var ZipOperator = /*@__PURE__*/ (function () {
     return ZipOperator;
 }());
 
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var ZipSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](ZipSubscriber, _super);
     function ZipSubscriber(destination, resultSelector, values) {
@@ -53792,7 +59298,7 @@ var ZipSubscriber = /*@__PURE__*/ (function (_super) {
                 this.add(iterator.subscribe(iterator, i));
             }
             else {
-                this.active--; // not an observable
+                this.active--;
             }
         }
     };
@@ -53806,7 +59312,6 @@ var ZipSubscriber = /*@__PURE__*/ (function (_super) {
         var iterators = this.iterators;
         var len = iterators.length;
         var destination = this.destination;
-        // abort if not all of them have values
         for (var i = 0; i < len; i++) {
             var iterator = iterators[i];
             if (typeof iterator.hasValue === 'function' && !iterator.hasValue()) {
@@ -53818,8 +59323,6 @@ var ZipSubscriber = /*@__PURE__*/ (function (_super) {
         for (var i = 0; i < len; i++) {
             var iterator = iterators[i];
             var result = iterator.next();
-            // check to see if it's completed now that you've gotten
-            // the next value.
             if (iterator.hasCompleted()) {
                 shouldComplete = true;
             }
@@ -53895,11 +59398,6 @@ var StaticArrayIterator = /*@__PURE__*/ (function () {
     };
     return StaticArrayIterator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var ZipBufferIterator = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](ZipBufferIterator, _super);
     function ZipBufferIterator(destination, parent, observable) {
@@ -53914,8 +59412,6 @@ var ZipBufferIterator = /*@__PURE__*/ (function (_super) {
     ZipBufferIterator.prototype[_internal_symbol_iterator__WEBPACK_IMPORTED_MODULE_6__["iterator"]] = function () {
         return this;
     };
-    // NOTE: there is actually a name collision here with Subscriber.next and Iterator.next
-    //    this is legit because `next()` will never be called by a subscription in this case.
     ZipBufferIterator.prototype.next = function () {
         var buffer = this.buffer;
         if (buffer.length === 0 && this.isComplete) {
@@ -53975,46 +59471,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * Ignores source values for a duration determined by another Observable, then
- * emits the most recent value from the source Observable, then repeats this
- * process.
- *
- * <span class="informal">It's like {@link auditTime}, but the silencing
- * duration is determined by a second Observable.</span>
- *
- * <img src="./img/audit.png" width="100%">
- *
- * `audit` is similar to `throttle`, but emits the last value from the silenced
- * time window, instead of the first value. `audit` emits the most recent value
- * from the source Observable on the output Observable as soon as its internal
- * timer becomes disabled, and ignores source values while the timer is enabled.
- * Initially, the timer is disabled. As soon as the first source value arrives,
- * the timer is enabled by calling the `durationSelector` function with the
- * source value, which returns the "duration" Observable. When the duration
- * Observable emits a value or completes, the timer is disabled, then the most
- * recent source value is emitted on the output Observable, and this process
- * repeats for the next source value.
- *
- * @example <caption>Emit clicks at a rate of at most one click per second</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var result = clicks.audit(ev => Rx.Observable.interval(1000));
- * result.subscribe(x => console.log(x));
- *
- * @see {@link auditTime}
- * @see {@link debounce}
- * @see {@link delayWhen}
- * @see {@link sample}
- * @see {@link throttle}
- *
- * @param {function(value: T): SubscribableOrPromise} durationSelector A function
- * that receives a value from the source Observable, for computing the silencing
- * duration, returned as an Observable or a Promise.
- * @return {Observable<T>} An Observable that performs rate-limiting of
- * emissions from the source Observable.
- * @method audit
- * @owner Observable
- */
 function audit(durationSelector) {
     return function auditOperatorFunction(source) {
         return source.lift(new AuditOperator(durationSelector));
@@ -54029,11 +59485,6 @@ var AuditOperator = /*@__PURE__*/ (function () {
     };
     return AuditOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var AuditSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](AuditSubscriber, _super);
     function AuditSubscriber(destination, durationSelector) {
@@ -54104,48 +59555,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * Ignores source values for `duration` milliseconds, then emits the most recent
- * value from the source Observable, then repeats this process.
- *
- * <span class="informal">When it sees a source values, it ignores that plus
- * the next ones for `duration` milliseconds, and then it emits the most recent
- * value from the source.</span>
- *
- * <img src="./img/auditTime.png" width="100%">
- *
- * `auditTime` is similar to `throttleTime`, but emits the last value from the
- * silenced time window, instead of the first value. `auditTime` emits the most
- * recent value from the source Observable on the output Observable as soon as
- * its internal timer becomes disabled, and ignores source values while the
- * timer is enabled. Initially, the timer is disabled. As soon as the first
- * source value arrives, the timer is enabled. After `duration` milliseconds (or
- * the time unit determined internally by the optional `scheduler`) has passed,
- * the timer is disabled, then the most recent source value is emitted on the
- * output Observable, and this process repeats for the next source value.
- * Optionally takes a {@link IScheduler} for managing timers.
- *
- * @example <caption>Emit clicks at a rate of at most one click per second</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var result = clicks.auditTime(1000);
- * result.subscribe(x => console.log(x));
- *
- * @see {@link audit}
- * @see {@link debounceTime}
- * @see {@link delay}
- * @see {@link sampleTime}
- * @see {@link throttleTime}
- *
- * @param {number} duration Time to wait before emitting the most recent source
- * value, measured in milliseconds or the time unit determined internally
- * by the optional `scheduler`.
- * @param {Scheduler} [scheduler=async] The {@link IScheduler} to use for
- * managing the timers that handle the rate-limiting behavior.
- * @return {Observable<T>} An Observable that performs rate-limiting of
- * emissions from the source Observable.
- * @method auditTime
- * @owner Observable
- */
 function auditTime(duration, scheduler) {
     if (scheduler === void 0) {
         scheduler = _scheduler_async__WEBPACK_IMPORTED_MODULE_0__["async"];
@@ -54174,38 +59583,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * Buffers the source Observable values until `closingNotifier` emits.
- *
- * <span class="informal">Collects values from the past as an array, and emits
- * that array only when another Observable emits.</span>
- *
- * <img src="./img/buffer.png" width="100%">
- *
- * Buffers the incoming Observable values until the given `closingNotifier`
- * Observable emits a value, at which point it emits the buffer on the output
- * Observable and starts a new buffer internally, awaiting the next time
- * `closingNotifier` emits.
- *
- * @example <caption>On every click, emit array of most recent interval events</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var interval = Rx.Observable.interval(1000);
- * var buffered = interval.buffer(clicks);
- * buffered.subscribe(x => console.log(x));
- *
- * @see {@link bufferCount}
- * @see {@link bufferTime}
- * @see {@link bufferToggle}
- * @see {@link bufferWhen}
- * @see {@link window}
- *
- * @param {Observable<any>} closingNotifier An Observable that signals the
- * buffer to be emitted on the output Observable.
- * @return {Observable<T[]>} An Observable of buffers, which are arrays of
- * values.
- * @method buffer
- * @owner Observable
- */
 function buffer(closingNotifier) {
     return function bufferOperatorFunction(source) {
         return source.lift(new BufferOperator(closingNotifier));
@@ -54220,11 +59597,6 @@ var BufferOperator = /*@__PURE__*/ (function () {
     };
     return BufferOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var BufferSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](BufferSubscriber, _super);
     function BufferSubscriber(destination, closingNotifier) {
@@ -54263,47 +59635,6 @@ __webpack_require__.r(__webpack_exports__);
 /** PURE_IMPORTS_START tslib,_Subscriber PURE_IMPORTS_END */
 
 
-/**
- * Buffers the source Observable values until the size hits the maximum
- * `bufferSize` given.
- *
- * <span class="informal">Collects values from the past as an array, and emits
- * that array only when its size reaches `bufferSize`.</span>
- *
- * <img src="./img/bufferCount.png" width="100%">
- *
- * Buffers a number of values from the source Observable by `bufferSize` then
- * emits the buffer and clears it, and starts a new buffer each
- * `startBufferEvery` values. If `startBufferEvery` is not provided or is
- * `null`, then new buffers are started immediately at the start of the source
- * and when each buffer closes and is emitted.
- *
- * @example <caption>Emit the last two click events as an array</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var buffered = clicks.bufferCount(2);
- * buffered.subscribe(x => console.log(x));
- *
- * @example <caption>On every click, emit the last two click events as an array</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var buffered = clicks.bufferCount(2, 1);
- * buffered.subscribe(x => console.log(x));
- *
- * @see {@link buffer}
- * @see {@link bufferTime}
- * @see {@link bufferToggle}
- * @see {@link bufferWhen}
- * @see {@link pairwise}
- * @see {@link windowCount}
- *
- * @param {number} bufferSize The maximum size of the buffer emitted.
- * @param {number} [startBufferEvery] Interval at which to start a new buffer.
- * For example if `startBufferEvery` is `2`, then a new buffer will be started
- * on every other value from the source. A new buffer is started at the
- * beginning of the source by default.
- * @return {Observable<T[]>} An Observable of arrays of buffered values.
- * @method bufferCount
- * @owner Observable
- */
 function bufferCount(bufferSize, startBufferEvery) {
     if (startBufferEvery === void 0) {
         startBufferEvery = null;
@@ -54328,11 +59659,6 @@ var BufferCountOperator = /*@__PURE__*/ (function () {
     };
     return BufferCountOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var BufferCountSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](BufferCountSubscriber, _super);
     function BufferCountSubscriber(destination, bufferSize) {
@@ -54358,11 +59684,6 @@ var BufferCountSubscriber = /*@__PURE__*/ (function (_super) {
     };
     return BufferCountSubscriber;
 }(_Subscriber__WEBPACK_IMPORTED_MODULE_1__["Subscriber"]));
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var BufferSkipCountSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](BufferSkipCountSubscriber, _super);
     function BufferSkipCountSubscriber(destination, bufferSize, startBufferEvery) {
@@ -54424,50 +59745,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/* tslint:enable:max-line-length */
-/**
- * Buffers the source Observable values for a specific time period.
- *
- * <span class="informal">Collects values from the past as an array, and emits
- * those arrays periodically in time.</span>
- *
- * <img src="./img/bufferTime.png" width="100%">
- *
- * Buffers values from the source for a specific time duration `bufferTimeSpan`.
- * Unless the optional argument `bufferCreationInterval` is given, it emits and
- * resets the buffer every `bufferTimeSpan` milliseconds. If
- * `bufferCreationInterval` is given, this operator opens the buffer every
- * `bufferCreationInterval` milliseconds and closes (emits and resets) the
- * buffer every `bufferTimeSpan` milliseconds. When the optional argument
- * `maxBufferSize` is specified, the buffer will be closed either after
- * `bufferTimeSpan` milliseconds or when it contains `maxBufferSize` elements.
- *
- * @example <caption>Every second, emit an array of the recent click events</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var buffered = clicks.bufferTime(1000);
- * buffered.subscribe(x => console.log(x));
- *
- * @example <caption>Every 5 seconds, emit the click events from the next 2 seconds</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var buffered = clicks.bufferTime(2000, 5000);
- * buffered.subscribe(x => console.log(x));
- *
- * @see {@link buffer}
- * @see {@link bufferCount}
- * @see {@link bufferToggle}
- * @see {@link bufferWhen}
- * @see {@link windowTime}
- *
- * @param {number} bufferTimeSpan The amount of time to fill each buffer array.
- * @param {number} [bufferCreationInterval] The interval at which to start new
- * buffers.
- * @param {number} [maxBufferSize] The maximum buffer size.
- * @param {Scheduler} [scheduler=async] The scheduler on which to schedule the
- * intervals that determine buffer boundaries.
- * @return {Observable<T[]>} An observable of arrays of buffered values.
- * @method bufferTime
- * @owner Observable
- */
 function bufferTime(bufferTimeSpan) {
     var length = arguments.length;
     var scheduler = _scheduler_async__WEBPACK_IMPORTED_MODULE_1__["async"];
@@ -54505,11 +59782,6 @@ var Context = /*@__PURE__*/ (function () {
     }
     return Context;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var BufferTimeSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](BufferTimeSubscriber, _super);
     function BufferTimeSubscriber(destination, bufferTimeSpan, bufferCreationInterval, maxBufferSize, scheduler) {
@@ -54561,7 +59833,6 @@ var BufferTimeSubscriber = /*@__PURE__*/ (function (_super) {
         }
         _super.prototype._complete.call(this);
     };
-    /** @deprecated This is an internal implementation detail, do not use. */
     BufferTimeSubscriber.prototype._unsubscribe = function () {
         this.contexts = null;
     };
@@ -54640,44 +59911,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * Buffers the source Observable values starting from an emission from
- * `openings` and ending when the output of `closingSelector` emits.
- *
- * <span class="informal">Collects values from the past as an array. Starts
- * collecting only when `opening` emits, and calls the `closingSelector`
- * function to get an Observable that tells when to close the buffer.</span>
- *
- * <img src="./img/bufferToggle.png" width="100%">
- *
- * Buffers values from the source by opening the buffer via signals from an
- * Observable provided to `openings`, and closing and sending the buffers when
- * a Subscribable or Promise returned by the `closingSelector` function emits.
- *
- * @example <caption>Every other second, emit the click events from the next 500ms</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var openings = Rx.Observable.interval(1000);
- * var buffered = clicks.bufferToggle(openings, i =>
- *   i % 2 ? Rx.Observable.interval(500) : Rx.Observable.empty()
- * );
- * buffered.subscribe(x => console.log(x));
- *
- * @see {@link buffer}
- * @see {@link bufferCount}
- * @see {@link bufferTime}
- * @see {@link bufferWhen}
- * @see {@link windowToggle}
- *
- * @param {SubscribableOrPromise<O>} openings A Subscribable or Promise of notifications to start new
- * buffers.
- * @param {function(value: O): SubscribableOrPromise} closingSelector A function that takes
- * the value emitted by the `openings` observable and returns a Subscribable or Promise,
- * which, when it emits, signals that the associated buffer should be emitted
- * and cleared.
- * @return {Observable<T[]>} An observable of arrays of buffered values.
- * @method bufferToggle
- * @owner Observable
- */
 function bufferToggle(openings, closingSelector) {
     return function bufferToggleOperatorFunction(source) {
         return source.lift(new BufferToggleOperator(openings, closingSelector));
@@ -54693,11 +59926,6 @@ var BufferToggleOperator = /*@__PURE__*/ (function () {
     };
     return BufferToggleOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var BufferToggleSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](BufferToggleSubscriber, _super);
     function BufferToggleSubscriber(destination, openings, closingSelector) {
@@ -54812,39 +60040,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * Buffers the source Observable values, using a factory function of closing
- * Observables to determine when to close, emit, and reset the buffer.
- *
- * <span class="informal">Collects values from the past as an array. When it
- * starts collecting values, it calls a function that returns an Observable that
- * tells when to close the buffer and restart collecting.</span>
- *
- * <img src="./img/bufferWhen.png" width="100%">
- *
- * Opens a buffer immediately, then closes the buffer when the observable
- * returned by calling `closingSelector` function emits a value. When it closes
- * the buffer, it immediately opens a new buffer and repeats the process.
- *
- * @example <caption>Emit an array of the last clicks every [1-5] random seconds</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var buffered = clicks.bufferWhen(() =>
- *   Rx.Observable.interval(1000 + Math.random() * 4000)
- * );
- * buffered.subscribe(x => console.log(x));
- *
- * @see {@link buffer}
- * @see {@link bufferCount}
- * @see {@link bufferTime}
- * @see {@link bufferToggle}
- * @see {@link windowWhen}
- *
- * @param {function(): Observable} closingSelector A function that takes no
- * arguments and returns an Observable that signals buffer closure.
- * @return {Observable<T[]>} An observable of arrays of buffered values.
- * @method bufferWhen
- * @owner Observable
- */
 function bufferWhen(closingSelector) {
     return function (source) {
         return source.lift(new BufferWhenOperator(closingSelector));
@@ -54859,11 +60054,6 @@ var BufferWhenOperator = /*@__PURE__*/ (function () {
     };
     return BufferWhenOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var BufferWhenSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](BufferWhenSubscriber, _super);
     function BufferWhenSubscriber(destination, closingSelector) {
@@ -54883,7 +60073,6 @@ var BufferWhenSubscriber = /*@__PURE__*/ (function (_super) {
         }
         _super.prototype._complete.call(this);
     };
-    /** @deprecated This is an internal implementation detail, do not use. */
     BufferWhenSubscriber.prototype._unsubscribe = function () {
         this.buffer = null;
         this.subscribing = false;
@@ -54963,11 +60152,6 @@ var CatchOperator = /*@__PURE__*/ (function () {
     };
     return CatchOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var CatchSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](CatchSubscriber, _super);
     function CatchSubscriber(destination, selector, caught) {
@@ -54976,11 +60160,6 @@ var CatchSubscriber = /*@__PURE__*/ (function (_super) {
         _this.caught = caught;
         return _this;
     }
-    // NOTE: overriding `error` instead of `_error` because we don't want
-    // to have this flag this subscriber as `isStopped`. We can mimic the
-    // behavior of the RetrySubscriber (from the `retry` operator), where
-    // we unsubscribe from our source chain, reset our Subscriber flags,
-    // then subscribe to the selector result.
     CatchSubscriber.prototype.error = function (err) {
         if (!this.isStopped) {
             var result = void 0;
@@ -55041,10 +60220,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var none = {};
-/* tslint:enable:max-line-length */
-/**
- * @deprecated Deprecated in favor of static combineLatest.
- */
 function combineLatest() {
     var observables = [];
     for (var _i = 0; _i < arguments.length; _i++) {
@@ -55054,8 +60229,6 @@ function combineLatest() {
     if (typeof observables[observables.length - 1] === 'function') {
         project = observables.pop();
     }
-    // if the first and only other argument besides the resultSelector is an array
-    // assume it's been called with `combineLatest([obs1, obs2, obs3], project)`
     if (observables.length === 1 && Object(_util_isArray__WEBPACK_IMPORTED_MODULE_0__["isArray"])(observables[0])) {
         observables = observables[0].slice();
     }
@@ -55079,10 +60252,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _observable_concat__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../observable/concat */ "./node_modules/rxjs/_esm5/internal/observable/concat.js");
 /** PURE_IMPORTS_START _observable_concat PURE_IMPORTS_END */
 
-/* tslint:enable:max-line-length */
-/**
- * @deprecated Deprecated in favor of static concat.
- */
 function concat() {
     var observables = [];
     for (var _i = 0; _i < arguments.length; _i++) {
@@ -55108,54 +60277,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _mergeAll__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./mergeAll */ "./node_modules/rxjs/_esm5/internal/operators/mergeAll.js");
 /** PURE_IMPORTS_START _mergeAll PURE_IMPORTS_END */
 
-/**
- * Converts a higher-order Observable into a first-order Observable by
- * concatenating the inner Observables in order.
- *
- * <span class="informal">Flattens an Observable-of-Observables by putting one
- * inner Observable after the other.</span>
- *
- * <img src="./img/concatAll.png" width="100%">
- *
- * Joins every Observable emitted by the source (a higher-order Observable), in
- * a serial fashion. It subscribes to each inner Observable only after the
- * previous inner Observable has completed, and merges all of their values into
- * the returned observable.
- *
- * __Warning:__ If the source Observable emits Observables quickly and
- * endlessly, and the inner Observables it emits generally complete slower than
- * the source emits, you can run into memory issues as the incoming Observables
- * collect in an unbounded buffer.
- *
- * Note: `concatAll` is equivalent to `mergeAll` with concurrency parameter set
- * to `1`.
- *
- * @example <caption>For each click event, tick every second from 0 to 3, with no concurrency</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var higherOrder = clicks.map(ev => Rx.Observable.interval(1000).take(4));
- * var firstOrder = higherOrder.concatAll();
- * firstOrder.subscribe(x => console.log(x));
- *
- * // Results in the following:
- * // (results are not concurrent)
- * // For every click on the "document" it will emit values 0 to 3 spaced
- * // on a 1000ms interval
- * // one click = 1000ms-> 0 -1000ms-> 1 -1000ms-> 2 -1000ms-> 3
- *
- * @see {@link combineAll}
- * @see {@link concat}
- * @see {@link concatMap}
- * @see {@link concatMapTo}
- * @see {@link exhaust}
- * @see {@link mergeAll}
- * @see {@link switch}
- * @see {@link zipAll}
- *
- * @return {Observable} An Observable emitting values from all the inner
- * Observables concatenated.
- * @method concatAll
- * @owner Observable
- */
 function concatAll() {
     return Object(_mergeAll__WEBPACK_IMPORTED_MODULE_0__["mergeAll"])(1);
 }
@@ -55177,58 +60298,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _mergeMap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./mergeMap */ "./node_modules/rxjs/_esm5/internal/operators/mergeMap.js");
 /** PURE_IMPORTS_START _mergeMap PURE_IMPORTS_END */
 
-/* tslint:enable:max-line-length */
-/**
- * Projects each source value to an Observable which is merged in the output
- * Observable, in a serialized fashion waiting for each one to complete before
- * merging the next.
- *
- * <span class="informal">Maps each value to an Observable, then flattens all of
- * these inner Observables using {@link concatAll}.</span>
- *
- * <img src="./img/concatMap.png" width="100%">
- *
- * Returns an Observable that emits items based on applying a function that you
- * supply to each item emitted by the source Observable, where that function
- * returns an (so-called "inner") Observable. Each new inner Observable is
- * concatenated with the previous inner Observable.
- *
- * __Warning:__ if source values arrive endlessly and faster than their
- * corresponding inner Observables can complete, it will result in memory issues
- * as inner Observables amass in an unbounded buffer waiting for their turn to
- * be subscribed to.
- *
- * Note: `concatMap` is equivalent to `mergeMap` with concurrency parameter set
- * to `1`.
- *
- * @example <caption>For each click event, tick every second from 0 to 3, with no concurrency</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var result = clicks.concatMap(ev => Rx.Observable.interval(1000).take(4));
- * result.subscribe(x => console.log(x));
- *
- * // Results in the following:
- * // (results are not concurrent)
- * // For every click on the "document" it will emit values 0 to 3 spaced
- * // on a 1000ms interval
- * // one click = 1000ms-> 0 -1000ms-> 1 -1000ms-> 2 -1000ms-> 3
- *
- * @see {@link concat}
- * @see {@link concatAll}
- * @see {@link concatMapTo}
- * @see {@link exhaustMap}
- * @see {@link mergeMap}
- * @see {@link switchMap}
- *
- * @param {function(value: T, ?index: number): ObservableInput} project A function
- * that, when applied to an item emitted by the source Observable, returns an
- * Observable.
- * @return {Observable} An Observable that emits the result of applying the
- * projection function (and the optional `resultSelector`) to each item emitted
- * by the source Observable and taking values from each projected inner
- * Observable sequentially.
- * @method concatMap
- * @owner Observable
- */
 function concatMap(project, resultSelector) {
     return Object(_mergeMap__WEBPACK_IMPORTED_MODULE_0__["mergeMap"])(project, resultSelector, 1);
 }
@@ -55250,55 +60319,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _concatMap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./concatMap */ "./node_modules/rxjs/_esm5/internal/operators/concatMap.js");
 /** PURE_IMPORTS_START _concatMap PURE_IMPORTS_END */
 
-/* tslint:enable:max-line-length */
-/**
- * Projects each source value to the same Observable which is merged multiple
- * times in a serialized fashion on the output Observable.
- *
- * <span class="informal">It's like {@link concatMap}, but maps each value
- * always to the same inner Observable.</span>
- *
- * <img src="./img/concatMapTo.png" width="100%">
- *
- * Maps each source value to the given Observable `innerObservable` regardless
- * of the source value, and then flattens those resulting Observables into one
- * single Observable, which is the output Observable. Each new `innerObservable`
- * instance emitted on the output Observable is concatenated with the previous
- * `innerObservable` instance.
- *
- * __Warning:__ if source values arrive endlessly and faster than their
- * corresponding inner Observables can complete, it will result in memory issues
- * as inner Observables amass in an unbounded buffer waiting for their turn to
- * be subscribed to.
- *
- * Note: `concatMapTo` is equivalent to `mergeMapTo` with concurrency parameter
- * set to `1`.
- *
- * @example <caption>For each click event, tick every second from 0 to 3, with no concurrency</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var result = clicks.concatMapTo(Rx.Observable.interval(1000).take(4));
- * result.subscribe(x => console.log(x));
- *
- * // Results in the following:
- * // (results are not concurrent)
- * // For every click on the "document" it will emit values 0 to 3 spaced
- * // on a 1000ms interval
- * // one click = 1000ms-> 0 -1000ms-> 1 -1000ms-> 2 -1000ms-> 3
- *
- * @see {@link concat}
- * @see {@link concatAll}
- * @see {@link concatMap}
- * @see {@link mergeMapTo}
- * @see {@link switchMapTo}
- *
- * @param {ObservableInput} innerObservable An Observable to replace each value from
- * the source Observable.
- * @return {Observable} An observable of values merged together by joining the
- * passed observable with itself, one after the other, for each value emitted
- * from the source.
- * @method concatMapTo
- * @owner Observable
- */
 function concatMapTo(innerObservable, resultSelector) {
     return Object(_concatMap__WEBPACK_IMPORTED_MODULE_0__["concatMap"])(function () { return innerObservable; }, resultSelector);
 }
@@ -55322,54 +60342,6 @@ __webpack_require__.r(__webpack_exports__);
 /** PURE_IMPORTS_START tslib,_Subscriber PURE_IMPORTS_END */
 
 
-/**
- * Counts the number of emissions on the source and emits that number when the
- * source completes.
- *
- * <span class="informal">Tells how many values were emitted, when the source
- * completes.</span>
- *
- * <img src="./img/count.png" width="100%">
- *
- * `count` transforms an Observable that emits values into an Observable that
- * emits a single value that represents the number of values emitted by the
- * source Observable. If the source Observable terminates with an error, `count`
- * will pass this error notification along without emitting a value first. If
- * the source Observable does not terminate at all, `count` will neither emit
- * a value nor terminate. This operator takes an optional `predicate` function
- * as argument, in which case the output emission will represent the number of
- * source values that matched `true` with the `predicate`.
- *
- * @example <caption>Counts how many seconds have passed before the first click happened</caption>
- * var seconds = Rx.Observable.interval(1000);
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var secondsBeforeClick = seconds.takeUntil(clicks);
- * var result = secondsBeforeClick.count();
- * result.subscribe(x => console.log(x));
- *
- * @example <caption>Counts how many odd numbers are there between 1 and 7</caption>
- * var numbers = Rx.Observable.range(1, 7);
- * var result = numbers.count(i => i % 2 === 1);
- * result.subscribe(x => console.log(x));
- *
- * // Results in:
- * // 4
- *
- * @see {@link max}
- * @see {@link min}
- * @see {@link reduce}
- *
- * @param {function(value: T, i: number, source: Observable<T>): boolean} [predicate] A
- * boolean function to select what values are to be counted. It is provided with
- * arguments of:
- * - `value`: the value from the source Observable.
- * - `index`: the (zero-based) "index" of the value from the source Observable.
- * - `source`: the source Observable instance itself.
- * @return {Observable} An Observable of one number that represents the count as
- * described above.
- * @method count
- * @owner Observable
- */
 function count(predicate) {
     return function (source) { return source.lift(new CountOperator(predicate, source)); };
 }
@@ -55383,11 +60355,6 @@ var CountOperator = /*@__PURE__*/ (function () {
     };
     return CountOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var CountSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](CountSubscriber, _super);
     function CountSubscriber(destination, predicate, source) {
@@ -55447,48 +60414,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * Emits a value from the source Observable only after a particular time span
- * determined by another Observable has passed without another source emission.
- *
- * <span class="informal">It's like {@link debounceTime}, but the time span of
- * emission silence is determined by a second Observable.</span>
- *
- * <img src="./img/debounce.png" width="100%">
- *
- * `debounce` delays values emitted by the source Observable, but drops previous
- * pending delayed emissions if a new value arrives on the source Observable.
- * This operator keeps track of the most recent value from the source
- * Observable, and spawns a duration Observable by calling the
- * `durationSelector` function. The value is emitted only when the duration
- * Observable emits a value or completes, and if no other value was emitted on
- * the source Observable since the duration Observable was spawned. If a new
- * value appears before the duration Observable emits, the previous value will
- * be dropped and will not be emitted on the output Observable.
- *
- * Like {@link debounceTime}, this is a rate-limiting operator, and also a
- * delay-like operator since output emissions do not necessarily occur at the
- * same time as they did on the source Observable.
- *
- * @example <caption>Emit the most recent click after a burst of clicks</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var result = clicks.debounce(() => Rx.Observable.interval(1000));
- * result.subscribe(x => console.log(x));
- *
- * @see {@link audit}
- * @see {@link debounceTime}
- * @see {@link delayWhen}
- * @see {@link throttle}
- *
- * @param {function(value: T): SubscribableOrPromise} durationSelector A function
- * that receives a value from the source Observable, for computing the timeout
- * duration for each source value, returned as an Observable or a Promise.
- * @return {Observable} An Observable that delays the emissions of the source
- * Observable by the specified duration Observable returned by
- * `durationSelector`, and may drop some values if they occur too frequently.
- * @method debounce
- * @owner Observable
- */
 function debounce(durationSelector) {
     return function (source) { return source.lift(new DebounceOperator(durationSelector)); };
 }
@@ -55501,11 +60426,6 @@ var DebounceOperator = /*@__PURE__*/ (function () {
     };
     return DebounceOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var DebounceSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](DebounceSubscriber, _super);
     function DebounceSubscriber(destination, durationSelector) {
@@ -55558,11 +60478,6 @@ var DebounceSubscriber = /*@__PURE__*/ (function (_super) {
                 subscription.unsubscribe();
                 this.remove(subscription);
             }
-            // This must be done *before* passing the value
-            // along to the destination because it's possible for
-            // the value to synchronously re-enter this operator
-            // recursively if the duration selector Observable
-            // emits synchronously
             this.value = null;
             this.hasValue = false;
             _super.prototype._next.call(this, value);
@@ -55592,52 +60507,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * Emits a value from the source Observable only after a particular time span
- * has passed without another source emission.
- *
- * <span class="informal">It's like {@link delay}, but passes only the most
- * recent value from each burst of emissions.</span>
- *
- * <img src="./img/debounceTime.png" width="100%">
- *
- * `debounceTime` delays values emitted by the source Observable, but drops
- * previous pending delayed emissions if a new value arrives on the source
- * Observable. This operator keeps track of the most recent value from the
- * source Observable, and emits that only when `dueTime` enough time has passed
- * without any other value appearing on the source Observable. If a new value
- * appears before `dueTime` silence occurs, the previous value will be dropped
- * and will not be emitted on the output Observable.
- *
- * This is a rate-limiting operator, because it is impossible for more than one
- * value to be emitted in any time window of duration `dueTime`, but it is also
- * a delay-like operator since output emissions do not occur at the same time as
- * they did on the source Observable. Optionally takes a {@link IScheduler} for
- * managing timers.
- *
- * @example <caption>Emit the most recent click after a burst of clicks</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var result = clicks.debounceTime(1000);
- * result.subscribe(x => console.log(x));
- *
- * @see {@link auditTime}
- * @see {@link debounce}
- * @see {@link delay}
- * @see {@link sampleTime}
- * @see {@link throttleTime}
- *
- * @param {number} dueTime The timeout duration in milliseconds (or the time
- * unit determined internally by the optional `scheduler`) for the window of
- * time required to wait for emission silence before emitting the most recent
- * source value.
- * @param {Scheduler} [scheduler=async] The {@link IScheduler} to use for
- * managing the timers that handle the timeout for each value.
- * @return {Observable} An Observable that delays the emissions of the source
- * Observable by the specified `dueTime`, and may drop some values if they occur
- * too frequently.
- * @method debounceTime
- * @owner Observable
- */
 function debounceTime(dueTime, scheduler) {
     if (scheduler === void 0) {
         scheduler = _scheduler_async__WEBPACK_IMPORTED_MODULE_2__["async"];
@@ -55654,11 +60523,6 @@ var DebounceTimeOperator = /*@__PURE__*/ (function () {
     };
     return DebounceTimeOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var DebounceTimeSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](DebounceTimeSubscriber, _super);
     function DebounceTimeSubscriber(destination, dueTime, scheduler) {
@@ -55684,11 +60548,6 @@ var DebounceTimeSubscriber = /*@__PURE__*/ (function (_super) {
         this.clearDebounce();
         if (this.hasValue) {
             var lastValue = this.lastValue;
-            // This must be done *before* passing the value
-            // along to the destination because it's possible for
-            // the value to synchronously re-enter this operator
-            // recursively when scheduled with things like
-            // VirtualScheduler/TestScheduler.
             this.lastValue = null;
             this.hasValue = false;
             this.destination.next(lastValue);
@@ -55727,37 +60586,6 @@ __webpack_require__.r(__webpack_exports__);
 /** PURE_IMPORTS_START tslib,_Subscriber PURE_IMPORTS_END */
 
 
-/* tslint:enable:max-line-length */
-/**
- * Emits a given value if the source Observable completes without emitting any
- * `next` value, otherwise mirrors the source Observable.
- *
- * <span class="informal">If the source Observable turns out to be empty, then
- * this operator will emit a default value.</span>
- *
- * <img src="./img/defaultIfEmpty.png" width="100%">
- *
- * `defaultIfEmpty` emits the values emitted by the source Observable or a
- * specified default value if the source Observable is empty (completes without
- * having emitted any `next` value).
- *
- * @example <caption>If no clicks happen in 5 seconds, then emit "no clicks"</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var clicksBeforeFive = clicks.takeUntil(Rx.Observable.interval(5000));
- * var result = clicksBeforeFive.defaultIfEmpty('no clicks');
- * result.subscribe(x => console.log(x));
- *
- * @see {@link empty}
- * @see {@link last}
- *
- * @param {any} [defaultValue=null] The default value used if the source
- * Observable is empty.
- * @return {Observable} An Observable that emits either the specified
- * `defaultValue` if the source Observable emits no items, or the values emitted
- * by the source Observable.
- * @method defaultIfEmpty
- * @owner Observable
- */
 function defaultIfEmpty(defaultValue) {
     if (defaultValue === void 0) {
         defaultValue = null;
@@ -55773,11 +60601,6 @@ var DefaultIfEmptyOperator = /*@__PURE__*/ (function () {
     };
     return DefaultIfEmptyOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var DefaultIfEmptySubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](DefaultIfEmptySubscriber, _super);
     function DefaultIfEmptySubscriber(destination, defaultValue) {
@@ -55824,45 +60647,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * Delays the emission of items from the source Observable by a given timeout or
- * until a given Date.
- *
- * <span class="informal">Time shifts each item by some specified amount of
- * milliseconds.</span>
- *
- * <img src="./img/delay.png" width="100%">
- *
- * If the delay argument is a Number, this operator time shifts the source
- * Observable by that amount of time expressed in milliseconds. The relative
- * time intervals between the values are preserved.
- *
- * If the delay argument is a Date, this operator time shifts the start of the
- * Observable execution until the given date occurs.
- *
- * @example <caption>Delay each click by one second</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var delayedClicks = clicks.delay(1000); // each click emitted after 1 second
- * delayedClicks.subscribe(x => console.log(x));
- *
- * @example <caption>Delay all clicks until a future date happens</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var date = new Date('March 15, 2050 12:00:00'); // in the future
- * var delayedClicks = clicks.delay(date); // click emitted only after that date
- * delayedClicks.subscribe(x => console.log(x));
- *
- * @see {@link debounceTime}
- * @see {@link delayWhen}
- *
- * @param {number|Date} delay The delay duration in milliseconds (a `number`) or
- * a `Date` until which the emission of the source items is delayed.
- * @param {Scheduler} [scheduler=async] The IScheduler to use for
- * managing the timers that handle the time-shift for each item.
- * @return {Observable} An Observable that delays the emissions of the source
- * Observable by the specified timeout or Date.
- * @method delay
- * @owner Observable
- */
 function delay(delay, scheduler) {
     if (scheduler === void 0) {
         scheduler = _scheduler_async__WEBPACK_IMPORTED_MODULE_1__["async"];
@@ -55881,11 +60665,6 @@ var DelayOperator = /*@__PURE__*/ (function () {
     };
     return DelayOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var DelaySubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](DelaySubscriber, _super);
     function DelaySubscriber(destination, delay, scheduler) {
@@ -55977,51 +60756,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * Delays the emission of items from the source Observable by a given time span
- * determined by the emissions of another Observable.
- *
- * <span class="informal">It's like {@link delay}, but the time span of the
- * delay duration is determined by a second Observable.</span>
- *
- * <img src="./img/delayWhen.png" width="100%">
- *
- * `delayWhen` time shifts each emitted value from the source Observable by a
- * time span determined by another Observable. When the source emits a value,
- * the `delayDurationSelector` function is called with the source value as
- * argument, and should return an Observable, called the "duration" Observable.
- * The source value is emitted on the output Observable only when the duration
- * Observable emits a value or completes.
- *
- * Optionally, `delayWhen` takes a second argument, `subscriptionDelay`, which
- * is an Observable. When `subscriptionDelay` emits its first value or
- * completes, the source Observable is subscribed to and starts behaving like
- * described in the previous paragraph. If `subscriptionDelay` is not provided,
- * `delayWhen` will subscribe to the source Observable as soon as the output
- * Observable is subscribed.
- *
- * @example <caption>Delay each click by a random amount of time, between 0 and 5 seconds</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var delayedClicks = clicks.delayWhen(event =>
- *   Rx.Observable.interval(Math.random() * 5000)
- * );
- * delayedClicks.subscribe(x => console.log(x));
- *
- * @see {@link debounce}
- * @see {@link delay}
- *
- * @param {function(value: T): Observable} delayDurationSelector A function that
- * returns an Observable for each value emitted by the source Observable, which
- * is then used to delay the emission of that item on the output Observable
- * until the Observable returned from this function emits a value.
- * @param {Observable} subscriptionDelay An Observable that triggers the
- * subscription to the source Observable once it emits any value.
- * @return {Observable} An Observable that delays the emissions of the source
- * Observable by an amount of time specified by the Observable returned by
- * `delayDurationSelector`.
- * @method delayWhen
- * @owner Observable
- */
 function delayWhen(delayDurationSelector, subscriptionDelay) {
     if (subscriptionDelay) {
         return function (source) {
@@ -56040,11 +60774,6 @@ var DelayWhenOperator = /*@__PURE__*/ (function () {
     };
     return DelayWhenOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var DelayWhenSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](DelayWhenSubscriber, _super);
     function DelayWhenSubscriber(destination, delayDurationSelector) {
@@ -56052,7 +60781,6 @@ var DelayWhenSubscriber = /*@__PURE__*/ (function (_super) {
         _this.delayDurationSelector = delayDurationSelector;
         _this.completed = false;
         _this.delayNotifierSubscriptions = [];
-        _this.values = [];
         return _this;
     }
     DelayWhenSubscriber.prototype.notifyNext = function (outerValue, innerValue, outerIndex, innerIndex, innerSub) {
@@ -56088,13 +60816,10 @@ var DelayWhenSubscriber = /*@__PURE__*/ (function (_super) {
     DelayWhenSubscriber.prototype.removeSubscription = function (subscription) {
         subscription.unsubscribe();
         var subscriptionIdx = this.delayNotifierSubscriptions.indexOf(subscription);
-        var value = null;
         if (subscriptionIdx !== -1) {
-            value = this.values[subscriptionIdx];
             this.delayNotifierSubscriptions.splice(subscriptionIdx, 1);
-            this.values.splice(subscriptionIdx, 1);
         }
-        return value;
+        return subscription.outerValue;
     };
     DelayWhenSubscriber.prototype.tryDelay = function (delayNotifier, value) {
         var notifierSubscription = Object(_util_subscribeToResult__WEBPACK_IMPORTED_MODULE_4__["subscribeToResult"])(this, delayNotifier, value);
@@ -56102,7 +60827,6 @@ var DelayWhenSubscriber = /*@__PURE__*/ (function (_super) {
             this.add(notifierSubscription);
             this.delayNotifierSubscriptions.push(notifierSubscription);
         }
-        this.values.push(value);
     };
     DelayWhenSubscriber.prototype.tryComplete = function () {
         if (this.completed && this.delayNotifierSubscriptions.length === 0) {
@@ -56111,11 +60835,6 @@ var DelayWhenSubscriber = /*@__PURE__*/ (function (_super) {
     };
     return DelayWhenSubscriber;
 }(_OuterSubscriber__WEBPACK_IMPORTED_MODULE_3__["OuterSubscriber"]));
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var SubscriptionDelayObservable = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](SubscriptionDelayObservable, _super);
     function SubscriptionDelayObservable(source, subscriptionDelay) {
@@ -56124,17 +60843,11 @@ var SubscriptionDelayObservable = /*@__PURE__*/ (function (_super) {
         _this.subscriptionDelay = subscriptionDelay;
         return _this;
     }
-    /** @deprecated This is an internal implementation detail, do not use. */
     SubscriptionDelayObservable.prototype._subscribe = function (subscriber) {
         this.subscriptionDelay.subscribe(new SubscriptionDelaySubscriber(subscriber, this.source));
     };
     return SubscriptionDelayObservable;
 }(_Observable__WEBPACK_IMPORTED_MODULE_2__["Observable"]));
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var SubscriptionDelaySubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](SubscriptionDelaySubscriber, _super);
     function SubscriptionDelaySubscriber(parent, source) {
@@ -56183,46 +60896,6 @@ __webpack_require__.r(__webpack_exports__);
 /** PURE_IMPORTS_START tslib,_Subscriber PURE_IMPORTS_END */
 
 
-/**
- * Converts an Observable of {@link Notification} objects into the emissions
- * that they represent.
- *
- * <span class="informal">Unwraps {@link Notification} objects as actual `next`,
- * `error` and `complete` emissions. The opposite of {@link materialize}.</span>
- *
- * <img src="./img/dematerialize.png" width="100%">
- *
- * `dematerialize` is assumed to operate an Observable that only emits
- * {@link Notification} objects as `next` emissions, and does not emit any
- * `error`. Such Observable is the output of a `materialize` operation. Those
- * notifications are then unwrapped using the metadata they contain, and emitted
- * as `next`, `error`, and `complete` on the output Observable.
- *
- * Use this operator in conjunction with {@link materialize}.
- *
- * @example <caption>Convert an Observable of Notifications to an actual Observable</caption>
- * var notifA = new Rx.Notification('N', 'A');
- * var notifB = new Rx.Notification('N', 'B');
- * var notifE = new Rx.Notification('E', void 0,
- *   new TypeError('x.toUpperCase is not a function')
- * );
- * var materialized = Rx.Observable.of(notifA, notifB, notifE);
- * var upperCase = materialized.dematerialize();
- * upperCase.subscribe(x => console.log(x), e => console.error(e));
- *
- * // Results in:
- * // A
- * // B
- * // TypeError: x.toUpperCase is not a function
- *
- * @see {@link Notification}
- * @see {@link materialize}
- *
- * @return {Observable} An Observable that emits items and notifications
- * embedded in Notification objects emitted by the source Observable.
- * @method dematerialize
- * @owner Observable
- */
 function dematerialize() {
     return function dematerializeOperatorFunction(source) {
         return source.lift(new DeMaterializeOperator());
@@ -56236,11 +60909,6 @@ var DeMaterializeOperator = /*@__PURE__*/ (function () {
     };
     return DeMaterializeOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var DeMaterializeSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](DeMaterializeSubscriber, _super);
     function DeMaterializeSubscriber(destination) {
@@ -56274,51 +60942,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * Returns an Observable that emits all items emitted by the source Observable that are distinct by comparison from previous items.
- *
- * If a keySelector function is provided, then it will project each value from the source observable into a new value that it will
- * check for equality with previously projected values. If a keySelector function is not provided, it will use each value from the
- * source observable directly with an equality check against previous values.
- *
- * In JavaScript runtimes that support `Set`, this operator will use a `Set` to improve performance of the distinct value checking.
- *
- * In other runtimes, this operator will use a minimal implementation of `Set` that relies on an `Array` and `indexOf` under the
- * hood, so performance will degrade as more values are checked for distinction. Even in newer browsers, a long-running `distinct`
- * use might result in memory leaks. To help alleviate this in some scenarios, an optional `flushes` parameter is also provided so
- * that the internal `Set` can be "flushed", basically clearing it of values.
- *
- * @example <caption>A simple example with numbers</caption>
- * Observable.of(1, 1, 2, 2, 2, 1, 2, 3, 4, 3, 2, 1)
- *   .distinct()
- *   .subscribe(x => console.log(x)); // 1, 2, 3, 4
- *
- * @example <caption>An example using a keySelector function</caption>
- * interface Person {
- *    age: number,
- *    name: string
- * }
- *
- * Observable.of<Person>(
- *     { age: 4, name: 'Foo'},
- *     { age: 7, name: 'Bar'},
- *     { age: 5, name: 'Foo'})
- *     .distinct((p: Person) => p.name)
- *     .subscribe(x => console.log(x));
- *
- * // displays:
- * // { age: 4, name: 'Foo' }
- * // { age: 7, name: 'Bar' }
- *
- * @see {@link distinctUntilChanged}
- * @see {@link distinctUntilKeyChanged}
- *
- * @param {function} [keySelector] Optional function to select which value you want to check as distinct.
- * @param {Observable} [flushes] Optional Observable for flushing the internal HashSet of the operator.
- * @return {Observable} An Observable that emits items from the source Observable with distinct values.
- * @method distinct
- * @owner Observable
- */
 function distinct(keySelector, flushes) {
     return function (source) { return source.lift(new DistinctOperator(keySelector, flushes)); };
 }
@@ -56332,11 +60955,6 @@ var DistinctOperator = /*@__PURE__*/ (function () {
     };
     return DistinctOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var DistinctSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](DistinctSubscriber, _super);
     function DistinctSubscriber(destination, keySelector, flushes) {
@@ -56408,46 +61026,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/* tslint:enable:max-line-length */
-/**
- * Returns an Observable that emits all items emitted by the source Observable that are distinct by comparison from the previous item.
- *
- * If a comparator function is provided, then it will be called for each item to test for whether or not that value should be emitted.
- *
- * If a comparator function is not provided, an equality check is used by default.
- *
- * @example <caption>A simple example with numbers</caption>
- * Observable.of(1, 1, 2, 2, 2, 1, 1, 2, 3, 3, 4)
- *   .distinctUntilChanged()
- *   .subscribe(x => console.log(x)); // 1, 2, 1, 2, 3, 4
- *
- * @example <caption>An example using a compare function</caption>
- * interface Person {
- *    age: number,
- *    name: string
- * }
- *
- * Observable.of<Person>(
- *     { age: 4, name: 'Foo'},
- *     { age: 7, name: 'Bar'},
- *     { age: 5, name: 'Foo'})
- *     { age: 6, name: 'Foo'})
- *     .distinctUntilChanged((p: Person, q: Person) => p.name === q.name)
- *     .subscribe(x => console.log(x));
- *
- * // displays:
- * // { age: 4, name: 'Foo' }
- * // { age: 7, name: 'Bar' }
- * // { age: 5, name: 'Foo' }
- *
- * @see {@link distinct}
- * @see {@link distinctUntilKeyChanged}
- *
- * @param {function} [compare] Optional comparison function called to test if an item is distinct from the previous item in the source.
- * @return {Observable} An Observable that emits items from the source Observable with distinct values.
- * @method distinctUntilChanged
- * @owner Observable
- */
 function distinctUntilChanged(compare, keySelector) {
     return function (source) { return source.lift(new DistinctUntilChangedOperator(compare, keySelector)); };
 }
@@ -56461,11 +61039,6 @@ var DistinctUntilChangedOperator = /*@__PURE__*/ (function () {
     };
     return DistinctUntilChangedOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var DistinctUntilChangedSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](DistinctUntilChangedSubscriber, _super);
     function DistinctUntilChangedSubscriber(destination, compare, keySelector) {
@@ -56524,64 +61097,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _distinctUntilChanged__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./distinctUntilChanged */ "./node_modules/rxjs/_esm5/internal/operators/distinctUntilChanged.js");
 /** PURE_IMPORTS_START _distinctUntilChanged PURE_IMPORTS_END */
 
-/* tslint:enable:max-line-length */
-/**
- * Returns an Observable that emits all items emitted by the source Observable that are distinct by comparison from the previous item,
- * using a property accessed by using the key provided to check if the two items are distinct.
- *
- * If a comparator function is provided, then it will be called for each item to test for whether or not that value should be emitted.
- *
- * If a comparator function is not provided, an equality check is used by default.
- *
- * @example <caption>An example comparing the name of persons</caption>
- *
- *  interface Person {
- *     age: number,
- *     name: string
- *  }
- *
- * Observable.of<Person>(
- *     { age: 4, name: 'Foo'},
- *     { age: 7, name: 'Bar'},
- *     { age: 5, name: 'Foo'},
- *     { age: 6, name: 'Foo'})
- *     .distinctUntilKeyChanged('name')
- *     .subscribe(x => console.log(x));
- *
- * // displays:
- * // { age: 4, name: 'Foo' }
- * // { age: 7, name: 'Bar' }
- * // { age: 5, name: 'Foo' }
- *
- * @example <caption>An example comparing the first letters of the name</caption>
- *
- * interface Person {
- *     age: number,
- *     name: string
- *  }
- *
- * Observable.of<Person>(
- *     { age: 4, name: 'Foo1'},
- *     { age: 7, name: 'Bar'},
- *     { age: 5, name: 'Foo2'},
- *     { age: 6, name: 'Foo3'})
- *     .distinctUntilKeyChanged('name', (x: string, y: string) => x.substring(0, 3) === y.substring(0, 3))
- *     .subscribe(x => console.log(x));
- *
- * // displays:
- * // { age: 4, name: 'Foo1' }
- * // { age: 7, name: 'Bar' }
- * // { age: 5, name: 'Foo2' }
- *
- * @see {@link distinct}
- * @see {@link distinctUntilChanged}
- *
- * @param {string} key String key for object property lookup on each item.
- * @param {function} [compare] Optional comparison function called to test if an item is distinct from the previous item in the source.
- * @return {Observable} An Observable that emits items from the source Observable with distinct values based on the key specified.
- * @method distinctUntilKeyChanged
- * @owner Observable
- */
 function distinctUntilKeyChanged(key, compare) {
     return Object(_distinctUntilChanged__WEBPACK_IMPORTED_MODULE_0__["distinctUntilChanged"])(function (x, y) { return compare ? compare(x[key], y[key]) : x[key] === y[key]; });
 }
@@ -56611,48 +61126,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * Emits the single value at the specified `index` in a sequence of emissions
- * from the source Observable.
- *
- * <span class="informal">Emits only the i-th value, then completes.</span>
- *
- * <img src="./img/elementAt.png" width="100%">
- *
- * `elementAt` returns an Observable that emits the item at the specified
- * `index` in the source Observable, or a default value if that `index` is out
- * of range and the `default` argument is provided. If the `default` argument is
- * not given and the `index` is out of range, the output Observable will emit an
- * `ArgumentOutOfRangeError` error.
- *
- * @example <caption>Emit only the third click event</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var result = clicks.elementAt(2);
- * result.subscribe(x => console.log(x));
- *
- * // Results in:
- * // click 1 = nothing
- * // click 2 = nothing
- * // click 3 = MouseEvent object logged to console
- *
- * @see {@link first}
- * @see {@link last}
- * @see {@link skip}
- * @see {@link single}
- * @see {@link take}
- *
- * @throws {ArgumentOutOfRangeError} When using `elementAt(i)`, it delivers an
- * ArgumentOutOrRangeError to the Observer's `error` callback if `i < 0` or the
- * Observable has completed before emitting the i-th `next` notification.
- *
- * @param {number} index Is the number `i` for the i-th source emission that has
- * happened since the subscription, starting from the number `0`.
- * @param {T} [defaultValue] The default value returned for missing indices.
- * @return {Observable} An Observable that emits a single item, if it is found.
- * Otherwise, will emit the default value if given. If not, then emits an error.
- * @method elementAt
- * @owner Observable
- */
 function elementAt(index, defaultValue) {
     if (index < 0) {
         throw new _util_ArgumentOutOfRangeError__WEBPACK_IMPORTED_MODULE_0__["ArgumentOutOfRangeError"]();
@@ -56690,19 +61163,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/* tslint:enable:max-line-length */
-/**
- * Returns an Observable that emits the items you specify as arguments after it finishes emitting
- * items emitted by the source Observable.
- *
- * @param {...T} values - Items you want the modified Observable to emit last.
- * @param {Scheduler} [scheduler] - A {@link IScheduler} to use for scheduling
- * the emissions of the `next` notifications.
- * @return {Observable} An Observable that emits the items emitted by the source Observable
- *  and then emits the items in the specified Iterable.
- * @method endWith
- * @owner Observable
- */
 function endWith() {
     var array = [];
     for (var _i = 0; _i < arguments.length; _i++) {
@@ -56748,20 +61208,6 @@ __webpack_require__.r(__webpack_exports__);
 /** PURE_IMPORTS_START tslib,_Subscriber PURE_IMPORTS_END */
 
 
-/**
- * Returns an Observable that emits whether or not every item of the source satisfies the condition specified.
- *
- * @example <caption>A simple example emitting true if all elements are less than 5, false otherwise</caption>
- *  Observable.of(1, 2, 3, 4, 5, 6)
- *     .every(x => x < 5)
- *     .subscribe(x => console.log(x)); // -> false
- *
- * @param {function} predicate A function for determining if an item meets a specified condition.
- * @param {any} [thisArg] Optional object to use for `this` in the callback.
- * @return {Observable} An Observable of booleans that determines if all items of the source Observable meet the condition specified.
- * @method every
- * @owner Observable
- */
 function every(predicate, thisArg) {
     return function (source) { return source.lift(new EveryOperator(predicate, thisArg, source)); };
 }
@@ -56776,11 +61222,6 @@ var EveryOperator = /*@__PURE__*/ (function () {
     };
     return EveryOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var EverySubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](EverySubscriber, _super);
     function EverySubscriber(destination, predicate, thisArg, source) {
@@ -56836,41 +61277,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * Converts a higher-order Observable into a first-order Observable by dropping
- * inner Observables while the previous inner Observable has not yet completed.
- *
- * <span class="informal">Flattens an Observable-of-Observables by dropping the
- * next inner Observables while the current inner is still executing.</span>
- *
- * <img src="./img/exhaust.png" width="100%">
- *
- * `exhaust` subscribes to an Observable that emits Observables, also known as a
- * higher-order Observable. Each time it observes one of these emitted inner
- * Observables, the output Observable begins emitting the items emitted by that
- * inner Observable. So far, it behaves like {@link mergeAll}. However,
- * `exhaust` ignores every new inner Observable if the previous Observable has
- * not yet completed. Once that one completes, it will accept and flatten the
- * next inner Observable and repeat this process.
- *
- * @example <caption>Run a finite timer for each click, only if there is no currently active timer</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var higherOrder = clicks.map((ev) => Rx.Observable.interval(1000).take(5));
- * var result = higherOrder.exhaust();
- * result.subscribe(x => console.log(x));
- *
- * @see {@link combineAll}
- * @see {@link concatAll}
- * @see {@link switch}
- * @see {@link mergeAll}
- * @see {@link exhaustMap}
- * @see {@link zipAll}
- *
- * @return {Observable} An Observable that takes a source of Observables and propagates the first observable
- * exclusively until it completes before subscribing to the next.
- * @method exhaust
- * @owner Observable
- */
 function exhaust() {
     return function (source) { return source.lift(new SwitchFirstOperator()); };
 }
@@ -56882,11 +61288,6 @@ var SwitchFirstOperator = /*@__PURE__*/ (function () {
     };
     return SwitchFirstOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var SwitchFirstSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](SwitchFirstSubscriber, _super);
     function SwitchFirstSubscriber(destination) {
@@ -56942,47 +61343,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/* tslint:enable:max-line-length */
-/**
- * Projects each source value to an Observable which is merged in the output
- * Observable only if the previous projected Observable has completed.
- *
- * <span class="informal">Maps each value to an Observable, then flattens all of
- * these inner Observables using {@link exhaust}.</span>
- *
- * <img src="./img/exhaustMap.png" width="100%">
- *
- * Returns an Observable that emits items based on applying a function that you
- * supply to each item emitted by the source Observable, where that function
- * returns an (so-called "inner") Observable. When it projects a source value to
- * an Observable, the output Observable begins emitting the items emitted by
- * that projected Observable. However, `exhaustMap` ignores every new projected
- * Observable if the previous projected Observable has not yet completed. Once
- * that one completes, it will accept and flatten the next projected Observable
- * and repeat this process.
- *
- * @example <caption>Run a finite timer for each click, only if there is no currently active timer</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var result = clicks.exhaustMap((ev) => Rx.Observable.interval(1000).take(5));
- * result.subscribe(x => console.log(x));
- *
- * @see {@link concatMap}
- * @see {@link exhaust}
- * @see {@link mergeMap}
- * @see {@link switchMap}
- *
- * @param {function(value: T, ?index: number): ObservableInput} project A function
- * that, when applied to an item emitted by the source Observable, returns an
- * Observable.
- * @return {Observable} An Observable containing projected Observables
- * of each item of the source, ignoring projected Observables that start before
- * their preceding Observable has completed.
- * @method exhaustMap
- * @owner Observable
- */
 function exhaustMap(project, resultSelector) {
     if (resultSelector) {
-        // DEPRECATED PATH
         return function (source) { return source.pipe(exhaustMap(function (a, i) { return Object(_observable_from__WEBPACK_IMPORTED_MODULE_4__["from"])(project(a, i)).pipe(Object(_map__WEBPACK_IMPORTED_MODULE_3__["map"])(function (b, ii) { return resultSelector(a, b, i, ii); })); })); };
     }
     return function (source) {
@@ -56998,11 +61360,6 @@ var ExhauseMapOperator = /*@__PURE__*/ (function () {
     };
     return ExhauseMapOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var ExhaustMapSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](ExhaustMapSubscriber, _super);
     function ExhaustMapSubscriber(destination, project) {
@@ -57079,52 +61436,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/* tslint:enable:max-line-length */
-/**
- * Recursively projects each source value to an Observable which is merged in
- * the output Observable.
- *
- * <span class="informal">It's similar to {@link mergeMap}, but applies the
- * projection function to every source value as well as every output value.
- * It's recursive.</span>
- *
- * <img src="./img/expand.png" width="100%">
- *
- * Returns an Observable that emits items based on applying a function that you
- * supply to each item emitted by the source Observable, where that function
- * returns an Observable, and then merging those resulting Observables and
- * emitting the results of this merger. *Expand* will re-emit on the output
- * Observable every source value. Then, each output value is given to the
- * `project` function which returns an inner Observable to be merged on the
- * output Observable. Those output values resulting from the projection are also
- * given to the `project` function to produce new output values. This is how
- * *expand* behaves recursively.
- *
- * @example <caption>Start emitting the powers of two on every click, at most 10 of them</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var powersOfTwo = clicks
- *   .mapTo(1)
- *   .expand(x => Rx.Observable.of(2 * x).delay(1000))
- *   .take(10);
- * powersOfTwo.subscribe(x => console.log(x));
- *
- * @see {@link mergeMap}
- * @see {@link mergeScan}
- *
- * @param {function(value: T, index: number) => Observable} project A function
- * that, when applied to an item emitted by the source or the output Observable,
- * returns an Observable.
- * @param {number} [concurrent=Number.POSITIVE_INFINITY] Maximum number of input
- * Observables being subscribed to concurrently.
- * @param {Scheduler} [scheduler=null] The IScheduler to use for subscribing to
- * each projected inner Observable.
- * @return {Observable} An Observable that emits the source values and also
- * result of applying the projection function to each value emitted on the
- * output Observable and and merging the results of the Observables obtained
- * from this transformation.
- * @method expand
- * @owner Observable
- */
 function expand(project, concurrent, scheduler) {
     if (concurrent === void 0) {
         concurrent = Number.POSITIVE_INFINITY;
@@ -57147,11 +61458,6 @@ var ExpandOperator = /*@__PURE__*/ (function () {
     return ExpandOperator;
 }());
 
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var ExpandSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](ExpandSubscriber, _super);
     function ExpandSubscriber(destination, project, concurrent, scheduler) {
@@ -57243,46 +61549,6 @@ __webpack_require__.r(__webpack_exports__);
 /** PURE_IMPORTS_START tslib,_Subscriber PURE_IMPORTS_END */
 
 
-/* tslint:enable:max-line-length */
-/**
- * Filter items emitted by the source Observable by only emitting those that
- * satisfy a specified predicate.
- *
- * <span class="informal">Like
- * [Array.prototype.filter()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter),
- * it only emits a value from the source if it passes a criterion function.</span>
- *
- * <img src="./img/filter.png" width="100%">
- *
- * Similar to the well-known `Array.prototype.filter` method, this operator
- * takes values from the source Observable, passes them through a `predicate`
- * function and only emits those values that yielded `true`.
- *
- * @example <caption>Emit only click events whose target was a DIV element</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var clicksOnDivs = clicks.filter(ev => ev.target.tagName === 'DIV');
- * clicksOnDivs.subscribe(x => console.log(x));
- *
- * @see {@link distinct}
- * @see {@link distinctUntilChanged}
- * @see {@link distinctUntilKeyChanged}
- * @see {@link ignoreElements}
- * @see {@link partition}
- * @see {@link skip}
- *
- * @param {function(value: T, index: number): boolean} predicate A function that
- * evaluates each value emitted by the source Observable. If it returns `true`,
- * the value is emitted, if `false` the value is not passed to the output
- * Observable. The `index` parameter is the number `i` for the i-th source
- * emission that has happened since the subscription, starting from the number
- * `0`.
- * @param {any} [thisArg] An optional argument to determine the value of `this`
- * in the `predicate` function.
- * @return {Observable} An Observable of values from the source that were
- * allowed by the `predicate` function.
- * @method filter
- * @owner Observable
- */
 function filter(predicate, thisArg) {
     return function filterOperatorFunction(source) {
         return source.lift(new FilterOperator(predicate, thisArg));
@@ -57298,11 +61564,6 @@ var FilterOperator = /*@__PURE__*/ (function () {
     };
     return FilterOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var FilterSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](FilterSubscriber, _super);
     function FilterSubscriber(destination, predicate, thisArg) {
@@ -57312,8 +61573,6 @@ var FilterSubscriber = /*@__PURE__*/ (function (_super) {
         _this.count = 0;
         return _this;
     }
-    // the try catch block below is left specifically for
-    // optimization and perf reasons. a tryCatcher is not necessary here.
     FilterSubscriber.prototype._next = function (value) {
         var result;
         try {
@@ -57351,14 +61610,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * Returns an Observable that mirrors the source Observable, but will call a specified function when
- * the source terminates on complete or error.
- * @param {function} callback Function to be called when source terminates.
- * @return {Observable} An Observable that mirrors the source, but will call the specified function on termination.
- * @method finally
- * @owner Observable
- */
 function finalize(callback) {
     return function (source) { return source.lift(new FinallyOperator(callback)); };
 }
@@ -57371,11 +61622,6 @@ var FinallyOperator = /*@__PURE__*/ (function () {
     };
     return FinallyOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var FinallySubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](FinallySubscriber, _super);
     function FinallySubscriber(destination, callback) {
@@ -57407,39 +61653,6 @@ __webpack_require__.r(__webpack_exports__);
 /** PURE_IMPORTS_START tslib,_Subscriber PURE_IMPORTS_END */
 
 
-/**
- * Emits only the first value emitted by the source Observable that meets some
- * condition.
- *
- * <span class="informal">Finds the first value that passes some test and emits
- * that.</span>
- *
- * <img src="./img/find.png" width="100%">
- *
- * `find` searches for the first item in the source Observable that matches the
- * specified condition embodied by the `predicate`, and returns the first
- * occurrence in the source. Unlike {@link first}, the `predicate` is required
- * in `find`, and does not emit an error if a valid value is not found.
- *
- * @example <caption>Find and emit the first click that happens on a DIV element</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var result = clicks.find(ev => ev.target.tagName === 'DIV');
- * result.subscribe(x => console.log(x));
- *
- * @see {@link filter}
- * @see {@link first}
- * @see {@link findIndex}
- * @see {@link take}
- *
- * @param {function(value: T, index: number, source: Observable<T>): boolean} predicate
- * A function called with each item to test for condition matching.
- * @param {any} [thisArg] An optional argument to determine the value of `this`
- * in the `predicate` function.
- * @return {Observable<T>} An Observable of the first item that matches the
- * condition.
- * @method find
- * @owner Observable
- */
 function find(predicate, thisArg) {
     if (typeof predicate !== 'function') {
         throw new TypeError('predicate is not a function');
@@ -57459,11 +61672,6 @@ var FindValueOperator = /*@__PURE__*/ (function () {
     return FindValueOperator;
 }());
 
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var FindValueSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](FindValueSubscriber, _super);
     function FindValueSubscriber(destination, predicate, source, yieldIndex, thisArg) {
@@ -57517,40 +61725,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _operators_find__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../operators/find */ "./node_modules/rxjs/_esm5/internal/operators/find.js");
 /** PURE_IMPORTS_START _operators_find PURE_IMPORTS_END */
 
-/**
- * Emits only the index of the first value emitted by the source Observable that
- * meets some condition.
- *
- * <span class="informal">It's like {@link find}, but emits the index of the
- * found value, not the value itself.</span>
- *
- * <img src="./img/findIndex.png" width="100%">
- *
- * `findIndex` searches for the first item in the source Observable that matches
- * the specified condition embodied by the `predicate`, and returns the
- * (zero-based) index of the first occurrence in the source. Unlike
- * {@link first}, the `predicate` is required in `findIndex`, and does not emit
- * an error if a valid value is not found.
- *
- * @example <caption>Emit the index of first click that happens on a DIV element</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var result = clicks.findIndex(ev => ev.target.tagName === 'DIV');
- * result.subscribe(x => console.log(x));
- *
- * @see {@link filter}
- * @see {@link find}
- * @see {@link first}
- * @see {@link take}
- *
- * @param {function(value: T, index: number, source: Observable<T>): boolean} predicate
- * A function called with each item to test for condition matching.
- * @param {any} [thisArg] An optional argument to determine the value of `this`
- * in the `predicate` function.
- * @return {Observable} An Observable of the index of the first item that
- * matches the condition.
- * @method find
- * @owner Observable
- */
 function findIndex(predicate, thisArg) {
     return function (source) { return source.lift(new _operators_find__WEBPACK_IMPORTED_MODULE_0__["FindValueOperator"](predicate, source, true, thisArg)); };
 }
@@ -57582,49 +61756,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * Emits only the first value (or the first value that meets some condition)
- * emitted by the source Observable.
- *
- * <span class="informal">Emits only the first value. Or emits only the first
- * value that passes some test.</span>
- *
- * <img src="./img/first.png" width="100%">
- *
- * If called with no arguments, `first` emits the first value of the source
- * Observable, then completes. If called with a `predicate` function, `first`
- * emits the first value of the source that matches the specified condition. It
- * may also take a `resultSelector` function to produce the output value from
- * the input value, and a `defaultValue` to emit in case the source completes
- * before it is able to emit a valid value. Throws an error if `defaultValue`
- * was not provided and a matching element is not found.
- *
- * @example <caption>Emit only the first click that happens on the DOM</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var result = clicks.first();
- * result.subscribe(x => console.log(x));
- *
- * @example <caption>Emits the first click that happens on a DIV</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var result = clicks.first(ev => ev.target.tagName === 'DIV');
- * result.subscribe(x => console.log(x));
- *
- * @see {@link filter}
- * @see {@link find}
- * @see {@link take}
- *
- * @throws {EmptyError} Delivers an EmptyError to the Observer's `error`
- * callback if the Observable completes before any `next` notification was sent.
- *
- * @param {function(value: T, index: number, source: Observable<T>): boolean} [predicate]
- * An optional function called with each item to test for condition matching.
- * @param {R} [defaultValue] The default value emitted in case no valid value
- * was found on the source.
- * @return {Observable<T|R>} An Observable of the first item that matches the
- * condition.
- * @method first
- * @owner Observable
- */
 function first(predicate, defaultValue) {
     var hasDefaultValue = arguments.length >= 2;
     return function (source) { return source.pipe(predicate ? Object(_filter__WEBPACK_IMPORTED_MODULE_1__["filter"])(function (v, i) { return predicate(v, i, source); }) : _util_identity__WEBPACK_IMPORTED_MODULE_5__["identity"], Object(_take__WEBPACK_IMPORTED_MODULE_2__["take"])(1), hasDefaultValue ? Object(_defaultIfEmpty__WEBPACK_IMPORTED_MODULE_3__["defaultIfEmpty"])(defaultValue) : Object(_throwIfEmpty__WEBPACK_IMPORTED_MODULE_4__["throwIfEmpty"])(function () { return new _util_EmptyError__WEBPACK_IMPORTED_MODULE_0__["EmptyError"](); })); };
@@ -57656,74 +61787,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/* tslint:enable:max-line-length */
-/**
- * Groups the items emitted by an Observable according to a specified criterion,
- * and emits these grouped items as `GroupedObservables`, one
- * {@link GroupedObservable} per group.
- *
- * <img src="./img/groupBy.png" width="100%">
- *
- * @example <caption>Group objects by id and return as array</caption>
- * Observable.of<Obj>({id: 1, name: 'aze1'},
- *                    {id: 2, name: 'sf2'},
- *                    {id: 2, name: 'dg2'},
- *                    {id: 1, name: 'erg1'},
- *                    {id: 1, name: 'df1'},
- *                    {id: 2, name: 'sfqfb2'},
- *                    {id: 3, name: 'qfs3'},
- *                    {id: 2, name: 'qsgqsfg2'}
- *     )
- *     .groupBy(p => p.id)
- *     .flatMap( (group$) => group$.reduce((acc, cur) => [...acc, cur], []))
- *     .subscribe(p => console.log(p));
- *
- * // displays:
- * // [ { id: 1, name: 'aze1' },
- * //   { id: 1, name: 'erg1' },
- * //   { id: 1, name: 'df1' } ]
- * //
- * // [ { id: 2, name: 'sf2' },
- * //   { id: 2, name: 'dg2' },
- * //   { id: 2, name: 'sfqfb2' },
- * //   { id: 2, name: 'qsgqsfg2' } ]
- * //
- * // [ { id: 3, name: 'qfs3' } ]
- *
- * @example <caption>Pivot data on the id field</caption>
- * Observable.of<Obj>({id: 1, name: 'aze1'},
- *                    {id: 2, name: 'sf2'},
- *                    {id: 2, name: 'dg2'},
- *                    {id: 1, name: 'erg1'},
- *                    {id: 1, name: 'df1'},
- *                    {id: 2, name: 'sfqfb2'},
- *                    {id: 3, name: 'qfs1'},
- *                    {id: 2, name: 'qsgqsfg2'}
- *                   )
- *     .groupBy(p => p.id, p => p.name)
- *     .flatMap( (group$) => group$.reduce((acc, cur) => [...acc, cur], ["" + group$.key]))
- *     .map(arr => ({'id': parseInt(arr[0]), 'values': arr.slice(1)}))
- *     .subscribe(p => console.log(p));
- *
- * // displays:
- * // { id: 1, values: [ 'aze1', 'erg1', 'df1' ] }
- * // { id: 2, values: [ 'sf2', 'dg2', 'sfqfb2', 'qsgqsfg2' ] }
- * // { id: 3, values: [ 'qfs1' ] }
- *
- * @param {function(value: T): K} keySelector A function that extracts the key
- * for each item.
- * @param {function(value: T): R} [elementSelector] A function that extracts the
- * return element for each item.
- * @param {function(grouped: GroupedObservable<K,R>): Observable<any>} [durationSelector]
- * A function that returns an Observable to determine how long each group should
- * exist.
- * @return {Observable<GroupedObservable<K,R>>} An Observable that emits
- * GroupedObservables, each of which corresponds to a unique key value and each
- * of which emits those items from the source Observable that share that key
- * value.
- * @method groupBy
- * @owner Observable
- */
 function groupBy(keySelector, elementSelector, durationSelector, subjectSelector) {
     return function (source) {
         return source.lift(new GroupByOperator(keySelector, elementSelector, durationSelector, subjectSelector));
@@ -57741,11 +61804,6 @@ var GroupByOperator = /*@__PURE__*/ (function () {
     };
     return GroupByOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var GroupBySubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](GroupBySubscriber, _super);
     function GroupBySubscriber(destination, keySelector, elementSelector, durationSelector, subjectSelector) {
@@ -57842,11 +61900,6 @@ var GroupBySubscriber = /*@__PURE__*/ (function (_super) {
     };
     return GroupBySubscriber;
 }(_Subscriber__WEBPACK_IMPORTED_MODULE_1__["Subscriber"]));
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var GroupDurationSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](GroupDurationSubscriber, _super);
     function GroupDurationSubscriber(key, group, parent) {
@@ -57859,7 +61912,6 @@ var GroupDurationSubscriber = /*@__PURE__*/ (function (_super) {
     GroupDurationSubscriber.prototype._next = function (value) {
         this.complete();
     };
-    /** @deprecated This is an internal implementation detail, do not use. */
     GroupDurationSubscriber.prototype._unsubscribe = function () {
         var _a = this, parent = _a.parent, key = _a.key;
         this.key = this.parent = null;
@@ -57869,17 +61921,8 @@ var GroupDurationSubscriber = /*@__PURE__*/ (function (_super) {
     };
     return GroupDurationSubscriber;
 }(_Subscriber__WEBPACK_IMPORTED_MODULE_1__["Subscriber"]));
-/**
- * An Observable representing values belonging to the same group represented by
- * a common key. The values emitted by a GroupedObservable come from the source
- * Observable. The common key is available as the field `key` on a
- * GroupedObservable instance.
- *
- * @class GroupedObservable<K, T>
- */
 var GroupedObservable = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](GroupedObservable, _super);
-    /** @deprecated Do not construct this type. Internal use only */
     function GroupedObservable(key, groupSubject, refCountSubscription) {
         var _this = _super.call(this) || this;
         _this.key = key;
@@ -57887,7 +61930,6 @@ var GroupedObservable = /*@__PURE__*/ (function (_super) {
         _this.refCountSubscription = refCountSubscription;
         return _this;
     }
-    /** @deprecated This is an internal implementation detail, do not use. */
     GroupedObservable.prototype._subscribe = function (subscriber) {
         var subscription = new _Subscription__WEBPACK_IMPORTED_MODULE_2__["Subscription"]();
         var _a = this, refCountSubscription = _a.refCountSubscription, groupSubject = _a.groupSubject;
@@ -57900,11 +61942,6 @@ var GroupedObservable = /*@__PURE__*/ (function (_super) {
     return GroupedObservable;
 }(_Observable__WEBPACK_IMPORTED_MODULE_3__["Observable"]));
 
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var InnerRefCountSubscription = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](InnerRefCountSubscription, _super);
     function InnerRefCountSubscription(parent) {
@@ -57945,16 +61982,6 @@ __webpack_require__.r(__webpack_exports__);
 /** PURE_IMPORTS_START tslib,_Subscriber PURE_IMPORTS_END */
 
 
-/**
- * Ignores all items emitted by the source Observable and only passes calls of `complete` or `error`.
- *
- * <img src="./img/ignoreElements.png" width="100%">
- *
- * @return {Observable} An empty Observable that only calls `complete`
- * or `error`, based on which one is called by the source Observable.
- * @method ignoreElements
- * @owner Observable
- */
 function ignoreElements() {
     return function ignoreElementsOperatorFunction(source) {
         return source.lift(new IgnoreElementsOperator());
@@ -57968,18 +61995,12 @@ var IgnoreElementsOperator = /*@__PURE__*/ (function () {
     };
     return IgnoreElementsOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var IgnoreElementsSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](IgnoreElementsSubscriber, _super);
     function IgnoreElementsSubscriber() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     IgnoreElementsSubscriber.prototype._next = function (unused) {
-        // Do nothing
     };
     return IgnoreElementsSubscriber;
 }(_Subscriber__WEBPACK_IMPORTED_MODULE_1__["Subscriber"]));
@@ -58014,11 +62035,6 @@ var IsEmptyOperator = /*@__PURE__*/ (function () {
     };
     return IsEmptyOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var IsEmptySubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](IsEmptySubscriber, _super);
     function IsEmptySubscriber(destination) {
@@ -58065,23 +62081,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * Returns an Observable that emits only the last item emitted by the source Observable.
- * It optionally takes a predicate function as a parameter, in which case, rather than emitting
- * the last item from the source Observable, the resulting Observable will emit the last item
- * from the source Observable that satisfies the predicate.
- *
- * <img src="./img/last.png" width="100%">
- *
- * @throws {EmptyError} Delivers an EmptyError to the Observer's `error`
- * callback if the Observable completes before any `next` notification was sent.
- * @param {function} [predicate] - The condition any source emitted item has to satisfy.
- * @param {any} [defaultValue] - An optional default value to provide if last
- * predicate isn't met or no values were emitted.
- * @return {Observable} An Observable that emits only the last item satisfying the given condition
- * from the source, or an NoSuchElementException if no such items are emitted.
- * @throws - Throws if no items that match the predicate are emitted by the source Observable.
- */
 function last(predicate, defaultValue) {
     var hasDefaultValue = arguments.length >= 2;
     return function (source) { return source.pipe(predicate ? Object(_filter__WEBPACK_IMPORTED_MODULE_1__["filter"])(function (v, i) { return predicate(v, i, source); }) : _util_identity__WEBPACK_IMPORTED_MODULE_5__["identity"], Object(_takeLast__WEBPACK_IMPORTED_MODULE_2__["takeLast"])(1), hasDefaultValue ? Object(_defaultIfEmpty__WEBPACK_IMPORTED_MODULE_4__["defaultIfEmpty"])(defaultValue) : Object(_throwIfEmpty__WEBPACK_IMPORTED_MODULE_3__["throwIfEmpty"])(function () { return new _util_EmptyError__WEBPACK_IMPORTED_MODULE_0__["EmptyError"](); })); };
@@ -58107,39 +62106,6 @@ __webpack_require__.r(__webpack_exports__);
 /** PURE_IMPORTS_START tslib,_Subscriber PURE_IMPORTS_END */
 
 
-/**
- * Applies a given `project` function to each value emitted by the source
- * Observable, and emits the resulting values as an Observable.
- *
- * <span class="informal">Like [Array.prototype.map()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map),
- * it passes each source value through a transformation function to get
- * corresponding output values.</span>
- *
- * <img src="./img/map.png" width="100%">
- *
- * Similar to the well known `Array.prototype.map` function, this operator
- * applies a projection to each value and emits that projection in the output
- * Observable.
- *
- * @example <caption>Map every click to the clientX position of that click</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var positions = clicks.map(ev => ev.clientX);
- * positions.subscribe(x => console.log(x));
- *
- * @see {@link mapTo}
- * @see {@link pluck}
- *
- * @param {function(value: T, index: number): R} project The function to apply
- * to each `value` emitted by the source Observable. The `index` parameter is
- * the number `i` for the i-th emission that has happened since the
- * subscription, starting from the number `0`.
- * @param {any} [thisArg] An optional argument to define what `this` is in the
- * `project` function.
- * @return {Observable<R>} An Observable that emits the values from the source
- * Observable transformed by the given `project` function.
- * @method map
- * @owner Observable
- */
 function map(project, thisArg) {
     return function mapOperation(source) {
         if (typeof project !== 'function') {
@@ -58159,11 +62125,6 @@ var MapOperator = /*@__PURE__*/ (function () {
     return MapOperator;
 }());
 
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var MapSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](MapSubscriber, _super);
     function MapSubscriber(destination, project, thisArg) {
@@ -58173,8 +62134,6 @@ var MapSubscriber = /*@__PURE__*/ (function (_super) {
         _this.thisArg = thisArg || _this;
         return _this;
     }
-    // NOTE: This looks unoptimized, but it's actually purposefully NOT
-    // using try/catch optimizations.
     MapSubscriber.prototype._next = function (value) {
         var result;
         try {
@@ -58208,32 +62167,6 @@ __webpack_require__.r(__webpack_exports__);
 /** PURE_IMPORTS_START tslib,_Subscriber PURE_IMPORTS_END */
 
 
-/**
- * Emits the given constant value on the output Observable every time the source
- * Observable emits a value.
- *
- * <span class="informal">Like {@link map}, but it maps every source value to
- * the same output value every time.</span>
- *
- * <img src="./img/mapTo.png" width="100%">
- *
- * Takes a constant `value` as argument, and emits that whenever the source
- * Observable emits a value. In other words, ignores the actual source value,
- * and simply uses the emission moment to know when to emit the given `value`.
- *
- * @example <caption>Map every click to the string 'Hi'</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var greetings = clicks.mapTo('Hi');
- * greetings.subscribe(x => console.log(x));
- *
- * @see {@link map}
- *
- * @param {any} value The value to map each source value to.
- * @return {Observable} An Observable that emits the given `value` every time
- * the source Observable emits something.
- * @method mapTo
- * @owner Observable
- */
 function mapTo(value) {
     return function (source) { return source.lift(new MapToOperator(value)); };
 }
@@ -58246,11 +62179,6 @@ var MapToOperator = /*@__PURE__*/ (function () {
     };
     return MapToOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var MapToSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](MapToSubscriber, _super);
     function MapToSubscriber(destination, value) {
@@ -58285,50 +62213,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * Represents all of the notifications from the source Observable as `next`
- * emissions marked with their original types within {@link Notification}
- * objects.
- *
- * <span class="informal">Wraps `next`, `error` and `complete` emissions in
- * {@link Notification} objects, emitted as `next` on the output Observable.
- * </span>
- *
- * <img src="./img/materialize.png" width="100%">
- *
- * `materialize` returns an Observable that emits a `next` notification for each
- * `next`, `error`, or `complete` emission of the source Observable. When the
- * source Observable emits `complete`, the output Observable will emit `next` as
- * a Notification of type "complete", and then it will emit `complete` as well.
- * When the source Observable emits `error`, the output will emit `next` as a
- * Notification of type "error", and then `complete`.
- *
- * This operator is useful for producing metadata of the source Observable, to
- * be consumed as `next` emissions. Use it in conjunction with
- * {@link dematerialize}.
- *
- * @example <caption>Convert a faulty Observable to an Observable of Notifications</caption>
- * var letters = Rx.Observable.of('a', 'b', 13, 'd');
- * var upperCase = letters.map(x => x.toUpperCase());
- * var materialized = upperCase.materialize();
- * materialized.subscribe(x => console.log(x));
- *
- * // Results in the following:
- * // - Notification {kind: "N", value: "A", error: undefined, hasValue: true}
- * // - Notification {kind: "N", value: "B", error: undefined, hasValue: true}
- * // - Notification {kind: "E", value: undefined, error: TypeError:
- * //   x.toUpperCase is not a function at MapSubscriber.letters.map.x
- * //   [as project] (http://1…, hasValue: false}
- *
- * @see {@link Notification}
- * @see {@link dematerialize}
- *
- * @return {Observable<Notification<T>>} An Observable that emits
- * {@link Notification} objects that wrap the original emissions from the source
- * Observable with metadata.
- * @method materialize
- * @owner Observable
- */
 function materialize() {
     return function materializeOperatorFunction(source) {
         return source.lift(new MaterializeOperator());
@@ -58342,11 +62226,6 @@ var MaterializeOperator = /*@__PURE__*/ (function () {
     };
     return MaterializeOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var MaterializeSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](MaterializeSubscriber, _super);
     function MaterializeSubscriber(destination) {
@@ -58385,37 +62264,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _reduce__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./reduce */ "./node_modules/rxjs/_esm5/internal/operators/reduce.js");
 /** PURE_IMPORTS_START _reduce PURE_IMPORTS_END */
 
-/**
- * The Max operator operates on an Observable that emits numbers (or items that can be compared with a provided function),
- * and when source Observable completes it emits a single item: the item with the largest value.
- *
- * <img src="./img/max.png" width="100%">
- *
- * @example <caption>Get the maximal value of a series of numbers</caption>
- * Rx.Observable.of(5, 4, 7, 2, 8)
- *   .max()
- *   .subscribe(x => console.log(x)); // -> 8
- *
- * @example <caption>Use a comparer function to get the maximal item</caption>
- * interface Person {
- *   age: number,
- *   name: string
- * }
- * Observable.of<Person>({age: 7, name: 'Foo'},
- *                       {age: 5, name: 'Bar'},
- *                       {age: 9, name: 'Beer'})
- *           .max<Person>((a: Person, b: Person) => a.age < b.age ? -1 : 1)
- *           .subscribe((x: Person) => console.log(x.name)); // -> 'Beer'
- * }
- *
- * @see {@link min}
- *
- * @param {Function} [comparer] - Optional comparer function that it will use instead of its default to compare the
- * value of two items.
- * @return {Observable} An Observable that emits item with the largest value.
- * @method max
- * @owner Observable
- */
 function max(comparer) {
     var max = (typeof comparer === 'function')
         ? function (x, y) { return comparer(x, y) > 0 ? x : y; }
@@ -58440,10 +62288,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _observable_merge__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../observable/merge */ "./node_modules/rxjs/_esm5/internal/observable/merge.js");
 /** PURE_IMPORTS_START _observable_merge PURE_IMPORTS_END */
 
-/* tslint:enable:max-line-length */
-/**
- * @deprecated Deprecated in favor of static merge.
- */
 function merge() {
     var observables = [];
     for (var _i = 0; _i < arguments.length; _i++) {
@@ -58471,50 +62315,6 @@ __webpack_require__.r(__webpack_exports__);
 /** PURE_IMPORTS_START _mergeMap,_util_identity PURE_IMPORTS_END */
 
 
-/**
- * Converts a higher-order Observable into a first-order Observable which
- * concurrently delivers all values that are emitted on the inner Observables.
- *
- * <span class="informal">Flattens an Observable-of-Observables.</span>
- *
- * <img src="./img/mergeAll.png" width="100%">
- *
- * `mergeAll` subscribes to an Observable that emits Observables, also known as
- * a higher-order Observable. Each time it observes one of these emitted inner
- * Observables, it subscribes to that and delivers all the values from the
- * inner Observable on the output Observable. The output Observable only
- * completes once all inner Observables have completed. Any error delivered by
- * a inner Observable will be immediately emitted on the output Observable.
- *
- * @example <caption>Spawn a new interval Observable for each click event, and blend their outputs as one Observable</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var higherOrder = clicks.map((ev) => Rx.Observable.interval(1000));
- * var firstOrder = higherOrder.mergeAll();
- * firstOrder.subscribe(x => console.log(x));
- *
- * @example <caption>Count from 0 to 9 every second for each click, but only allow 2 concurrent timers</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var higherOrder = clicks.map((ev) => Rx.Observable.interval(1000).take(10));
- * var firstOrder = higherOrder.mergeAll(2);
- * firstOrder.subscribe(x => console.log(x));
- *
- * @see {@link combineAll}
- * @see {@link concatAll}
- * @see {@link exhaust}
- * @see {@link merge}
- * @see {@link mergeMap}
- * @see {@link mergeMapTo}
- * @see {@link mergeScan}
- * @see {@link switch}
- * @see {@link zipAll}
- *
- * @param {number} [concurrent=Number.POSITIVE_INFINITY] Maximum number of inner
- * Observables being subscribed to concurrently.
- * @return {Observable} An Observable that emits values coming from all the
- * inner Observables emitted by the source Observable.
- * @method mergeAll
- * @owner Observable
- */
 function mergeAll(concurrent) {
     if (concurrent === void 0) {
         concurrent = Number.POSITIVE_INFINITY;
@@ -58549,63 +62349,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/* tslint:enable:max-line-length */
-/**
- * Projects each source value to an Observable which is merged in the output
- * Observable.
- *
- * <span class="informal">Maps each value to an Observable, then flattens all of
- * these inner Observables using {@link mergeAll}.</span>
- *
- * <img src="./img/mergeMap.png" width="100%">
- *
- * Returns an Observable that emits items based on applying a function that you
- * supply to each item emitted by the source Observable, where that function
- * returns an Observable, and then merging those resulting Observables and
- * emitting the results of this merger.
- *
- * @example <caption>Map and flatten each letter to an Observable ticking every 1 second</caption>
- * var letters = Rx.Observable.of('a', 'b', 'c');
- * var result = letters.mergeMap(x =>
- *   Rx.Observable.interval(1000).map(i => x+i)
- * );
- * result.subscribe(x => console.log(x));
- *
- * // Results in the following:
- * // a0
- * // b0
- * // c0
- * // a1
- * // b1
- * // c1
- * // continues to list a,b,c with respective ascending integers
- *
- * @see {@link concatMap}
- * @see {@link exhaustMap}
- * @see {@link merge}
- * @see {@link mergeAll}
- * @see {@link mergeMapTo}
- * @see {@link mergeScan}
- * @see {@link switchMap}
- *
- * @param {function(value: T, ?index: number): ObservableInput} project A function
- * that, when applied to an item emitted by the source Observable, returns an
- * Observable.
- * @param {number} [concurrent=Number.POSITIVE_INFINITY] Maximum number of input
- * Observables being subscribed to concurrently.
- * @return {Observable} An Observable that emits the result of applying the
- * projection function (and the optional `resultSelector`) to each item emitted
- * by the source Observable and merging the results of the Observables obtained
- * from this transformation.
- * @method mergeMap
- * @owner Observable
- */
 function mergeMap(project, resultSelector, concurrent) {
     if (concurrent === void 0) {
         concurrent = Number.POSITIVE_INFINITY;
     }
     if (typeof resultSelector === 'function') {
-        // DEPRECATED PATH
         return function (source) { return source.pipe(mergeMap(function (a, i) { return Object(_observable_from__WEBPACK_IMPORTED_MODULE_4__["from"])(project(a, i)).pipe(Object(_map__WEBPACK_IMPORTED_MODULE_3__["map"])(function (b, ii) { return resultSelector(a, b, i, ii); })); }, concurrent)); };
     }
     else if (typeof resultSelector === 'number') {
@@ -58627,11 +62375,6 @@ var MergeMapOperator = /*@__PURE__*/ (function () {
     return MergeMapOperator;
 }());
 
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var MergeMapSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](MergeMapSubscriber, _super);
     function MergeMapSubscriber(destination, project, concurrent) {
@@ -58712,41 +62455,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _mergeMap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./mergeMap */ "./node_modules/rxjs/_esm5/internal/operators/mergeMap.js");
 /** PURE_IMPORTS_START _mergeMap PURE_IMPORTS_END */
 
-/* tslint:enable:max-line-length */
-/**
- * Projects each source value to the same Observable which is merged multiple
- * times in the output Observable.
- *
- * <span class="informal">It's like {@link mergeMap}, but maps each value always
- * to the same inner Observable.</span>
- *
- * <img src="./img/mergeMapTo.png" width="100%">
- *
- * Maps each source value to the given Observable `innerObservable` regardless
- * of the source value, and then merges those resulting Observables into one
- * single Observable, which is the output Observable.
- *
- * @example <caption>For each click event, start an interval Observable ticking every 1 second</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var result = clicks.mergeMapTo(Rx.Observable.interval(1000));
- * result.subscribe(x => console.log(x));
- *
- * @see {@link concatMapTo}
- * @see {@link merge}
- * @see {@link mergeAll}
- * @see {@link mergeMap}
- * @see {@link mergeScan}
- * @see {@link switchMapTo}
- *
- * @param {ObservableInput} innerObservable An Observable to replace each value from
- * the source Observable.
- * @param {number} [concurrent=Number.POSITIVE_INFINITY] Maximum number of input
- * Observables being subscribed to concurrently.
- * @return {Observable} An Observable that emits items from the given
- * `innerObservable`
- * @method mergeMapTo
- * @owner Observable
- */
 function mergeMapTo(innerObservable, resultSelector, concurrent) {
     if (concurrent === void 0) {
         concurrent = Number.POSITIVE_INFINITY;
@@ -58787,37 +62495,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * Applies an accumulator function over the source Observable where the
- * accumulator function itself returns an Observable, then each intermediate
- * Observable returned is merged into the output Observable.
- *
- * <span class="informal">It's like {@link scan}, but the Observables returned
- * by the accumulator are merged into the outer Observable.</span>
- *
- * @example <caption>Count the number of click events</caption>
- * const click$ = Rx.Observable.fromEvent(document, 'click');
- * const one$ = click$.mapTo(1);
- * const seed = 0;
- * const count$ = one$.mergeScan((acc, one) => Rx.Observable.of(acc + one), seed);
- * count$.subscribe(x => console.log(x));
- *
- * // Results:
- * 1
- * 2
- * 3
- * 4
- * // ...and so on for each click
- *
- * @param {function(acc: R, value: T): Observable<R>} accumulator
- * The accumulator function called on each source value.
- * @param seed The initial accumulation value.
- * @param {number} [concurrent=Number.POSITIVE_INFINITY] Maximum number of
- * input Observables being subscribed to concurrently.
- * @return {Observable<R>} An observable of the accumulated values.
- * @method mergeScan
- * @owner Observable
- */
 function mergeScan(accumulator, seed, concurrent) {
     if (concurrent === void 0) {
         concurrent = Number.POSITIVE_INFINITY;
@@ -58836,11 +62513,6 @@ var MergeScanOperator = /*@__PURE__*/ (function () {
     return MergeScanOperator;
 }());
 
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var MergeScanSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](MergeScanSubscriber, _super);
     function MergeScanSubscriber(destination, accumulator, acc, concurrent) {
@@ -58925,37 +62597,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _reduce__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./reduce */ "./node_modules/rxjs/_esm5/internal/operators/reduce.js");
 /** PURE_IMPORTS_START _reduce PURE_IMPORTS_END */
 
-/**
- * The Min operator operates on an Observable that emits numbers (or items that can be compared with a provided function),
- * and when source Observable completes it emits a single item: the item with the smallest value.
- *
- * <img src="./img/min.png" width="100%">
- *
- * @example <caption>Get the minimal value of a series of numbers</caption>
- * Rx.Observable.of(5, 4, 7, 2, 8)
- *   .min()
- *   .subscribe(x => console.log(x)); // -> 2
- *
- * @example <caption>Use a comparer function to get the minimal item</caption>
- * interface Person {
- *   age: number,
- *   name: string
- * }
- * Observable.of<Person>({age: 7, name: 'Foo'},
- *                       {age: 5, name: 'Bar'},
- *                       {age: 9, name: 'Beer'})
- *           .min<Person>( (a: Person, b: Person) => a.age < b.age ? -1 : 1)
- *           .subscribe((x: Person) => console.log(x.name)); // -> 'Bar'
- * }
- *
- * @see {@link max}
- *
- * @param {Function} [comparer] - Optional comparer function that it will use instead of its default to compare the
- * value of two items.
- * @return {Observable<R>} An Observable that emits item with the smallest value.
- * @method min
- * @owner Observable
- */
 function min(comparer) {
     var min = (typeof comparer === 'function')
         ? function (x, y) { return comparer(x, y) < 0 ? x : y; }
@@ -58981,26 +62622,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _observable_ConnectableObservable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../observable/ConnectableObservable */ "./node_modules/rxjs/_esm5/internal/observable/ConnectableObservable.js");
 /** PURE_IMPORTS_START _observable_ConnectableObservable PURE_IMPORTS_END */
 
-/* tslint:enable:max-line-length */
-/**
- * Returns an Observable that emits the results of invoking a specified selector on items
- * emitted by a ConnectableObservable that shares a single subscription to the underlying stream.
- *
- * <img src="./img/multicast.png" width="100%">
- *
- * @param {Function|Subject} subjectOrSubjectFactory - Factory function to create an intermediate subject through
- * which the source sequence's elements will be multicast to the selector function
- * or Subject to push source elements into.
- * @param {Function} [selector] - Optional selector function that can use the multicasted source stream
- * as many times as needed, without causing multiple subscriptions to the source stream.
- * Subscribers to the given source will receive all notifications of the source from the
- * time of the subscription forward.
- * @return {Observable} An Observable that emits the results of invoking the selector
- * on the items emitted by a `ConnectableObservable` that shares a single subscription to
- * the underlying stream.
- * @method multicast
- * @owner Observable
- */
 function multicast(subjectOrSubjectFactory, selector) {
     return function multicastOperatorFunction(source) {
         var subjectFactory;
@@ -59061,52 +62682,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- *
- * Re-emits all notifications from source Observable with specified scheduler.
- *
- * <span class="informal">Ensure a specific scheduler is used, from outside of an Observable.</span>
- *
- * `observeOn` is an operator that accepts a scheduler as a first parameter, which will be used to reschedule
- * notifications emitted by the source Observable. It might be useful, if you do not have control over
- * internal scheduler of a given Observable, but want to control when its values are emitted nevertheless.
- *
- * Returned Observable emits the same notifications (nexted values, complete and error events) as the source Observable,
- * but rescheduled with provided scheduler. Note that this doesn't mean that source Observables internal
- * scheduler will be replaced in any way. Original scheduler still will be used, but when the source Observable emits
- * notification, it will be immediately scheduled again - this time with scheduler passed to `observeOn`.
- * An anti-pattern would be calling `observeOn` on Observable that emits lots of values synchronously, to split
- * that emissions into asynchronous chunks. For this to happen, scheduler would have to be passed into the source
- * Observable directly (usually into the operator that creates it). `observeOn` simply delays notifications a
- * little bit more, to ensure that they are emitted at expected moments.
- *
- * As a matter of fact, `observeOn` accepts second parameter, which specifies in milliseconds with what delay notifications
- * will be emitted. The main difference between {@link delay} operator and `observeOn` is that `observeOn`
- * will delay all notifications - including error notifications - while `delay` will pass through error
- * from source Observable immediately when it is emitted. In general it is highly recommended to use `delay` operator
- * for any kind of delaying of values in the stream, while using `observeOn` to specify which scheduler should be used
- * for notification emissions in general.
- *
- * @example <caption>Ensure values in subscribe are called just before browser repaint.</caption>
- * const intervals = Rx.Observable.interval(10); // Intervals are scheduled
- *                                               // with async scheduler by default...
- *
- * intervals
- * .observeOn(Rx.Scheduler.animationFrame)       // ...but we will observe on animationFrame
- * .subscribe(val => {                           // scheduler to ensure smooth animation.
- *   someDiv.style.height = val + 'px';
- * });
- *
- * @see {@link delay}
- *
- * @param {SchedulerLike} scheduler Scheduler that will be used to reschedule notifications from source Observable.
- * @param {number} [delay] Number of milliseconds that states with what delay every notification should be rescheduled.
- * @return {Observable<T>} Observable that emits the same notifications as the source Observable,
- * but with provided scheduler.
- *
- * @method observeOn
- * @owner Observable
- */
 function observeOn(scheduler, delay) {
     if (delay === void 0) {
         delay = 0;
@@ -59129,11 +62704,6 @@ var ObserveOnOperator = /*@__PURE__*/ (function () {
     return ObserveOnOperator;
 }());
 
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var ObserveOnSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](ObserveOnSubscriber, _super);
     function ObserveOnSubscriber(destination, scheduler, delay) {
@@ -59145,7 +62715,6 @@ var ObserveOnSubscriber = /*@__PURE__*/ (function (_super) {
         _this.delay = delay;
         return _this;
     }
-    /** @nocollapse */
     ObserveOnSubscriber.dispatch = function (arg) {
         var notification = arg.notification, destination = arg.destination;
         notification.observe(destination);
@@ -59201,68 +62770,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/* tslint:enable:max-line-length */
-/**
- * When any of the provided Observable emits an complete or error notification, it immediately subscribes to the next one
- * that was passed.
- *
- * <span class="informal">Execute series of Observables no matter what, even if it means swallowing errors.</span>
- *
- * <img src="./img/onErrorResumeNext.png" width="100%">
- *
- * `onErrorResumeNext` is an operator that accepts a series of Observables, provided either directly as
- * arguments or as an array. If no single Observable is provided, returned Observable will simply behave the same
- * as the source.
- *
- * `onErrorResumeNext` returns an Observable that starts by subscribing and re-emitting values from the source Observable.
- * When its stream of values ends - no matter if Observable completed or emitted an error - `onErrorResumeNext`
- * will subscribe to the first Observable that was passed as an argument to the method. It will start re-emitting
- * its values as well and - again - when that stream ends, `onErrorResumeNext` will proceed to subscribing yet another
- * Observable in provided series, no matter if previous Observable completed or ended with an error. This will
- * be happening until there is no more Observables left in the series, at which point returned Observable will
- * complete - even if the last subscribed stream ended with an error.
- *
- * `onErrorResumeNext` can be therefore thought of as version of {@link concat} operator, which is more permissive
- * when it comes to the errors emitted by its input Observables. While `concat` subscribes to the next Observable
- * in series only if previous one successfully completed, `onErrorResumeNext` subscribes even if it ended with
- * an error.
- *
- * Note that you do not get any access to errors emitted by the Observables. In particular do not
- * expect these errors to appear in error callback passed to {@link subscribe}. If you want to take
- * specific actions based on what error was emitted by an Observable, you should try out {@link catch} instead.
- *
- *
- * @example <caption>Subscribe to the next Observable after map fails</caption>
- * Rx.Observable.of(1, 2, 3, 0)
- *   .map(x => {
- *       if (x === 0) { throw Error(); }
-         return 10 / x;
- *   })
- *   .onErrorResumeNext(Rx.Observable.of(1, 2, 3))
- *   .subscribe(
- *     val => console.log(val),
- *     err => console.log(err),          // Will never be called.
- *     () => console.log('that\'s it!')
- *   );
- *
- * // Logs:
- * // 10
- * // 5
- * // 3.3333333333333335
- * // 1
- * // 2
- * // 3
- * // "that's it!"
- *
- * @see {@link concat}
- * @see {@link catch}
- *
- * @param {...ObservableInput} observables Observables passed either directly or as an array.
- * @return {Observable} An Observable that emits values from source Observable, but - if it errors - subscribes
- * to the next passed Observable and so on, until it completes or runs out of Observables.
- * @method onErrorResumeNext
- * @owner Observable
- */
 function onErrorResumeNext() {
     var nextSources = [];
     for (var _i = 0; _i < arguments.length; _i++) {
@@ -59273,7 +62780,6 @@ function onErrorResumeNext() {
     }
     return function (source) { return source.lift(new OnErrorResumeNextOperator(nextSources)); };
 }
-/* tslint:enable:max-line-length */
 function onErrorResumeNextStatic() {
     var nextSources = [];
     for (var _i = 0; _i < arguments.length; _i++) {
@@ -59346,41 +62852,6 @@ __webpack_require__.r(__webpack_exports__);
 /** PURE_IMPORTS_START tslib,_Subscriber PURE_IMPORTS_END */
 
 
-/**
- * Groups pairs of consecutive emissions together and emits them as an array of
- * two values.
- *
- * <span class="informal">Puts the current value and previous value together as
- * an array, and emits that.</span>
- *
- * <img src="./img/pairwise.png" width="100%">
- *
- * The Nth emission from the source Observable will cause the output Observable
- * to emit an array [(N-1)th, Nth] of the previous and the current value, as a
- * pair. For this reason, `pairwise` emits on the second and subsequent
- * emissions from the source Observable, but not on the first emission, because
- * there is no previous value in that case.
- *
- * @example <caption>On every click (starting from the second), emit the relative distance to the previous click</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var pairs = clicks.pairwise();
- * var distance = pairs.map(pair => {
- *   var x0 = pair[0].clientX;
- *   var y0 = pair[0].clientY;
- *   var x1 = pair[1].clientX;
- *   var y1 = pair[1].clientY;
- *   return Math.sqrt(Math.pow(x0 - x1, 2) + Math.pow(y0 - y1, 2));
- * });
- * distance.subscribe(x => console.log(x));
- *
- * @see {@link buffer}
- * @see {@link bufferCount}
- *
- * @return {Observable<Array<T>>} An Observable of pairs (as arrays) of
- * consecutive values from the source Observable.
- * @method pairwise
- * @owner Observable
- */
 function pairwise() {
     return function (source) { return source.lift(new PairwiseOperator()); };
 }
@@ -59392,11 +62863,6 @@ var PairwiseOperator = /*@__PURE__*/ (function () {
     };
     return PairwiseOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var PairwiseSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](PairwiseSubscriber, _super);
     function PairwiseSubscriber(destination) {
@@ -59435,47 +62901,6 @@ __webpack_require__.r(__webpack_exports__);
 /** PURE_IMPORTS_START _util_not,_filter PURE_IMPORTS_END */
 
 
-/**
- * Splits the source Observable into two, one with values that satisfy a
- * predicate, and another with values that don't satisfy the predicate.
- *
- * <span class="informal">It's like {@link filter}, but returns two Observables:
- * one like the output of {@link filter}, and the other with values that did not
- * pass the condition.</span>
- *
- * <img src="./img/partition.png" width="100%">
- *
- * `partition` outputs an array with two Observables that partition the values
- * from the source Observable through the given `predicate` function. The first
- * Observable in that array emits source values for which the predicate argument
- * returns true. The second Observable emits source values for which the
- * predicate returns false. The first behaves like {@link filter} and the second
- * behaves like {@link filter} with the predicate negated.
- *
- * @example <caption>Partition click events into those on DIV elements and those elsewhere</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var parts = clicks.partition(ev => ev.target.tagName === 'DIV');
- * var clicksOnDivs = parts[0];
- * var clicksElsewhere = parts[1];
- * clicksOnDivs.subscribe(x => console.log('DIV clicked: ', x));
- * clicksElsewhere.subscribe(x => console.log('Other clicked: ', x));
- *
- * @see {@link filter}
- *
- * @param {function(value: T, index: number): boolean} predicate A function that
- * evaluates each value emitted by the source Observable. If it returns `true`,
- * the value is emitted on the first Observable in the returned array, if
- * `false` the value is emitted on the second Observable in the array. The
- * `index` parameter is the number `i` for the i-th source emission that has
- * happened since the subscription, starting from the number `0`.
- * @param {any} [thisArg] An optional argument to determine the value of `this`
- * in the `predicate` function.
- * @return {[Observable<T>, Observable<T>]} An array with two Observables: one
- * with values that passed the predicate, and another with values that did not
- * pass the predicate.
- * @method partition
- * @owner Observable
- */
 function partition(predicate, thisArg) {
     return function (source) {
         return [
@@ -59502,32 +62927,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _map__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./map */ "./node_modules/rxjs/_esm5/internal/operators/map.js");
 /** PURE_IMPORTS_START _map PURE_IMPORTS_END */
 
-/**
- * Maps each source value (an object) to its specified nested property.
- *
- * <span class="informal">Like {@link map}, but meant only for picking one of
- * the nested properties of every emitted object.</span>
- *
- * <img src="./img/pluck.png" width="100%">
- *
- * Given a list of strings describing a path to an object property, retrieves
- * the value of a specified nested property from all values in the source
- * Observable. If a property can't be resolved, it will return `undefined` for
- * that value.
- *
- * @example <caption>Map every click to the tagName of the clicked target element</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var tagNames = clicks.pluck('target', 'tagName');
- * tagNames.subscribe(x => console.log(x));
- *
- * @see {@link map}
- *
- * @param {...string} properties The nested properties to pluck from each source
- * value (an object).
- * @return {Observable} A new Observable of property values from the source values.
- * @method pluck
- * @owner Observable
- */
 function pluck() {
     var properties = [];
     for (var _i = 0; _i < arguments.length; _i++) {
@@ -59575,20 +62974,6 @@ __webpack_require__.r(__webpack_exports__);
 /** PURE_IMPORTS_START _Subject,_multicast PURE_IMPORTS_END */
 
 
-/* tslint:enable:max-line-length */
-/**
- * Returns a ConnectableObservable, which is a variety of Observable that waits until its connect method is called
- * before it begins emitting items to those Observers that have subscribed to it.
- *
- * <img src="./img/publish.png" width="100%">
- *
- * @param {Function} [selector] - Optional selector function which can use the multicasted source sequence as many times
- * as needed, without causing multiple subscriptions to the source sequence.
- * Subscribers to the given source will receive all notifications of the source from the time of the subscription on.
- * @return A ConnectableObservable that upon connection causes the source Observable to emit items to its Observers.
- * @method publish
- * @owner Observable
- */
 function publish(selector) {
     return selector ?
         Object(_multicast__WEBPACK_IMPORTED_MODULE_1__["multicast"])(function () { return new _Subject__WEBPACK_IMPORTED_MODULE_0__["Subject"](); }, selector) :
@@ -59614,12 +62999,6 @@ __webpack_require__.r(__webpack_exports__);
 /** PURE_IMPORTS_START _BehaviorSubject,_multicast PURE_IMPORTS_END */
 
 
-/**
- * @param value
- * @return {ConnectableObservable<T>}
- * @method publishBehavior
- * @owner Observable
- */
 function publishBehavior(value) {
     return function (source) { return Object(_multicast__WEBPACK_IMPORTED_MODULE_1__["multicast"])(new _BehaviorSubject__WEBPACK_IMPORTED_MODULE_0__["BehaviorSubject"](value))(source); };
 }
@@ -59666,7 +63045,6 @@ __webpack_require__.r(__webpack_exports__);
 /** PURE_IMPORTS_START _ReplaySubject,_multicast PURE_IMPORTS_END */
 
 
-/* tslint:enable:max-line-length */
 function publishReplay(bufferSize, windowTime, selectorOrScheduler, scheduler) {
     if (selectorOrScheduler && typeof selectorOrScheduler !== 'function') {
         scheduler = selectorOrScheduler;
@@ -59695,24 +63073,12 @@ __webpack_require__.r(__webpack_exports__);
 /** PURE_IMPORTS_START _util_isArray,_observable_race PURE_IMPORTS_END */
 
 
-/* tslint:enable:max-line-length */
-/**
- * Returns an Observable that mirrors the first source Observable to emit an item
- * from the combination of this Observable and supplied Observables.
- * @param {...Observables} ...observables Sources used to race for which Observable emits first.
- * @return {Observable} An Observable that mirrors the output of the first Observable to emit an item.
- * @method race
- * @owner Observable
- * @deprecated Deprecated in favor of static race.
- */
 function race() {
     var observables = [];
     for (var _i = 0; _i < arguments.length; _i++) {
         observables[_i] = arguments[_i];
     }
     return function raceOperatorFunction(source) {
-        // if the only argument is an array, it was most likely called with
-        // `pair([obs1, obs2, ...])`
         if (observables.length === 1 && Object(_util_isArray__WEBPACK_IMPORTED_MODULE_0__["isArray"])(observables[0])) {
             observables = observables[0];
         }
@@ -59743,57 +63109,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/* tslint:enable:max-line-length */
-/**
- * Applies an accumulator function over the source Observable, and returns the
- * accumulated result when the source completes, given an optional seed value.
- *
- * <span class="informal">Combines together all values emitted on the source,
- * using an accumulator function that knows how to join a new source value into
- * the accumulation from the past.</span>
- *
- * <img src="./img/reduce.png" width="100%">
- *
- * Like
- * [Array.prototype.reduce()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce),
- * `reduce` applies an `accumulator` function against an accumulation and each
- * value of the source Observable (from the past) to reduce it to a single
- * value, emitted on the output Observable. Note that `reduce` will only emit
- * one value, only when the source Observable completes. It is equivalent to
- * applying operator {@link scan} followed by operator {@link last}.
- *
- * Returns an Observable that applies a specified `accumulator` function to each
- * item emitted by the source Observable. If a `seed` value is specified, then
- * that value will be used as the initial value for the accumulator. If no seed
- * value is specified, the first item of the source is used as the seed.
- *
- * @example <caption>Count the number of click events that happened in 5 seconds</caption>
- * var clicksInFiveSeconds = Rx.Observable.fromEvent(document, 'click')
- *   .takeUntil(Rx.Observable.interval(5000));
- * var ones = clicksInFiveSeconds.mapTo(1);
- * var seed = 0;
- * var count = ones.reduce((acc, one) => acc + one, seed);
- * count.subscribe(x => console.log(x));
- *
- * @see {@link count}
- * @see {@link expand}
- * @see {@link mergeScan}
- * @see {@link scan}
- *
- * @param {function(acc: R, value: T, index: number): R} accumulator The accumulator function
- * called on each source value.
- * @param {R} [seed] The initial accumulation value.
- * @return {Observable<R>} An Observable that emits a single value that is the
- * result of accumulating the values emitted by the source Observable.
- * @method reduce
- * @owner Observable
- */
 function reduce(accumulator, seed) {
-    // providing a seed of `undefined` *should* be valid and trigger
-    // hasSeed! so don't use `seed !== undefined` checks!
-    // For this reason, we have to check it here at the original call site
-    // otherwise inside Operator/Subscriber we won't know if `undefined`
-    // means they didn't provide anything or if they literally provided `undefined`
     if (arguments.length >= 2) {
         return function reduceOperatorFunctionWithSeed(source) {
             return Object(_util_pipe__WEBPACK_IMPORTED_MODULE_3__["pipe"])(Object(_scan__WEBPACK_IMPORTED_MODULE_0__["scan"])(accumulator, seed), Object(_takeLast__WEBPACK_IMPORTED_MODULE_1__["takeLast"])(1), Object(_defaultIfEmpty__WEBPACK_IMPORTED_MODULE_2__["defaultIfEmpty"])(seed))(source);
@@ -59870,29 +63186,6 @@ var RefCountSubscriber = /*@__PURE__*/ (function (_super) {
             this.connection = null;
             return;
         }
-        ///
-        // Compare the local RefCountSubscriber's connection Subscription to the
-        // connection Subscription on the shared ConnectableObservable. In cases
-        // where the ConnectableObservable source synchronously emits values, and
-        // the RefCountSubscriber's downstream Observers synchronously unsubscribe,
-        // execution continues to here before the RefCountOperator has a chance to
-        // supply the RefCountSubscriber with the shared connection Subscription.
-        // For example:
-        // ```
-        // Observable.range(0, 10)
-        //   .publish()
-        //   .refCount()
-        //   .take(5)
-        //   .subscribe();
-        // ```
-        // In order to account for this case, RefCountSubscriber should only dispose
-        // the ConnectableObservable's shared connection Subscription if the
-        // connection Subscription exists, *and* either:
-        //   a. RefCountSubscriber doesn't have a reference to the shared connection
-        //      Subscription yet, or,
-        //   b. RefCountSubscriber's connection Subscription reference is identical
-        //      to the shared connection Subscription
-        ///
         var connection = this.connection;
         var sharedConnection = connectable._connection;
         this.connection = null;
@@ -59924,18 +63217,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * Returns an Observable that repeats the stream of items emitted by the source Observable at most count times.
- *
- * <img src="./img/repeat.png" width="100%">
- *
- * @param {number} [count] The number of times the source Observable items are repeated, a count of 0 will yield
- * an empty Observable.
- * @return {Observable} An Observable that repeats the stream of items emitted by the source Observable at most
- * count times.
- * @method repeat
- * @owner Observable
- */
 function repeat(count) {
     if (count === void 0) {
         count = -1;
@@ -59962,11 +63243,6 @@ var RepeatOperator = /*@__PURE__*/ (function () {
     };
     return RepeatOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var RepeatSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](RepeatSubscriber, _super);
     function RepeatSubscriber(destination, count, source) {
@@ -60017,20 +63293,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * Returns an Observable that mirrors the source Observable with the exception of a `complete`. If the source
- * Observable calls `complete`, this method will emit to the Observable returned from `notifier`. If that Observable
- * calls `complete` or `error`, then this method will call `complete` or `error` on the child subscription. Otherwise
- * this method will resubscribe to the source Observable.
- *
- * <img src="./img/repeatWhen.png" width="100%">
- *
- * @param {function(notifications: Observable): Observable} notifier - Receives an Observable of notifications with
- * which a user can `complete` or `error`, aborting the repetition.
- * @return {Observable} The source Observable modified with repeat logic.
- * @method repeatWhen
- * @owner Observable
- */
 function repeatWhen(notifier) {
     return function (source) { return source.lift(new RepeatWhenOperator(notifier)); };
 }
@@ -60043,11 +63305,6 @@ var RepeatWhenOperator = /*@__PURE__*/ (function () {
     };
     return RepeatWhenOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var RepeatWhenSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](RepeatWhenSubscriber, _super);
     function RepeatWhenSubscriber(destination, notifier, source) {
@@ -60079,7 +63336,6 @@ var RepeatWhenSubscriber = /*@__PURE__*/ (function (_super) {
             this.notifications.next();
         }
     };
-    /** @deprecated This is an internal implementation detail, do not use. */
     RepeatWhenSubscriber.prototype._unsubscribe = function () {
         var _a = this, notifications = _a.notifications, retriesSubscription = _a.retriesSubscription;
         if (notifications) {
@@ -60092,7 +63348,6 @@ var RepeatWhenSubscriber = /*@__PURE__*/ (function (_super) {
         }
         this.retries = null;
     };
-    /** @deprecated This is an internal implementation detail, do not use. */
     RepeatWhenSubscriber.prototype._unsubscribeAndRecycle = function () {
         var _unsubscribe = this._unsubscribe;
         this._unsubscribe = null;
@@ -60131,22 +63386,6 @@ __webpack_require__.r(__webpack_exports__);
 /** PURE_IMPORTS_START tslib,_Subscriber PURE_IMPORTS_END */
 
 
-/**
- * Returns an Observable that mirrors the source Observable with the exception of an `error`. If the source Observable
- * calls `error`, this method will resubscribe to the source Observable for a maximum of `count` resubscriptions (given
- * as a number parameter) rather than propagating the `error` call.
- *
- * <img src="./img/retry.png" width="100%">
- *
- * Any and all items emitted by the source Observable will be emitted by the resulting Observable, even those emitted
- * during failed subscriptions. For example, if an Observable fails at first but emits [1, 2] then succeeds the second
- * time and emits: [1, 2, 3, 4, 5] then the complete stream of emissions and notifications
- * would be: [1, 2, 1, 2, 3, 4, 5, `complete`].
- * @param {number} count - Number of retry attempts before failing.
- * @return {Observable} The source Observable modified with the retry logic.
- * @method retry
- * @owner Observable
- */
 function retry(count) {
     if (count === void 0) {
         count = -1;
@@ -60163,11 +63402,6 @@ var RetryOperator = /*@__PURE__*/ (function () {
     };
     return RetryOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var RetrySubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](RetrySubscriber, _super);
     function RetrySubscriber(destination, count, source) {
@@ -60218,20 +63452,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * Returns an Observable that mirrors the source Observable with the exception of an `error`. If the source Observable
- * calls `error`, this method will emit the Throwable that caused the error to the Observable returned from `notifier`.
- * If that Observable calls `complete` or `error` then this method will call `complete` or `error` on the child
- * subscription. Otherwise this method will resubscribe to the source Observable.
- *
- * <img src="./img/retryWhen.png" width="100%">
- *
- * @param {function(errors: Observable): Observable} notifier - Receives an Observable of notifications with which a
- * user can `complete` or `error`, aborting the retry.
- * @return {Observable} The source Observable modified with retry logic.
- * @method retryWhen
- * @owner Observable
- */
 function retryWhen(notifier) {
     return function (source) { return source.lift(new RetryWhenOperator(notifier, source)); };
 }
@@ -60245,11 +63465,6 @@ var RetryWhenOperator = /*@__PURE__*/ (function () {
     };
     return RetryWhenOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var RetryWhenSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](RetryWhenSubscriber, _super);
     function RetryWhenSubscriber(destination, notifier, source) {
@@ -60282,7 +63497,6 @@ var RetryWhenSubscriber = /*@__PURE__*/ (function (_super) {
             errors.next(err);
         }
     };
-    /** @deprecated This is an internal implementation detail, do not use. */
     RetryWhenSubscriber.prototype._unsubscribe = function () {
         var _a = this, errors = _a.errors, retriesSubscription = _a.retriesSubscription;
         if (errors) {
@@ -60326,40 +63540,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * Emits the most recently emitted value from the source Observable whenever
- * another Observable, the `notifier`, emits.
- *
- * <span class="informal">It's like {@link sampleTime}, but samples whenever
- * the `notifier` Observable emits something.</span>
- *
- * <img src="./img/sample.png" width="100%">
- *
- * Whenever the `notifier` Observable emits a value or completes, `sample`
- * looks at the source Observable and emits whichever value it has most recently
- * emitted since the previous sampling, unless the source has not emitted
- * anything since the previous sampling. The `notifier` is subscribed to as soon
- * as the output Observable is subscribed.
- *
- * @example <caption>On every click, sample the most recent "seconds" timer</caption>
- * var seconds = Rx.Observable.interval(1000);
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var result = seconds.sample(clicks);
- * result.subscribe(x => console.log(x));
- *
- * @see {@link audit}
- * @see {@link debounce}
- * @see {@link sampleTime}
- * @see {@link throttle}
- *
- * @param {Observable<any>} notifier The Observable to use for sampling the
- * source Observable.
- * @return {Observable<T>} An Observable that emits the results of sampling the
- * values emitted by the source Observable whenever the notifier Observable
- * emits value or completes.
- * @method sample
- * @owner Observable
- */
 function sample(notifier) {
     return function (source) { return source.lift(new SampleOperator(notifier)); };
 }
@@ -60375,11 +63555,6 @@ var SampleOperator = /*@__PURE__*/ (function () {
     };
     return SampleOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var SampleSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](SampleSubscriber, _super);
     function SampleSubscriber() {
@@ -60427,42 +63602,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * Emits the most recently emitted value from the source Observable within
- * periodic time intervals.
- *
- * <span class="informal">Samples the source Observable at periodic time
- * intervals, emitting what it samples.</span>
- *
- * <img src="./img/sampleTime.png" width="100%">
- *
- * `sampleTime` periodically looks at the source Observable and emits whichever
- * value it has most recently emitted since the previous sampling, unless the
- * source has not emitted anything since the previous sampling. The sampling
- * happens periodically in time every `period` milliseconds (or the time unit
- * defined by the optional `scheduler` argument). The sampling starts as soon as
- * the output Observable is subscribed.
- *
- * @example <caption>Every second, emit the most recent click at most once</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var result = clicks.sampleTime(1000);
- * result.subscribe(x => console.log(x));
- *
- * @see {@link auditTime}
- * @see {@link debounceTime}
- * @see {@link delay}
- * @see {@link sample}
- * @see {@link throttleTime}
- *
- * @param {number} period The sampling period expressed in milliseconds or the
- * time unit determined internally by the optional `scheduler`.
- * @param {Scheduler} [scheduler=async] The {@link IScheduler} to use for
- * managing the timers that handle the sampling.
- * @return {Observable<T>} An Observable that emits the results of sampling the
- * values emitted by the source Observable at the specified time interval.
- * @method sampleTime
- * @owner Observable
- */
 function sampleTime(period, scheduler) {
     if (scheduler === void 0) {
         scheduler = _scheduler_async__WEBPACK_IMPORTED_MODULE_2__["async"];
@@ -60479,11 +63618,6 @@ var SampleTimeOperator = /*@__PURE__*/ (function () {
     };
     return SampleTimeOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var SampleTimeSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](SampleTimeSubscriber, _super);
     function SampleTimeSubscriber(destination, period, scheduler) {
@@ -60531,51 +63665,8 @@ __webpack_require__.r(__webpack_exports__);
 /** PURE_IMPORTS_START tslib,_Subscriber PURE_IMPORTS_END */
 
 
-/* tslint:enable:max-line-length */
-/**
- * Applies an accumulator function over the source Observable, and returns each
- * intermediate result, with an optional seed value.
- *
- * <span class="informal">It's like {@link reduce}, but emits the current
- * accumulation whenever the source emits a value.</span>
- *
- * <img src="./img/scan.png" width="100%">
- *
- * Combines together all values emitted on the source, using an accumulator
- * function that knows how to join a new source value into the accumulation from
- * the past. Is similar to {@link reduce}, but emits the intermediate
- * accumulations.
- *
- * Returns an Observable that applies a specified `accumulator` function to each
- * item emitted by the source Observable. If a `seed` value is specified, then
- * that value will be used as the initial value for the accumulator. If no seed
- * value is specified, the first item of the source is used as the seed.
- *
- * @example <caption>Count the number of click events</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var ones = clicks.mapTo(1);
- * var seed = 0;
- * var count = ones.scan((acc, one) => acc + one, seed);
- * count.subscribe(x => console.log(x));
- *
- * @see {@link expand}
- * @see {@link mergeScan}
- * @see {@link reduce}
- *
- * @param {function(acc: R, value: T, index: number): R} accumulator
- * The accumulator function called on each source value.
- * @param {T|R} [seed] The initial accumulation value.
- * @return {Observable<R>} An observable of the accumulated values.
- * @method scan
- * @owner Observable
- */
 function scan(accumulator, seed) {
     var hasSeed = false;
-    // providing a seed of `undefined` *should* be valid and trigger
-    // hasSeed! so don't use `seed !== undefined` checks!
-    // For this reason, we have to check it here at the original call site
-    // otherwise inside Operator/Subscriber we won't know if `undefined`
-    // means they didn't provide anything or if they literally provided `undefined`
     if (arguments.length >= 2) {
         hasSeed = true;
     }
@@ -60597,11 +63688,6 @@ var ScanOperator = /*@__PURE__*/ (function () {
     };
     return ScanOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var ScanSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](ScanSubscriber, _super);
     function ScanSubscriber(destination, accumulator, _seed, hasSeed) {
@@ -60672,58 +63758,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * Compares all values of two observables in sequence using an optional comparor function
- * and returns an observable of a single boolean value representing whether or not the two sequences
- * are equal.
- *
- * <span class="informal">Checks to see of all values emitted by both observables are equal, in order.</span>
- *
- * <img src="./img/sequenceEqual.png" width="100%">
- *
- * `sequenceEqual` subscribes to two observables and buffers incoming values from each observable. Whenever either
- * observable emits a value, the value is buffered and the buffers are shifted and compared from the bottom
- * up; If any value pair doesn't match, the returned observable will emit `false` and complete. If one of the
- * observables completes, the operator will wait for the other observable to complete; If the other
- * observable emits before completing, the returned observable will emit `false` and complete. If one observable never
- * completes or emits after the other complets, the returned observable will never complete.
- *
- * @example <caption>figure out if the Konami code matches</caption>
- * var code = Rx.Observable.from([
- *  "ArrowUp",
- *  "ArrowUp",
- *  "ArrowDown",
- *  "ArrowDown",
- *  "ArrowLeft",
- *  "ArrowRight",
- *  "ArrowLeft",
- *  "ArrowRight",
- *  "KeyB",
- *  "KeyA",
- *  "Enter" // no start key, clearly.
- * ]);
- *
- * var keys = Rx.Observable.fromEvent(document, 'keyup')
- *  .map(e => e.code);
- * var matches = keys.bufferCount(11, 1)
- *  .mergeMap(
- *    last11 =>
- *      Rx.Observable.from(last11)
- *        .sequenceEqual(code)
- *   );
- * matches.subscribe(matched => console.log('Successful cheat at Contra? ', matched));
- *
- * @see {@link combineLatest}
- * @see {@link zip}
- * @see {@link withLatestFrom}
- *
- * @param {Observable} compareTo The observable sequence to compare the source sequence to.
- * @param {function} [comparor] An optional function to compare each value pair
- * @return {Observable} An Observable of a single boolean value representing whether or not
- * the values emitted by both observables were equal in sequence.
- * @method sequenceEqual
- * @owner Observable
- */
 function sequenceEqual(compareTo, comparor) {
     return function (source) { return source.lift(new SequenceEqualOperator(compareTo, comparor)); };
 }
@@ -60738,11 +63772,6 @@ var SequenceEqualOperator = /*@__PURE__*/ (function () {
     return SequenceEqualOperator;
 }());
 
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var SequenceEqualSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](SequenceEqualSubscriber, _super);
     function SequenceEqualSubscriber(destination, compareTo, comparor) {
@@ -60852,18 +63881,6 @@ __webpack_require__.r(__webpack_exports__);
 function shareSubjectFactory() {
     return new _Subject__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
 }
-/**
- * Returns a new Observable that multicasts (shares) the original Observable. As long as there is at least one
- * Subscriber this Observable will be subscribed and emitting data. When all subscribers have unsubscribed it will
- * unsubscribe from the source Observable. Because the Observable is multicasting it makes the stream `hot`.
- * This is an alias for .multicast(() => new Subject()).refCount().
- *
- * <img src="./img/share.png" width="100%">
- *
- * @return {Observable<T>} An Observable that upon connection causes the source Observable to emit items to its Observers.
- * @method share
- * @owner Observable
- */
 function share() {
     return function (source) { return Object(_refCount__WEBPACK_IMPORTED_MODULE_1__["refCount"])()(Object(_multicast__WEBPACK_IMPORTED_MODULE_0__["multicast"])(shareSubjectFactory)(source)); };
 }
@@ -60885,10 +63902,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ReplaySubject__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ReplaySubject */ "./node_modules/rxjs/_esm5/internal/ReplaySubject.js");
 /** PURE_IMPORTS_START _ReplaySubject PURE_IMPORTS_END */
 
-/**
- * @method shareReplay
- * @owner Observable
- */
 function shareReplay(bufferSize, windowTime, scheduler) {
     return function (source) { return source.lift(shareReplayOperator(bufferSize, windowTime, scheduler)); };
 }
@@ -60947,23 +63960,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * Returns an Observable that emits the single item emitted by the source Observable that matches a specified
- * predicate, if that Observable emits one such item. If the source Observable emits more than one such item or no
- * items, notify of an IllegalArgumentException or NoSuchElementException respectively. If the source Observable
- * emits items but none match the specified predicate then `undefined` is emiited.
- *
- * <img src="./img/single.png" width="100%">
- *
- * @throws {EmptyError} Delivers an EmptyError to the Observer's `error`
- * callback if the Observable completes before any `next` notification was sent.
- * @param {Function} predicate - A predicate function to evaluate items emitted by the source Observable.
- * @return {Observable<T>} An Observable that emits the single item emitted by the source Observable that matches
- * the predicate or `undefined` when no items match.
- *
- * @method single
- * @owner Observable
- */
 function single(predicate) {
     return function (source) { return source.lift(new SingleOperator(predicate, source)); };
 }
@@ -60977,11 +63973,6 @@ var SingleOperator = /*@__PURE__*/ (function () {
     };
     return SingleOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var SingleSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](SingleSubscriber, _super);
     function SingleSubscriber(destination, predicate, source) {
@@ -61052,17 +64043,6 @@ __webpack_require__.r(__webpack_exports__);
 /** PURE_IMPORTS_START tslib,_Subscriber PURE_IMPORTS_END */
 
 
-/**
- * Returns an Observable that skips the first `count` items emitted by the source Observable.
- *
- * <img src="./img/skip.png" width="100%">
- *
- * @param {Number} count - The number of times, items emitted by source Observable should be skipped.
- * @return {Observable} An Observable that skips values emitted by the source Observable.
- *
- * @method skip
- * @owner Observable
- */
 function skip(count) {
     return function (source) { return source.lift(new SkipOperator(count)); };
 }
@@ -61075,11 +64055,6 @@ var SkipOperator = /*@__PURE__*/ (function () {
     };
     return SkipOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var SkipSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](SkipSubscriber, _super);
     function SkipSubscriber(destination, total) {
@@ -61117,38 +64092,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * Skip the last `count` values emitted by the source Observable.
- *
- * <img src="./img/skipLast.png" width="100%">
- *
- * `skipLast` returns an Observable that accumulates a queue with a length
- * enough to store the first `count` values. As more values are received,
- * values are taken from the front of the queue and produced on the result
- * sequence. This causes values to be delayed.
- *
- * @example <caption>Skip the last 2 values of an Observable with many values</caption>
- * var many = Rx.Observable.range(1, 5);
- * var skipLastTwo = many.skipLast(2);
- * skipLastTwo.subscribe(x => console.log(x));
- *
- * // Results in:
- * // 1 2 3
- *
- * @see {@link skip}
- * @see {@link skipUntil}
- * @see {@link skipWhile}
- * @see {@link take}
- *
- * @throws {ArgumentOutOfRangeError} When using `skipLast(i)`, it throws
- * ArgumentOutOrRangeError if `i < 0`.
- *
- * @param {number} count Number of elements to skip from the end of the source Observable.
- * @returns {Observable<T>} An Observable that skips the last count values
- * emitted by the source Observable.
- * @method skipLast
- * @owner Observable
- */
 function skipLast(count) {
     return function (source) { return source.lift(new SkipLastOperator(count)); };
 }
@@ -61161,8 +64104,6 @@ var SkipLastOperator = /*@__PURE__*/ (function () {
     }
     SkipLastOperator.prototype.call = function (subscriber, source) {
         if (this._skipCount === 0) {
-            // If we don't want to skip any values then just subscribe
-            // to Subscriber without any further logic.
             return source.subscribe(new _Subscriber__WEBPACK_IMPORTED_MODULE_1__["Subscriber"](subscriber));
         }
         else {
@@ -61171,11 +64112,6 @@ var SkipLastOperator = /*@__PURE__*/ (function () {
     };
     return SkipLastOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var SkipLastSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](SkipLastSubscriber, _super);
     function SkipLastSubscriber(destination, _skipCount) {
@@ -61223,18 +64159,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * Returns an Observable that skips items emitted by the source Observable until a second Observable emits an item.
- *
- * <img src="./img/skipUntil.png" width="100%">
- *
- * @param {Observable} notifier - The second Observable that has to emit an item before the source Observable's elements begin to
- * be mirrored by the resulting Observable.
- * @return {Observable<T>} An Observable that skips items from the source Observable until the second Observable emits
- * an item, then emits the remaining items.
- * @method skipUntil
- * @owner Observable
- */
 function skipUntil(notifier) {
     return function (source) { return source.lift(new SkipUntilOperator(notifier)); };
 }
@@ -61247,11 +64171,6 @@ var SkipUntilOperator = /*@__PURE__*/ (function () {
     };
     return SkipUntilOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var SkipUntilSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](SkipUntilSubscriber, _super);
     function SkipUntilSubscriber(destination, notifier) {
@@ -61272,7 +64191,6 @@ var SkipUntilSubscriber = /*@__PURE__*/ (function (_super) {
         }
     };
     SkipUntilSubscriber.prototype.notifyComplete = function () {
-        /* do nothing */
     };
     return SkipUntilSubscriber;
 }(_OuterSubscriber__WEBPACK_IMPORTED_MODULE_1__["OuterSubscriber"]));
@@ -61296,18 +64214,6 @@ __webpack_require__.r(__webpack_exports__);
 /** PURE_IMPORTS_START tslib,_Subscriber PURE_IMPORTS_END */
 
 
-/**
- * Returns an Observable that skips all items emitted by the source Observable as long as a specified condition holds
- * true, but emits all further source items as soon as the condition becomes false.
- *
- * <img src="./img/skipWhile.png" width="100%">
- *
- * @param {Function} predicate - A function to test each item emitted from the source Observable.
- * @return {Observable<T>} An Observable that begins emitting items emitted by the source Observable when the
- * specified predicate becomes false.
- * @method skipWhile
- * @owner Observable
- */
 function skipWhile(predicate) {
     return function (source) { return source.lift(new SkipWhileOperator(predicate)); };
 }
@@ -61320,11 +64226,6 @@ var SkipWhileOperator = /*@__PURE__*/ (function () {
     };
     return SkipWhileOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var SkipWhileSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](SkipWhileSubscriber, _super);
     function SkipWhileSubscriber(destination, predicate) {
@@ -61380,21 +64281,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/* tslint:enable:max-line-length */
-/**
- * Returns an Observable that emits the items you specify as arguments before it begins to emit
- * items emitted by the source Observable.
- *
- * <img src="./img/startWith.png" width="100%">
- *
- * @param {...T} values - Items you want the modified Observable to emit first.
- * @param {Scheduler} [scheduler] - A {@link IScheduler} to use for scheduling
- * the emissions of the `next` notifications.
- * @return {Observable} An Observable that emits the items in the specified Iterable and then emits the items
- * emitted by the source Observable.
- * @method startWith
- * @owner Observable
- */
 function startWith() {
     var array = [];
     for (var _i = 0; _i < arguments.length; _i++) {
@@ -61438,17 +64324,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _observable_SubscribeOnObservable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../observable/SubscribeOnObservable */ "./node_modules/rxjs/_esm5/internal/observable/SubscribeOnObservable.js");
 /** PURE_IMPORTS_START _observable_SubscribeOnObservable PURE_IMPORTS_END */
 
-/**
- * Asynchronously subscribes Observers to this Observable on the specified IScheduler.
- *
- * <img src="./img/subscribeOn.png" width="100%">
- *
- * @param {Scheduler} scheduler - The IScheduler to perform subscription actions on.
- * @return {Observable<T>} The source Observable modified so that its subscriptions happen on the specified IScheduler.
- .
- * @method subscribeOn
- * @owner Observable
- */
 function subscribeOn(scheduler, delay) {
     if (delay === void 0) {
         delay = 0;
@@ -61516,46 +64391,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/* tslint:enable:max-line-length */
-/**
- * Projects each source value to an Observable which is merged in the output
- * Observable, emitting values only from the most recently projected Observable.
- *
- * <span class="informal">Maps each value to an Observable, then flattens all of
- * these inner Observables using {@link switch}.</span>
- *
- * <img src="./img/switchMap.png" width="100%">
- *
- * Returns an Observable that emits items based on applying a function that you
- * supply to each item emitted by the source Observable, where that function
- * returns an (so-called "inner") Observable. Each time it observes one of these
- * inner Observables, the output Observable begins emitting the items emitted by
- * that inner Observable. When a new inner Observable is emitted, `switchMap`
- * stops emitting items from the earlier-emitted inner Observable and begins
- * emitting items from the new one. It continues to behave like this for
- * subsequent inner Observables.
- *
- * @example <caption>Rerun an interval Observable on every click event</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var result = clicks.switchMap((ev) => Rx.Observable.interval(1000));
- * result.subscribe(x => console.log(x));
- *
- * @see {@link concatMap}
- * @see {@link exhaustMap}
- * @see {@link mergeMap}
- * @see {@link switch}
- * @see {@link switchMapTo}
- *
- * @param {function(value: T, ?index: number): ObservableInput} project A function
- * that, when applied to an item emitted by the source Observable, returns an
- * Observable.
- * @return {Observable} An Observable that emits the result of applying the
- * projection function (and the optional `resultSelector`) to each item emitted
- * by the source Observable and taking only the values from the most recently
- * projected inner Observable.
- * @method switchMap
- * @owner Observable
- */
 function switchMap(project, resultSelector) {
     if (typeof resultSelector === 'function') {
         return function (source) { return source.pipe(switchMap(function (a, i) { return Object(_observable_from__WEBPACK_IMPORTED_MODULE_4__["from"])(project(a, i)).pipe(Object(_map__WEBPACK_IMPORTED_MODULE_3__["map"])(function (b, ii) { return resultSelector(a, b, i, ii); })); })); };
@@ -61571,11 +64406,6 @@ var SwitchMapOperator = /*@__PURE__*/ (function () {
     };
     return SwitchMapOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var SwitchMapSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](SwitchMapSubscriber, _super);
     function SwitchMapSubscriber(destination, project) {
@@ -61642,41 +64472,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _switchMap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./switchMap */ "./node_modules/rxjs/_esm5/internal/operators/switchMap.js");
 /** PURE_IMPORTS_START _switchMap PURE_IMPORTS_END */
 
-/* tslint:enable:max-line-length */
-/**
- * Projects each source value to the same Observable which is flattened multiple
- * times with {@link switch} in the output Observable.
- *
- * <span class="informal">It's like {@link switchMap}, but maps each value
- * always to the same inner Observable.</span>
- *
- * <img src="./img/switchMapTo.png" width="100%">
- *
- * Maps each source value to the given Observable `innerObservable` regardless
- * of the source value, and then flattens those resulting Observables into one
- * single Observable, which is the output Observable. The output Observables
- * emits values only from the most recently emitted instance of
- * `innerObservable`.
- *
- * @example <caption>Rerun an interval Observable on every click event</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var result = clicks.switchMapTo(Rx.Observable.interval(1000));
- * result.subscribe(x => console.log(x));
- *
- * @see {@link concatMapTo}
- * @see {@link switch}
- * @see {@link switchMap}
- * @see {@link mergeMapTo}
- *
- * @param {ObservableInput} innerObservable An Observable to replace each value from
- * the source Observable.
- * @return {Observable} An Observable that emits items from the given
- * `innerObservable` (and optionally transformed through `resultSelector`) every
- * time a value is emitted on the source Observable, and taking only the values
- * from the most recently projected inner Observable.
- * @method switchMapTo
- * @owner Observable
- */
 function switchMapTo(innerObservable, resultSelector) {
     return resultSelector ? Object(_switchMap__WEBPACK_IMPORTED_MODULE_0__["switchMap"])(function () { return innerObservable; }, resultSelector) : Object(_switchMap__WEBPACK_IMPORTED_MODULE_0__["switchMap"])(function () { return innerObservable; });
 }
@@ -61704,39 +64499,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * Emits only the first `count` values emitted by the source Observable.
- *
- * <span class="informal">Takes the first `count` values from the source, then
- * completes.</span>
- *
- * <img src="./img/take.png" width="100%">
- *
- * `take` returns an Observable that emits only the first `count` values emitted
- * by the source Observable. If the source emits fewer than `count` values then
- * all of its values are emitted. After that, it completes, regardless if the
- * source completes.
- *
- * @example <caption>Take the first 5 seconds of an infinite 1-second interval Observable</caption>
- * var interval = Rx.Observable.interval(1000);
- * var five = interval.take(5);
- * five.subscribe(x => console.log(x));
- *
- * @see {@link takeLast}
- * @see {@link takeUntil}
- * @see {@link takeWhile}
- * @see {@link skip}
- *
- * @throws {ArgumentOutOfRangeError} When using `take(i)`, it delivers an
- * ArgumentOutOrRangeError to the Observer's `error` callback if `i < 0`.
- *
- * @param {number} count The maximum number of `next` values to emit.
- * @return {Observable<T>} An Observable that emits only the first `count`
- * values emitted by the source Observable, or all of the values from the source
- * if the source emits fewer than `count` values.
- * @method take
- * @owner Observable
- */
 function take(count) {
     return function (source) {
         if (count === 0) {
@@ -61759,11 +64521,6 @@ var TakeOperator = /*@__PURE__*/ (function () {
     };
     return TakeOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var TakeSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](TakeSubscriber, _super);
     function TakeSubscriber(destination, total) {
@@ -61809,42 +64566,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * Emits only the last `count` values emitted by the source Observable.
- *
- * <span class="informal">Remembers the latest `count` values, then emits those
- * only when the source completes.</span>
- *
- * <img src="./img/takeLast.png" width="100%">
- *
- * `takeLast` returns an Observable that emits at most the last `count` values
- * emitted by the source Observable. If the source emits fewer than `count`
- * values then all of its values are emitted. This operator must wait until the
- * `complete` notification emission from the source in order to emit the `next`
- * values on the output Observable, because otherwise it is impossible to know
- * whether or not more values will be emitted on the source. For this reason,
- * all values are emitted synchronously, followed by the complete notification.
- *
- * @example <caption>Take the last 3 values of an Observable with many values</caption>
- * var many = Rx.Observable.range(1, 100);
- * var lastThree = many.pipe(takeLast(3));
- * lastThree.subscribe(x => console.log(x));
- *
- * @see {@link take}
- * @see {@link takeUntil}
- * @see {@link takeWhile}
- * @see {@link skip}
- *
- * @throws {ArgumentOutOfRangeError} When using `takeLast(i)`, it delivers an
- * ArgumentOutOrRangeError to the Observer's `error` callback if `i < 0`.
- *
- * @param {number} count The maximum number of values to emit from the end of
- * the sequence of values emitted by the source Observable.
- * @return {Observable<T>} An Observable that emits at most the last count
- * values emitted by the source Observable.
- * @method takeLast
- * @owner Observable
- */
 function takeLast(count) {
     return function takeLastOperatorFunction(source) {
         if (count === 0) {
@@ -61867,11 +64588,6 @@ var TakeLastOperator = /*@__PURE__*/ (function () {
     };
     return TakeLastOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var TakeLastSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](TakeLastSubscriber, _super);
     function TakeLastSubscriber(destination, total) {
@@ -61930,40 +64646,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * Emits the values emitted by the source Observable until a `notifier`
- * Observable emits a value.
- *
- * <span class="informal">Lets values pass until a second Observable,
- * `notifier`, emits a value. Then, it completes.</span>
- *
- * <img src="./img/takeUntil.png" width="100%">
- *
- * `takeUntil` subscribes and begins mirroring the source Observable. It also
- * monitors a second Observable, `notifier` that you provide. If the `notifier`
- * emits a value, the output Observable stops mirroring the source Observable
- * and completes. If the `notifier` doesn't emit any value and completes
- * then `takeUntil` will pass all values.
- *
- * @example <caption>Tick every second until the first click happens</caption>
- * var interval = Rx.Observable.interval(1000);
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var result = interval.takeUntil(clicks);
- * result.subscribe(x => console.log(x));
- *
- * @see {@link take}
- * @see {@link takeLast}
- * @see {@link takeWhile}
- * @see {@link skip}
- *
- * @param {Observable} notifier The Observable whose first emitted value will
- * cause the output Observable of `takeUntil` to stop emitting values from the
- * source Observable.
- * @return {Observable<T>} An Observable that emits the values from the source
- * Observable until such time as `notifier` emits its first value.
- * @method takeUntil
- * @owner Observable
- */
 function takeUntil(notifier) {
     return function (source) { return source.lift(new TakeUntilOperator(notifier)); };
 }
@@ -61982,11 +64664,6 @@ var TakeUntilOperator = /*@__PURE__*/ (function () {
     };
     return TakeUntilOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var TakeUntilSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](TakeUntilSubscriber, _super);
     function TakeUntilSubscriber(destination) {
@@ -61996,7 +64673,6 @@ var TakeUntilSubscriber = /*@__PURE__*/ (function (_super) {
         this.complete();
     };
     TakeUntilSubscriber.prototype.notifyComplete = function () {
-        // noop
     };
     return TakeUntilSubscriber;
 }(_OuterSubscriber__WEBPACK_IMPORTED_MODULE_1__["OuterSubscriber"]));
@@ -62020,42 +64696,6 @@ __webpack_require__.r(__webpack_exports__);
 /** PURE_IMPORTS_START tslib,_Subscriber PURE_IMPORTS_END */
 
 
-/**
- * Emits values emitted by the source Observable so long as each value satisfies
- * the given `predicate`, and then completes as soon as this `predicate` is not
- * satisfied.
- *
- * <span class="informal">Takes values from the source only while they pass the
- * condition given. When the first value does not satisfy, it completes.</span>
- *
- * <img src="./img/takeWhile.png" width="100%">
- *
- * `takeWhile` subscribes and begins mirroring the source Observable. Each value
- * emitted on the source is given to the `predicate` function which returns a
- * boolean, representing a condition to be satisfied by the source values. The
- * output Observable emits the source values until such time as the `predicate`
- * returns false, at which point `takeWhile` stops mirroring the source
- * Observable and completes the output Observable.
- *
- * @example <caption>Emit click events only while the clientX property is greater than 200</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var result = clicks.takeWhile(ev => ev.clientX > 200);
- * result.subscribe(x => console.log(x));
- *
- * @see {@link take}
- * @see {@link takeLast}
- * @see {@link takeUntil}
- * @see {@link skip}
- *
- * @param {function(value: T, index: number): boolean} predicate A function that
- * evaluates a value emitted by the source Observable and returns a boolean.
- * Also takes the (zero-based) index as the second argument.
- * @return {Observable<T>} An Observable that emits the values from the source
- * Observable so long as each value satisfies the condition defined by the
- * `predicate`, then completes.
- * @method takeWhile
- * @owner Observable
- */
 function takeWhile(predicate) {
     return function (source) { return source.lift(new TakeWhileOperator(predicate)); };
 }
@@ -62068,11 +64708,6 @@ var TakeWhileOperator = /*@__PURE__*/ (function () {
     };
     return TakeWhileOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var TakeWhileSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](TakeWhileSubscriber, _super);
     function TakeWhileSubscriber(destination, predicate) {
@@ -62128,48 +64763,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/* tslint:enable:max-line-length */
-/**
- * Perform a side effect for every emission on the source Observable, but return
- * an Observable that is identical to the source.
- *
- * <span class="informal">Intercepts each emission on the source and runs a
- * function, but returns an output which is identical to the source as long as errors don't occur.</span>
- *
- * <img src="./img/do.png" width="100%">
- *
- * Returns a mirrored Observable of the source Observable, but modified so that
- * the provided Observer is called to perform a side effect for every value,
- * error, and completion emitted by the source. Any errors that are thrown in
- * the aforementioned Observer or handlers are safely sent down the error path
- * of the output Observable.
- *
- * This operator is useful for debugging your Observables for the correct values
- * or performing other side effects.
- *
- * Note: this is different to a `subscribe` on the Observable. If the Observable
- * returned by `do` is not subscribed, the side effects specified by the
- * Observer will never happen. `do` therefore simply spies on existing
- * execution, it does not trigger an execution to happen like `subscribe` does.
- *
- * @example <caption>Map every click to the clientX position of that click, while also logging the click event</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var positions = clicks
- *   .do(ev => console.log(ev))
- *   .map(ev => ev.clientX);
- * positions.subscribe(x => console.log(x));
- *
- * @see {@link map}
- * @see {@link subscribe}
- *
- * @param {Observer|function} [nextOrObserver] A normal Observer object or a
- * callback for `next`.
- * @param {function} [error] Callback for errors in the source.
- * @param {function} [complete] Callback for the completion of the source.
- * @return {Observable} An Observable identical to the source, but runs the
- * specified Observer or callback(s) for each item.
- * @name tap
- */
 function tap(nextOrObserver, error, complete) {
     return function tapOperatorFunction(source) {
         return source.lift(new DoOperator(nextOrObserver, error, complete));
@@ -62186,11 +64779,6 @@ var DoOperator = /*@__PURE__*/ (function () {
     };
     return DoOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var TapSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](TapSubscriber, _super);
     function TapSubscriber(destination, observerOrNext, error, complete) {
@@ -62271,46 +64859,6 @@ var defaultThrottleConfig = {
     leading: true,
     trailing: false
 };
-/**
- * Emits a value from the source Observable, then ignores subsequent source
- * values for a duration determined by another Observable, then repeats this
- * process.
- *
- * <span class="informal">It's like {@link throttleTime}, but the silencing
- * duration is determined by a second Observable.</span>
- *
- * <img src="./img/throttle.png" width="100%">
- *
- * `throttle` emits the source Observable values on the output Observable
- * when its internal timer is disabled, and ignores source values when the timer
- * is enabled. Initially, the timer is disabled. As soon as the first source
- * value arrives, it is forwarded to the output Observable, and then the timer
- * is enabled by calling the `durationSelector` function with the source value,
- * which returns the "duration" Observable. When the duration Observable emits a
- * value or completes, the timer is disabled, and this process repeats for the
- * next source value.
- *
- * @example <caption>Emit clicks at a rate of at most one click per second</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var result = clicks.throttle(ev => Rx.Observable.interval(1000));
- * result.subscribe(x => console.log(x));
- *
- * @see {@link audit}
- * @see {@link debounce}
- * @see {@link delayWhen}
- * @see {@link sample}
- * @see {@link throttleTime}
- *
- * @param {function(value: T): SubscribableOrPromise} durationSelector A function
- * that receives a value from the source Observable, for computing the silencing
- * duration for each source value, returned as an Observable or a Promise.
- * @param {Object} config a configuration object to define `leading` and `trailing` behavior. Defaults
- * to `{ leading: true, trailing: false }`.
- * @return {Observable<T>} An Observable that performs the throttle operation to
- * limit the rate of emissions from the source.
- * @method throttle
- * @owner Observable
- */
 function throttle(durationSelector, config) {
     if (config === void 0) {
         config = defaultThrottleConfig;
@@ -62328,11 +64876,6 @@ var ThrottleOperator = /*@__PURE__*/ (function () {
     };
     return ThrottleOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc
- * @ignore
- * @extends {Ignored}
- */
 var ThrottleSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](ThrottleSubscriber, _super);
     function ThrottleSubscriber(destination, durationSelector, _leading, _trailing) {
@@ -62422,47 +64965,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * Emits a value from the source Observable, then ignores subsequent source
- * values for `duration` milliseconds, then repeats this process.
- *
- * <span class="informal">Lets a value pass, then ignores source values for the
- * next `duration` milliseconds.</span>
- *
- * <img src="./img/throttleTime.png" width="100%">
- *
- * `throttleTime` emits the source Observable values on the output Observable
- * when its internal timer is disabled, and ignores source values when the timer
- * is enabled. Initially, the timer is disabled. As soon as the first source
- * value arrives, it is forwarded to the output Observable, and then the timer
- * is enabled. After `duration` milliseconds (or the time unit determined
- * internally by the optional `scheduler`) has passed, the timer is disabled,
- * and this process repeats for the next source value. Optionally takes a
- * {@link IScheduler} for managing timers.
- *
- * @example <caption>Emit clicks at a rate of at most one click per second</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var result = clicks.throttleTime(1000);
- * result.subscribe(x => console.log(x));
- *
- * @see {@link auditTime}
- * @see {@link debounceTime}
- * @see {@link delay}
- * @see {@link sampleTime}
- * @see {@link throttle}
- *
- * @param {number} duration Time to wait before emitting another value after
- * emitting the last value, measured in milliseconds or the time unit determined
- * internally by the optional `scheduler`.
- * @param {Scheduler} [scheduler=async] The {@link IScheduler} to use for
- * managing the timers that handle the throttling.
- * @param {Object} config a configuration object to define `leading` and
- * `trailing` behavior. Defaults to `{ leading: true, trailing: false }`.
- * @return {Observable<T>} An Observable that performs the throttle operation to
- * limit the rate of emissions from the source.
- * @method throttleTime
- * @owner Observable
- */
 function throttleTime(duration, scheduler, config) {
     if (scheduler === void 0) {
         scheduler = _scheduler_async__WEBPACK_IMPORTED_MODULE_2__["async"];
@@ -62484,11 +64986,6 @@ var ThrottleTimeOperator = /*@__PURE__*/ (function () {
     };
     return ThrottleTimeOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var ThrottleTimeSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](ThrottleTimeSubscriber, _super);
     function ThrottleTimeSubscriber(destination, duration, scheduler, leading, trailing) {
@@ -62563,29 +65060,6 @@ __webpack_require__.r(__webpack_exports__);
 /** PURE_IMPORTS_START _tap,_util_EmptyError PURE_IMPORTS_END */
 
 
-/**
- * If the source observable completes without emitting a value, it will emit
- * an error. The error will be created at that time by the optional
- * `errorFactory` argument, otherwise, the error will be {@link ErrorEmpty}.
- *
- * @example
- *
- * const click$ = fromEvent(button, 'click');
- *
- * clicks$.pipe(
- *   takeUntil(timer(1000)),
- *   throwIfEmpty(
- *     () => new Error('the button was not clicked within 1 second')
- *   ),
- * )
- * .subscribe({
- *   next() { console.log('The button was clicked'); },
- *   error(err) { console.error(err); },
- * });
- * @param {Function} [errorFactory] A factory function called to produce the
- * error to be thrown when the source observable completes without emitting a
- * value.
- */
 var throwIfEmpty = function (errorFactory) {
     if (errorFactory === void 0) {
         errorFactory = defaultErrorFactory;
@@ -62634,9 +65108,7 @@ function timeInterval(scheduler) {
     }
     return function (source) {
         return Object(_observable_defer__WEBPACK_IMPORTED_MODULE_2__["defer"])(function () {
-            return source.pipe(
-            // HACK: the typings seem off with scan
-            Object(_scan__WEBPACK_IMPORTED_MODULE_1__["scan"])(function (_a, value) {
+            return source.pipe(Object(_scan__WEBPACK_IMPORTED_MODULE_1__["scan"])(function (_a, value) {
                 var current = _a.current;
                 return ({ value: value, current: scheduler.now(), last: current });
             }, { current: scheduler.now(), value: undefined, last: undefined }), Object(_map__WEBPACK_IMPORTED_MODULE_3__["map"])(function (_a) {
@@ -62678,71 +65150,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- *
- * Errors if Observable does not emit a value in given time span.
- *
- * <span class="informal">Timeouts on Observable that doesn't emit values fast enough.</span>
- *
- * <img src="./img/timeout.png" width="100%">
- *
- * `timeout` operator accepts as an argument either a number or a Date.
- *
- * If number was provided, it returns an Observable that behaves like a source
- * Observable, unless there is a period of time where there is no value emitted.
- * So if you provide `100` as argument and first value comes after 50ms from
- * the moment of subscription, this value will be simply re-emitted by the resulting
- * Observable. If however after that 100ms passes without a second value being emitted,
- * stream will end with an error and source Observable will be unsubscribed.
- * These checks are performed throughout whole lifecycle of Observable - from the moment
- * it was subscribed to, until it completes or errors itself. Thus every value must be
- * emitted within specified period since previous value.
- *
- * If provided argument was Date, returned Observable behaves differently. It throws
- * if Observable did not complete before provided Date. This means that periods between
- * emission of particular values do not matter in this case. If Observable did not complete
- * before provided Date, source Observable will be unsubscribed. Other than that, resulting
- * stream behaves just as source Observable.
- *
- * `timeout` accepts also a Scheduler as a second parameter. It is used to schedule moment (or moments)
- * when returned Observable will check if source stream emitted value or completed.
- *
- * @example <caption>Check if ticks are emitted within certain timespan</caption>
- * const seconds = Rx.Observable.interval(1000);
- *
- * seconds.timeout(1100) // Let's use bigger timespan to be safe,
- *                       // since `interval` might fire a bit later then scheduled.
- * .subscribe(
- *     value => console.log(value), // Will emit numbers just as regular `interval` would.
- *     err => console.log(err) // Will never be called.
- * );
- *
- * seconds.timeout(900).subscribe(
- *     value => console.log(value), // Will never be called.
- *     err => console.log(err) // Will emit error before even first value is emitted,
- *                             // since it did not arrive within 900ms period.
- * );
- *
- * @example <caption>Use Date to check if Observable completed</caption>
- * const seconds = Rx.Observable.interval(1000);
- *
- * seconds.timeout(new Date("December 17, 2020 03:24:00"))
- * .subscribe(
- *     value => console.log(value), // Will emit values as regular `interval` would
- *                                  // until December 17, 2020 at 03:24:00.
- *     err => console.log(err) // On December 17, 2020 at 03:24:00 it will emit an error,
- *                             // since Observable did not complete by then.
- * );
- *
- * @see {@link timeoutWith}
- *
- * @param {number|Date} due Number specifying period within which Observable must emit values
- *                          or Date specifying before when Observable should complete
- * @param {Scheduler} [scheduler] Scheduler controlling when timeout checks occur.
- * @return {Observable<T>} Observable that mirrors behaviour of source, unless timeout checks fail.
- * @method timeout
- * @owner Observable
- */
 function timeout(due, scheduler) {
     if (scheduler === void 0) {
         scheduler = _scheduler_async__WEBPACK_IMPORTED_MODULE_0__["async"];
@@ -62775,54 +65182,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/* tslint:enable:max-line-length */
-/**
- *
- * Errors if Observable does not emit a value in given time span, in case of which
- * subscribes to the second Observable.
- *
- * <span class="informal">It's a version of `timeout` operator that let's you specify fallback Observable.</span>
- *
- * <img src="./img/timeoutWith.png" width="100%">
- *
- * `timeoutWith` is a variation of `timeout` operator. It behaves exactly the same,
- * still accepting as a first argument either a number or a Date, which control - respectively -
- * when values of source Observable should be emitted or when it should complete.
- *
- * The only difference is that it accepts a second, required parameter. This parameter
- * should be an Observable which will be subscribed when source Observable fails any timeout check.
- * So whenever regular `timeout` would emit an error, `timeoutWith` will instead start re-emitting
- * values from second Observable. Note that this fallback Observable is not checked for timeouts
- * itself, so it can emit values and complete at arbitrary points in time. From the moment of a second
- * subscription, Observable returned from `timeoutWith` simply mirrors fallback stream. When that
- * stream completes, it completes as well.
- *
- * Scheduler, which in case of `timeout` is provided as as second argument, can be still provided
- * here - as a third, optional parameter. It still is used to schedule timeout checks and -
- * as a consequence - when second Observable will be subscribed, since subscription happens
- * immediately after failing check.
- *
- * @example <caption>Add fallback observable</caption>
- * const seconds = Rx.Observable.interval(1000);
- * const minutes = Rx.Observable.interval(60 * 1000);
- *
- * seconds.timeoutWith(900, minutes)
- *     .subscribe(
- *         value => console.log(value), // After 900ms, will start emitting `minutes`,
- *                                      // since first value of `seconds` will not arrive fast enough.
- *         err => console.log(err) // Would be called after 900ms in case of `timeout`,
- *                                 // but here will never be called.
- *     );
- *
- * @param {number|Date} due Number specifying period within which Observable must emit values
- *                          or Date specifying before when Observable should complete
- * @param {Observable<T>} withObservable Observable which will be subscribed if source fails timeout check.
- * @param {Scheduler} [scheduler] Scheduler controlling when timeout checks occur.
- * @return {Observable<T>} Observable that mirrors behaviour of source or, when timeout check fails, of an Observable
- *                          passed as a second parameter.
- * @method timeoutWith
- * @owner Observable
- */
 function timeoutWith(due, withObservable, scheduler) {
     if (scheduler === void 0) {
         scheduler = _scheduler_async__WEBPACK_IMPORTED_MODULE_1__["async"];
@@ -62845,11 +65204,6 @@ var TimeoutWithOperator = /*@__PURE__*/ (function () {
     };
     return TimeoutWithOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var TimeoutWithSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](TimeoutWithSubscriber, _super);
     function TimeoutWithSubscriber(destination, absoluteTimeout, waitFor, withObservable, scheduler) {
@@ -62870,11 +65224,6 @@ var TimeoutWithSubscriber = /*@__PURE__*/ (function (_super) {
     TimeoutWithSubscriber.prototype.scheduleTimeout = function () {
         var action = this.action;
         if (action) {
-            // Recycle the action if we've already scheduled one. All the production
-            // Scheduler Actions mutate their state/delay time and return themeselves.
-            // VirtualActions are immutable, so they create and return a clone. In this
-            // case, we need to set the action reference to the most recent VirtualAction,
-            // to ensure that's the one we clone from next time.
             this.action = action.schedule(this, this.waitFor);
         }
         else {
@@ -62887,7 +65236,6 @@ var TimeoutWithSubscriber = /*@__PURE__*/ (function (_super) {
         }
         _super.prototype._next.call(this, value);
     };
-    /** @deprecated This is an internal implementation detail, do not use. */
     TimeoutWithSubscriber.prototype._unsubscribe = function () {
         this.action = null;
         this.scheduler = null;
@@ -62916,18 +65264,11 @@ __webpack_require__.r(__webpack_exports__);
 /** PURE_IMPORTS_START _scheduler_async,_map PURE_IMPORTS_END */
 
 
-/**
- * @param scheduler
- * @return {Observable<Timestamp<any>>|WebSocketSubject<T>|Observable<T>}
- * @method timestamp
- * @owner Observable
- */
 function timestamp(scheduler) {
     if (scheduler === void 0) {
         scheduler = _scheduler_async__WEBPACK_IMPORTED_MODULE_0__["async"];
     }
     return Object(_map__WEBPACK_IMPORTED_MODULE_1__["map"])(function (value) { return new Timestamp(value, scheduler.now()); });
-    // return (source: Observable<T>) => source.lift(new TimestampOperator(scheduler));
 }
 var Timestamp = /*@__PURE__*/ (function () {
     function Timestamp(value, timestamp) {
@@ -62989,42 +65330,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * Branch out the source Observable values as a nested Observable whenever
- * `windowBoundaries` emits.
- *
- * <span class="informal">It's like {@link buffer}, but emits a nested Observable
- * instead of an array.</span>
- *
- * <img src="./img/window.png" width="100%">
- *
- * Returns an Observable that emits windows of items it collects from the source
- * Observable. The output Observable emits connected, non-overlapping
- * windows. It emits the current window and opens a new one whenever the
- * Observable `windowBoundaries` emits an item. Because each window is an
- * Observable, the output is a higher-order Observable.
- *
- * @example <caption>In every window of 1 second each, emit at most 2 click events</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var interval = Rx.Observable.interval(1000);
- * var result = clicks.window(interval)
- *   .map(win => win.take(2)) // each window has at most 2 emissions
- *   .mergeAll(); // flatten the Observable-of-Observables
- * result.subscribe(x => console.log(x));
- *
- * @see {@link windowCount}
- * @see {@link windowTime}
- * @see {@link windowToggle}
- * @see {@link windowWhen}
- * @see {@link buffer}
- *
- * @param {Observable<any>} windowBoundaries An Observable that completes the
- * previous window and starts a new window.
- * @return {Observable<Observable<T>>} An Observable of windows, which are
- * Observables emitting values of the source Observable.
- * @method window
- * @owner Observable
- */
 function window(windowBoundaries) {
     return function windowOperatorFunction(source) {
         return source.lift(new WindowOperator(windowBoundaries));
@@ -63044,11 +65349,6 @@ var WindowOperator = /*@__PURE__*/ (function () {
     };
     return WindowOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var WindowSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](WindowSubscriber, _super);
     function WindowSubscriber(destination) {
@@ -63077,7 +65377,6 @@ var WindowSubscriber = /*@__PURE__*/ (function (_super) {
         this.window.complete();
         this.destination.complete();
     };
-    /** @deprecated This is an internal implementation detail, do not use. */
     WindowSubscriber.prototype._unsubscribe = function () {
         this.window = null;
     };
@@ -63114,54 +65413,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * Branch out the source Observable values as a nested Observable with each
- * nested Observable emitting at most `windowSize` values.
- *
- * <span class="informal">It's like {@link bufferCount}, but emits a nested
- * Observable instead of an array.</span>
- *
- * <img src="./img/windowCount.png" width="100%">
- *
- * Returns an Observable that emits windows of items it collects from the source
- * Observable. The output Observable emits windows every `startWindowEvery`
- * items, each containing no more than `windowSize` items. When the source
- * Observable completes or encounters an error, the output Observable emits
- * the current window and propagates the notification from the source
- * Observable. If `startWindowEvery` is not provided, then new windows are
- * started immediately at the start of the source and when each window completes
- * with size `windowSize`.
- *
- * @example <caption>Ignore every 3rd click event, starting from the first one</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var result = clicks.windowCount(3)
- *   .map(win => win.skip(1)) // skip first of every 3 clicks
- *   .mergeAll(); // flatten the Observable-of-Observables
- * result.subscribe(x => console.log(x));
- *
- * @example <caption>Ignore every 3rd click event, starting from the third one</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var result = clicks.windowCount(2, 3)
- *   .mergeAll(); // flatten the Observable-of-Observables
- * result.subscribe(x => console.log(x));
- *
- * @see {@link window}
- * @see {@link windowTime}
- * @see {@link windowToggle}
- * @see {@link windowWhen}
- * @see {@link bufferCount}
- *
- * @param {number} windowSize The maximum number of values emitted by each
- * window.
- * @param {number} [startWindowEvery] Interval at which to start a new window.
- * For example if `startWindowEvery` is `2`, then a new window will be started
- * on every other value from the source. A new window is started at the
- * beginning of the source by default.
- * @return {Observable<Observable<T>>} An Observable of windows, which in turn
- * are Observable of values.
- * @method windowCount
- * @owner Observable
- */
 function windowCount(windowSize, startWindowEvery) {
     if (startWindowEvery === void 0) {
         startWindowEvery = 0;
@@ -63180,11 +65431,6 @@ var WindowCountOperator = /*@__PURE__*/ (function () {
     };
     return WindowCountOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var WindowCountSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](WindowCountSubscriber, _super);
     function WindowCountSubscriber(destination, windowSize, startWindowEvery) {
@@ -63323,11 +65569,6 @@ var CountedSubject = /*@__PURE__*/ (function (_super) {
     });
     return CountedSubject;
 }(_Subject__WEBPACK_IMPORTED_MODULE_1__["Subject"]));
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var WindowTimeSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](WindowTimeSubscriber, _super);
     function WindowTimeSubscriber(destination, windowTimeSpan, windowCreationInterval, maxWindowSize, scheduler) {
@@ -63450,47 +65691,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * Branch out the source Observable values as a nested Observable starting from
- * an emission from `openings` and ending when the output of `closingSelector`
- * emits.
- *
- * <span class="informal">It's like {@link bufferToggle}, but emits a nested
- * Observable instead of an array.</span>
- *
- * <img src="./img/windowToggle.png" width="100%">
- *
- * Returns an Observable that emits windows of items it collects from the source
- * Observable. The output Observable emits windows that contain those items
- * emitted by the source Observable between the time when the `openings`
- * Observable emits an item and when the Observable returned by
- * `closingSelector` emits an item.
- *
- * @example <caption>Every other second, emit the click events from the next 500ms</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var openings = Rx.Observable.interval(1000);
- * var result = clicks.windowToggle(openings, i =>
- *   i % 2 ? Rx.Observable.interval(500) : Rx.Observable.empty()
- * ).mergeAll();
- * result.subscribe(x => console.log(x));
- *
- * @see {@link window}
- * @see {@link windowCount}
- * @see {@link windowTime}
- * @see {@link windowWhen}
- * @see {@link bufferToggle}
- *
- * @param {Observable<O>} openings An observable of notifications to start new
- * windows.
- * @param {function(value: O): Observable} closingSelector A function that takes
- * the value emitted by the `openings` observable and returns an Observable,
- * which, when it emits (either `next` or `complete`), signals that the
- * associated window should complete.
- * @return {Observable<Observable<T>>} An observable of windows, which in turn
- * are Observables.
- * @method windowToggle
- * @owner Observable
- */
 function windowToggle(openings, closingSelector) {
     return function (source) { return source.lift(new WindowToggleOperator(openings, closingSelector)); };
 }
@@ -63504,11 +65704,6 @@ var WindowToggleOperator = /*@__PURE__*/ (function () {
     };
     return WindowToggleOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var WindowToggleSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](WindowToggleSubscriber, _super);
     function WindowToggleSubscriber(destination, openings, closingSelector) {
@@ -63556,7 +65751,6 @@ var WindowToggleSubscriber = /*@__PURE__*/ (function (_super) {
         }
         _super.prototype._complete.call(this);
     };
-    /** @deprecated This is an internal implementation detail, do not use. */
     WindowToggleSubscriber.prototype._unsubscribe = function () {
         var contexts = this.contexts;
         this.contexts = null;
@@ -63646,44 +65840,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * Branch out the source Observable values as a nested Observable using a
- * factory function of closing Observables to determine when to start a new
- * window.
- *
- * <span class="informal">It's like {@link bufferWhen}, but emits a nested
- * Observable instead of an array.</span>
- *
- * <img src="./img/windowWhen.png" width="100%">
- *
- * Returns an Observable that emits windows of items it collects from the source
- * Observable. The output Observable emits connected, non-overlapping windows.
- * It emits the current window and opens a new one whenever the Observable
- * produced by the specified `closingSelector` function emits an item. The first
- * window is opened immediately when subscribing to the output Observable.
- *
- * @example <caption>Emit only the first two clicks events in every window of [1-5] random seconds</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var result = clicks
- *   .windowWhen(() => Rx.Observable.interval(1000 + Math.random() * 4000))
- *   .map(win => win.take(2)) // each window has at most 2 emissions
- *   .mergeAll(); // flatten the Observable-of-Observables
- * result.subscribe(x => console.log(x));
- *
- * @see {@link window}
- * @see {@link windowCount}
- * @see {@link windowTime}
- * @see {@link windowToggle}
- * @see {@link bufferWhen}
- *
- * @param {function(): Observable} closingSelector A function that takes no
- * arguments and returns an Observable that signals (on either `next` or
- * `complete`) when to close the previous window and start a new one.
- * @return {Observable<Observable<T>>} An observable of windows, which in turn
- * are Observables.
- * @method windowWhen
- * @owner Observable
- */
 function windowWhen(closingSelector) {
     return function windowWhenOperatorFunction(source) {
         return source.lift(new WindowOperator(closingSelector));
@@ -63698,11 +65854,6 @@ var WindowOperator = /*@__PURE__*/ (function () {
     };
     return WindowOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var WindowSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](WindowSubscriber, _super);
     function WindowSubscriber(destination, closingSelector) {
@@ -63787,45 +65938,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/* tslint:enable:max-line-length */
-/**
- * Combines the source Observable with other Observables to create an Observable
- * whose values are calculated from the latest values of each, only when the
- * source emits.
- *
- * <span class="informal">Whenever the source Observable emits a value, it
- * computes a formula using that value plus the latest values from other input
- * Observables, then emits the output of that formula.</span>
- *
- * <img src="./img/withLatestFrom.png" width="100%">
- *
- * `withLatestFrom` combines each value from the source Observable (the
- * instance) with the latest values from the other input Observables only when
- * the source emits a value, optionally using a `project` function to determine
- * the value to be emitted on the output Observable. All input Observables must
- * emit at least one value before the output Observable will emit a value.
- *
- * @example <caption>On every click event, emit an array with the latest timer event plus the click event</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var timer = Rx.Observable.interval(1000);
- * var result = clicks.withLatestFrom(timer);
- * result.subscribe(x => console.log(x));
- *
- * @see {@link combineLatest}
- *
- * @param {ObservableInput} other An input Observable to combine with the source
- * Observable. More than one input Observables may be given as argument.
- * @param {Function} [project] Projection function for combining values
- * together. Receives all values in order of the Observables passed, where the
- * first parameter is a value from the source Observable. (e.g.
- * `a.withLatestFrom(b, c, (a1, b1, c1) => a1 + b1 + c1)`). If this is not
- * passed, arrays will be emitted on the output Observable.
- * @return {Observable} An Observable of projected values from the most recent
- * values from each input Observable, or an array of the most recent values from
- * each input Observable.
- * @method withLatestFrom
- * @owner Observable
- */
 function withLatestFrom() {
     var args = [];
     for (var _i = 0; _i < arguments.length; _i++) {
@@ -63850,11 +65962,6 @@ var WithLatestFromOperator = /*@__PURE__*/ (function () {
     };
     return WithLatestFromOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var WithLatestFromSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](WithLatestFromSubscriber, _super);
     function WithLatestFromSubscriber(destination, observables, project) {
@@ -63884,7 +65991,6 @@ var WithLatestFromSubscriber = /*@__PURE__*/ (function (_super) {
         }
     };
     WithLatestFromSubscriber.prototype.notifyComplete = function () {
-        // noop
     };
     WithLatestFromSubscriber.prototype._next = function (value) {
         if (this.toRespond.length === 0) {
@@ -63928,10 +66034,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _observable_zip__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../observable/zip */ "./node_modules/rxjs/_esm5/internal/observable/zip.js");
 /** PURE_IMPORTS_START _observable_zip PURE_IMPORTS_END */
 
-/* tslint:enable:max-line-length */
-/**
- * @deprecated Deprecated in favor of static zip.
- */
 function zip() {
     var observables = [];
     for (var _i = 0; _i < arguments.length; _i++) {
@@ -63982,35 +66084,11 @@ __webpack_require__.r(__webpack_exports__);
 /** PURE_IMPORTS_START tslib,_Subscription PURE_IMPORTS_END */
 
 
-/**
- * A unit of work to be executed in a {@link Scheduler}. An action is typically
- * created from within a Scheduler and an RxJS user does not need to concern
- * themselves about creating and manipulating an Action.
- *
- * ```ts
- * class Action<T> extends Subscription {
- *   new (scheduler: Scheduler, work: (state?: T) => void);
- *   schedule(state?: T, delay: number = 0): Subscription;
- * }
- * ```
- *
- * @class Action<T>
- */
 var Action = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](Action, _super);
     function Action(scheduler, work) {
         return _super.call(this) || this;
     }
-    /**
-     * Schedules this action on its parent Scheduler for execution. May be passed
-     * some context object, `state`. May happen at some point in the future,
-     * according to the `delay` parameter, if specified.
-     * @param {T} [state] Some contextual data that the `work` function uses when
-     * called by the Scheduler.
-     * @param {number} [delay] Time to wait before executing the work, where the
-     * time unit is implicit and defined by the Scheduler.
-     * @return {void}
-     */
     Action.prototype.schedule = function (state, delay) {
         if (delay === void 0) {
             delay = 0;
@@ -64040,11 +66118,6 @@ __webpack_require__.r(__webpack_exports__);
 /** PURE_IMPORTS_START tslib,_AsyncAction PURE_IMPORTS_END */
 
 
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var AnimationFrameAction = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](AnimationFrameAction, _super);
     function AnimationFrameAction(scheduler, work) {
@@ -64057,35 +66130,23 @@ var AnimationFrameAction = /*@__PURE__*/ (function (_super) {
         if (delay === void 0) {
             delay = 0;
         }
-        // If delay is greater than 0, request as an async action.
         if (delay !== null && delay > 0) {
             return _super.prototype.requestAsyncId.call(this, scheduler, id, delay);
         }
-        // Push the action to the end of the scheduler queue.
         scheduler.actions.push(this);
-        // If an animation frame has already been requested, don't request another
-        // one. If an animation frame hasn't been requested yet, request one. Return
-        // the current animation frame request id.
         return scheduler.scheduled || (scheduler.scheduled = requestAnimationFrame(function () { return scheduler.flush(null); }));
     };
     AnimationFrameAction.prototype.recycleAsyncId = function (scheduler, id, delay) {
         if (delay === void 0) {
             delay = 0;
         }
-        // If delay exists and is greater than 0, or if the delay is null (the
-        // action wasn't rescheduled) but was originally scheduled as an async
-        // action, then recycle as an async action.
         if ((delay !== null && delay > 0) || (delay === null && this.delay > 0)) {
             return _super.prototype.recycleAsyncId.call(this, scheduler, id, delay);
         }
-        // If the scheduler queue is empty, cancel the requested animation frame and
-        // set the scheduled flag to undefined so the next AnimationFrameAction will
-        // request its own.
         if (scheduler.actions.length === 0) {
             cancelAnimationFrame(id);
             scheduler.scheduled = undefined;
         }
-        // Return undefined so the action knows to request a new async id if it's rescheduled.
         return undefined;
     };
     return AnimationFrameAction;
@@ -64162,11 +66223,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var AsapAction = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](AsapAction, _super);
     function AsapAction(scheduler, work) {
@@ -64179,35 +66235,23 @@ var AsapAction = /*@__PURE__*/ (function (_super) {
         if (delay === void 0) {
             delay = 0;
         }
-        // If delay is greater than 0, request as an async action.
         if (delay !== null && delay > 0) {
             return _super.prototype.requestAsyncId.call(this, scheduler, id, delay);
         }
-        // Push the action to the end of the scheduler queue.
         scheduler.actions.push(this);
-        // If a microtask has already been scheduled, don't schedule another
-        // one. If a microtask hasn't been scheduled yet, schedule one now. Return
-        // the current scheduled microtask id.
         return scheduler.scheduled || (scheduler.scheduled = _util_Immediate__WEBPACK_IMPORTED_MODULE_1__["Immediate"].setImmediate(scheduler.flush.bind(scheduler, null)));
     };
     AsapAction.prototype.recycleAsyncId = function (scheduler, id, delay) {
         if (delay === void 0) {
             delay = 0;
         }
-        // If delay exists and is greater than 0, or if the delay is null (the
-        // action wasn't rescheduled) but was originally scheduled as an async
-        // action, then recycle as an async action.
         if ((delay !== null && delay > 0) || (delay === null && this.delay > 0)) {
             return _super.prototype.recycleAsyncId.call(this, scheduler, id, delay);
         }
-        // If the scheduler queue is empty, cancel the requested microtask and
-        // set the scheduled flag to undefined so the next AsapAction will schedule
-        // its own.
         if (scheduler.actions.length === 0) {
             _util_Immediate__WEBPACK_IMPORTED_MODULE_1__["Immediate"].clearImmediate(id);
             scheduler.scheduled = undefined;
         }
-        // Return undefined so the action knows to request a new async id if it's rescheduled.
         return undefined;
     };
     return AsapAction;
@@ -64282,11 +66326,6 @@ __webpack_require__.r(__webpack_exports__);
 /** PURE_IMPORTS_START tslib,_Action PURE_IMPORTS_END */
 
 
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var AsyncAction = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](AsyncAction, _super);
     function AsyncAction(scheduler, work) {
@@ -64303,39 +66342,14 @@ var AsyncAction = /*@__PURE__*/ (function (_super) {
         if (this.closed) {
             return this;
         }
-        // Always replace the current state with the new state.
         this.state = state;
         var id = this.id;
         var scheduler = this.scheduler;
-        //
-        // Important implementation note:
-        //
-        // Actions only execute once by default, unless rescheduled from within the
-        // scheduled callback. This allows us to implement single and repeat
-        // actions via the same code path, without adding API surface area, as well
-        // as mimic traditional recursion but across asynchronous boundaries.
-        //
-        // However, JS runtimes and timers distinguish between intervals achieved by
-        // serial `setTimeout` calls vs. a single `setInterval` call. An interval of
-        // serial `setTimeout` calls can be individually delayed, which delays
-        // scheduling the next `setTimeout`, and so on. `setInterval` attempts to
-        // guarantee the interval callback will be invoked more precisely to the
-        // interval period, regardless of load.
-        //
-        // Therefore, we use `setInterval` to schedule single and repeat actions.
-        // If the action reschedules itself with the same delay, the interval is not
-        // canceled. If the action doesn't reschedule, or reschedules with a
-        // different delay, the interval will be canceled after scheduled callback
-        // execution.
-        //
         if (id != null) {
             this.id = this.recycleAsyncId(scheduler, id, delay);
         }
-        // Set the pending flag indicating that this action has been scheduled, or
-        // has recursively rescheduled itself.
         this.pending = true;
         this.delay = delay;
-        // If this action has already an async Id, don't request a new one.
         this.id = this.id || this.requestAsyncId(scheduler, this.id, delay);
         return this;
     };
@@ -64349,18 +66363,11 @@ var AsyncAction = /*@__PURE__*/ (function (_super) {
         if (delay === void 0) {
             delay = 0;
         }
-        // If this action is rescheduled with the same delay time, don't clear the interval id.
         if (delay !== null && this.delay === delay && this.pending === false) {
             return id;
         }
-        // Otherwise, if the action's delay time is different from the current delay,
-        // or the action has been rescheduled before it's executed, clear the interval id
         return clearInterval(id) && undefined || undefined;
     };
-    /**
-     * Immediately executes this action and the `work` it contains.
-     * @return {any}
-     */
     AsyncAction.prototype.execute = function (state, delay) {
         if (this.closed) {
             return new Error('executing a cancelled action');
@@ -64371,19 +66378,6 @@ var AsyncAction = /*@__PURE__*/ (function (_super) {
             return error;
         }
         else if (this.pending === false && this.id != null) {
-            // Dequeue if the action didn't reschedule itself. Don't call
-            // unsubscribe(), because the action could reschedule later.
-            // For example:
-            // ```
-            // scheduler.schedule(function doWork(counter) {
-            //   /* ... I'm a busy worker bee ... */
-            //   var originalAction = this;
-            //   /* wait 100ms before rescheduling the action */
-            //   setTimeout(function () {
-            //     originalAction.schedule(counter + 1);
-            //   }, 100);
-            // }, 1000);
-            // ```
             this.id = this.recycleAsyncId(this.scheduler, this.id, null);
         }
     };
@@ -64402,7 +66396,6 @@ var AsyncAction = /*@__PURE__*/ (function (_super) {
             return errorValue;
         }
     };
-    /** @deprecated This is an internal implementation detail, do not use. */
     AsyncAction.prototype._unsubscribe = function () {
         var id = this.id;
         var scheduler = this.scheduler;
@@ -64458,20 +66451,7 @@ var AsyncScheduler = /*@__PURE__*/ (function (_super) {
             }
         }) || this;
         _this.actions = [];
-        /**
-         * A flag to indicate whether the Scheduler is currently executing a batch of
-         * queued actions.
-         * @type {boolean}
-         * @deprecated internal use only
-         */
         _this.active = false;
-        /**
-         * An internal ID used to track the latest asynchronous task such as those
-         * coming from `setTimeout`, `setInterval`, `requestAnimationFrame`, and
-         * others.
-         * @type {any}
-         * @deprecated internal use only
-         */
         _this.scheduled = undefined;
         return _this;
     }
@@ -64498,7 +66478,7 @@ var AsyncScheduler = /*@__PURE__*/ (function (_super) {
             if (error = action.execute(action.state, action.delay)) {
                 break;
             }
-        } while (action = actions.shift()); // exhaust the scheduler queue
+        } while (action = actions.shift());
         this.active = false;
         if (error) {
             while (action = actions.shift()) {
@@ -64530,11 +66510,6 @@ __webpack_require__.r(__webpack_exports__);
 /** PURE_IMPORTS_START tslib,_AsyncAction PURE_IMPORTS_END */
 
 
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var QueueAction = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](QueueAction, _super);
     function QueueAction(scheduler, work) {
@@ -64564,13 +66539,9 @@ var QueueAction = /*@__PURE__*/ (function (_super) {
         if (delay === void 0) {
             delay = 0;
         }
-        // If delay exists and is greater than 0, or if the delay is null (the
-        // action wasn't rescheduled) but was originally scheduled as an async
-        // action, then recycle as an async action.
         if ((delay !== null && delay > 0) || (delay === null && this.delay > 0)) {
             return _super.prototype.requestAsyncId.call(this, scheduler, id, delay);
         }
-        // Otherwise flush the scheduler starting with this action.
         return scheduler.flush(this);
     };
     return QueueAction;
@@ -64642,11 +66613,6 @@ var VirtualTimeScheduler = /*@__PURE__*/ (function (_super) {
         _this.index = -1;
         return _this;
     }
-    /**
-     * Prompt the Scheduler to execute all of its queued actions, therefore
-     * clearing its queue.
-     * @return {void}
-     */
     VirtualTimeScheduler.prototype.flush = function () {
         var _a = this, actions = _a.actions, maxFrames = _a.maxFrames;
         var error, action;
@@ -64666,11 +66632,6 @@ var VirtualTimeScheduler = /*@__PURE__*/ (function (_super) {
     return VirtualTimeScheduler;
 }(_AsyncScheduler__WEBPACK_IMPORTED_MODULE_2__["AsyncScheduler"]));
 
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var VirtualAction = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](VirtualAction, _super);
     function VirtualAction(scheduler, work, index) {
@@ -64693,10 +66654,6 @@ var VirtualAction = /*@__PURE__*/ (function (_super) {
             return _super.prototype.schedule.call(this, state, delay);
         }
         this.active = false;
-        // If an action is rescheduled, we save allocations by mutating its state,
-        // pushing it to the end of the scheduler queue, and recycling the action.
-        // But since the VirtualTimeScheduler is used for testing, VirtualActions
-        // must be immutable so they can be inspected later.
         var action = new VirtualAction(this.scheduler, this.work);
         this.add(action);
         return action.schedule(state, delay);
@@ -64764,36 +66721,6 @@ __webpack_require__.r(__webpack_exports__);
 /** PURE_IMPORTS_START _AnimationFrameAction,_AnimationFrameScheduler PURE_IMPORTS_END */
 
 
-/**
- *
- * Animation Frame Scheduler
- *
- * <span class="informal">Perform task when `window.requestAnimationFrame` would fire</span>
- *
- * When `animationFrame` scheduler is used with delay, it will fall back to {@link async} scheduler
- * behaviour.
- *
- * Without delay, `animationFrame` scheduler can be used to create smooth browser animations.
- * It makes sure scheduled task will happen just before next browser content repaint,
- * thus performing animations as efficiently as possible.
- *
- * @example <caption>Schedule div height animation</caption>
- * const div = document.querySelector('.some-div');
- *
- * Rx.Scheduler.animationFrame.schedule(function(height) {
- *   div.style.height = height + "px";
- *
- *   this.schedule(height + 1);  // `this` references currently executing Action,
- *                               // which we reschedule with new state
- * }, 0, 0);
- *
- * // You will see .some-div element growing in height
- *
- *
- * @static true
- * @name animationFrame
- * @owner Scheduler
- */
 var animationFrame = /*@__PURE__*/ new _AnimationFrameScheduler__WEBPACK_IMPORTED_MODULE_1__["AnimationFrameScheduler"](_AnimationFrameAction__WEBPACK_IMPORTED_MODULE_0__["AnimationFrameAction"]);
 //# sourceMappingURL=animationFrame.js.map
 
@@ -64815,40 +66742,6 @@ __webpack_require__.r(__webpack_exports__);
 /** PURE_IMPORTS_START _AsapAction,_AsapScheduler PURE_IMPORTS_END */
 
 
-/**
- *
- * Asap Scheduler
- *
- * <span class="informal">Perform task as fast as it can be performed asynchronously</span>
- *
- * `asap` scheduler behaves the same as {@link async} scheduler when you use it to delay task
- * in time. If however you set delay to `0`, `asap` will wait for current synchronously executing
- * code to end and then it will try to execute given task as fast as possible.
- *
- * `asap` scheduler will do its best to minimize time between end of currently executing code
- * and start of scheduled task. This makes it best candidate for performing so called "deferring".
- * Traditionally this was achieved by calling `setTimeout(deferredTask, 0)`, but that technique involves
- * some (although minimal) unwanted delay.
- *
- * Note that using `asap` scheduler does not necessarily mean that your task will be first to process
- * after currently executing code. In particular, if some task was also scheduled with `asap` before,
- * that task will execute first. That being said, if you need to schedule task asynchronously, but
- * as soon as possible, `asap` scheduler is your best bet.
- *
- * @example <caption>Compare async and asap scheduler</caption>
- *
- * Rx.Scheduler.async.schedule(() => console.log('async')); // scheduling 'async' first...
- * Rx.Scheduler.asap.schedule(() => console.log('asap'));
- *
- * // Logs:
- * // "asap"
- * // "async"
- * // ... but 'asap' goes first!
- *
- * @static true
- * @name asap
- * @owner Scheduler
- */
 var asap = /*@__PURE__*/ new _AsapScheduler__WEBPACK_IMPORTED_MODULE_1__["AsapScheduler"](_AsapAction__WEBPACK_IMPORTED_MODULE_0__["AsapAction"]);
 //# sourceMappingURL=asap.js.map
 
@@ -64870,48 +66763,6 @@ __webpack_require__.r(__webpack_exports__);
 /** PURE_IMPORTS_START _AsyncAction,_AsyncScheduler PURE_IMPORTS_END */
 
 
-/**
- *
- * Async Scheduler
- *
- * <span class="informal">Schedule task as if you used setTimeout(task, duration)</span>
- *
- * `async` scheduler schedules tasks asynchronously, by putting them on the JavaScript
- * event loop queue. It is best used to delay tasks in time or to schedule tasks repeating
- * in intervals.
- *
- * If you just want to "defer" task, that is to perform it right after currently
- * executing synchronous code ends (commonly achieved by `setTimeout(deferredTask, 0)`),
- * better choice will be the {@link asap} scheduler.
- *
- * @example <caption>Use async scheduler to delay task</caption>
- * const task = () => console.log('it works!');
- *
- * Rx.Scheduler.async.schedule(task, 2000);
- *
- * // After 2 seconds logs:
- * // "it works!"
- *
- *
- * @example <caption>Use async scheduler to repeat task in intervals</caption>
- * function task(state) {
- *   console.log(state);
- *   this.schedule(state + 1, 1000); // `this` references currently executing Action,
- *                                   // which we reschedule with new state and delay
- * }
- *
- * Rx.Scheduler.async.schedule(task, 3000, 0);
- *
- * // Logs:
- * // 0 after 3s
- * // 1 after 4s
- * // 2 after 5s
- * // 3 after 6s
- *
- * @static true
- * @name async
- * @owner Scheduler
- */
 var async = /*@__PURE__*/ new _AsyncScheduler__WEBPACK_IMPORTED_MODULE_1__["AsyncScheduler"](_AsyncAction__WEBPACK_IMPORTED_MODULE_0__["AsyncAction"]);
 //# sourceMappingURL=async.js.map
 
@@ -64933,67 +66784,6 @@ __webpack_require__.r(__webpack_exports__);
 /** PURE_IMPORTS_START _QueueAction,_QueueScheduler PURE_IMPORTS_END */
 
 
-/**
- *
- * Queue Scheduler
- *
- * <span class="informal">Put every next task on a queue, instead of executing it immediately</span>
- *
- * `queue` scheduler, when used with delay, behaves the same as {@link async} scheduler.
- *
- * When used without delay, it schedules given task synchronously - executes it right when
- * it is scheduled. However when called recursively, that is when inside the scheduled task,
- * another task is scheduled with queue scheduler, instead of executing immediately as well,
- * that task will be put on a queue and wait for current one to finish.
- *
- * This means that when you execute task with `queue` scheduler, you are sure it will end
- * before any other task scheduled with that scheduler will start.
- *
- * @examples <caption>Schedule recursively first, then do something</caption>
- *
- * Rx.Scheduler.queue.schedule(() => {
- *   Rx.Scheduler.queue.schedule(() => console.log('second')); // will not happen now, but will be put on a queue
- *
- *   console.log('first');
- * });
- *
- * // Logs:
- * // "first"
- * // "second"
- *
- *
- * @example <caption>Reschedule itself recursively</caption>
- *
- * Rx.Scheduler.queue.schedule(function(state) {
- *   if (state !== 0) {
- *     console.log('before', state);
- *     this.schedule(state - 1); // `this` references currently executing Action,
- *                               // which we reschedule with new state
- *     console.log('after', state);
- *   }
- * }, 0, 3);
- *
- * // In scheduler that runs recursively, you would expect:
- * // "before", 3
- * // "before", 2
- * // "before", 1
- * // "after", 1
- * // "after", 2
- * // "after", 3
- *
- * // But with queue it logs:
- * // "before", 3
- * // "after", 3
- * // "before", 2
- * // "after", 2
- * // "before", 1
- * // "after", 1
- *
- *
- * @static true
- * @name queue
- * @owner Scheduler
- */
 var queue = /*@__PURE__*/ new _QueueScheduler__WEBPACK_IMPORTED_MODULE_1__["QueueScheduler"](_QueueAction__WEBPACK_IMPORTED_MODULE_0__["QueueAction"]);
 //# sourceMappingURL=queue.js.map
 
@@ -65020,9 +66810,6 @@ function getSymbolIterator() {
     return Symbol.iterator;
 }
 var iterator = /*@__PURE__*/ getSymbolIterator();
-/**
- * @deprecated use {@link iterator} instead
- */
 var $$iterator = iterator;
 //# sourceMappingURL=iterator.js.map
 
@@ -65039,7 +66826,6 @@ var $$iterator = iterator;
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "observable", function() { return observable; });
-/** Symbol.observable or a string "@@observable". Used for interop */
 /** PURE_IMPORTS_START  PURE_IMPORTS_END */
 var observable = typeof Symbol === 'function' && Symbol.observable || '@@observable';
 //# sourceMappingURL=observable.js.map
@@ -65062,9 +66848,6 @@ __webpack_require__.r(__webpack_exports__);
 var rxSubscriber = (typeof Symbol === 'function' && typeof Symbol.for === 'function')
     ? /*@__PURE__*/ Symbol.for('rxSubscriber')
     : '@@rxSubscriber';
-/**
- * @deprecated use rxSubscriber instead
- */
 var $$rxSubscriber = rxSubscriber;
 //# sourceMappingURL=rxSubscriber.js.map
 
@@ -65084,16 +66867,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /** PURE_IMPORTS_START tslib PURE_IMPORTS_END */
 
-/**
- * An error thrown when an element was queried at a certain index of an
- * Observable, but no such index or position exists in that sequence.
- *
- * @see {@link elementAt}
- * @see {@link take}
- * @see {@link takeLast}
- *
- * @class ArgumentOutOfRangeError
- */
 var ArgumentOutOfRangeError = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](ArgumentOutOfRangeError, _super);
     function ArgumentOutOfRangeError() {
@@ -65123,16 +66896,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /** PURE_IMPORTS_START tslib PURE_IMPORTS_END */
 
-/**
- * An error thrown when an Observable or a sequence was queried but has no
- * elements.
- *
- * @see {@link first}
- * @see {@link last}
- * @see {@link single}
- *
- * @class EmptyError
- */
 var EmptyError = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](EmptyError, _super);
     function EmptyError() {
@@ -65197,15 +66960,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /** PURE_IMPORTS_START tslib PURE_IMPORTS_END */
 
-/**
- * An error thrown when an action is invalid because the object has been
- * unsubscribed.
- *
- * @see {@link Subject}
- * @see {@link BehaviorSubject}
- *
- * @class ObjectUnsubscribedError
- */
 var ObjectUnsubscribedError = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](ObjectUnsubscribedError, _super);
     function ObjectUnsubscribedError() {
@@ -65235,13 +66989,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /** PURE_IMPORTS_START tslib PURE_IMPORTS_END */
 
-/**
- * An error thrown when duetime elapses.
- *
- * @see {@link timeout}
- *
- * @class TimeoutError
- */
 var TimeoutError = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](TimeoutError, _super);
     function TimeoutError() {
@@ -65271,10 +67018,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /** PURE_IMPORTS_START tslib PURE_IMPORTS_END */
 
-/**
- * An error thrown when one or more errors have occurred during the
- * `unsubscribe` of a {@link Subscription}.
- */
 var UnsubscriptionError = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](UnsubscriptionError, _super);
     function UnsubscriptionError(errors) {
@@ -65303,7 +67046,6 @@ var UnsubscriptionError = /*@__PURE__*/ (function (_super) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "errorObject", function() { return errorObject; });
-// typeof any so that it we don't have to cast when comparing a result to the error object
 /** PURE_IMPORTS_START  PURE_IMPORTS_END */
 var errorObject = { e: {} };
 //# sourceMappingURL=errorObject.js.map
@@ -65321,11 +67063,6 @@ var errorObject = { e: {} };
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "hostReportError", function() { return hostReportError; });
-/**
- * Throws an error on another job so that it's picked up by the runtime's
- * uncaught error handling mechanism.
- * @param err the error to throw
- */
 /** PURE_IMPORTS_START  PURE_IMPORTS_END */
 function hostReportError(err) {
     setTimeout(function () { throw err; });
@@ -65439,7 +67176,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _symbol_observable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../symbol/observable */ "./node_modules/rxjs/_esm5/internal/symbol/observable.js");
 /** PURE_IMPORTS_START _symbol_observable PURE_IMPORTS_END */
 
-/** Identifies an input as being Observable (but not necessary an Rx Observable) */
 function isInteropObservable(input) {
     return input && typeof input[_symbol_observable__WEBPACK_IMPORTED_MODULE_0__["observable"]] === 'function';
 }
@@ -65461,7 +67197,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _symbol_iterator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../symbol/iterator */ "./node_modules/rxjs/_esm5/internal/symbol/iterator.js");
 /** PURE_IMPORTS_START _symbol_iterator PURE_IMPORTS_END */
 
-/** Identifies an input as being an Iterable */
 function isIterable(input) {
     return input && typeof input[_symbol_iterator__WEBPACK_IMPORTED_MODULE_0__["iterator"]] === 'function';
 }
@@ -65484,10 +67219,6 @@ __webpack_require__.r(__webpack_exports__);
 /** PURE_IMPORTS_START _isArray PURE_IMPORTS_END */
 
 function isNumeric(val) {
-    // parseFloat NaNs numeric-cast false positives (null|true|false|"")
-    // ...but misinterprets leading-number strings, particularly hex literals ("0x...")
-    // subtraction forces infinities to NaN
-    // adding 1 corrects loss of precision from parseFloat (#15100)
     return !Object(_isArray__WEBPACK_IMPORTED_MODULE_0__["isArray"])(val) && (val - parseFloat(val) + 1) >= 0;
 }
 //# sourceMappingURL=isNumeric.js.map
@@ -65527,10 +67258,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Observable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Observable */ "./node_modules/rxjs/_esm5/internal/Observable.js");
 /** PURE_IMPORTS_START _Observable PURE_IMPORTS_END */
 
-/**
- * Tests to see if the object is an RxJS {@link Observable}
- * @param obj the object to test
- */
 function isObservable(obj) {
     return !!obj && (obj instanceof _Observable__WEBPACK_IMPORTED_MODULE_0__["Observable"] || (typeof obj.lift === 'function' && typeof obj.subscribe === 'function'));
 }
@@ -65587,7 +67314,6 @@ function isScheduler(value) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "noop", function() { return noop; });
-/* tslint:disable:no-empty */
 /** PURE_IMPORTS_START  PURE_IMPORTS_END */
 function noop() { }
 //# sourceMappingURL=noop.js.map
@@ -65633,7 +67359,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _noop__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./noop */ "./node_modules/rxjs/_esm5/internal/util/noop.js");
 /** PURE_IMPORTS_START _noop PURE_IMPORTS_END */
 
-/* tslint:enable:max-line-length */
 function pipe() {
     var fns = [];
     for (var _i = 0; _i < arguments.length; _i++) {
@@ -65641,7 +67366,6 @@ function pipe() {
     }
     return pipeFromArray(fns);
 }
-/* @internal */
 function pipeFromArray(fns) {
     if (!fns) {
         return _noop__WEBPACK_IMPORTED_MODULE_0__["noop"];
@@ -65702,6 +67426,9 @@ var subscribeTo = function (result) {
             }
         };
     }
+    else if (result && typeof result[_symbol_observable__WEBPACK_IMPORTED_MODULE_9__["observable"]] === 'function') {
+        return Object(_subscribeToObservable__WEBPACK_IMPORTED_MODULE_4__["subscribeToObservable"])(result);
+    }
     else if (Object(_isArrayLike__WEBPACK_IMPORTED_MODULE_5__["isArrayLike"])(result)) {
         return Object(_subscribeToArray__WEBPACK_IMPORTED_MODULE_1__["subscribeToArray"])(result);
     }
@@ -65710,9 +67437,6 @@ var subscribeTo = function (result) {
     }
     else if (result && typeof result[_symbol_iterator__WEBPACK_IMPORTED_MODULE_8__["iterator"]] === 'function') {
         return Object(_subscribeToIterable__WEBPACK_IMPORTED_MODULE_3__["subscribeToIterable"])(result);
-    }
-    else if (result && typeof result[_symbol_observable__WEBPACK_IMPORTED_MODULE_9__["observable"]] === 'function') {
-        return Object(_subscribeToObservable__WEBPACK_IMPORTED_MODULE_4__["subscribeToObservable"])(result);
     }
     else {
         var value = Object(_isObject__WEBPACK_IMPORTED_MODULE_7__["isObject"])(result) ? 'an invalid object' : "'" + result + "'";
@@ -65736,10 +67460,6 @@ var subscribeTo = function (result) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "subscribeToArray", function() { return subscribeToArray; });
-/**
- * Subscribes to an ArrayLike with a subscriber
- * @param array The array or array-like to subscribe to
- */
 /** PURE_IMPORTS_START  PURE_IMPORTS_END */
 var subscribeToArray = function (array) {
     return function (subscriber) {
@@ -65783,7 +67503,6 @@ var subscribeToIterable = function (iterable) {
                 break;
             }
         } while (true);
-        // Finalize the iterator if it happens to be a Generator
         if (typeof iterator.return === 'function') {
             subscriber.add(function () {
                 if (iterator.return) {
@@ -65812,16 +67531,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _symbol_observable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../symbol/observable */ "./node_modules/rxjs/_esm5/internal/symbol/observable.js");
 /** PURE_IMPORTS_START _symbol_observable PURE_IMPORTS_END */
 
-/**
- * Subscribes to an object that implements Symbol.observable with the given
- * Subscriber.
- * @param obj An object that implements Symbol.observable
- */
 var subscribeToObservable = function (obj) {
     return function (subscriber) {
         var obs = obj[_symbol_observable__WEBPACK_IMPORTED_MODULE_0__["observable"]]();
         if (typeof obs.subscribe !== 'function') {
-            // Should be caught by observable subscribe function error handling.
             throw new TypeError('Provided object does not correctly implement Symbol.observable');
         }
         else {
@@ -66276,7 +67989,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _internal_operators_zipAll__WEBPACK_IMPORTED_MODULE_102__ = __webpack_require__(/*! ../internal/operators/zipAll */ "./node_modules/rxjs/_esm5/internal/operators/zipAll.js");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "zipAll", function() { return _internal_operators_zipAll__WEBPACK_IMPORTED_MODULE_102__["zipAll"]; });
 
-/* Operator exports */
 /** PURE_IMPORTS_START  PURE_IMPORTS_END */
 
 

@@ -1,5 +1,7 @@
 import { FtlUsers } from '../_models/FtlUsers.model';
+import { UserComponentService } from './user-component.service';
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-user-component',
@@ -12,9 +14,14 @@ export class UserComponentComponent implements OnInit {
   email: string;
   user: FtlUsers;
   
-  constructor() { }
+  allusers: FtlUsers[] = [];
+  
+  constructor(private userService: UserComponentService) { }
 
   ngOnInit() {
+    this.userService.getAll().subscribe (value => {
+      this.allusers = value;
+    });
   }
 
 }

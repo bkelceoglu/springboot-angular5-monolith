@@ -28,7 +28,7 @@
                 <version>1.6</version>
  
                 <configuration>
-                    <nodeVersion>v8.10.0</nodeVersion>o
+                    <nodeVersion>v8.10.0</nodeVersion>
                     <npmVersion>3.5.2</npmVersion>
                     <workingDirectory>src/main/frontend</workingDirectory>
                 </configuration>
@@ -55,13 +55,20 @@
                         <goals>
                             <goal>npm</goal>
                         </goals>
-
                         <configuration>
                             <arguments>run build</arguments>
                         </configuration>
                     </execution>
-                </executions>
-                
+<!--                     <execution> -->
+<!--                     	<id>npm start</id> -->
+<!--                     	<goals> -->
+<!--                     		<goal>npm</goal> -->
+<!--                     	</goals> -->
+<!--                     	<configuration> -->
+<!--                     		<arguments>start</arguments> -->
+<!--                     	</configuration> -->
+<!--                     </execution> -->
+                </executions>  
             </plugin>
         </plugins>
         <resources>
