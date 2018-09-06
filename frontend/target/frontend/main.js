@@ -69,17 +69,6 @@ var AppRoutingModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/app.component.css":
-/*!***********************************!*\
-  !*** ./src/app/app.component.css ***!
-  \***********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
 /***/ "./src/app/app.component.html":
 /*!************************************!*\
   !*** ./src/app/app.component.html ***!
@@ -87,7 +76,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n<div style=\"text-align:center\">\n  <h1>\n    {{ title }}!\n  </h1>\n  \n  <router-outlet></router-outlet>\n</div>\n\n\n"
+module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n<div style=\"text-align:center\">\n  <h1>\n    {{ title }}!\n  </h1>\n  <app-user-component></app-user-component>\n  <router-outlet></router-outlet>\n</div>\n\n\n"
 
 /***/ }),
 
@@ -116,8 +105,7 @@ var AppComponent = /** @class */ (function () {
     AppComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-root',
-            template: __webpack_require__(/*! ./app.component.html */ "./src/app/app.component.html"),
-            styles: [__webpack_require__(/*! ./app.component.css */ "./src/app/app.component.css")]
+            template: __webpack_require__(/*! ./app.component.html */ "./src/app/app.component.html")
         })
     ], AppComponent);
     return AppComponent;
@@ -269,7 +257,6 @@ var UserComponentService = /** @class */ (function () {
         this.http = http;
     }
     UserComponentService.prototype.getAll = function () {
-        console.log("test this");
         return this.http.get('http://localhost:8080/user/all');
     };
     UserComponentService = __decorate([
