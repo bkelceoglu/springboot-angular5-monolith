@@ -12,7 +12,7 @@ export class UserComponentService {
   }
   
   getAll(): Observable<Array<FtlUsers>> {
-    return this.http.get<Array<FtlUsers>>('http://localhost:8080/user/all');
+    return this.http.get<Array<FtlUsers>>('http://localhost:8080/api/user/all');
   }
   
 }

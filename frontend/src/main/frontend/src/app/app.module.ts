@@ -7,15 +7,20 @@ import { AppRoutingModule } from './/app-routing.module';
 import { UserComponentService } from './user-component/user-component.service';
 import { HttpClientModule } from '@angular/common/http';
 
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { NavigationComponent } from './navigation/navigation.component';
+
 @NgModule({
   declarations: [
     AppComponent,
-    UserComponentComponent
+    UserComponentComponent,
+    NavigationComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ModalModule.forRoot()
   ],
   providers: [UserComponentService],
   bootstrap: [AppComponent]

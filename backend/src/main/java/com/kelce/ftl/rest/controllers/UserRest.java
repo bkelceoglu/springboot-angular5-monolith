@@ -24,7 +24,7 @@ import com.kelce.ftl.repositories.UserRepo;
  */
 @CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 @RestController
-@RequestMapping("user")
+@RequestMapping("api/user")
 public class UserRest
 {
 

@@ -1,5 +1,9 @@
-com/kelce/ftl/entities/WhatisMissing.class
 com/kelce/ftl/repositories/UserRepo.class
+com/kelce/ftl/FtlApplication.class
+com/kelce/ftl/entities/WhatisMissing.class
 com/kelce/ftl/entities/FtlUsers.class
 com/kelce/ftl/rest/controllers/UserRest.class
-com/kelce/ftl/FtlApplication.class
+com/kelce/ftl/builder/UseTheBuilder.class
+com/kelce/ftl/builder/UserBuilderTest$1.class
+com/kelce/ftl/builder/UserBuilderTest.class
+com/kelce/ftl/builder/UserBuilderTest$Builder.class
